@@ -2,20 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Martin Schlander <mschlander@opensuse.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2022.
-# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
+# SPDX-FileCopyrightText: 2024, 2025 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-25 00:44+0000\n"
-"PO-Revision-Date: 2024-11-05 13:28+0100\n"
-"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
+"PO-Revision-Date: 2025-10-29 11:53+0100\n"
+"Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "Strømstyring"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr "Sluk for skærmen"
+msgstr "Sluk skærmen"
 
 #: actions/bundled/handlebuttonevents.cpp:51
 #, kde-format
@@ -115,12 +115,10 @@ msgid ""
 msgstr "PowerDevil, en avanceret, modulopbygget og letvægtsstrømstyringsdæmon"
 
 #: powerdevilapp.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:103
 #, kde-format
@@ -224,16 +222,11 @@ msgstr ""
 "som helst. Oplad eller udskift batteriet."
 
 #: powerdevilcore.cpp:612
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr ""
-"Dit batteriniveau er ved at være lavt. Hvis du vil fortsætte med at bruge "
-"din computer, så sæt den i stikkontakten eller luk ned og udskift batteriet."
+msgstr "Sørg for, at strømkablet er sat helt ind og giver tilstrækkelig strøm."
 
 #: powerdevilcore.cpp:614
 #, kde-format
@@ -241,11 +234,9 @@ msgid "Plug in the power cord."
 msgstr "Tilslut strømforsyningen."
 
 #: powerdevilcore.cpp:634
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Computeren vil blive sat på standby om 1 sekund."
+msgstr "Systemet vil lukke ned om 60 sekunder."
 
 #: powerdevilcore.cpp:636
 #, kde-format
@@ -255,11 +246,9 @@ msgid "Shut Down Now"
 msgstr "Luk ned nu"
 
 #: powerdevilcore.cpp:642
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
+msgstr "Systemet vil gå i dvale om 60 sekunder"
 
 #: powerdevilcore.cpp:644
 #, kde-format
@@ -270,11 +259,9 @@ msgid "Hibernate Now"
 msgstr "Gå i dvale nu"
 
 #: powerdevilcore.cpp:650
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
+msgstr "Systemet vil gå i dvale om 60 sekunder."
 
 #: powerdevilcore.cpp:652
 #, kde-format
@@ -317,8 +304,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Computeren vil ikke længere gå i slumretilstand."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Kører på strømforsyning"
 

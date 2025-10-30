@@ -2,63 +2,63 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Martin Schlander <mschlander@opensuse.org>, 2010, 2011, 2020.
-# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
+# SPDX-FileCopyrightText: 2024, 2025 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-26 00:44+0000\n"
-"PO-Revision-Date: 2024-11-05 13:28+0100\n"
-"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
+"PO-Revision-Date: 2025-10-29 12:02+0100\n"
+"Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Gør ingenting"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Slumre"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvale"
 
 #: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Luk ned"
 
 #: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Lås skærmen"
 
 #: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Vis log ud-skærm"
 
 #: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Sluk skærmen"
 
 #: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Sluk/tænd skærmen"
 
 #: PowerKCM.cpp:460
 #, kde-format
@@ -69,128 +69,128 @@ msgstr "Strømstyringstjenesten lader til ikke at køre."
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Strømbesparelse"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Balanceret"
 
 #: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Ydelse"
 
 #: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Efterlad uændret"
 
 #: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Gem session i hukommelsen"
 
 #: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybridslumre"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Gem session til både hukommelse og disk"
 
 #: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Standby, og efterfølgende dvale"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr ""
+msgstr "Skift til dvale, når batteriet er lavt"
 
 #: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Skift til dvale efter en periode af inaktivitet"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "millisekund"
+msgstr[1] "millisekunder"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "sekund"
+msgstr[1] "sekunder"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minut"
+msgstr[1] "minutter"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "time"
+msgstr[1] "timer"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "dag"
+msgstr[1] "dage"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "uge"
+msgstr[1] "uger"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "måned"
+msgstr[1] "måneder"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "år"
+msgstr[1] "år"
 
 #: ui/DurationPromptDialog.qml:168
 #, kde-format
@@ -268,8 +268,7 @@ msgid "&Low level:"
 msgstr "&Lavt niveau:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "På lavt batteri"
@@ -281,6 +280,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Batteriopladningen vil blive betragtet som lav, når den falder under denne "
+"grænse. Indstillingerne for lavt batteri vil bruges istedet for de normale "
+"batteriindstillinger."
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -288,13 +290,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Kr&itisk niveau:"
 
 #: ui/GlobalConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritisk batteriniveau"
 
 #: ui/GlobalConfig.qml:138
 #, kde-format
@@ -304,6 +306,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Batteriopladningen vil blive betragtet som kritisk, når den falder under "
+"denne grænse. Efter en kort varsel vil systemet automatisk, alt efter den "
+"indstillede handling for kritisk batteriniveau, suspenderes eller lukke ned."
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -312,6 +317,9 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Handlingen, du tidligere havde konfigureret, når der nås kritisk "
+"batteriniveau, understøttes ikke længere på dit system. Vælg venligst en "
+"anden."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -319,25 +327,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "V&ed kritisk niveau:"
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Handling, der udføres ved kritisk batteriniveau:"
 
 #: ui/GlobalConfig.qml:181
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Lavt niveau for eksterne en&heder:"
 
 #: ui/GlobalConfig.qml:189
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Lavt batteriniveau for eksterne enheder"
 
 #: ui/GlobalConfig.qml:214
 #, kde-format
@@ -346,24 +354,26 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Batteriopladningen for eksterne enheder vil blive betragtet som lav, når den "
+"når denne grænse."
 
 #: ui/GlobalConfig.qml:222
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Opladningsgrænse"
 
 #: ui/GlobalConfig.qml:233
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "&Batteribeskyttelse:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Begræns batteriet maksimale opladningsniveau"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -371,7 +381,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Stop opladning ved:"
 
 #: ui/GlobalConfig.qml:268
 #, kde-format
@@ -379,7 +389,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Begynd opladning, når &under:"
 
 #: ui/GlobalConfig.qml:325
 #, kde-format
@@ -388,6 +398,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Du skal måske frakoble og tilslutte strømkilde igen for at start "
+"batteriopladningen igen."
 
 #: ui/GlobalConfig.qml:336
 #, kde-format
@@ -397,6 +409,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"At oplade batteri tæt på 100% eller at aflade det, kan accelerere "
+"forringelsen af batteriets sundhed. Ved at begrænse batteriets maksimale "
+"opladningsniveau, kan du hjælpe med at forlænge batteriets levetid."
 
 #: ui/GlobalConfig.qml:344
 #, kde-format
@@ -404,94 +419,93 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre indstillinger"
 
 #: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "&Medieafspilning:"
 
 #: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Sæt medieafspillere på pause ved suspendering"
 
 #: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Relaterede sider:"
 
 #: ui/GlobalConfig.qml:383
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Importér strømstyringsprofiler"
+msgstr "Notifikationer: Strømstyring"
 
 #: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
+"Åbn indstillingssiden for \"Notifikationer\", sektionen \"Strømstyring\""
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Importér strømstyringsprofiler"
+msgstr "Genveje: Strømstyring"
 
 #: ui/GlobalConfig.qml:396
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Åbn indstillingssiden \"Genveje\", sektionen \"Strømstyring\""
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Skærmlåsning"
 
 #: ui/GlobalConfig.qml:404
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr ""
+msgstr "Åbn indstillingssiden \"Skærmlåsning\""
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Skrivebordssession"
 
 #: ui/GlobalConfig.qml:412
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Åbn indstillingssiden \"Skrivebordssession\""
 
 #: ui/GlobalConfig.qml:419
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Aktiviteter"
 
 #: ui/GlobalConfig.qml:420
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Åbn indstillingssiden \"Aktiviteter\""
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Avanceret Strøm&indstillinger…"
 
 #: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Strømstyringsindstillingerne kunne ikke indlæses"
 
 #: ui/main.qml:66
 #, kde-format
@@ -514,13 +528,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:39
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Suspendér session"
 
 #: ui/ProfileConfig.qml:54
 #, kde-format
@@ -529,6 +543,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Handlingen, du tidligere havde konfigureret ved inaktivitet, understøttes "
+"ikke længere på dit system. Vælg venligst en anden."
 
 #: ui/ProfileConfig.qml:61
 #, kde-format
@@ -536,29 +552,29 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "Ved &inaktivitet:"
 
 #: ui/ProfileConfig.qml:70
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Handling, der skal udføres, når systemet er inaktiv"
 
 #: ui/ProfileConfig.qml:101
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Efter %1 sekund"
+msgstr[1] "Efter %1 sekunder"
 
 #: ui/ProfileConfig.qml:103
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Efter %1 minut"
+msgstr[1] "Efter %1 minutter"
 
 #: ui/ProfileConfig.qml:116 ui/ProfileConfig.qml:411 ui/ProfileConfig.qml:552
 #: ui/ProfileConfig.qml:861
@@ -566,19 +582,20 @@ msgstr[1] ""
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "Tilpasset…"
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"At deaktivere automatisk suspendering vil medføre i højere energiforbrug."
 
 #: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "En lang varighed vil medføre højere energiforbrug."
 
 #: ui/ProfileConfig.qml:176
 #, kde-format
@@ -587,6 +604,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Handlingen, du tidligere havde konfigureret når tænd/sluk-knappen trykkes, "
+"understøttes ikke længere på dit system. Vælg venligst en anden."
 
 #: ui/ProfileConfig.qml:183
 #, kde-format
@@ -594,13 +613,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Når &tænd/sluk-knappen trykkes:"
 
 #: ui/ProfileConfig.qml:185
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Handling, der skal udføres når tænd/sluk-knappen trykkes"
 
 #: ui/ProfileConfig.qml:215
 #, kde-format
@@ -609,6 +628,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Handlingen, du tidligere havde konfigureret, når låget lukkes, understøttes "
+"ikke længere på dit system. Vælg venligst en anden."
 
 #: ui/ProfileConfig.qml:222
 #, kde-format
@@ -616,13 +637,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Når bærbarens &låg lukkes:"
 
 #: ui/ProfileConfig.qml:224
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Handling, der skal udføres når bærbarens låg lukkes"
 
 #: ui/ProfileConfig.qml:253
 #, kde-format
@@ -630,12 +651,14 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Selv når en ekstern skærm er forbundet"
 
 #: ui/ProfileConfig.qml:255
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Udfør handlingen når bærbarens låg lukkes, selv når en ekstern skærm er "
+"forbundet."
 
 #: ui/ProfileConfig.qml:273
 #, kde-format
@@ -644,65 +667,67 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Søvntilstanden, du tidligere havde konfigureret, understøttes ikke længere "
+"på dit system. Vælg venligst en anden."
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Ved slumring, gå i:"
 
 #: ui/ProfileConfig.qml:282
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Ved, slumring, gå i denne strømbesparelsestilstand"
 
 #: ui/ProfileConfig.qml:331
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Skærm og lysstyrke"
 
 #: ui/ProfileConfig.qml:341
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Ændr sk&ærmens lysstyrke:"
 
 #: ui/ProfileConfig.qml:388
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Dæ&mp automatisk:"
 
 #: ui/ProfileConfig.qml:390
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr ""
+msgstr "Dæ&mp automatisk efter:"
 
 #: ui/ProfileConfig.qml:395
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekunder"
 
 #: ui/ProfileConfig.qml:397
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minut"
+msgstr[1] "%1 minutter"
 
 #: ui/ProfileConfig.qml:404
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "Aldrig"
 
 #: ui/ProfileConfig.qml:456
 #, kde-format
@@ -710,40 +735,41 @@ msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr ""
+"Skærmen vil ikke dæmpes, fordi den er konfigureret til at slukke tidligere."
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "%Sluk skærmen:"
 
 #: ui/ProfileConfig.qml:473
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr ""
+msgstr "Sluk skærmen efter:"
 
 #: ui/ProfileConfig.qml:477
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekunder"
 
 #: ui/ProfileConfig.qml:479
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minut"
+msgstr[1] "%1 minutter"
 
 #: ui/ProfileConfig.qml:486
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "Aldrig"
 
 #: ui/ProfileConfig.qml:493
 #, kde-format
@@ -751,29 +777,29 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "Tilpasset…"
 
 #: ui/ProfileConfig.qml:532
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr ""
+msgstr "Når låst, sluk skærmen efter:"
 
 #: ui/ProfileConfig.qml:536
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Når låst: %1 sekund"
+msgstr[1] "Når låst: %1 sekunder"
 
 #: ui/ProfileConfig.qml:538
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Når låst: %1 minut"
+msgstr[1] "Når låst: %1 minutter"
 
 #: ui/ProfileConfig.qml:545
 #, kde-format
@@ -781,25 +807,25 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr ""
+msgstr "Når låst og ulåst"
 
 #: ui/ProfileConfig.qml:547
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Når låst: Med det samme"
 
 #: ui/ProfileConfig.qml:586
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Ændr tasta&tures lysstyrke:"
 
 #: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre indstillinger"
 
 #: ui/ProfileConfig.qml:642
 #, kde-format
@@ -807,7 +833,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Skift til str&ømprofil"
 
 #: ui/ProfileConfig.qml:646
 #, kde-format
@@ -815,13 +841,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Skift til strømprofil"
 
 #: ui/ProfileConfig.qml:673
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr ""
+msgstr "Kør kommando eller script:"
 
 #: ui/ProfileConfig.qml:683
 #, kde-format
@@ -829,13 +855,13 @@ msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr ""
+msgstr "Vælg kørselsbetingelser"
 
 #: ui/ProfileConfig.qml:685
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr ""
+msgstr "Vælg kørselsbetingelser for kommando eller script"
 
 #: ui/ProfileConfig.qml:705
 #, kde-format
@@ -843,7 +869,7 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr ""
+msgstr "Ved overgang til \"%1\"-tilstand"
 
 #: ui/ProfileConfig.qml:723
 #, kde-format
@@ -851,13 +877,13 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr ""
+msgstr "Ved afslutning af \"%1\"-tilstand"
 
 #: ui/ProfileConfig.qml:741
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "Ved inaktivitet"
 
 #: ui/ProfileConfig.qml:764
 #, kde-format
@@ -865,13 +891,13 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr ""
+msgstr "Ved o&vergang til \"%1\"-tilstand:"
 
 #: ui/ProfileConfig.qml:768
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr ""
+msgstr "Kommando eller script ved overgang til \"%1\"-tilstand"
 
 #: ui/ProfileConfig.qml:799
 #, kde-format
@@ -879,89 +905,89 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr ""
+msgstr "Ved af%slutning af \"%1\"-tilstand"
 
 #: ui/ProfileConfig.qml:803
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr ""
+msgstr "Kommando eller script ved afslutning af \"%1\"-tilstand"
 
 #: ui/ProfileConfig.qml:832
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr ""
+msgstr "Længden af inaktivitet før kommandoen eller scriptet køres"
 
 #: ui/ProfileConfig.qml:838
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Ved i&naktivitet:"
 
 #: ui/ProfileConfig.qml:841
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr ""
+msgstr "Kør kommando eller script efter:"
 
 #: ui/ProfileConfig.qml:846
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kør efter %1 sekund"
+msgstr[1] "Kør efter %1 sekunder"
 
 #: ui/ProfileConfig.qml:848
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kør efter %1minut"
+msgstr[1] "Kør efter %1 minutter"
 
 #: ui/ProfileConfig.qml:890
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Kommando eller script når inaktiv"
 
 #: ui/RunScriptEdit.qml:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr ""
+msgstr "Indtast kommando eller script-fil"
 
 #: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr ""
+msgstr "Indtast kommando eller vælg script-fil"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Vælg..."
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vælg scriptfil"
 
 #: ui/RunScriptEdit.qml:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vælg scriptfil"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Tilpasset varighed"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
