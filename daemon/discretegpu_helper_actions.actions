@@ -108,6 +108,7 @@ Description[bg]=Удостоверете се, за да проверите за
 Description[ca]=Autenticació per a comprovar l'existència d'una GPU dedicada.
 Description[ca@valencia]=Autenticació per a comprovar l'existència d'una GPU dedicada.
 Description[cs]=Ověřte totožnost abyste zkonstrolovali existenci dedikované grafické karty.
+Description[da]=Autentificer for at tjekke om diskret GPU findes.
 Description[de]=Authentifizieren Sie sich, um auf das Vorhandensein einer dedizierten GPU zu prüfen.
 Description[en_GB]=Authenticate to check for the existence of a discrete GPU.
 Description[eo]=Aŭtentiĝu por kontroli pri la ekzisto de diskreta GPU.
