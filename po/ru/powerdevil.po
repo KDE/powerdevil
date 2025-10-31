@@ -14,14 +14,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-25 00:44+0000\n"
-"PO-Revision-Date: 2025-06-30 15:29+0300\n"
+"PO-Revision-Date: 2025-10-30 18:25+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -327,8 +327,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Компьютер более не будет переходить в режим ожидания."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Работа от сети"
 
