@@ -99,7 +99,7 @@ msgstr "Laisser inchangé"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr "Mettre en attente"
+msgstr "Veille"
 
 #: SleepModeModel.cpp:21
 #, kde-format
@@ -691,7 +691,7 @@ msgstr ""
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr "En mode veille, saisir :"
+msgstr "Lors de l'entrée en veille, basculer vers le mode :"
 
 #: ui/ProfileConfig.qml:282
 #, kde-format
