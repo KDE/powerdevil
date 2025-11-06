@@ -10,10 +10,10 @@
 
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
+#include <QDBusMessage>
 #include <QDBusMetaType>
 #include <QDBusPendingCall>
 #include <QDBusReply>
-#include <qdbusmessage.h>
 
 using namespace Qt::StringLiterals;
 
