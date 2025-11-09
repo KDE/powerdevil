@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-23 00:45+0000\n"
-"PO-Revision-Date: 2025-02-05 01:21-0300\n"
+"PO-Revision-Date: 2025-11-08 21:10-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -230,12 +230,12 @@ msgstr "Suspender"
 #: NightLightItem.qml:147
 #, kde-format
 msgid "Configure…"
-msgstr "Configurar..."
+msgstr "Configurar…"
 
 #: NightLightItem.qml:147
 #, kde-format
 msgid "Enable and Configure…"
-msgstr "Habilitar e configurar..."
+msgstr "Habilitar e configurar…"
 
 #: NightLightItem.qml:175
 #, kde-format
