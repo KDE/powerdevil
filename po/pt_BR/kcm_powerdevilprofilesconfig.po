@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-26 02:38+0000\n"
-"PO-Revision-Date: 2025-03-10 00:44-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-11-08 21:17-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -589,7 +589,7 @@ msgstr[1] "Depois de %1 minutos"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
@@ -787,7 +787,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:532
 #, kde-format
@@ -979,7 +979,7 @@ msgstr "Digite o comando ou selecione o arquivo de script"
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr "Escolher..."
+msgstr "Escolher…"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
