@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-05-21 21:58+0200\n"
+"PO-Revision-Date: 2025-11-10 21:24+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -133,22 +133,24 @@ msgstr ""
 "lecsukásakor, ha külső monitor van csatlakoztatva."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
-msgstr[1] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
+msgstr[0] ""
+"%1 alkalmazás jelenleg meg akarja akadályozni az alvó módot és a "
+"képernyőzárat:"
+msgstr[1] ""
+"%1 alkalmazás jelenleg meg akarja akadályozni az alvó módot és a "
+"képernyőzárat:"
 
 #: InhibitionItem.qml:146
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
 msgstr ""
-"A(z) %1 alkalmazás nem tilthatja meg az alvó módot és képernyőzárolást (%2)"
+"A(z) %1 alkalmazás meg lett akadályozva abban, hogy letiltsa az alvó módot "
+"és a képernyőzárat. Ok: %2"
 
 #: InhibitionItem.qml:149
 #, kde-format
@@ -215,11 +217,7 @@ msgid "Block Again"
 msgstr "Tiltás újra"
 
 #: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"

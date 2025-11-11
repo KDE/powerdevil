@@ -5,13 +5,13 @@
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011, 2012, 2014, 2019, 2020.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
 # Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2021.
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 02:39+0000\n"
-"PO-Revision-Date: 2024-09-18 21:12+0200\n"
+"PO-Revision-Date: 2025-11-10 21:25+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -119,9 +119,7 @@ msgstr ""
 "PowerDevil, egy speciális, moduláris és könnyűsúlyú energiakezelő démon"
 
 #: powerdevilapp.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "© Kai Uwe Broulik, 2015-2019."
@@ -313,8 +311,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "A számítógép nem kerül többet alvó állapotba."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Hálózatról üzemel"
 
