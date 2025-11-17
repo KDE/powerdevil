@@ -16,7 +16,7 @@ KCM.AbstractKCM {
     KCM.ConfigModule.buttons: KCM.ConfigModule.Default | KCM.ConfigModule.Apply | KCM.ConfigModule.Help
 
     actions: Kirigami.Action {
-        text: i18nc("@action:button", "Advanced Power &Settings…")
+        text: i18nc("@action:button", "Configure Advanced &Settings…")
         icon.name: "settings-configure"
         enabled: kcm.powerManagementServiceRegistered
         displayHint: Kirigami.DisplayHint.KeepVisible
