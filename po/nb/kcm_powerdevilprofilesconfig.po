@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-19 00:45+0000\n"
 "PO-Revision-Date: 2025-04-04 09:51+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -493,9 +493,11 @@ msgid "Open \"Activities\" settings page"
 msgstr "Åpne «Aktiviteter»-innstillingene"
 
 #: ui/main.qml:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Advanced Power &Settings…"
 msgctxt "@action:button"
-msgid "Advanced Power &Settings…"
+msgid "Configure Advanced &Settings…"
 msgstr "Avanserte strømvalg …"
 
 #: ui/main.qml:44

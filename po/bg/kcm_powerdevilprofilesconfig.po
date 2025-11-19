@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-19 00:45+0000\n"
 "PO-Revision-Date: 2025-03-08 18:21+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -500,9 +500,11 @@ msgid "Open \"Activities\" settings page"
 msgstr "Отваряне на настройки за Дейности"
 
 #: ui/main.qml:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Advanced Power &Settings…"
 msgctxt "@action:button"
-msgid "Advanced Power &Settings…"
+msgid "Configure Advanced &Settings…"
 msgstr "&Разширени настройки на захранването…"
 
 #: ui/main.qml:44

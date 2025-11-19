@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-19 00:45+0000\n"
 "PO-Revision-Date: 2024-08-25 12:24+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -495,9 +495,11 @@ msgid "Open \"Activities\" settings page"
 msgstr "Opna «Aktivitetar»-innstillingane"
 
 #: ui/main.qml:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Advanced Power &Settings…"
 msgctxt "@action:button"
-msgid "Advanced Power &Settings…"
+msgid "Configure Advanced &Settings…"
 msgstr "Avanserte &straumval …"
 
 #: ui/main.qml:44

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-19 00:45+0000\n"
 "PO-Revision-Date: 2025-05-20 21:14+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -522,9 +522,11 @@ msgid "Open \"Activities\" settings page"
 msgstr "Открыть страницу настроек «Комнаты»"
 
 #: ui/main.qml:19
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Advanced Power &Settings…"
 msgctxt "@action:button"
-msgid "Advanced Power &Settings…"
+msgid "Configure Advanced &Settings…"
 msgstr "Дополнительные &параметры управления питанием…"
 
 #: ui/main.qml:44
