@@ -11,13 +11,15 @@
 <authorgroup>
 <author
 >&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
 &traductor.Antoni.Bella; 
 </authorgroup>
 
 <date
->26 d'agost de 2016</date>
+>9 de febrer de 2024</date>
 <releaseinfo
->&plasma; 5.7</releaseinfo>
+>&plasma; 6.0</releaseinfo>
 
 <keywordset>
 <keyword
@@ -29,121 +31,259 @@
 <keyword
 >gestió de l'energia</keyword>
 <keyword
+>estalvi d'energia</keyword>
+<keyword
 >energia portàtil</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
 <title
->El «PowerDevil», un dimoni de gestió d'energia</title>
+>Gestió de l'energia</title>
 
 <para
->Aquest mòdul és una eina de configuració per a la gestió de l'energia en el &plasma;. Es tracta d'un configurador per al dimoni «PowerDevil».</para>
+>Aquest mòdul de configuració configura el servei de gestió d'energia del &plasma;, també conegut com a PowerDevil. Permet fer un equilibri entre l'estalvi d'energia i l'ús complet de les capacitats del sistema. El servei de gestió d'energia està integrat a l'escriptori i pot interactuar amb el maquinari.</para>
 
 <para
->A través d'aquest mòdul, podeu definir el comportament del vostre ordinador en diverses situacions, el que us permetrà estalviar tanta energia com sigui possible. </para>
-
-<para
->«PowerDevil» treballa amb «Solid» i està integrat a l'escriptori. A part de les notificacions, ni tan sols notareu que està en execució. D'altra banda, «PowerDevil» primer comprovarà la capacitat del sistema, de manera que veureu en aquest mòdul les opcions només disponibles per al vostre sistema. </para>
-
-<note
-><para
->Tingueu present que «PowerDevil» no sondeja el vostre sistema. Això vol dir que no farà perdre energia en mirar d'estalviar-la, ja que alguns altres gestors sí que ho fan.</para
-></note>
-<sect2 id="energy-saving-setting">
-<title
->Arranjament de l'estalvi d'energia</title>
-<para
->Aquesta pàgina mostra la configuració real per a l'estalvi d'energia. Si es detecta una bateria, disposareu de tres pestanyes amb opcions diferents per als perfils <guilabel
->Amb alimentació AC</guilabel
+>La pàgina principal del mòdul mostra les opcions que poden ajudar a estalviar energia. Només es mostraran els paràmetres que admet el vostre sistema. Als sistemes amb bateria, la pàgina proporciona tres pestanyes amb opcions diferents per als estats d'energia <guilabel
+>Amb alimentació CA</guilabel
 >, <guilabel
 >Amb la bateria</guilabel
 > i <guilabel
 >Amb la bateria baixa</guilabel
 >. </para>
+
 <para>
 <screenshot>
 <screeninfo
->Arranjament de l'estalvi d'energia</screeninfo>
+>Arranjament de la gestió d'energia</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Arranjament de l'estalvi d'energia</phrase>
+>Arranjament de la gestió d'energia</phrase>
     </textobject>
     <caption>
       <para
->Arranjament de l'estalvi d'energia</para>
+>Arranjament de la gestió d'energia</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<sect2 id="suspend-session-section">
+<title
+>Suspèn la sessió</title>
 <para
->Hi ha un munt d'opcions que es poden configurar per a cada perfil: </para>
+>Hi ha circumstàncies habituals en què espereu que el sistema se suspengui, aturi o posi en pausa la vostra sessió d'escriptori normal d'altres maneres. Aquesta secció us permet definir com es comportarà exactament el sistema en aquestes circumstàncies. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>No facis res</guilabel
+></term>
+<listitem>
+<para
+>Continueu amb la sessió d'escriptori com si no hagués passat res. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Suspèn</guilabel
+></term>
+<listitem>
+<para
+>Estalvia energia i es desperta ràpidament. Molts components de maquinari entren en un estat d'estalvi d'energia sense apagar completament el sistema. Les dades no desades es perdran si la font d'alimentació s'interromp, per exemple, quan la bateria s'exhaureixi completament. El grau d'estalvi d'energia aconseguit mentre dorm depèn del maquinari i el microprogramari proporcionat pel fabricant del sistema.</para>
+
+<para
+>El mòdul proporciona una opció desplegable addicional per a seleccionar el mode de suspensió exacte que s'introduirà quan s'activi «Suspèn»:</para>
 
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Lluminositat de la pantalla</guilabel
+>Repòs</guilabel
 ></term>
 <listitem>
 <para
->Ajusta la lluminositat de la pantalla mitjançant un control lliscant.</para>
+>Desa la sessió actual de l'escriptori a la memòria. Aquest mode de son tradicional entra a dormir ràpidament i es desperta ràpidament. Els sistemes amb bateria sovint estan dissenyats per a durar entre un dia i 1-2 setmanes en aquest estat. També conegut com «Suspensió a RAM».</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Suspensió híbrida</guilabel
+></term>
+<listitem>
+<para
+>Desa la sessió d'escriptori actual tant a la memòria com a una unitat d'emmagatzematge, com ara un SSD o un disc dur. Despertar-se és tan ràpid com el repòs, però les dades sense desar sobreviuran fins i tot si l'energia s'exhaureix mentre dorm. Com a desavantatge, aquest mode de son posa molta pressió en la unitat d'emmagatzematge, que potencialment redueix la seva longevitat i triga més temps perquè el sistema comenci a dormir en comparació amb l'ús del repòs. També conegut com a «Son híbrid».</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Repòs, després hiberna</guilabel
+></term>
+<listitem>
+<para
+>Entra inicialment en el mode de repòs, després hiberna al cap d'un període d'inactivitat. Si el sistema només dorm durant un temps, aquest mode de son proporciona un temps d'activació ràpid i els beneficis de longevitat de la unitat d'emmagatzematge del repòs normal. Si el sistema roman inactiu durant més temps, la hibernació redueix encara més el consum d'energia i assegura que les dades no desades no es perden. La quantitat de temps fins a la hibernació es defineix a la configuració del sistema de baix nivell. També conegut com a «Suspèn, després hiberna».</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Enfosquiment de la pantalla</guilabel
-></term>
-<listitem>
-<para
->Si està marcada, l'atenuació de la pantalla serà progressiva, fins a arribar a la lluminositat 0, en la quantitat de temps que especifiqueu en el botó de selecció de valors. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Estalvi d'energia de la pantalla</guilabel
-></term>
-<listitem>
-<para
->Aquí podeu establir el temps d'espera abans d'apagar en els botons de selecció de valors. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Suspèn la sessió</guilabel
-></term>
-<listitem>
-<para
->Suspèn la sessió després del temps escollit per als estats <guilabel
->Suspèn</guilabel
->, <guilabel
 >Hiberna</guilabel
->, <guilabel
->Atura</guilabel
-> o <guilabel
->Bloqueja la pantalla</guilabel
->.</para>
+></term>
+<listitem>
+<para
+>Desa la sessió actual de l'escriptori a la unitat d'emmagatzematge i apaga. La hibernació i restauració de la sessió requereixen més temps que la suspensió en mode de repòs, però les dades no desades no es perdran si s'interromp el subministrament d'energia. La hibernació és àmpliament compatible amb tipus diferents de maquinari, sempre que la unitat d'emmagatzematge s'hagi configurat amb una partició d'intercanvi prou gran per emmagatzemar el contingut de la memòria del sistema. També conegut com a «Suspensió a disc». </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Gestió dels esdeveniments del botó</guilabel
+>Atura</guilabel
 ></term>
 <listitem>
 <para
->Selecciona accions per a dur a terme sempre que la tapa del portàtil està tancada o es prem un botó.</para>
+>Surt de la sessió d'escriptori i de qualsevol altra sessió oberta, i apaga el sistema. Les aplicacions obertes demanaran desar qualsevol dada sense desar abans de tancar. Per a sessions futures, l'estat de la sol·licitud només es restaura en la mesura que l'aplicació mateixa ho permet. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Bloqueja la pantalla</guilabel
+></term>
+<listitem>
+<para
+>Bloqueja la pantalla sense reduir el consum d'energia. Per a estalviar energia mentre es bloqueja la pantalla, seleccioneu «Suspèn» o «Hiberna» i assegureu-vos que el bloqueig després de despertar de la suspensió estigui activat al mòdul de configuració de bloqueig de pantalla. Tingueu en compte que el mòdul de bloqueig de pantalla proporciona una configuració separada per al bloqueig després d'un període d'inactivitat, de manera que això només està disponible com a acció de botó d'encesa/apagat o de la tapa del portàtil. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Mostra la pantalla de sortida</guilabel
+></term>
+<listitem>
+<para
+>Presenta un diàleg amb opcions per a suspendre, hibernar, apagar o sortir de la sessió. Això només està disponible com a opció en prémer el botó físic d'encesa/apagat del sistema. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Apaga la pantalla</guilabel
+></term>
+<listitem>
+<para
+>Esvaeix a negre i apaga la retroil·luminació de la pantalla. La secció «Pantalla i lluminositat» té la seva pròpia configuració per a apagar la pantalla, independent de l'acció d'inactivitat configurada a «Suspèn la sessió». </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="display-and-brightness-section">
+<title
+>Pantalla i lluminositat</title>
+<para
+>Les pantalles dels portàtils i les retroil·luminacions del teclat representen gran part del consum d'energia d'un ordinador portàtil que està en espera. Els monitors grans sovint consumeixen més energia que un ordinador portàtil sencer, incloent-hi la seva pantalla. Certs tipus de pantalles són susceptibles de cremar o encallar píxels depenent del patró d'ús. Per totes aquestes raons, ajuda reduir la lluminositat o apagar les pantalles i les retroil·luminacions si no són necessàries. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Canvia la lluminositat de la pantalla</guilabel
+> / <guilabel
+>Canvia la lluminositat del teclat</guilabel
+></term>
+<listitem>
+<para
+>Defineix un nivell de lluminositat a establir quan es commuti entre els estats d'energia <guilabel
+>Amb alimentació CA</guilabel
+>, <guilabel
+>Amb la bateria</guilabel
+> i <guilabel
+>Amb la bateria baixa</guilabel
+>. </para>
+<para
+>La pantalla i la lluminositat del teclat també es poden canviar sobre la marxa a través de la miniaplicació <guilabel
+>Lluminositat i color</guilabel
+>, així com amb les dreceres de teclat. Canviar la lluminositat sobre la marxa no afectarà la configuració d'aquest mòdul. Si no s'estableix cap nivell de lluminositat en aquest mòdul de configuració, la lluminositat continuarà sent la mateixa en canviar entre estats d'energia. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Enfosqueix automàticament</guilabel
+></term>
+<listitem>
+<para
+>Redueix la lluminositat de la pantalla després d'un període d'inactivitat. Quan es detecti de nou activitat de l'usuari, la pantalla tornarà al seu nivell de lluminositat anterior. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Apaga la pantalla</guilabel
+></term>
+<listitem>
+<para
+>Esvaeix a negre i apaga la retroil·luminació de la pantalla després d'un període d'inactivitat. Quan es torni a detectar activitat de l'usuari, la pantalla tornarà a activar-se. Es pot establir un temps d'espera més curt per a quan el bloqueig de pantalla estigui actiu. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="other-settings">
+<title
+>Altres opcions</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Canvia al perfil d'energia</guilabel
+></term>
+<listitem>
+<para
+>Defineix les característiques de rendiment del sistema a establir en canviar entre els estats d'energia <guilabel
+>Amb alimentació CA</guilabel
+>, <guilabel
+>Amb la bateria</guilabel
+> i <guilabel
+>Amb la bateria baixa</guilabel
+>. Un perfil d'energia com <guilabel
+>Estalvi d'energia</guilabel
+>, <guilabel
+>Equilibrat</guilabel
+> i <guilabel
+>Rendiment</guilabel
+> permet canviar el rendiment contra consum d'energia, que també afecta els nivells d'escalfor i soroll de ventilador que produirà el sistema. </para>
+<para
+>Els perfils d'energia també es poden canviar sobre la marxa a través de la miniaplicació <guilabel
+>Energia i bateria</guilabel
+>, així com amb les dreceres de teclat. Canviar els perfils d'energia sobre la marxa no afectarà la configuració d'aquest mòdul. Si no s'estableix cap nivell de lluminositat en aquest mòdul de configuració, la lluminositat continuarà sent la mateixa en canviar entre estats d'energia. </para>
 </listitem>
 </varlistentry>
 
@@ -154,88 +294,47 @@
 ></term>
 <listitem>
 <para
->Aquesta opció executa un script personalitzat quan es carrega un perfil, en baixar-lo o després d'un període de temps determinat. </para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-</sect2>
-
-<sect2 id="activity-setting">
-<title
->Arranjament d'activitat</title>
-<para
->Aquí podeu configurar l'arranjament global de la gestió d'energia per activitat. L'arranjament de cada activitat es pot configurar en la seva pròpia pestanya.</para>
-
-<screenshot>
-<screeninfo
->Arranjament d'activitat</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Arranjament d'activitat</phrase>
-    </textobject>
-    <caption>
-      <para
->Arranjament d'activitat</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-
-<variablelist>
-
-<varlistentry>
-<term
->No utilitzis cap arranjament especial</term>
-<listitem>
-<para
->Utilitza la configuració definida a la pàgina <guilabel
->Estalvi d'energia</guilabel
->. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
->Defineix un comportament especial</term>
-<listitem>
-<para
->Si s'escull aquesta opció, es podrà escollir un comportament especial per a l'activitat. Si es tracta d'una activitat de presentació, podeu marcar les caselles <guilabel
->No aturis mai la pantalla</guilabel
+>Configura un script personalitzat a executar en canviar entre els estats d'energia <guilabel
+>Amb alimentació CA</guilabel
+>, <guilabel
+>Amb la bateria</guilabel
 > i <guilabel
->No aturis mai l'ordinador o permetis que se suspengui</guilabel
->. </para>
+>Amb la bateria baixa</guilabel
+> o després d'un període d'inactivitat. </para>
 </listitem>
 </varlistentry>
+
 </variablelist>
 </sect2>
 
-<sect2 id="advanced-settings">
+<sect2 id="advanced-power-settings">
 <title
->Arranjament avançat</title>
+>Arranjament avançat d'energia</title>
 <para>
 <screenshot>
 <screeninfo
->Arranjament avançat</screeninfo>
+>Arranjament avançat d'energia</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Arranjament avançat</phrase>
+>Arranjament avançat d'energia</phrase>
     </textobject>
     <caption>
       <para
->Arranjament avançat</para>
+>Arranjament avançat d'energia</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<para
+>Obriu aquesta pàgina prement el botó a la cantonada de la pàgina principal del mòdul de configuració. </para>
+
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
@@ -243,7 +342,8 @@
 ></term>
 <listitem>
 <para
->Aquests elements només es mostraran si es detecta una bateria. </para>
+>Aquestes opcions només es mostren en sistemes amb bateria. </para>
+
 <variablelist>
 <varlistentry
 ><term
@@ -252,7 +352,11 @@
 ></term>
 <listitem>
 <para
->Aquí podeu establir el percentatge després del qual es considerarà baixa la bateria. </para>
+>Per sota d'aquest percentatge, la càrrega de la bateria es considerarà baixa. Si el sistema no està endollat, s'utilitzaran els paràmetres del perfil <guilabel
+>Amb la bateria baixa</guilabel
+> en lloc de <guilabel
+>Amb la bateria</guilabel
+>. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -262,7 +366,7 @@
 ></term>
 <listitem>
 <para
->Aquí podeu establir el percentatge després del qual es considerarà la bateria en nivell crític. </para>
+>Per sota d'aquest percentatge la càrrega de la bateria es considerarà a un nivell crític. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -272,7 +376,7 @@
 ></term>
 <listitem>
 <para
->Defineix l'acció que es durà a terme quan la bateria arriba al nivell crític. </para>
+>Defineix l'acció que es durà a terme quan la càrrega de la bateria arriba al nivell crític. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -280,24 +384,62 @@
 >Dispositius perifèrics</term>
 <listitem>
 <para
->Defineix el nivell baix per als dispositius perifèrics, &pex;, un ratolí sense fil. </para>
+>Per sota d'aquest percentatge, la càrrega de la bateria per als dispositius perifèrics, &pex;, un ratolí sense fil, es considerarà baixa. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
+
 </varlistentry>
 
 <varlistentry
 ><term
-><guibutton
->Configura les notificacions</guibutton
+><guilabel
+>Límit de càrrega</guilabel
 ></term>
 <listitem>
 <para
->Si voleu un control més profund sobre les notificacions, podeu afinar-les fent clic en aquest botó. </para>
+>Aquestes opcions només es mostren si el sistema admet límits de càrrega de la seva bateria. </para>
+
+<para
+>La càrrega habitual de la bateria propera al 100% o la descàrrega completa propera al 0% pot provocar que es deteriori més ràpidament. En limitar la càrrega màxima de la bateria, podeu ajudar a allargar la vida útil de la bateria. </para>
+
+<para
+>Fonts diferents recomanen nivells de càrrega diferents per a bateries d'ió liti. El consens general entre les investigacions disponibles indica que mantenir la bateria dins de l'interval del 25%-75% és òptim per a mantenir la seva capacitat al llarg dels anys. Un interval del 15%-85% encara augmenta significativament la durada de la bateria en comparació amb intervals més amplis. </para>
+
+<para
+>Tingueu en compte que la durada de la bateria es veu afectada principalment pel seu nivell de càrrega al llarg del temps, més que el nombre de cicles de càrrega i descàrrega. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Atura la càrrega al</guilabel
+></term>
+<listitem>
+<para
+>El límit de càrrega superior de la bateria. Un cop assolit aquest nivell, la bateria es considera totalment carregada i el sistema no la carregarà més. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Inicia la càrrega per sota de</guilabel
+></term>
+<listitem>
+<para
+>El límit de càrrega inferior. Una vegada que la bateria es descarrega més enllà d'aquest nivell, el sistema començarà a carregar-la de nou. Això pot ser una mica més baix que el límit superior, o el mateix percentatge per mantenir el consum d'energia mentre la càrrega de la bateria es manté constant. </para>
 </listitem>
 </varlistentry>
 </variablelist>
+
+<para
+>Alguns sistemes requereixen desendollar el cable d'alimentació i tornar a connectar-lo abans que es respectin les opcions. Alguns sistemes no emmagatzemen límits de càrrega quan s'engega. Ser conscient de possibles limitacions. </para>
+</listitem>
+
+</varlistentry>
+</variablelist>
+
 </sect2>
 
 </sect1>
@@ -311,7 +453,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Això fa que canviar el perfil, la lluentor, el regulador i altres sigui més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per a accedir a les seves funcions. </para>
+>). Això fa que canviar la lluminositat, el perfil d'energia i altres sigui més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per a accedir a les seves funcions. </para>
 <sect2 id="runnerwords">
 <title
 >Paraules clau del llançador</title>
@@ -325,7 +467,7 @@
 ></term>
 <listitem>
 <para
->Podeu triar manualment un perfil utilitzant aquesta paraula clau. Tots els perfils disponibles es mostraran en forma de coincidències del &krunner;. </para>
+>Podeu triar manualment un perfil d'energia utilitzant aquesta paraula clau. Tots els perfils disponibles es mostraran en forma de coincidències del &krunner;. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -337,9 +479,9 @@
 ></term>
 <listitem>
 <para
->Podeu controlar la «lluminositat» de la pantalla a través d'aquesta paraula clau. D'aquesta manera, es mostraran algunes coincidències del &krunner; que us permetran fer algunes accions comunes. Si introduïu un valor després de la paraula clau (&pex;, <userinput
->Lluminositat de la pantalla 50</userinput
->), la lluentor serà establerta a aquest valor. </para>
+>Podeu controlar la lluminositat de la pantalla a través d'aquesta paraula clau. D'aquesta manera, es mostraran algunes coincidències del &krunner; que us permetran fer algunes accions d'energia habituals. Si introduïu un valor després de la paraula clau (&pex;, <userinput
+>lluminositat de la pantalla 50</userinput
+>), la lluminositat s'establirà a aquest valor. </para>
 </listitem>
 </varlistentry>
 <varlistentry
