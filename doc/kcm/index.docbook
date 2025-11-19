@@ -68,7 +68,7 @@ There are common circumstances where you expect the system to sleep, shut down, 
 
 <varlistentry><term><guilabel>Sleep</guilabel></term>
 <listitem>
-<para>Save power and wake up quickly. Many hardware components enter a power-saving state without fully shutting down the system. Unsaved data will be lost if the power supply gets interrupted&#x2014;for example when the battery is fully depleted. The degree of power savings achieved while sleeping depend on hardware and firmware provided by the system manufacturer.</para>
+<para>Save power and wake up quickly. Many hardware components enter a power-saving state without fully shutting down the system. Unsaved data will be lost if the power supply gets interrupted&#x2014;for example when the battery is fully depleted. The degree of power savings achieved while sleeping depends on hardware and firmware provided by the system manufacturer.</para>
 
 <para>The module provides an additional drop-down setting to select the exact sleep mode to enter when "Sleep" is activated:</para>
 
@@ -95,7 +95,7 @@ There are common circumstances where you expect the system to sleep, shut down, 
 
 <varlistentry><term><guilabel>Hibernate</guilabel></term>
 <listitem>
-<para>Save the current desktop session to your storage drive and power off. Hibernating and restoring the session take longer than sleep in standby mode, but unsaved data will not be lost if the power supply gets interrupted. Hibernation is widely supported across different kinds of hardware, as long as your storage drive was set up with a large enough swap partition to store the contents of your system memory. Also known as "Suspend to disk".
+<para>Save the current desktop session to your storage drive and power off. Hibernating and restoring the session takes longer than sleep in standby mode, but unsaved data will not be lost if the power supply gets interrupted. Hibernation is widely supported across different kinds of hardware, as long as your storage drive is set up with a large enough swap partition to store the contents of your system memory. Also known as "Suspend to disk".
 </para>
 </listitem>
 </varlistentry>
@@ -109,7 +109,7 @@ There are common circumstances where you expect the system to sleep, shut down, 
 
 <varlistentry><term><guilabel>Lock screen</guilabel></term>
 <listitem>
-<para>Lock the screen without reducing power consumption. To save power while also locking the screen, select "Sleep" or "Hibernate" and ensure that locking after waking from sleep is enabled in the Screen Locking settings module. Note that the Screen Locking module provides a separate setting for locking after a period of inactivity, so this is only available as power button or laptop lid action.
+<para>Lock the screen without reducing power consumption. To save power while also locking the screen, select "Sleep" or "Hibernate" and ensure that locking after waking from sleep is enabled in the Screen Locking settings module. Note that the Screen Locking module provides a separate setting for locking after a period of inactivity, so this is only available as a power button or laptop lid action.
 </para>
 </listitem>
 </varlistentry>
@@ -123,7 +123,7 @@ There are common circumstances where you expect the system to sleep, shut down, 
 
 <varlistentry><term><guilabel>Turn off screen</guilabel></term>
 <listitem>
-<para>Fade to black and turn off the display backlight. The "Display and Brightness" section has its own setting for turning off the screen, independent from the inactivity action configured in "Suspend Session".
+<para>Fade to black and turn off the display backlight. The "Display and Brightness" section has its own setting for turning off the screen, independent of the inactivity action configured in "Suspend Session".
 </para>
 </listitem>
 </varlistentry>
