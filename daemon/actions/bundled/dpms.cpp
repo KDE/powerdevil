@@ -274,6 +274,9 @@ void DPMS::onResumeFromSuspend()
     } else if (wakeupType & SuspendController::WakeupSource::Network) {
         qCDebug(POWERDEVIL) << "Wakeup was from network source, not turning on display, consumer will turn on if required";
         return;
+    } else if (wakeupType & SuspendController::WakeupSource::AC) {
+        qCDebug(POWERDEVIL) << "Wakeup was from AC adapter, not turning on display";
+        return;
     }
     m_dpms->switchMode(KScreen::Dpms::On);
     registerStandardIdleTimeout();

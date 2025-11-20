@@ -34,6 +34,7 @@ public:
         PowerManagement = 2,
         Network = 4,
         Telephony = 8,
+        AC = 16,
     };
     Q_ENUM(WakeupSource)
 

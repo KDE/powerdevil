@@ -173,6 +173,9 @@ SuspendController::WakeupSources SuspendController::lastWakeupType()
         UdevQt::Device device = m_udevClient->deviceBySysfsPath(wakeupDevice);
         if (device.subsystem() == u"power_supply"_s) {
             sources |= WakeupSource::PowerManagement;
+            if (device.name() == "AC"_L1) {
+                sources |= WakeupSource::AC;
+            }
         } else if (device.subsystem() == u"rpmsg"_s) {
             sources |= WakeupSource::Telephony;
         } else if (device.driver().contains(u"alarmtimer"_s) || device.driver().contains(u"rtc"_s)) {
