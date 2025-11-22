@@ -11,13 +11,15 @@
 <authorgroup>
 <author
 >&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
 &Freek.de.Kruijf; 
 </authorgroup>
 
 <date
->2016-08-26</date>
+>2024-02-09</date>
 <releaseinfo
->&plasma; 5.7</releaseinfo>
+>&plasma; 6.0</releaseinfo>
 
 <keywordset>
 <keyword
@@ -29,38 +31,28 @@
 <keyword
 >energiebeheer</keyword>
 <keyword
+>energiebesparing</keyword>
+<keyword
 >laptop-energie</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
 <title
->PowerDevil, een energiebeheerdaemon</title>
+>Energiebeheer</title>
 
 <para
->Deze module is een configuratiehulpmiddel voor het beheer van Energiebeheer in &plasma;. Het configureert de PowerDevil-daemon.</para>
+>Deze module voor instellingen configureren de energiebeheerservice van &plasma;, ook bekend als PowerDevil. Het biedt u het maken trade-offs tussen energie besparing en het maken van het volledige gebruik van de mogelijkheden van uw system. De energiebeheerservice is geïntegreerd in uw bureaublad en kan samenwerken met uw hardware.</para>
 
 <para
->Met deze module kunt u het gedrag van uw computer in verschillende situaties definiëren, waarmee u zo veel als mogelijk energie kunt besparen. </para>
-
-<para
->Powerdevil werkt alleen met Solid en is in uw bureaublad geïntegreerd. U zult zelfs niet merken dat het actief is, behalve door de meldingen. Bovendien controleert Powerdevil eerst uw systeemeigenschappen, zodat u in deze module alleen opties zult zien die beschikbaar zijn voor uw systeem. </para>
-
-<note
-><para
->Merk op dat PowerDevil uw systeem niet afvraagt. Dit betekent dat het geen energie verspilt terwijl u het probeert te besparen, zoals sommige andere energiebeheerders doen.</para
-></note>
-<sect2 id="energy-saving-setting">
-<title
->Instellingen voor energiebeheer</title>
-<para
->Deze pagina toont de actuele instellingen voor energiebesparing. Als er een batterij is gedetecteerd, dan hebt u drie tabbladen met verschillende instellingen voor de profielen <guilabel
+>De hoofdpagina van de module toont de instellingen die kunnen helpen bij energiebesparing. Alleen de instellingen die ondersteunt worden door uw systeem zulle getoond worden. Op batterij werkende systemen, levert de pagina drie tabbladen met verschillende instellingen voor de energiestatus <guilabel
 >Op wisselstroom</guilabel
 >, <guilabel
 >Op batterij</guilabel
 > en <guilabel
 >Op lage batterij</guilabel
 >. </para>
+
 <para>
 <screenshot>
 <screeninfo
@@ -80,70 +72,218 @@
   </mediaobject>
 </screenshot>
 </para>
+
+<sect2 id="suspend-session-section">
+<title
+>Sessie onderbreken</title>
 <para
->Er zijn heel wat opties die u kunt instellen voor elk profiel: </para>
+>Er zijn gemeenschappelijke omstandigheden waar u verwacht dat het systeem slaapt, zich afsluit of uw reguliere bureaubladsessie op andere manieren pauzeert. Deze sectie biedt u het definiëren hoe exact uw systeem zich zal gedragen in deze omstandigheden. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Niets doen</guilabel
+></term>
+<listitem>
+<para
+>Ga door met met uw bureaubladsessie alsof er niets gebeurd. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Slapen</guilabel
+></term>
+<listitem>
+<para
+>Energiebesparing en snel ontwaken. Veel hardwarecomponenten gaan in een energiebesparingsstatus zonder volledig het systeem af te sluiten. Niet opgeslagen gegevens zullen verloren gaan als de voeding onderbroken wordt&#x2014;bijvoorbeeld wanneer de batterij volledig uitgeput is. De graad van energiebesparing verkregen tijdens slapen hangt af van de hardware en firmware geleverd door de producent van het systeem.</para>
+
+<para
+>De module levert een extra afrolinstelling om de exacte slaapmodus in te stellen om in te voeren wanneer "Slapen" wordt geactiveerd:</para>
 
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Schermhelderheid</guilabel
+>Standby</guilabel
 ></term>
 <listitem>
 <para
->Stelt de schermhelderheid in met een schuifregelaar.</para>
+>Sla de huidige bureaubladsessie op naar geheugen. Deze traditionele slaapmodus gaat snel slapen en ontwaakt snel. Door batterij van energie voorziene systemen zijn vaak ontworpen om zo te blijven tussen een dag en 1-2 weken in deze status. Ook bekend als "Naar RAM slapen".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Hybride slapen</guilabel
+></term>
+<listitem>
+<para
+>Sla de huidige bureaubladsessie op naar zowel geheugen als een opslagapparaat, zoals een SSD of vaste schijf. Ontwaken is snel zoals standby, maar niet opgeslagen gegevens zullen overleven zelfs als de energie op raakt. Als iets negatiefs, deze slaapmodus zet de meeste spanning op uw opslagapparaat, die potentieel zijn levensduur verkort en langer neemt om het systeem op te starten na slapen vergeleken met gebruik van standby. Ook bekend als "Hybrid slapen".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Standby, daarna slaapstand naar schijf</guilabel
+></term>
+<listitem>
+<para
+>Ga initieel naar modus standby, daarna naar slaapstand op schijf na een periode van inactiviteit. Als het systeem slechts maar even slaapt, dan levert deze slaapmodus de snelle tijden van ontwaken op en de levensduur van het opslagapparaat heeft voordeel van de regelmatige standby. Als het systeem inactief blijft voor een langere tijd, reduceert slapen naar schijf energieconsumptie zelfs verder en verzekert dat niet opgeslagen gegevens niet verloren gaan. De tijd tot slapen naar schijf is gedefinieerd door uw systeemconfiguratie laagniveau. Ook bekend als "Onderbreken, daarna slapen naar schijf".</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Scherm dimmen</guilabel
+>Slaapstand naar schijf</guilabel
 ></term>
 <listitem>
 <para
->Als dit is geactiveerd, dan zal het scherm progressief gedimd worden, totdat helderheid 0 wordt bereikt, in de hoeveelheid tijd die is gespecificeerd in het spinvak. </para>
+>Sla de huidige bureaubladsessie op op uw opslagapparaat en schakel uit. Slapen naar schijf en de sessie herstellen neemt langer dan slepen in modus standby, maar niet opgeslagen gegevens zullen niet verloren zijn als de voeding wordt onderbroken. Slapen naar schijf is breed ondersteund over verschillende soorten hardware, zolang als uw opslagapparaat is ingesteld met een groot genoeg swap-partitie om de inhoud van uw systeemgeheugen op te slaan. Ook bekend als "Onderbreken naar schijf". </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Energiebesparing bij het beeldscherm</guilabel
-></term>
-<listitem>
-<para
->Hier kunt u de timeout instellen voor uitschakelen van de draaischakelaar. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Sessie onderbreken</guilabel
-></term>
-<listitem>
-<para
->Onderbreekt de sessie na de geselecteerde tijd naar de status <guilabel
->Slaap</guilabel
->, <guilabel
->Winterslaap</guilabel
->, <guilabel
 >Afsluiten</guilabel
-> of <guilabel
->Scherm vergrendelen</guilabel
->.</para>
+></term>
+<listitem>
+<para
+>Meld af uit uw bureaubladsessie en elke andere open sessies, daarna zet het systeem uit. Open toepassingen zullen vragen on alle niet opgeslagen gegevens op te slaan alvorens te sluiten. Voor toekomstige sessies, wordt de status van de toepassing alleen hersteld voor zover dat de toepassing dat zelf ondersteunt. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Knop voor afhandelen van evenementen</guilabel
+>Scherm vergrendelen</guilabel
 ></term>
 <listitem>
 <para
->Selecteert de actie die zal worden uitgevoerd als het deksel van de laptop wordt gesloten of een knop wordt ingedrukt.</para>
+>Vergrendel het scherm zonder energieconsumptie te verminderen. Om energie te sparen en ook het scherm te vergrendelen, selecteer "Slapen" of "Slapen naar schijf" en ga na dat vergrendelen na ontwaken uit slaap is ingeschakeld in de instellingenmodule Schermvergrendeling. Merk op dat de module Schermvergrendeling een aparte instelling levert voor vergrendelen na een periode van inactiviteit, dus dit is alleen beschikbaar als actie op de aan/uit-knop of laptopdeksel. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Afmeldscherm tonen</guilabel
+></term>
+<listitem>
+<para
+>Presenteert een dialoog met opties om te slapen, slapen naar schijf, afsluiten of afmelden. Dit is alleen beschikbaar als een optie bij indrukken van de fysieke aan/uit-knop. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Scherm uitschakelen</guilabel
+></term>
+<listitem>
+<para
+>Vervaag naar zwart en zet de achtergrondverlichting uit. De sectie "Scherm en helderheid" heeft zijn eigen instelling voor het uitzetten van het scherm, onafhankelijk van de actie op inactiviteit geconfigureerd in "Sessie onderbreken". </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="display-and-brightness-section">
+<title
+>Beeldscherm en helderheid</title>
+<para
+>Schermen van laptop en achtergrong verlichting van toetsenborden zijn verantwoordelijk voor veel van het energiegebruik van een anders ijdele laptop. Grote monitoren gebruiken meer energie dan een gehele laptop inclusief zijn scherm. Bepaalde soorten schermen zijn ontvankelijk voor inbranden of vastzittende pixels afhankelijk van het gebruikspatroon. Om al die redenen help het om helderheid te verminderen of schermen en achtergrondverlichting helemaal uit te zetten als deze niet nodig zijn. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Wijzig schermhelderheid</guilabel
+> / <guilabel
+>Wijzig toetsenbordhelderheid</guilabel
+></term>
+<listitem>
+<para
+>Definieer een helderheidsniveau om in te stellen bij omschakelen tussen de energiestatus <guilabel
+>Op wisselstroom</guilabel
+>, <guilabel
+>Op batterij</guilabel
+> en <guilabel
+>Op lage batterij</guilabel
+>. </para>
+<para
+>Helderheid van scherm en toetsenbord kan ook on-the-fly gewijzigd worden via de applet <guilabel
+>Helderheid en kleur</guilabel
+>, evenals met sneltoetsen. Helderheid on-the-fly wijzigen zal de instellingen in deze module niet beïnvloeden. Als geen helderheidsniveau is ingesteld in deze instellingenmodule, zal de helderheid hetzelfde blijven bij omschakelen tussen energiestatussen. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Automatisch dimmen</guilabel
+></term>
+<listitem>
+<para
+>Verminder schermhelderheid na een periode van inactiviteit. Wanneer opnieuw activiteit van de gebruiker wordt gedetecteerd, zal het scherm terug gaan naar zijn vorige helderheidsniveau. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Scherm uitschakelen</guilabel
+></term>
+<listitem>
+<para
+>Vervaag naar zwart en zet de achtergrondverlichting uit na en periode van inactiviteit. Wanneer opnieuw activiteit van de gebruiker wordt gedetecteerd, zal het scherm weer aan gaan. Een kortere wachttijd kan ingesteld worden voor wanneer de schermvergrendeling actief is. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="other-settings">
+<title
+>Overige instellingen</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Naar energieprofiel omschakelen</guilabel
+></term>
+<listitem>
+<para
+>Definieer karakteristieken van systeemprestaties om in te stellen bij omschakelen tussen energiestatus <guilabel
+>Op netstroom</guilabel
+>, <guilabel
+>Op batterij</guilabel
+> en <guilabel
+>Op lage batterij</guilabel
+>. Een energieprofiel zoals <guilabel
+>Energiebesparing</guilabel
+>, <guilabel
+>Gebalanceerd</guilabel
+> en <guilabel
+>Prestatie</guilabel
+> bieden u te kiezen tussen prestatie vs. energiegebruik, die ook de niveaus van hitte en ventilatorruis die uw systeem zal produceren beïnvloedt. </para>
+<para
+>Energieprofielen kunnen ook on-the-fly gewijzigd worden via de applet <guilabel
+>Energie en batterij</guilabel
+>, evenals met sneltoetsen. Wijzigen van energieprofielen on-the-fly zal de instellingen in deze module niet beïnvloeden. Als geen helderheidsniveau is ingesteld in deze instellingenmodule, zal de helderheid hetzelfde blijven bij omschakelen van energiestatus. </para>
 </listitem>
 </varlistentry>
 
@@ -154,96 +294,56 @@
 ></term>
 <listitem>
 <para
->Activeert deze optie om een eigen script uit te voeren wanneer een profiel is geladen, ontladen of na een gegeven hoeveelheid tijd. </para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-</sect2>
-
-<sect2 id="activity-setting">
-<title
->Instellingen voor activiteiten</title>
-<para
->Hier kunt u energiebeheerinstellingen configureren per activiteit. De instellingen voor elke activiteit kunnen op het eigen tabblad worden ingesteld.</para>
-
-<screenshot>
-<screeninfo
->Instellingen voor activiteiten</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Instellingen voor activiteiten</phrase>
-    </textobject>
-    <caption>
-      <para
->Instellingen voor activiteiten</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-
-<variablelist>
-
-<varlistentry>
-<term
->Geen speciale instellingen gebruiken</term>
-<listitem>
-<para
->Gebruik de instellingen gedefineerd op de pagina <guilabel
->Energiebesparing</guilabel
-> page. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
->Definieer speciaal gedrag</term>
-<listitem>
-<para
->Er is een speciaal gedrag gekozen voor de activiteit, als deze optie wordt gekozen. Als dit een presentatieactiviteit is, activeer dan de vakjes <guilabel
->Nooit het scherm uitschakelen</guilabel
+>Configureer aan eigen script bij omschakelen tussen energiestatussen <guilabel
+>Op wisselstroom</guilabel
+>, <guilabel
+>Op batterij</guilabel
 > en <guilabel
->Nooit de computer afsluiten of laten slapen</guilabel
->. </para>
+>Op lage batterij</guilabel
+> of na een periode van inactiviteit. </para>
 </listitem>
 </varlistentry>
+
 </variablelist>
 </sect2>
 
-<sect2 id="advanced-settings">
+<sect2 id="advanced-power-settings">
 <title
->Geavanceerde instellingen</title>
+>Geavanceerde energie-instellingen</title>
 <para>
 <screenshot>
 <screeninfo
->Geavanceerde instellingen</screeninfo>
+>Geavanceerde energie-instellingen</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Geavanceerde instellingen</phrase>
+>Geavanceerde energie-instellingen</phrase>
     </textobject>
     <caption>
       <para
->Geavanceerde instellingen</para>
+>Geavanceerde energie-instellingen</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<para
+>Open deze pagina door op de knop in de hoek van de instellingenmodule van de hoofdpagina te drukken. </para>
+
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
->Batterijniveaus</guilabel
+>Batterijniveaus                    </guilabel
 ></term>
 <listitem>
 <para
->Deze items worden alleen getoond als er een batterij is gedetecteerd. </para>
+>Deze instellingen worden alleen getoond op  systemen met een batterij. </para>
+
 <variablelist>
 <varlistentry
 ><term
@@ -252,7 +352,11 @@
 ></term>
 <listitem>
 <para
->Hier kunt het percentage instellen dat als laag beschouwd wordt voor de lading van de batterij. </para>
+>Onder dit percentage zal de lading van de batterij beschouwd worden als laag. Als het systeem van de netstroom af is, zullen instellingen uit het profiel <guilabel
+>Op lage batterij</guilabel
+> gebruikt worden in plaats van <guilabel
+>Op batterij</guilabel
+>. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -262,7 +366,7 @@
 ></term>
 <listitem>
 <para
->Hier kunt het percentage instellen dat als kritisch niveau beschouwd wordt voor de lading van de batterij. </para>
+>Onder dit percentage zal de lading van de batterij beschouwd worden als kritiek. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -272,7 +376,7 @@
 ></term>
 <listitem>
 <para
->Definieert de actie die uitgevoerd wordt als batterij het kritieke niveau bereikt. </para>
+>Definieer de actie die uitgevoerd wordt als de batterijlading het kritieke niveau bereikt. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -280,24 +384,62 @@
 >Randapparaten</term>
 <listitem>
 <para
->Definieert het lage niveau voor randapparaten &eg; een draadloze muis. </para>
+>Onder dit percentage zal de lading van de batterij voor randapparaten &eg; een draadloze muis als laag worden beschouwd. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
+
 </varlistentry>
 
 <varlistentry
 ><term
-><guibutton
->Meldingen instellen</guibutton
+><guilabel
+>Ladingslimiet</guilabel
 ></term>
 <listitem>
 <para
->Als u een betere controle wilt hebben over uw meldingen dan kunt u deze verfijnen door op deze knop te klikken. </para>
+>Deze instellingen worden alleen getoond als het systeem ladingslimieten ondersteunt voor zijn batterij. </para>
+
+<para
+>De batterij regelmatig tot dicht bij 100% laden of volledig ontladen, kan veroorzaken dat verslechten versnelt. Door de maximale batterijlading te beperken kunt u de levensduur van de batterij helpen vergroten. </para>
+
+<para
+>Verschillende bronnen bevelen verschillende laadniveaus aan voor lithium-ion batterijen. De algemene consensus tussen beschikbaar onderzoek geeft aan dat uw batterij tussen de 25%-75% reeks houden optimaal is om zijn capaciteit over de jaren te behouden. Een reeks van 15%-85% verhoogt nog steeds de batterijleeftijd aanzienlijk vergeleken met bredere reeksen. </para>
+
+<para
+>Merk op dat batterijleeftijd hoofdzakelijk wordt beïnvloed door zijn ladingsniveau in de tijd, meer dan het aantal cycli van laden en ontladen. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Laden stoppen bij</guilabel
+></term>
+<listitem>
+<para
+>De bovenste laadgrens voor uw batterij. Wanneer dit niveau is bereikt, wordt de batterij beschouwd als volledig geladen en zal het systeem het niet verder laden. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Begin met laden eenmaal onder</guilabel
+></term>
+<listitem>
+<para
+>De lagere laadgrens. Wanneer de batterij ontlaadt onder dit niveau, zal het systeem opnieuw beginnen met laden. Dit kan iets lager zijn dan de bovengrens, of hetzelfde percentage om stroom afnemen te behouden terwijl de batterijlading constant blijft. </para>
 </listitem>
 </varlistentry>
 </variablelist>
+
+<para
+>Sommige systemen vereisen loskoppelen van de powerkabel en opnieuw inpluggen alvorens de instellingen gerespecteerd worden. Sommige systemen slaan ladingslimieten niet op bij uitzetten. Wees bewust van mogelijke beperkingen. </para>
+</listitem>
+
+</varlistentry>
+</variablelist>
+
 </sect2>
 
 </sect1>
@@ -311,7 +453,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Dit maakt het wijzigen van profiel, helderheid, governor en meer veel eenvoudiger en sneller. &krunner; heeft verschillende trefwoorden die u kunt invoeren om zijn functies te benaderen. </para>
+>). Dit maakt het wijzigen van helderheid, energieprofiel en meer veel eenvoudiger en sneller. De krunner heeft verschillende trefwoorden die u kunt invoeren om toegang tot zijn functies. </para>
 <sect2 id="runnerwords">
 <title
 >Trefwoorden van &krunner;</title>
@@ -325,7 +467,7 @@
 ></term>
 <listitem>
 <para
->U kunt handmatig een profiel kiezen met dit trefwoord. Alle beschikbare profielen zullen worden getoond in de vorm van &krunner; overeenkomsten. </para>
+>U kunt handmatig een energieprofiel kiezen met dit trefwoord. Alle beschikbare profielen zullen worden getoond in de vorm van overeenkomsten in &krunner;. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -337,7 +479,7 @@
 ></term>
 <listitem>
 <para
->U kunt schermhelderheid besturen via dit trefwoord. In deze vorm, laat &krunner; overeenkomsten zien die u enige algemene acties laat doen. Als u een waarde na het trefwoord ingeeft (&eg;: <userinput
+>U kunt schermhelderheid besturen via dit trefwoord. In deze vorm, laat &krunner; overeenkomsten zien die u enige algemene acties laat uitvoeren. Als u een waarde na het trefwoord ingeeft (&eg;: <userinput
 >Schermhelderheid 50</userinput
 >), dan zal de helderheid op die waarde worden ingesteld. </para>
 </listitem>
