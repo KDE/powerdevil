@@ -477,12 +477,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "打开“活动”设置页面"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "高级电源设置(&S)…"
+msgstr ""
 
 #: ui/main.qml:44
 #, kde-format
