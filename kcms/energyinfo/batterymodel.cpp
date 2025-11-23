@@ -10,6 +10,8 @@
 
 #include <QQmlEngine>
 
+using namespace Qt::StringLiterals;
+
 BatteryModel::BatteryModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -86,7 +88,12 @@ int BatteryModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> BatteryModel::roleNames() const
 {
-    return {{BatteryRole, "battery"}, {VendorRole, "vendor"}, {ProductRole, "product"}, {UdiRole, "udi"}};
+    return {
+        {BatteryRole, "battery"_ba},
+        {VendorRole, "vendor"_ba},
+        {ProductRole, "product"_ba},
+        {UdiRole, "udi"_ba},
+    };
 }
 
 #include "moc_batterymodel.cpp"
