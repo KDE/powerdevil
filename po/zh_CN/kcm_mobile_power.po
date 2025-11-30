@@ -90,12 +90,12 @@ msgstr "否"
 #: ui/BatteryPage.qml:91
 #, kde-format
 msgid "Charge State"
-msgstr "电量状态"
+msgstr "充电状态"
 
 #: ui/BatteryPage.qml:94
 #, kde-format
 msgid "Not charging"
-msgstr "不在充电"
+msgstr "未充电"
 
 #: ui/BatteryPage.qml:95
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "正在充电"
 #: ui/BatteryPage.qml:96
 #, kde-format
 msgid "Discharging"
-msgstr "正在耗电"
+msgstr "正在放电"
 
 #: ui/BatteryPage.qml:97
 #, kde-format
@@ -266,7 +266,7 @@ msgstr "屏幕"
 #, kde-format
 msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
 msgid "Dim screen after"
-msgstr "降低屏幕亮度等待时间"
+msgstr "调暗屏幕等待时间"
 
 #: ui/main.qml:131
 #, kde-format
