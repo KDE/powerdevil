@@ -32,6 +32,10 @@
 
 #include <qnamespace.h>
 
+#ifdef WITH_DDCUTIL
+#include <ddcutil_c_api.h>
+#endif
+
 using namespace Qt::StringLiterals;
 
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
@@ -123,6 +127,12 @@ int main(int argc, char **argv)
     }
     KDBusService service(KDBusService::Unique | KDBusService::StartupOption(replace ? KDBusService::Replace : 0));
     KCrash::setFlags(KCrash::AutoRestart);
+
+    KCrash::setErrorTags({
+#ifdef WITH_DDCUTIL
+        {u"ddcutil_version"_s, QString::fromUtf8(ddca_ddcutil_version_string())},
+#endif
+    });
 
     app.setQuitOnLastWindowClosed(false);
     app.setQuitLockEnabled(false);
