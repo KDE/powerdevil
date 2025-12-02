@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2025-12-02 02:34+0000\n"
 "PO-Revision-Date: 2025-07-15 03:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -102,49 +102,49 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:98
+#: powerdevilapp.cpp:102
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE-ის კვების მართვის სისტემა"
 
-#: powerdevilapp.cpp:100
+#: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil, მოდულური და მსუბუქი დემონი კვების სამართავად"
 
-#: powerdevilapp.cpp:102
+#: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 კაი უვე ბროულიკი"
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "კაი უვე ბროულიკი"
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "წამყვანი პროგრამისტი"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "წინა ხელმძღვანელი"
 
-#: powerdevilapp.cpp:112
+#: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "გაშვებული ასლის ჩანაცვლება"

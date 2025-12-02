@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2025-12-02 02:34+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -105,13 +105,13 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilapp.cpp:98
+#: powerdevilapp.cpp:102
 #, fuzzy, kde-format
 #| msgid "KDE Power Management System"
 msgid "KDE Power Management System"
 msgstr "ك د ئې(KDE) توك مەنبە باشقۇرۇش سىستېمىسى"
 
-#: powerdevilapp.cpp:100
+#: powerdevilapp.cpp:104
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE Power Management System is PowerDevil, an advanced, modular and "
@@ -123,40 +123,40 @@ msgstr ""
 "KDE توك مەنبە باشقۇرۇش سىستېمىسى PowerDevil، ئالىي، بۆلەكلىك ۋە يېنىك مەنبە "
 "باشقۇرۇش مۇئەككىلى"
 
-#: powerdevilapp.cpp:102
+#: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "مەسئۇل كىشى"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "مەسئۇل كىشى"
 
-#: powerdevilapp.cpp:112
+#: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
