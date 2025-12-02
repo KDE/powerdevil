@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-09-03 14:20+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -101,12 +101,12 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:98
+#: powerdevilapp.cpp:102
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Systema de Gestion de energia de KDE"
 
-#: powerdevilapp.cpp:100
+#: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -114,7 +114,7 @@ msgid ""
 msgstr ""
 "PowerDevil es un avantiate, modular e legier demone de gestion de energia"
 
-#: powerdevilapp.cpp:102
+#: powerdevilapp.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@info:credit"
 #| msgid "(c) 2015-2019 Kai Uwe Broulik"
@@ -122,31 +122,31 @@ msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:103
+#: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantenitor"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:108
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Previe mantenitor"
 
-#: powerdevilapp.cpp:112
+#: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Reimplacia un instantia existente"
