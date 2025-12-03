@@ -244,8 +244,8 @@ msgstr "Desbloqueja"
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
-"No s'ha pogut desbloquejar automàticament la suspensió i el bloqueig de la "
-"pantalla"
+"Ha fallat mentre es desbloquejava automàticament la suspensió i el bloqueig "
+"de la pantalla"
 
 #: InhibitionItem.qml:221 InhibitionItem.qml:259
 #, kde-format
@@ -425,7 +425,7 @@ msgstr "No disponible"
 #: PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr "No s'ha pogut activar el mode %1"
+msgstr "Ha fallat mentre s'activava el mode %1"
 
 #: PowerProfileItem.qml:228
 #, kde-format
