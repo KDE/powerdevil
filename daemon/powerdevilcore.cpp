@@ -664,8 +664,10 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryNotification->addAction(i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel"));
     connect(cancelAction, &KNotificationAction::activated, this, [this] {
         m_criticalBatteryTimer->stop();
-        m_criticalBatteryNotification->close();
-        m_criticalBatteryNotification = nullptr;
+        if (m_criticalBatteryNotification) {
+            m_criticalBatteryNotification->close();
+            m_criticalBatteryNotification = nullptr;
+        }
     });
 
     m_criticalBatteryNotification->sendEvent();
