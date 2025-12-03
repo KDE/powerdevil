@@ -218,6 +218,8 @@ private Q_SLOTS:
     // handlers for handling wakeup dbus call
     void resetAndScheduleNextWakeup();
     void timerfdEventHandler();
+    void onScreenLockerActiveChanged(bool active);
+    void onResumeFromSuspend();
 };
 
 }

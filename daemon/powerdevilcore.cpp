@@ -170,6 +170,9 @@ void Core::onControllersReady()
         }
     });
 
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::screenLockerActiveChanged, this, &Core::onScreenLockerActiveChanged);
+    connect(m_suspendController.get(), &SuspendController::resumeFromSuspend, this, &Core::onResumeFromSuspend);
+
     // Initialize the action pool, which may also initialize profile-independent functionality
     refreshActions();
 
@@ -977,6 +980,20 @@ void Core::onServiceRegistered(const QString &service)
         delete m_notificationsWatcher;
         m_notificationsWatcher = nullptr;
     }
+}
+
+void Core::onScreenLockerActiveChanged(bool active)
+{
+    if (active) {
+        return;
+    }
+    const int percent = currentChargePercent();
+    emitBatteryChargePercentNotification(percent, 1000);
+}
+
+void Core::onResumeFromSuspend() {
+    const int percent = currentChargePercent();
+    emitBatteryChargePercentNotification(percent, 1000);
 }
 
 void Core::readChargeThreshold()
