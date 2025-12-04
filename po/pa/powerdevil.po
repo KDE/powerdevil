@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 02:34+0000\n"
+"POT-Creation-Date: 2025-12-04 02:40+0000\n"
 "PO-Revision-Date: 2025-09-15 09:38-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -285,52 +285,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "ਬੈਟਰੀ ਘੱਟ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "ਬੈਟਰੀ ਨਾਜ਼ੁਕ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:715
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲੱਗਾ"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "ਕੰਪਿਊਟਰ ਹੁਣ ਸਲੀਪ ਨਹੀਂ ਹੋਵੇਗਾ।"
 
-#: powerdevilcore.cpp:718
+#: powerdevilcore.cpp:720
 #, kde-format
 msgid "Running on AC Power"
 msgstr "AC ਪਾਵਰ ਉੱਤੇ ਚੱਲ ਰਿਹਾ ਹੈ"
 
-#: powerdevilcore.cpp:719
+#: powerdevilcore.cpp:721
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲਾਇਆ ਗਿਆ ਹੈ।"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "ਬੈਟਰੀ ਪਾਵਰ ਉੱਤੇ ਹੈ"
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਕੱਢਿਆ ਹੋਇਆ ਹੈ।"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:797
 #, kde-format
 msgid "Charging Complete"
 msgstr "ਚਾਰਜ ਕਰਨਾ ਪੂਰਾ"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:797
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ਬੈਟਰੀ ਹੁਣ ਪੂਰੀ ਚਾਰਜ ਹੋ ਚੁੱਕੀ ਹੈ।"

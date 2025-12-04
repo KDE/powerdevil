@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 02:34+0000\n"
+"POT-Creation-Date: 2025-12-04 02:40+0000\n"
 "PO-Revision-Date: 2025-07-20 01:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -280,52 +280,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "취소"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "배터리 바닥남(%1% 남음)"
 
-#: powerdevilcore.cpp:715
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "전원 코드가 연결됨"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
-#: powerdevilcore.cpp:718
+#: powerdevilcore.cpp:720
 #, kde-format
 msgid "Running on AC Power"
 msgstr "AC 전원으로 실행 중"
 
-#: powerdevilcore.cpp:719
+#: powerdevilcore.cpp:721
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "전원 코드가 연결되었습니다."
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "배터리 전원으로 실행 중"
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "전원 코드의 연결이 해제되었습니다."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:797
 #, kde-format
 msgid "Charging Complete"
 msgstr "충전 완료"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:797
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "배터리가 완전히 충전되었습니다."
