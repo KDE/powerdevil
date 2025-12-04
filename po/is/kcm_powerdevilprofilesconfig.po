@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2025-11-30 11:52+0000\n"
+"PO-Revision-Date: 2025-12-03 16:28+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -63,7 +63,7 @@ msgstr "Slökkva/kveikja á skjá"
 #: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Orkustillingaþjónustan virðist ekki vera í gangi."
+msgstr "Gangstýringarþjónustan virðist ekki vera í gangi."
 
 #: PowerProfileModel.cpp:42
 #, kde-format
@@ -441,23 +441,23 @@ msgstr "Tengdar síður:"
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Tilkynningar: Orkustillingar"
+msgstr "Tilkynningar: Gangstýring"
 
 #: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Opna stillingasíðuna \"Tilkynningar\", hlutann \"Orkustillingar\""
+msgstr "Opna stillingasíðuna \"Tilkynningar\", hlutann \"Gangstýring\""
 
 #: ui/GlobalConfig.qml:394
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Flýtilyklar: Orkustillingar"
+msgstr "Flýtilyklar: Gangstýring"
 
 #: ui/GlobalConfig.qml:396
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Opna stillingasíðuna \"Flýtilyklar\", hlutann \"Orkustillingar\""
+msgstr "Opna stillingasíðuna \"Flýtilyklar\", hlutann \"Gangstýring\""
 
 #: ui/GlobalConfig.qml:403
 #, kde-format

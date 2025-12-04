@@ -11,6 +11,8 @@
 <authorgroup>
 <author
 >&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
 <othercredit role="translator"
 ><firstname
 >Federico</firstname
@@ -29,9 +31,9 @@
 </authorgroup>
 
 <date
->2016-08-26</date>
+>2024-02-09</date>
 <releaseinfo
->&plasma; 5.7</releaseinfo>
+>&plasma; 6.0</releaseinfo>
 
 <keywordset>
 <keyword
@@ -43,121 +45,259 @@
 <keyword
 >Gestione energetica</keyword>
 <keyword
+>Risparmio energetico</keyword>
+<keyword
 >energia sul portatile</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
 <title
->PowerDevil, un demone per la gestione energetica</title>
+>Gestione energetica</title>
 
 <para
->Questo modulo è uno strumento di configurazione per la gestione energetica in &plasma; È un configuratore del demone PowerDevil.</para>
+>Questo modulo di impostazioni configura il servizio di gestione energetica di &plasma;, conosciuto anche come PowerDevil. Permette di trovare il giusto compromesso tra il risparmio di energia e l'utilizzo completo delle funzioni del sistema. Il servizio di gestione energetica è integrato nel desktop e può interagire con l'hardware.</para>
 
 <para
->Con questo modulo, puoi definire il comportamento del computer in varie situazioni, permettendo di risparmiare più energia possibile. </para>
-
-<para
->PowerDevil funziona solo con Solid, ed è integrato nel desktop. Non noterai nemmeno il suo funzionamento, se non per le notifiche. Inoltre, PowerDevil rileva le potenzialità del sistema, così vedrai solo le opzioni effettivamente disponibili in questo modulo. </para>
-
-<note
-><para
->Nota che PowerDevil non misura il sistema in continuazione. Ciò vuol dire che non sprecherà energia cercando di risparmiarla, cosa che altri gestori energetici fanno.</para
-></note>
-<sect2 id="energy-saving-setting">
-<title
->Impostazioni di risparmio energetico</title>
-<para
->Questa pagina mostra le impostazioni energetiche attuali. Se una batteria viene rilevata, ci sono tre schede con diverse impostazioni per i profili <guilabel
+>La pagina principale del modulo mostra le impostazioni che possono aiutare a risparmiare energia. Saranno mostrate solo le impostazioni supportate dal sistema. In sistemi con batteria, la pagina contiene tre schede con diverse impostazioni per i diversi stati energetici <guilabel
 >Alimentatore</guilabel
 >, <guilabel
 >Batteria</guilabel
 > e <guilabel
 >Batteria quasi scarica</guilabel
 >. </para>
+
 <para>
 <screenshot>
 <screeninfo
->Impostazioni di risparmio energetico</screeninfo>
+>Impostazioni di gestione energetica</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Impostazioni di risparmio energetico</phrase>
+>Impostazioni di gestione energetica</phrase>
     </textobject>
     <caption>
       <para
->Impostazioni di risparmio energetico</para>
+>Impostazioni di gestione energetica</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<sect2 id="suspend-session-section">
+<title
+>Sospendi la sessione</title>
 <para
->Ci sono diverse opzioni configurabili per ogni profilo: </para>
+>Ci sono situazioni comuni in cui ci si aspetta che il sistema sospenda, spegna, o metta in pausa la normale sessione desktop in altri modi. Questa sezione permette di definire in che modo il sistema debba precisamente comportarsi in tali situazioni. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Non fare nulla</guilabel
+></term>
+<listitem>
+<para
+>Procedi con la sessione del desktop, come se non fosse successo niente. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Sospendi</guilabel
+></term>
+<listitem>
+<para
+>Risparmia energia e si sveglia rapidamente. Molti componenti hardware passano ad uno stato di risparmio energetico senza spegnere del tutto il sistema. I dati non salvato vengono persi se la fonte di energia si interrompe&#x2014;ad esempio quando la batteria è totalmente scarica. Il grado di risparmio energetico raggiunto durante questa fase di sospensione dipende dall'hardware e dal firmware forniti dal produttore del sistema.</para>
+
+<para
+>Questo modulo fornisce un'impostazione addizionale tramite casella combinata per selezionare l'esatta modalità di sospensione da usare quando viene attivato «Sospendi»:</para>
 
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Luminosità dello schermo</guilabel
+>Sospensione in RAM</guilabel
 ></term>
 <listitem>
 <para
->Imposta la luminosità dello schermo con un cursore.</para>
+>Salva la sessione attuale del desktop in memoria. Questo sistema di sospensione tradizionale passa rapidamente in sospensione e si risveglia rapidamente. I sistemi alimentati a batteria sono spesso progettati per durare in un periodo compreso tra un giorno e una/due settimane in questo stato.</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Sospensione ibrida</guilabel
+></term>
+<listitem>
+<para
+>Salva la sessione desktop attuale sia in memoria sia in un'unità di memorizzazione, come un SSD o un disco rigido. Il risveglio è rapido come per la sospensione in RAM, ma i dati non salvati sopravvivono anche se l'energia disponibile si esaurisce durante la sospensione. Come effetto negativo, questa modalità di sospensione mette decisamente sotto sforzo le unità di memorizzazione, cosa che ne può ridurre la longevità e ci vuole più tempo perché il sistema inizi la sospensione se si paragona con l'uso della sospensione in RAM. Conosciuto anche come "sospensione ibrida".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Sospensione, poi iberna</guilabel
+></term>
+<listitem>
+<para
+>Passa inizialmente allo stato di sospensione in RAM, quindi iberna dopo un intervallo di inattività. Se il sistema rimane solo in sospensione per un po', questa modalità di sospensione ha come vantaggio i tempi rapidi di risveglio e la longevità delle unità di memorizzazione delle normali sospensioni. Se il sistema rimane inattivo per un periodo più lungo di tempo, l'ibernazione riduce ulteriormente il consumo energetico e garantisce che i dati non salvati non siano persi. L'ammontare di tempo fino all'ibernazione è definito dalla configurazione a basso livello del sistema. Conosciuto anche come «Sospendi, quindi iberna».</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Oscuramento dello schermo</guilabel
-></term>
-<listitem>
-<para
->Se attivato, lo schermo verrà progressivamente oscurato, fino a luminosità nulla, nell'arco di tempo specificato nella casella numerica. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Risparmio energetico dello schermo</guilabel
-></term>
-<listitem>
-<para
->Qui puoi impostare il tempo massimo per lo spegnimento nella casella numerica. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Sospendi la sessione</guilabel
-></term>
-<listitem>
-<para
->Sospende la sessione dopo il tempo selezionato e la porta nello stato <guilabel
->Sospendi</guilabel
->, <guilabel
 >Iberna</guilabel
->, <guilabel
->Spegni</guilabel
-> o <guilabel
->Blocca schermo</guilabel
->.</para>
+></term>
+<listitem>
+<para
+>Salva la sessione desktop attuale in un'unità di memorizzazione e spegne. L'ibernazione e il ripristino della sessione impiegano un tempo maggiore della sospensione in modalità sospendi in RAM, ma i dati non salvati non saranno persi anche se l'energia disponibile si interrompe. L'ibernazione è ampiamente supportata in varie tipologie di hardware, a condizione che l'unità di memorizzazione è configurata una partizione di swap grande abbastanza per memorizzare il contenuto della memoria di sistema. Conosciuta anche come "sospendi su disco". </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Gestione degli eventi dei pulsanti</guilabel
+>Spegni</guilabel
 ></term>
 <listitem>
 <para
->Seleziona le azioni da effetuare quando si chiude lo schermo del portatile o si preme un pulsante.</para>
+>Si disconnette dalla sessione del desktop e da tutte le altre sessioni aperte, quindi spegne il sistema. Le applicazioni aperte chiederanno di salvare i dati non salvati prima di chiudersi. Nelle future sessioni, lo stato delle applicazioni viene ripristinato solo nella misura in cui le applicazioni stesse supportano questa funzionalità. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Blocca lo schermo</guilabel
+></term>
+<listitem>
+<para
+>Blocca lo schermo senza ridurre il consumo energetico. Per risparmiare energia quando si blocca lo schermo, selezionare «Sospendi» o «Iberna» ed assicurarsi che il blocco dello schermo dopo il risveglio dalla sospensione è abilitato nelle impostazioni del modulo del blocco dello schermo. Si noti come il modulo del blocco dello schermo fornisce un'impostazione separata per il blocco dopo un periodo di inattività, quindi questa è disponibile solo come azione del pulsante di spegnimento o dello schermo del portatile. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Mostra la schermata di chiusura della sessione</guilabel
+></term>
+<listitem>
+<para
+>Mostra un finestra di dialogo con le opzioni per sospendere, ibernare, spegnere o uscire dall sessione. È disponibile come opzione solo quando si preme il pulsante di spegnimento fisico del sistema. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Spegni lo schermo</guilabel
+></term>
+<listitem>
+<para
+>Sfuma sul nero e spegne la retroilluminazione dello schermo. La sezione «Schermo e luminosità» ha le proprier impostazioni per spegnere lo schermo, indipendentemente dall'azione di inattività configurata in «Sospendi la sessione». </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="display-and-brightness-section">
+<title
+>Schermo e luminosità</title>
+<para
+>Gli schermi dei portatili e la retroilluminazione delle tastiere rappresentano buona parte del consumo energetico di un portatile altrimenti inattivo. Gli schermi grandi spesso consumano più energia di un intero portatile considerando anche il suo monitor. Certi tipi di schermi sono soggetti a bruciature e/o a pixel bloccati in base alla modalità di utilizzo. Per tutte queste ragioni, è utile ridurre la luminosità o spegnere totalmente i monitor e la retroilluminazione se non sono necessari. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Modifica la luminosità della tastiera</guilabel
+> / <guilabel
+>Modifica la luminosità della tastiera</guilabel
+></term>
+<listitem>
+<para
+>Definisce il livello di luminosità da impostare quando si passa tra gli stati energetici <guilabel
+>Alimentatore</guilabel
+>, <guilabel
+>Batteria</guilabel
+> e <guilabel
+>Batteria quasi scarica</guilabel
+>. </para>
+<para
+>La luminosità dello schermo e della tastiera possono anche essere cambiate al volo attraverso l'applet <guilabel
+>Luminosità e colore</guilabel
+>, così come tramite scorciatoie di tastiera. La modifica della luminosità effettuata al volo non influenza le impostazioni in questo modulo. Se il livello di luminosità non è impostato in questo modulo di impostazioni, la luminosità rimarrà la stessa quando si passa tra uno stato energetico a un altro. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Riduci automaticamente la luminosità</guilabel
+></term>
+<listitem>
+<para
+>Riduce la luminosità dello schermo dopo un periodo di inattività. Quando viene rilevata nuovamente attività dell'utente, lo schermo torno al suo precedente livello di luminosità. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Spegni lo schermo</guilabel
+></term>
+<listitem>
+<para
+>Sfuma sul nero e spegne la retroilluminazione dello schermo dopo un intervallo di inattività. Quando viene rilevata nuovamente dell'attività lo schermo viene acceso nuovamente. È possibile impostare un tempo di attesa più breve quando il blocco dello schermo è attivo. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="other-settings">
+<title
+>Altre impostazioni</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Passa al profilo di alimentazione</guilabel
+></term>
+<listitem>
+<para
+>Definisce le caratteristiche delle prestazioni del sistema da impostare quando si passa tra gli stati energetici <guilabel
+>Alimentatore</guilabel
+>, <guilabel
+>A batteria</guilabel
+> e <guilabel
+>Batteria quasi scarica</guilabel
+>. Un profilo energetico come <guilabel
+>Risparmio energetico</guilabel
+>, <guilabel
+>Bilanciato</guilabel
+> e <guilabel
+>Prestazioni</guilabel
+> permettono di trovare un compromesso tra prestazioni e consumo energetico, con un impatto anche sui livello di calore e rumore della ventola prodotti dal sistema. </para>
+<para
+>I profili di alimentazione possono anche essere cambiati al volo attraverso l'applet <guilabel
+>Alimentazione e batteria</guilabel
+>, così come tramite scorciatoie di tastiera. La modifica dei profili di alimentazione effettuata al volo non influenza le impostazioni in questo modulo. Se il livello di luminosità non è impostato in questo modulo di impostazioni, la luminosità rimarrà la stessa quando si passa tra uno stato energetico a un altro. </para>
 </listitem>
 </varlistentry>
 
@@ -168,88 +308,47 @@
 ></term>
 <listitem>
 <para
->Attiva questa opzione per eseguire uno script personalizzato all'attivazione o disattivazione di un profilo, o dopo un certo periodo di tempo. </para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-</sect2>
-
-<sect2 id="activity-setting">
-<title
->Impostazioni delle attività</title>
-<para
->Qui puoi configurare le impostazioni di gestione energetica per attività. Le impostazioni di ogni attività possono essere configurazione nella sua scheda.</para>
-
-<screenshot>
-<screeninfo
->Impostazioni delle attività</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Impostazioni delle attività</phrase>
-    </textobject>
-    <caption>
-      <para
->Impostazioni delle attività</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-
-<variablelist>
-
-<varlistentry>
-<term
->Non usare le impostazioni speciali</term>
-<listitem>
-<para
->Usa le impostazioni definite sulla pagina <guilabel
->Risparmio energetico</guilabel
->. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
->Definisci un comportamento speciale</term>
-<listitem>
-<para
->Se questa opzione è selezionata, si può scegliere un comportamento speciale per un'attività. Se è un'attività di presentazione, puoi spuntare le caselle <guilabel
->Non spegnere mai lo schermo</guilabel
+>Configura uno script personalizzato da eseguire quando si passa tra gli stati energetici <guilabel
+>Alimentatore</guilabel
+>, <guilabel
+>Batteria</guilabel
 > e <guilabel
->Non spegnere mai il computer o lasciare che vada in sospensione</guilabel
->. </para>
+>Batteria quasi scarica</guilabel
+>, o dopo un periodo di inattività. </para>
 </listitem>
 </varlistentry>
+
 </variablelist>
 </sect2>
 
-<sect2 id="advanced-settings">
+<sect2 id="advanced-power-settings">
 <title
->Impostazioni avanzate</title>
+>Impostazioni avanzate di alimentazione</title>
 <para>
 <screenshot>
 <screeninfo
->Impostazioni avanzate</screeninfo>
+>Impostazioni avanzate di alimentazione</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Impostazioni avanzate</phrase>
+>Impostazioni avanzate di alimentazione</phrase>
     </textobject>
     <caption>
       <para
->Impostazioni avanzate</para>
+>Impostazioni avanzate di alimentazione</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<para
+>Apri questa pagina premendo il pulsante nell'angolo della pagina principale del modulo di impostazioni. </para>
+
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
@@ -257,7 +356,8 @@
 ></term>
 <listitem>
 <para
->Questi elementi vengono visualizzati solo se viene rilevata una batteria. </para>
+>Queste impostazioni vengono visualizzate sono nei sistemi alimentati a batteria. </para>
+
 <variablelist>
 <varlistentry
 ><term
@@ -266,7 +366,11 @@
 ></term>
 <listitem>
 <para
->Qui puoi impostare la percentuale alla quale la batteria sarà considerata a livello basso. </para>
+>Sotto questa percentuale, la carica della batteria sarà considerata ad un livello critico. Se il sistema non è collegato all'alimentazione, saranno usate le impostazioni dal profilo <guilabel
+>Batteria quasi scarica</guilabel
+> invece che da quello <guilabel
+>Batteria</guilabel
+>. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -276,7 +380,7 @@
 ></term>
 <listitem>
 <para
->Qui puoi impostare la percentuale alla quale la batteria sarà considerata a livello critico. </para>
+>Sotto questa percentuale, la carica della batteria sarà considerata ad un livello critico. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -286,7 +390,7 @@
 ></term>
 <listitem>
 <para
->Definisce l'azione da fare quando la batteria raggiunge il livello critico. </para>
+>Definisce l'azione da eseguire quando la carica della batteria raggiunge il livello critico. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -294,24 +398,62 @@
 >Periferiche</term>
 <listitem>
 <para
->Definisce il livello basso per le periferiche, &eg; un mouse senza fili. </para>
+>Sotto questa percentuale, la carica della batteria dei dispositivi periferici, &eg; un mouse senza fili, sarà considerata bassa. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
+
 </varlistentry>
 
 <varlistentry
 ><term
-><guibutton
->Configura le notifiche</guibutton
+><guilabel
+>Limite di carica</guilabel
 ></term>
 <listitem>
 <para
->Se vuoi maggiore controllo sulle notifiche, puoi affinarle facendo clic su questo pulsante. </para>
+>Queste impostazioni vengono visualizzate solo se il sistema supporta i limiti di carica per la propria batteria. </para>
+
+<para
+>Caricare regolarmente la batteria quasi al 100% o scaricarla completamente vicino allo 0% può portare ad un suo deterioramento più rapido. Limitando la carica massima della batteria, puoi contribuire a prolungarne la durata. </para>
+
+<para
+>Fonti diverse consigliano livelli di carica diversi per le batterie agli ioni di litio. Il consenso generale tra le ricerche disponibili suggerisce che mantenere il livello della batteria nell'intervallo 25%-75% è la scelta ottimale per mantenerne la capacità negli anni. Un intervallo 15%-85% incrementa comunque significativamente la durata della batteria rispetto a intervalli più ampi. </para>
+
+<para
+>Si noti come la durata della batteria è influenzata principalmente dal suo livello di carica nel tempo, più che dal totale dei cicli di caricamento e scaricamento. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Ferma la carica al</guilabel
+></term>
+<listitem>
+<para
+>Il limite superiore di carica per la batteria. Quando questo livello viene superato, la batteria viene considerata totalmente carica e il sistema non la caricherà ulteriormente. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Inizia a caricare una volta sotto</guilabel
+></term>
+<listitem>
+<para
+>Il limite inferiore di carica. Quando lo scaricamento della batteria supera questo livello, il sistema inizierà a caricare nuovamente. Esso può essere un po' più basso del limite superiore, o la stessa percentuale per continuare ad assorbire energia mente la carica della batteria rimane costante. </para>
 </listitem>
 </varlistentry>
 </variablelist>
+
+<para
+>In alcuni sistemi è necessario scollegare il cavo di alimentazione e ricollegarlo prima che le impostazioni siano rispettate. Alcuni sistemi non memorizzano i limiti di carica quando vengono spenti. Prestare attenzione alle possibili limitazioni. </para>
+</listitem>
+
+</varlistentry>
+</variablelist>
+
 </sect2>
 
 </sect1>
@@ -325,7 +467,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Ciò facilita ed accelera cambiare il profilo, la luminosità, il regolatore e altro. L'esecutore ha varie parole chiave che puoi inserire per accedere alle sue funzioni. </para>
+>). Ciò facilita ed accelera cambiare la luminosità, il profilo energetico e altro. L'esecutore ha varie parole chiave che puoi inserire per accedere alle sue funzioni. </para>
 <sect2 id="runnerwords">
 <title
 >Parole chiave dell'esecutore</title>
@@ -339,7 +481,7 @@
 ></term>
 <listitem>
 <para
->Puoi scegliere manualmente un profilo usando questa parola chiave. Tutti i profili disponibili saranno mostrati sotto forma di corrispondenze di &krunner;. </para>
+>Puoi scegliere manualmente un profilo energetico usando questa parola chiave. Tutti i profili disponibili saranno mostrati sotto forma di corrispondenze di &krunner;. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -351,8 +493,8 @@
 ></term>
 <listitem>
 <para
->Puoi controllare la luminosità dello schermo con questa parola chiave. In questa forma, saranno mostrate alcune corrispondenze di &krunner; per effettuare alcune azioni comuni. Se inserisci un valore dopo la parola chiave, per esempio <userinput
->Luminosità dello schermo 50</userinput
+>Puoi controllare la luminosità dello schermo con questa parola chiave. In questa forma, saranno mostrate alcune corrispondenze di &krunner; per effettuare alcune comuni azioni energetiche . Se inserisci un valore dopo la parola chiave, per esempio <userinput
+>luminosità dello schermo 50</userinput
 >, la luminosità verrà impostata a quel valore. </para>
 </listitem>
 </varlistentry>

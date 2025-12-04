@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:43+0000\n"
+"POT-Creation-Date: 2025-12-04 00:46+0000\n"
 "PO-Revision-Date: 2025-10-29 11:53+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -149,44 +149,44 @@ msgstr "Tidligere vedligeholder"
 msgid "Replace an existing instance"
 msgstr "Erstat en eksisterende instans"
 
-#: powerdevilcore.cpp:400 powerdevilcore.cpp:411
+#: powerdevilcore.cpp:403 powerdevilcore.cpp:414
 #, kde-format
 msgid "Activity Manager"
 msgstr "Aktivitetshåndtering"
 
-#: powerdevilcore.cpp:401
+#: powerdevilcore.cpp:404
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Denne aktivitets politikker forhindrer systemet i at slumre"
 
-#: powerdevilcore.cpp:412
+#: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Denne aktivitets politikker forhindrer strømstyring for skærm"
 
-#: powerdevilcore.cpp:477
+#: powerdevilcore.cpp:480
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Ekstra batteri tilføjet"
 
-#: powerdevilcore.cpp:478
+#: powerdevilcore.cpp:481
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Systemet vil ikke længere gå i slumretilstand."
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:548
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Enhedsbatteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:547
+#: powerdevilcore.cpp:550
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -196,22 +196,22 @@ msgstr ""
 "Batteriniveauet i \"%1\" er lavt, og enheden kan slukke når som helst. "
 "Udskift eller oplad batteriet snarest muligt."
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Musbatteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Tastaturbatteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:568
+#: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth-enhedsbatteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:570
+#: powerdevilcore.cpp:573
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -221,36 +221,36 @@ msgstr ""
 "Batteriet i din Bluetooth-enhed (\"%1\") er lavt, og enheden kan slukke når "
 "som helst. Oplad eller udskift batteriet."
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr "Sørg for, at strømkablet er sat helt ind og giver tilstrækkelig strøm."
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Tilslut strømforsyningen."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:637
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Systemet vil lukke ned om 60 sekunder."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:639
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Luk ned nu"
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Systemet vil gå i dvale om 60 sekunder"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:647
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -258,24 +258,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Gå i dvale nu"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:653
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Systemet vil gå i dvale om 60 sekunder."
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:655
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Slumre nu"
 
-#: powerdevilcore.cpp:658
+#: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
 msgstr "Gem dit arbejde så hurtigt som muligt."
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:667
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -283,52 +283,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Annullér"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:686
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri kritisk (%1% tilbage)"
 
-#: powerdevilcore.cpp:715
+#: powerdevilcore.cpp:720
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Strømforsyning tilsluttet"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:721
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Computeren vil ikke længere gå i slumretilstand."
 
-#: powerdevilcore.cpp:718
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Kører på strømforsyning"
 
-#: powerdevilcore.cpp:719
+#: powerdevilcore.cpp:724
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Strømforsyningen er blevet tilsluttet."
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Kører på batteri"
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:737
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Strømforsyningen er blevet frakoblet."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Opladning fuldført"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er nu fuldt opladet."

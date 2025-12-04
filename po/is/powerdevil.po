@@ -2,16 +2,16 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2009, 2016.
+# SPDX-FileCopyrightText: 2009, 2016, 2025 Sveinn í Felli <sveinki@nett.is>
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:43+0000\n"
-"PO-Revision-Date: 2025-10-18 20:40+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"PO-Revision-Date: 2025-12-03 16:23+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,7 +37,7 @@ msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Orkustillingar"
+msgstr "Gangstýring"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "%1 %2"
 #: powerdevilapp.cpp:102
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "Orkustillingar KDE"
+msgstr "Gangstýringarkerfi KDE"
 
 #: powerdevilapp.cpp:104
 #, kde-format
@@ -152,45 +152,45 @@ msgstr "Fyrri umsjónaraðili"
 msgid "Replace an existing instance"
 msgstr "Skipta út fyrirliggjandi tilviki"
 
-#: powerdevilcore.cpp:400 powerdevilcore.cpp:411
+#: powerdevilcore.cpp:403 powerdevilcore.cpp:414
 #, kde-format
 msgid "Activity Manager"
 msgstr "Athafnastjóri"
 
-#: powerdevilcore.cpp:401
+#: powerdevilcore.cpp:404
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir tölvan sé svæfð"
 
-#: powerdevilcore.cpp:412
+#: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Reglur sem gilda í þessari athöfn koma í veg fyrir orkustýringar fyrir skjá"
 
-#: powerdevilcore.cpp:477
+#: powerdevilcore.cpp:480
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Aukarafhlöðu bætt við"
 
-#: powerdevilcore.cpp:478
+#: powerdevilcore.cpp:481
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:548
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Lítil hleðsla á rafhlöðu tækis (%1% eftir)"
 
-#: powerdevilcore.cpp:547
+#: powerdevilcore.cpp:550
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -200,22 +200,22 @@ msgstr ""
 "Rafhlaðan í \"%1\" er að tæmast og það gæti slokknað á tækinu hvenær sem er. "
 "Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Músarrafhlaða að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Lyklaborðsrafhlaða að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:568
+#: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Rafhlaða Bluetooth-tækis að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:570
+#: powerdevilcore.cpp:573
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -225,7 +225,7 @@ msgstr ""
 "Rafhlaðan í Bluetooth-tækinu \"%1\" er að tæmast og það gæti slokknað á "
 "tækinu hvenær sem er. Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -233,29 +233,29 @@ msgid ""
 msgstr ""
 "Gakktu úr skugga um að rafmagnssnúran sé í sambandi og veiti næga orku."
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Settu tölvuna í samband."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:637
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Tölvan slekkur á sér eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:639
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Slökkva núna"
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Tölvan fer í dvala eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:647
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -263,24 +263,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Setja í dvala núna"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:653
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Tölvan verður svæfð eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:655
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Svæfa núna"
 
-#: powerdevilcore.cpp:658
+#: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
 msgstr "Vistaðu vinnuna þína."
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:667
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -288,52 +288,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Lítil hleðsla á rafhlöðu (%1% eftir)"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:686
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Rafhlaða nánast tóm (%1% eftir)"
 
-#: powerdevilcore.cpp:715
+#: powerdevilcore.cpp:720
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Rafmagnssnúra í sambandi"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:721
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
-#: powerdevilcore.cpp:718
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Keyrir á AC-spennugjafa"
 
-#: powerdevilcore.cpp:719
+#: powerdevilcore.cpp:724
 #, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Rafmagnssnúrunni var stungið í samband."
+msgstr "Rafmagnssnúruni var stungið í samband."
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Keyrir á rafhlöðu"
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:737
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Rafmagnssnúran var tekin úr sambandi."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Hleðslu lokið"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Rafhlaðan er nú fullhlaðin."
