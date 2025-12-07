@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-01-29 18:58+0100\n"
+"PO-Revision-Date: 2025-12-06 15:47+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -95,8 +95,7 @@ msgstr "Luminosità della tastiera al %1%"
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
-msgstr ""
-"Luce notturna sospesa; fai clic con il pulsante centrale per riprendere"
+msgstr "Luce notturna sospesa; clic centrale per riprendere"
 
 #: main.qml:149
 #, kde-format
@@ -148,7 +147,7 @@ msgstr "Scorri per regolare la luminosità dello schermo"
 #: main.qml:190
 #, kde-format
 msgid "Middle-click to suspend Night Light"
-msgstr "Fai clic con il tasto centrale per sospendere Luce notturna"
+msgstr "Clic centrale per sospendere Luce notturna"
 
 #: main.qml:273
 #, kde-format

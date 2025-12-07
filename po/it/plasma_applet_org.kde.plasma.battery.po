@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-08-16 08:50+0200\n"
+"PO-Revision-Date: 2025-12-06 15:46+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -328,15 +328,15 @@ msgstr "Non in carica"
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
-"La sospensione automatica e il blocco dello schermo sono disabilitati; fai "
-"clic con il tasto centrale per riabilitarli"
+"La sospensione automatica e il blocco dello schermo sono disabilitati; clic "
+"centrale per riabilitarli"
 
 #: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
-"Fare clic con il tasto centrale per disattivare la sospensione automatica e "
-"il blocco dello schermo"
+"Clic centrale per disattivare la sospensione automatica e il blocco dello "
+"schermo"
 
 #: main.qml:172
 #, kde-format
