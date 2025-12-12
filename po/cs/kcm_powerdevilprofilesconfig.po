@@ -500,11 +500,11 @@ msgstr "Otevřít nastavení \"Aktivity\""
 
 #: ui/main.qml:19
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#| msgctxt "@title"
+#| msgid "Advanced Power Settings"
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "Pokročilá na&stavení napájení…"
+msgstr "Pokročilé nastavení napájení"
 
 #: ui/main.qml:44
 #, kde-format
