@@ -11,6 +11,8 @@
 <authorgroup>
 <author
 >&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
 <othercredit role="translator"
 ><firstname
 >Marcus</firstname
@@ -29,13 +31,13 @@
 </authorgroup>
 
 <date
->18/08/2013</date>
+>09/02/2024</date>
 <releaseinfo
->&kde; 4.11</releaseinfo>
+>&plasma; 6.0</releaseinfo>
 
 <keywordset>
 <keyword
->KDE</keyword>
+>Plasma</keyword>
 <keyword
 >Configuração do Sistema</keyword>
 <keyword
@@ -43,125 +45,262 @@
 <keyword
 >gerenciamento de energia</keyword>
 <keyword
+>economia de energia</keyword>
+<keyword
 >energia do laptop</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
 <title
->PowerDevil, um Servidor de Gerenciamento de Energia</title>
+>Gerenciamento de energia</title>
 
 <para
->Este módulo é uma ferramenta de configuração para o Gerenciamento de Energia no &kde;. É um módulo de configuração para o servidor do PowerDevil, que você poderá iniciar ou parar no módulo do <guilabel
->Gerenciador de Serviços</guilabel
->. </para>
+>Este módulo de configurações configura o serviço de gerenciamento de energia do &plasma;, também conhecido como PowerDevil. Ele permite que você faça concessões entre economizar energia e aproveitar ao máximo os recursos do seu sistema. O serviço de gerenciamento de energia está integrado à sua área de trabalho e pode interagir com seu hardware.</para>
 
 <para
->Através deste módulo, você poderá definir o comportamento do seu computador em várias situações, o que lhe permite poupar o máximo possível de energia. </para>
-
-<para
->O Powerdevil funciona apenas com o Solid e está integrado ao seu ambiente de trabalho. Você sequer irá notar que ele está rodando, com exceção das notificações. Além disso, o Powerdevil verifica primeiro as capacidades do seu sistema, fazendo com que só sejam exibidas as opções disponíveis para o seu sistema. </para>
-
-<note
-><para
->Note que o PowerDevil não analisa periodicamente o seu sistema. Isto significa que ele não irá desperdiçar energia enquanto tenta poupá-la, como acontece com outros gerenciadores de energia.</para
-></note>
-<sect2 id="energy-saving-setting">
-<title
->Configurações de economia de energia</title>
-<para
->Esta página mostra as definições de economia de energia atuais. Se for detectada uma bateria, você terá três abas separadas com diferentes perfis <guilabel
->Com adaptador de energia</guilabel
+>A página principal do módulo mostra configurações que podem ajudar a economizar energia. Somente as configurações compatíveis com o seu sistema serão exibidas. Em sistemas alimentados por bateria, a página oferece três abas com configurações diferentes para os seguintes estados de energia: <guilabel
+>Com alimentação de energia</guilabel
 >, <guilabel
 >Com bateria</guilabel
 > e <guilabel
->Com baixo nível de bateria</guilabel
+>Com bateria fraca</guilabel
 >. </para>
+
 <para>
 <screenshot>
 <screeninfo
->Configurações de economia de energia</screeninfo>
+>Configurações de gerenciamento de energia</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Configurações de economia de energia</phrase>
+>Configurações de gerenciamento de energia</phrase>
     </textobject>
     <caption>
       <para
->Configurações de economia de energia</para>
+>Configurações de gerenciamento de energia</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<sect2 id="suspend-session-section">
+<title
+>Suspender sessão</title>
 <para
->Existem diversas opções que você poderá configurar para cada perfil: </para>
-<!--FIXME in 4.11/master additional Keyboard Backlight ??-->
+>Existem circunstâncias comuns em que você espera que o sistema entre em modo de suspensão, desligue ou pause sua sessão de área de trabalho normal de outras maneiras. Esta seção permite que você defina exatamente como seu sistema se comportará nessas circunstâncias. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Não fazer nada</guilabel
+></term>
+<listitem>
+<para
+>Continua sua sessão de trabalho como se nada tivesse acontecido. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Suspender</guilabel
+></term>
+<listitem>
+<para
+>Economiza energia e acorde rapidamente. Muitos componentes de hardware entram em um estado de economia de energia sem desligar completamente o sistema. Os dados não salvos serão perdidos se a alimentação for interrompida — por exemplo, quando a bateria estiver totalmente descarregada. O grau de economia de energia obtido durante o modo de suspensão depende do hardware e do firmware fornecidos pelo fabricante do sistema.</para>
+
+<para
+>O módulo fornece uma configuração adicional em um menu suspenso para selecionar o modo de suspensão exato a ser ativado quando "Suspender" estiver ativado:</para>
+
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Brilho da tela</guilabel
+>Standby</guilabel
 ></term>
 <listitem>
 <para
->Define o brilho da tela usando uma barra.</para>
+>Salva a sessão atual da área de trabalho na memória. Este modo de suspensão tradicional entra em modo de suspensão rapidamente e desperta rapidamente. Sistemas alimentados por bateria são frequentemente projetados para durar entre um dia e 1-2 semanas neste estado. Também conhecido como "Suspender para RAM".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Suspensão híbrida</guilabel
+></term>
+<listitem>
+<para
+>Salve a sessão atual da área de trabalho tanto na memória quanto em uma unidade de armazenamento, como um SSD ou um disco rígido. A ativação é rápida como no modo de Standby, mas os dados não salvos permanecerão mesmo se a energia acabar durante o modo de suspensão. Como desvantagem, esse modo de suspensão sobrecarrega mais a unidade de armazenamento, o que pode reduzir sua vida útil e fazer com que o sistema demore mais para iniciar a suspensão em comparação com o modo de espera.</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Standby e depois hibernar</guilabel
+></term>
+<listitem>
+<para
+>Inicialmente, o sistema entra em modo de standby  e, após um período de inatividade, hiberna. Se o sistema ficar inativo apenas por um curto período, esse modo de suspensão proporciona os benefícios de tempo de ativação rápido e longevidade da unidade de armazenamento do modo de standby regular. Se o sistema permanecer inativo por um período mais longo, a hibernação reduz ainda mais o consumo de energia e garante que os dados não salvos não sejam perdidos. O tempo até a hibernação é definido pela configuração de baixo nível do sistema. Também conhecido como "Suspender e, em seguida, hibernar".</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Escurecer a tela</guilabel
-></term>
-<listitem>
-<para
->Se estiver assinalada, a tela ficará cada vez mais escurecida, até atingir o brilho 0, durante o período de tempo indicado no campo. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Configurações da energia da tela</guilabel
-></term>
-<listitem>
-<para
->Aqui você poderá definir a economia de energia para o seu monitor. A caixa de seleção define se o suporte ao DPMS deve estar ativado ou não. Se você optar por ativá-lo, define os tempos de ativação nas caixas incrementais abaixo. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Suspender sessão</guilabel
-></term>
-<listitem>
-<para
->Suspende a sessão após o tempo selecionado para o status <guilabel
->Dormir</guilabel
->, <guilabel
 >Hibernar</guilabel
->, <guilabel
->Desligar</guilabel
-> ou <guilabel
->Travar tela</guilabel
->.</para>
+></term>
+<listitem>
+<para
+>Salva a sessão atual da área de trabalho em sua unidade de armazenamento e desliga o computador. A hibernação e a restauração da sessão levam mais tempo do que o modo de standby, mas os dados não salvos não serão perdidos se a alimentação for interrompida. A hibernação é amplamente suportada em diferentes tipos de hardware, desde que sua unidade de armazenamento tenha sido configurada com uma partição de troca (swap) grande o suficiente para armazenar o conteúdo da memória do sistema. Também conhecido como "Suspender para o disco". </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Tratamento de eventos dos botões</guilabel
+>Desligar</guilabel
 ></term>
 <listitem>
 <para
->Selecione as ações executadas quando a tela do notebook for aberta ou um botão for pressionado.</para>
+>Sai da sua sessão da área de trabalho e de quaisquer outras sessões abertas e, em seguida, desligue o sistema. Os aplicativos abertos solicitarão que você salve quaisquer dados não salvos antes de fechar. Para sessões futuras, o estado do aplicativo será restaurado apenas na medida em que o próprio aplicativo o suportar. </para>
 </listitem>
 </varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Bloquear tela</guilabel
+></term>
+<listitem>
+<para
+>Bloqueia a tela sem reduzir o consumo de energia. Para economizar energia enquanto bloqueia a tela, selecione "Suspender" ou "Hibernar" e certifique-se de que o bloqueio após o despertar do modo de suspensão esteja ativado no módulo de configurações de bloqueio de tela. Observe que o módulo de bloqueio de tela oferece uma configuração separada para bloqueio após um período de inatividade, portanto, isso só está disponível por meio do botão liga/desliga ou da tampa do laptop. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Mostrar tela de encerramento de sessão</guilabel
+></term>
+<listitem>
+<para
+>Apresenta uma caixa de diálogo com opções para suspender, hibernar, desligar ou encerrar a sessão. Esta opção só está disponível ao pressionar o botão físico de energia do sistema. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Desligar a tela</guilabel
+></term>
+<listitem>
+<para
+>A tela escurece e a luz de fundo do visor desliga. A seção "Tela e brilho" possui uma configuração própria para desligar a tela, independente da ação de inatividade configurada em "Suspender sessão". </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="display-and-brightness-section">
+<title
+>Tela e brilho</title>
+<para
+>As telas e a retroiluminação dos teclados dos laptops representam grande parte do consumo de energia de um laptop ocioso. Monitores grandes geralmente consomem mais energia do que um laptop inteiro, incluindo sua tela. Certos tipos de telas são suscetíveis a burn-in ou pixels presos, dependendo do padrão de uso. Por todos esses motivos, é útil reduzir o brilho ou desligar as telas e a retroiluminação completamente, se não forem necessárias. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Alterar brilho da tela</guilabel
+> / <guilabel
+>Alterar brilho do teclado</guilabel
+></term>
+<listitem>
+<para
+>Defina um nível de brilho para ser configurado ao alternar entre os estados de energia <guilabel
+>Com alimentação de energia</guilabel
+>, <guilabel
+>Com bateria</guilabel
+> e <guilabel
+>Com bateria fraca</guilabel
+>. </para>
+<para
+>O brilho da tela e do teclado também pode ser alterado instantaneamente através do mini-aplicativo <guilabel
+>Brilho e cor</guilabel
+>, bem como com atalhos de teclado. Alterar o brilho instantaneamente não afetará as configurações neste módulo. Se nenhum nível de brilho for definido neste módulo de configuração, o brilho permanecerá o mesmo ao alternar entre os estados de energia. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Escurecer a tela automaticamente</guilabel
+></term>
+<listitem>
+<para
+>Reduz o brilho da tela após um período de inatividade. Quando a atividade do usuário for detectada novamente, a tela retornará ao nível de brilho anterior. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Desligar a tela</guilabel
+></term>
+<listitem>
+<para
+>A tela escurece e a luz de fundo desliga após um período de inatividade. Quando a atividade do usuário for detectada novamente, a tela ligará novamente. É possível definir um tempo de espera menor para quando o bloqueio de tela estiver ativo. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="other-settings">
+<title
+>Outras configurações</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Mudar para perfil de energia</guilabel
+></term>
+<listitem>
+<para
+>Defina as características de desempenho do sistema para serem configuradas ao alternar entre os estados de energia: <guilabel
+>Com alimentação de energia</guilabel
+>, <guilabel
+>Com bateria</guilabel
+> e <guilabel
+>Com bateria fraca</guilabel
+>. Um perfil de energia como <guilabel
+>Economia de energia</guilabel
+>, <guilabel
+>Equilibrado</guilabel
+> e <guilabel
+>Desempenho</guilabel
+> permite que você equilibre o desempenho com o consumo de energia, o que também afeta os níveis de calor e ruído da ventoinha que seu sistema produzirá. </para>
+<para
+>Os perfis de energia também podem ser alterados instantaneamente através do mini-aplicativo <guilabel
+>Energia e bateria</guilabel
+>, bem como por meio de atalhos de teclado. Alterar os perfis de energia instantaneamente não afetará as configurações deste módulo. Se nenhum nível de brilho for definido neste módulo de configurações, o brilho permanecerá o mesmo ao alternar entre os estados de energia. </para>
+</listitem>
+</varlistentry>
+
 <varlistentry
 ><term
 ><guilabel
@@ -169,110 +308,47 @@
 ></term>
 <listitem>
 <para
->Ative esta opção para executar um script personalizado quando um perfil for carregado, descarregado ou após um determinado tempo. </para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-</sect2>
-
-<sect2 id="activity-setting">
-<title
->Configurações da atividade</title>
-<para
->Aqui você poderá configurar as opções de gerenciamento de energia por atividade. As opções de cada atividade podem ser configuradas na sua própria aba.</para>
-<para>
-<screenshot>
-<screeninfo
->Configurações da atividade</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Configurações da atividade</phrase>
-    </textobject>
-    <caption>
-      <para
->Configurações da atividade</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-</para>
-<variablelist>
-<varlistentry>
-<term
->Não usar as configurações especiais</term>
-<listitem>
-<para
->Usa as opções definidas na página <guilabel
->Economia de energia</guilabel
->. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Funcionar como</term>
-<listitem>
-<para
->Aqui você poderá escolher um perfil predefinido a partir da lista: <guimenuitem
->PC usando o adaptador de energia</guimenuitem
->, <guimenuitem
->PC usando a bateria</guimenuitem
-> ou <guimenuitem
->PC com pouca carga de bateria</guimenuitem
->. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Definir um comportamento especial</term>
-<listitem>
-<para
->Se esta opção for escolhida, um comportamento especial para a atividade pode ser selecionado. Se esta for uma atividade de apresentação, você poderá assinalar as opções <guilabel
->Nunca desligar a tela</guilabel
+>Configure um script personalizado para ser executado ao alternar entre os estados de energia <guilabel
+>Com alimentação de energia</guilabel
+>, <guilabel
+>Com bateria</guilabel
 > e <guilabel
->Nunca suspender ou desligar o computador</guilabel
->. Também é possível definir o intervalo de tempo para o computador mudar para um modo de suspensão para as atividades de economia de energia. </para>
+>Com bateria fraca</guilabel
+>, ou após um período de inatividade. </para>
 </listitem>
 </varlistentry>
-<varlistentry>
-<term
->Usar configurações separadas (apenas para usuários avançados)</term>
-<listitem>
-<para
->Esta opção permite aos usuários escolherem os detalhes das configurações de economia de energia para uma atividade separada. As opções são semelhantes às da página <link linkend="energy-saving-setting"
->Economia de energia</link
->. </para>
-</listitem>
-</varlistentry>
+
 </variablelist>
 </sect2>
 
-<sect2 id="advanced-settings">
+<sect2 id="advanced-power-settings">
 <title
->Configurações avançadas</title>
+>Configurações avançadas de energia</title>
 <para>
 <screenshot>
 <screeninfo
->Configurações avançadas</screeninfo>
+>Configurações avançadas de energia</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Configurações avançadas</phrase>
+>Configurações avançadas de energia</phrase>
     </textobject>
     <caption>
       <para
->Configurações avançadas</para>
+>Configurações avançadas de energia</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<para
+>Abra esta página pressionando o botão no canto da página principal do módulo de configurações. </para>
+
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
@@ -280,82 +356,104 @@
 ></term>
 <listitem>
 <para
->Estes itens só aparecerão se uma bateria for detectada. </para>
+>Essas configurações só são exibidas em sistemas alimentados por bateria. </para>
+
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->A bateria está em nível baixo com</guilabel
+>Nível baixo</guilabel
 ></term>
 <listitem>
 <para
->Aqui você poderá definir a porcentagem a partir da qual o nível de carga da bateria poderá ser considerado baixo. </para>
+>Abaixo dessa porcentagem, a carga da bateria será considerada baixa. Se o sistema for desconectado da tomada, as configurações do perfil <guilabel
+>Com bateria fraca</guilabel
+> serão usadas em vez do perfil <guilabel
+>Com bateria</guilabel
+>. </para>
 </listitem>
 </varlistentry>
 <varlistentry
 ><term
 ><guilabel
->A bateria está em nível crítico com</guilabel
+>Nível crítico</guilabel
 ></term>
 <listitem>
 <para
->Aqui você poderá definir a porcentagem a partir da qual o nível de carga da bateria poderá ser considerado como crítico. </para>
+>Abaixo dessa porcentagem, a carga da bateria será considerada em um nível crítico. </para>
 </listitem>
 </varlistentry>
 <varlistentry
 ><term
 ><guilabel
->Quando a bateria está em nível crítico</guilabel
+>No nível crítico</guilabel
 ></term>
 <listitem>
 <para
->Define a ação a efetuar quando a bateria atingir o nível crítico. </para>
+>Defina a ação que será executada quando a carga da bateria atingir o nível crítico. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+>Dispositivos periféricos</term>
+<listitem>
+<para
+>Abaixo dessa porcentagem, a carga da bateria de dispositivos periféricos, &eg;, um mouse sem fio, será considerada baixa. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
+
 </varlistentry>
+
 <varlistentry
 ><term
 ><guilabel
->Eventos</guilabel
+>Limite de carga</guilabel
 ></term>
 <listitem>
+<para
+>Essas configurações só são exibidas se o sistema suportar limites de carga para sua bateria. </para>
+
+<para
+>Carregar a bateria regularmente perto de 100% ou descarregá-la completamente perto de 0% pode fazer com que ela se deteriore mais rapidamente. Limitar a carga máxima da bateria pode ajudar a prolongar sua vida útil. </para>
+
+<para
+>Diferentes fontes recomendam diferentes níveis de carga para baterias de íon-lítio. O consenso geral entre as pesquisas disponíveis indica que manter a bateria entre 25% e 75% é o ideal para preservar sua capacidade ao longo dos anos. Uma faixa de 15% a 85% ainda aumenta significativamente a vida útil da bateria em comparação com faixas mais amplas. </para>
+
+<para
+>Note que a vida útil da bateria é afetada principalmente pelo seu nível de carga ao longo do tempo, mais do que pelo número de ciclos de carga e descarga. </para>
+
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Bloquear a tela ao reativar</guilabel
+>Parar de carregar em</guilabel
 ></term>
 <listitem>
 <para
->Quando esta opção estiver assinalada, sempre que o PC for suspenso, a tela ficará bloqueada ao recuperar. Será solicitada uma senha ao retornar do estado de suspensão.</para>
+>O limite máximo de carga da sua bateria. Quando esse nível for atingido, a bateria será considerada totalmente carregada e o sistema não a carregará mais. </para>
 </listitem>
 </varlistentry>
 <varlistentry
 ><term
 ><guilabel
->Nunca impedir uma ação ao fechar a tampa</guilabel
+>Começar a carregar assim que estiver abaixo</guilabel
 ></term>
 <listitem>
 <para
->Quando esta opção estiver selecionada, os aplicativos não poderão inibir a suspensão quando a tampa for fechada. </para>
+>O limite inferior de carga. Assim que a bateria descarregar abaixo desse nível, o sistema começará a carregá-la novamente. Essa carga pode ser um pouco menor que o limite superior, ou a mesma porcentagem para continuar consumindo energia enquanto a carga da bateria permanecer constante. </para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><guibutton
->Configurar Notificações</guibutton
-></term>
-<listitem>
+</variablelist>
+
 <para
->Se você quiser um maior controle sobre as suas notificações, você poderá ajustá-las clicando neste botão. </para>
+>Alguns sistemas exigem que o cabo de alimentação seja desconectado e reconectado para que as configurações sejam respeitadas. Alguns sistemas não armazenam os limites de carga quando desligados. Esteja ciente das possíveis limitações. </para>
 </listitem>
+
 </varlistentry>
 </variablelist>
-</listitem>
-</varlistentry>
-</variablelist>
+
 </sect2>
 
 </sect1>
@@ -369,7 +467,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Isto permite a mudança do perfil, do brilho, da política de governança da CPU e são muito mais simples e rápidos. O módulo de execução possui várias palavras-chave que você poderá inserir para acessar às suas funções </para>
+>). Isto permite a mudança do brilho, do perfil de energia e muito mais de maneira simples e rápida. O módulo de execução possui várias palavras-chave que você poderá inserir para acessar às suas funções </para>
 <sect2 id="runnerwords">
 <title
 >Palavras-Chave de Execução</title>
@@ -378,66 +476,60 @@
 <variablelist>
 <varlistentry
 ><term
-><guibutton
->Perfil de Energia</guibutton
+><userinput
+>perfil de energia</userinput
 ></term>
 <listitem>
 <para
->Você poderá escolher manualmente um perfil com esta palavra-chave. Todos os perfis disponíveis irão aparecer como ocorrências do &krunner;. </para>
+>Você poderá escolher manualmente um perfil de energia com esta palavra-chave. Todos os perfis disponíveis irão aparecer como ocorrências do &krunner;. </para>
 </listitem>
 </varlistentry>
-<!--no runner keyword  in 4.11 
 <varlistentry
 ><term
-><guibutton
->Power Scheme</guibutton
-></term>
-<listitem>
-<para>
-Lets you manually set the system powersaving scheme. Available schemes will be shown as &krunner; matches.
-</para>
-</listitem>
-</varlistentry>
--->
-<varlistentry
-><term
-><guibutton
->Brilho da tela</guibutton
+><userinput
+>brilho da tela</userinput
+> ou <userinput
+>escurecer tela</userinput
 ></term>
 <listitem>
 <para
->Você poderá controlar o brilho da tela com esta palavra-chave. Neste formato, irão aparecer algumas ocorrências do &krunner; que lhe permitem efetuar algumas ações comuns. Se você inserir um valor após a palavra-chave (&eg;: <userinput
+>Você poderá controlar o brilho da tela com esta palavra-chave. Neste formato, irão aparecer algumas ocorrências do &krunner; que lhe permitem efetuar ações comuns de energia. Se você inserir um valor após a palavra-chave (&eg;: <userinput
 >Brilho da Tela 50</userinput
 >), o brilho será configurado com este valor. </para>
 </listitem>
 </varlistentry>
 <varlistentry
 ><term
-><guibutton
->Suspender</guibutton
+><userinput
+>suspender</userinput
+>, <userinput
+>dormir</userinput
+>,<userinput
+>hibernar</userinput
+>, <userinput
+>para memória RAM</userinput
+> ou <userinput
+>para disco</userinput
 ></term>
 <listitem>
 <para
->Você poderá suspender o seu PC com esta palavra-chave. Os métodos de suspensão irão aparecer como ocorrências do &krunner;. </para>
+>Você poderá deixar o seu computador em um mode de baixo consumo de energia usando estas palavra-chave. Os métodos de disponíveis irão aparecer como ocorrências do &krunner;. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </sect2>
 </sect1>
 </article>
-<!--FIXME in 4.11
-"Note this is a KRunner keyword"
-"power profile"
-"suspend"
-"sleep"
-"hibernate"
-"to disk"
-"to ram"
-"screen brightness"
-"dim screen"
-"power profile %1"
-"screen brightness %1"
-"dim screen %1"
+<!--FIXME in 5.7
+plasma-workspace/runners/powerdevil/
+PowerDevilRunner.cpp:55:    commands << i18nc("Note this is a KRunner keyword", "power profile")
+PowerDevilRunner.cpp:56:             << i18nc("Note this is a KRunner keyword", "suspend")
+PowerDevilRunner.cpp:57:             << i18nc("Note this is a KRunner keyword", "sleep")
+PowerDevilRunner.cpp:58:             << i18nc("Note this is a KRunner keyword", "hibernate")
+PowerDevilRunner.cpp:59:             << i18nc("Note this is a KRunner keyword", "to disk")
+PowerDevilRunner.cpp:60:             << i18nc("Note this is a KRunner keyword", "to ram")
+PowerDevilRunner.cpp:61:             << i18nc("Note this is a KRunner keyword", "screen brightness")
+PowerDevilRunner.cpp:62:             << i18nc("Note this is a KRunner keyword", "dim screen");
 -->
 
 <!--
