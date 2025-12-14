@@ -16,3 +16,5 @@ plasma_add_applet(org.kde.plasma.brightness
         PopupDialog.qml
     GENERATE_APPLET_CLASS
 )
+
+add_dependencies(org.kde.plasma.brightness brightnesscontrolplugin)
