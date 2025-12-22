@@ -996,6 +996,8 @@ void Core::onScreenLockerActiveChanged(bool active)
 void Core::onResumeFromSuspend() {
     const int percent = currentChargePercent();
     emitBatteryChargePercentNotification(percent, 1000);
+
+    m_batteryController->updateAcAdapterState();
 }
 
 void Core::readChargeThreshold()

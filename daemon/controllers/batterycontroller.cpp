@@ -57,13 +57,7 @@ BatteryController::BatteryController()
     }
 
     updateDeviceProps();
-
-    if (m_onBattery) {
-        m_acAdapterState = Unplugged;
-    } else {
-        m_acAdapterState = Plugged;
-    }
-    Q_EMIT acAdapterStateChanged(m_acAdapterState);
+    updateAcAdapterState();
 }
 
 void BatteryController::addDevice(const QString &device)
@@ -141,6 +135,17 @@ void BatteryController::updateDeviceProps()
     m_batteryEnergy = energyTotal;
     m_batteryEnergyFull = energyFullTotal;
     setBatteryRate(energyRateTotal, timestamp);
+}
+
+void BatteryController::updateAcAdapterState()
+{
+    AcAdapterState currentAcAdapterState = m_upowerInterface->onBattery() ? Unplugged : Plugged;
+    if (currentAcAdapterState == m_acAdapterState) {
+        return;
+    }
+
+    m_acAdapterState = currentAcAdapterState;
+    Q_EMIT acAdapterStateChanged(m_acAdapterState);
 }
 
 void BatteryController::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)

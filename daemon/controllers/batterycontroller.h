@@ -61,6 +61,12 @@ public:
      */
     qulonglong smoothedBatteryRemainingTime() const;
 
+    /**
+     * Updates the AC adapter state. Useful to force a refresh in cases where
+     * it might have changed while we weren't watching it (e.g. while asleep).
+     */
+    void updateAcAdapterState();
+
 Q_SIGNALS:
 
     /**
