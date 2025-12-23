@@ -11,6 +11,8 @@
 <authorgroup>
 <author
 >&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
 <othercredit role="translator"
 ><firstname
 >Emir</firstname
@@ -29,9 +31,9 @@
 </authorgroup>
 
 <date
->2016-08-26</date>
+>2024‒02‒09</date>
 <releaseinfo
->&plasma; 5.7</releaseinfo>
+>&plasma; 6.0</releaseinfo>
 
 <keywordset>
 <keyword
@@ -43,213 +45,310 @@
 <keyword
 >güç yönetimi</keyword>
 <keyword
+>enerji tasarrufu</keyword>
+<keyword
 >dizüstü güç</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
 <title
->PowerDevil, bir güç yönetimi ardalan süreci</title>
+>Güç Yönetimi</title>
 
 <para
->Bu modül, &plasma;'da Güç Yönetimini yönetmek için bir yapılandırma aracıdır. PowerDevil ardalan süreci için bir yapılandırıcıdır.</para>
+>Bu ayar modülü, PowerDevil olarak da bilinen &plasma;’nın güç yönetimi hizmetini yapılandırır. Enerji tasarrufu ile sisteminizin yeteneklerinden tam olarak yararlanma arasında denge kurmanıza olanak tanır. Güç yönetimi hizmeti masaüstünüze tümleşiktir ve donanımınızla etkileşime girebilir.</para>
 
 <para
->Bu modül aracılığıyla, bilgisayarınızın çeşitli durumlardaki davranışını tanımlayabilir, olabildiğince çok enerji tasarrufu yapmasını sağlayabilirsiniz. </para>
-
-<para
->Powerdevil yalnızca Solid ile çalışır ve masaüstünüzle tümleşiktir. Bildirimler dışında çalıştığını bile fark etmezsiniz. Ayrıca, Powerdevil önce sistem yeteneklerinizi denetler, böylece bu modülde yalnızca sisteminiz için kullanılabilir olan seçenekleri görürsünüz. </para>
-
-<note
-><para
->PowerDevil'in sisteminizi sorgulamadığını unutmayın. Bu, diğer bazı güç yöneticilerinin yaptığı gibi enerjiyi kurtarmaya çalışırken israf etmeyeceği anlamına gelir.</para
-></note>
-<sect2 id="energy-saving-setting">
-<title
->Enerji Tasarrufu Ayarları</title>
-<para
->Bu sayfa, asıl enerji tasarrufu ayarlarını gösterir. Bir pil algılanırsa <guilabel
+>Modülün ana sayfasında, enerji tasarrufuna yardımcı olabilecek ve yalnızca sisteminiz tarafından desteklenen ayarlar gösterilir. Pille çalışan sistemlerde bu sayfa, <guilabel
 >Fişe Takılıyken</guilabel
 >, <guilabel
 >Pille Çalışırken</guilabel
 > ve <guilabel
 >Düşük Pille Çalışırken</guilabel
-> olarak üç farklı sekme ve profil ayarı açılır. </para>
+> güç durumları için üç adet sekmede üç farklı ayar sayfası gösterir. </para>
+
 <para>
 <screenshot>
 <screeninfo
->Enerji Tasarrufu Ayarları</screeninfo>
+>Güç Yönetimi Ayarları</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Enerji Tasarrufu Ayarları</phrase>
+>Güç Yönetimi Ayarları</phrase>
     </textobject>
     <caption>
       <para
->Enerji Tasarrufu Ayarları</para>
+>Güç Yönetimi Ayarları</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<sect2 id="suspend-session-section">
+<title
+>Oturumu Askıya Al</title>
 <para
->Her bir profil için yapılandırabileceğiniz birçok seçenek vardır: </para>
+>Sistemin uyku kipine geçmesini, kapanmasını veya normal masaüstü oturumunuzu başka şekillerde duraklatmasını beklediğiniz yaygın durumlar vardır. Bu bölüm, sisteminizin bu durumlarda tam olarak nasıl davranacağını tanımlamanıza olanak tanır. </para>
 
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
->Ekran parlaklığı</guilabel
+>Bir şey yapma</guilabel
 ></term>
 <listitem>
 <para
->Kaydırıcıyı kullanarak ekranın parlaklığını ayarlar.</para>
+>Hiçbir şey olmamış gibi masaüstü oturumunuzu kullanmayı sürdürün. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Ekranı karart</guilabel
-></term>
-<listitem>
-<para
->İşaretlenirse döndürme kutusunda belirttiğiniz süre boyunca parlaklık 0'a ulaşana kadar ekran kademeli olarak karartılacaktır. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Ekrandan enerji tasarrufu yap</guilabel
-></term>
-<listitem>
-<para
->Döndürme kutusunda kapatma için zaman aşımını buradan ayarlayabilirsiniz. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry
-><term
-><guilabel
->Oturumu askıya al</guilabel
-></term>
-<listitem>
-<para
->Oturumu seçili zamandan sonra <guilabel
 >Uyut</guilabel
->, <guilabel
->Hazırda beklet</guilabel
->, <guilabel
+></term>
+<listitem>
+<para
+>Güç tasarrufu yapın ve hızlı uyanın. Birçok donanım bileşeni, sistemi tamamen kapatmadan güç tasarrufu kipine girer. Güç kaynağı kesintiye uğradığında (örneğin pil tamamen boşaldığında) kaydedilmemiş veriler kaybolur. Uyku kipinde elde edilen güç tasarrufu derecesi, sistem üreticisi tarafından sağlanan donanım ve donanım yazılımına bağlıdır.</para>
+
+<para
+>Modül, “Uyku” etkinleştirildiğinde girilecek tam uyku kipini seçmek için ek bir açılır menü ayarı sağlar:</para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Bekleme kipi</guilabel
+></term>
+<listitem>
+<para
+>Geçerli masaüstü oturumunu belleğe kaydedin. Bu geleneksel uyku kipi, hızlı bir şekilde uyku kipine geçer ve hızlı bir şekilde uyanır. Pille çalışan sistemler genellikle bu durumda bir gün ile 1–2 hafta arasında dayanacak şekilde tasarlanmıştır. “Belleği kullanarak askıya al” olarak da bilinir.</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Hibrit uyku</guilabel
+></term>
+<listitem>
+<para
+>Geçerli masaüstü oturumunu hem belleğe hem de SSD veya sabit disk gibi bir depolama sürücüsüne kaydedin. Uyanma, bekleme kipi kadar hızlıdır; ancak uyku kipindeyken elektrik kesilse bile kaydedilmemiş veriler korunur. Olumsuz yanı ise bu uyku kipinin depolama sürücünüze en fazla yükü bindirmesidir; bu da ömrünü kısaltır ve sistemin bekleme kipine kıyasla uyku kipine geçmesi daha uzun sürer. “Hibrit askıya alma” olarak da bilinir.</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Bekleme kipine al, sonra derin uykuya geçir</guilabel
+></term>
+<listitem>
+<para
+>Başlangıçta bekleme kipine geçin, ardından bir süre hareketsiz kaldıktan sonra derin uyku kipine geçin. Sistem yalnızca bir süre uyku kipinde kalırsa bu uyku kipi, normal bekleme kipinin hızlı uyanma sürelerini ve depolama sürücüsü ömrünün uzun olmasını sağlar. Sistem daha uzun süre hareketsiz kalırsa derin uyku kipi güç tüketimini daha da azaltır ve kaydedilmemiş verilerin kaybolmamasını sağlar. Derin uyku kipine kadar geçen süre, düşük düzeyli sistem yapılandırmanız tarafından belirlenir. “Askıya al, sonra hazırda beklet” olarak da bilinir.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Derin uykuya geçir</guilabel
+></term>
+<listitem>
+<para
+>Geçerli masaüstü oturumunu depolama sürücünüze kaydedin ve kapatın. Derin uyku kipine geçmek ve oturumu geri yüklemek, bekleme kipindeki uyku kipinden daha uzun sürer; ancak güç kaynağı kesintiye uğrasa bile kaydedilmemiş veriler kaybolmaz. Derin uyku kipi, depolama sürücünüz sistem belleğinizin içeriğini depolayacak kadar büyük bir takas bölümüyle ayarlandığı sürece farklı donanım türlerinde yaygın olarak desteklenir. “Diski kullanarak askıya al” olarak da bilinir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
 >Kapat</guilabel
-> veya <guilabel
+></term>
+<listitem>
+<para
+>Masaüstü oturumunuzdan ve diğer tüm açık oturumlardan çıkış yapın, ardından sistemi kapatın. Açık uygulamalar, kapatılmadan önce kaydedilmemiş verilerin kaydedilmesini isteyecektir. Gelecekteki oturumlar için uygulama durumu yalnızca uygulamanın desteklediği ölçüde geri yüklenir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
 >Ekranı kilitle</guilabel
-> durumlarından birine askıya alır.</para>
+></term>
+<listitem>
+<para
+>Güç tüketimini azaltmadan ekranı kilitleyin. Ekranı kilitlerken aynı zamanda güç tasarrufu yapmak için “Uyut” veya “Derin uykuya geçir” seçeneğini belirleyin ve Ekran Kilidi ayarları modülünde uyku kipinden çıktıktan sonra kilitlemenin etkinleştirildiğinden emin olun. Ekran Kilidi modülünün, belirli bir süre hareketsiz kaldıktan sonra kilitleme için ayrı bir ayar sunduğunu ve bu ayarın yalnızca güç düğmesi veya dizüstü bilgisayar kapağı eylemi olarak kullanılabildiğini unutmayın. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Düğme işlevleri</guilabel
+>Oturumu kapat ekranını göster</guilabel
 ></term>
 <listitem>
 <para
->Dizüstü bilgisayar kapağı kapatıldığında veya bir düğmeye basıldığında gerçekleştirilecek eylemleri seçin.</para>
+>Uyku, derin uyku, kapatma veya oturum kapatma seçeneklerinin bulunduğu bir iletişim kutusu görüntülenir. Bu seçenek yalnızca sistemin fiziksel güç düğmesine basıldığında kullanılabilir. </para>
 </listitem>
 </varlistentry>
 
 <varlistentry
 ><term
 ><guilabel
->Betik çalıştır</guilabel
+>Ekranı kapat</guilabel
 ></term>
 <listitem>
 <para
->Bir profil yüklendiğinde, kaldırıldığında veya belirli bir süre sonra özel bir betik çalıştırmak için bu seçeneği etkinleştirin. </para>
+>Ekranı karartın ve ekran arka ışığını kapatın. “Görüntü ve Parlaklık” bölümünde, “Oturumu Askıya Al” ile yapılandırılan hareketsizlik eyleminden bağımsız olarak, ekranı kapatmak için kendi ayarı bulunur. </para>
 </listitem>
 </varlistentry>
 
 </variablelist>
 </sect2>
 
-<sect2 id="activity-setting">
+<sect2 id="display-and-brightness-section">
 <title
->Etkinlik Ayarları</title>
+>Görüntü ve Parlaklık</title>
 <para
->Burada, etkinlik başına Güç Yönetimi ayarlarını yapılandırabilirsiniz. Her etkinliğin ayarları kendi sekmesinde yapılandırılabilir.</para>
-
-<screenshot>
-<screeninfo
->Etkinlik Ayarları</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Etkinlik Ayarları</phrase>
-    </textobject>
-    <caption>
-      <para
->Etkinlik Ayarları</para>
-    </caption>
-  </mediaobject>
-</screenshot>
+>Dizüstü bilgisayar ekranları ve klavye arka ışıkları, normalde kullanılmayan bir dizüstü bilgisayarın güç tüketiminin büyük bir kısmını oluşturur. Büyük monitörler genellikle ekranı da içerilmek üzere tüm dizüstü bilgisayardan daha fazla güç çeker. Bazı ekran türleri, kullanım şekline bağlı olarak yanma veya piksel sıkışmasına karşı hassastır. Tüm bu nedenlerden dolayı, gereksinim duyulmadığında parlaklığı azaltmak veya ekranları ve arka ışıkları tamamen kapatmak yararlı olabilir. </para>
 
 <variablelist>
 
-<varlistentry>
-<term
->Özel ayarlar kullanma</term>
+<varlistentry
+><term
+><guilabel
+>Ekran parlaklığını değiştir</guilabel
+> / <guilabel
+>Klavye parlaklığını değiştir</guilabel
+></term>
 <listitem>
 <para
 ><guilabel
->Enerji Tasarrufu</guilabel
-> sayfasında tanımlanan ayarları kullanın. </para>
+>Fişe Takılıyken</guilabel
+>, <guilabel
+>Pille Çalışırken</guilabel
+> ve <guilabel
+>Düşük Pille Çalışırken</guilabel
+> güç durumları arasında geçiş yaparken ayarlanacak bir parlaklık düzeyi ayarlayın. </para>
+<para
+>Ekran ve klavye parlaklığı, <guilabel
+>Parlaklık ve Renk</guilabel
+> uygulamacığı ve klavye kısayolları aracılığıyla anında değiştirilebilir. Parlaklığı anında değiştirmek, bu modüldeki ayarları etkilemez. Bu ayar modülünde herhangi bir parlaklık seviyesi ayarlanmamışsa güç durumları arasında geçiş yaparken parlaklık aynı kalır. </para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
-<term
->Özel davranış tanımla</term>
+<varlistentry
+><term
+><guilabel
+>Kendiliğinden karart</guilabel
+></term>
 <listitem>
 <para
->Bu seçenek seçilirse etkinlik için özel bir davranış seçilebilir. Bu bir sunum etkinliğiyse <guilabel
->Ekranı asla kapatma</guilabel
-> ve <guilabel
->Bilgisayarı asla kapatma veya uyumasına izin verme</guilabel
-> kutularını işaretleyebilirsiniz. </para>
+>Belirli bir süre hareketsiz kaldıktan sonra ekran parlaklığını azaltın. Kullanıcı yeniden hareket ettiğinde, ekran önceki parlaklık düzeyine geri döner. </para>
 </listitem>
 </varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Ekranı kapat</guilabel
+></term>
+<listitem>
+<para
+>Belirli bir süre hareketsiz kaldıktan sonra ekran kararır ve arka plan ışığı kapanır. Kullanıcı yeniden hareket ettiğinde ekran yeniden açılır. Ekran kilidi etkin olduğunda daha kısa bir bekleme süresi ayarlanabilir. </para>
+</listitem>
+</varlistentry>
+
 </variablelist>
 </sect2>
 
-<sect2 id="advanced-settings">
+<sect2 id="other-settings">
 <title
->Gelişmiş Ayarlar</title>
+>Diğer Ayarlar</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>Şu güç profiline geç</guilabel
+></term>
+<listitem>
+<para
+><guilabel
+>Fişe Takılıyken</guilabel
+>, <guilabel
+>Pille Çalışırken</guilabel
+> ve <guilabel
+>Düşük Pille Çalışırken</guilabel
+> güç durumları arasında geçiş yaparken ayarlanacak sistem başarımı karakteristiklerini tanımlayın. <guilabel
+>Güç Tasarrufu</guilabel
+>, <guilabel
+>Dengeli</guilabel
+> ve <guilabel
+>Başarım</guilabel
+> gibi güç profilleri, sisteminizin üreteceği ısıyı ve fan gürültüsünü de etkileyen başarım/güç tüketimi oranını ayarlamanıza yardımcı olacaktır. </para>
+<para
+>Güç profilleri, <guilabel
+>Güç ve Pil</guilabel
+> uygulamacığı ve klavye kısayolları aracılığıyla anında değiştirilebilir. Güç profillerini anında değiştirmek, bu modüldeki ayarları etkilemez. Bu ayar modülünde herhangi bir parlaklık düzeyi ayarlanmamışsa, güç durumları arasında geçiş yaparken parlaklık aynı kalır. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>Betik Çalıştır</guilabel
+></term>
+<listitem>
+<para
+><guilabel
+>Fişe Takılıyken</guilabel
+>, <guilabel
+>Pille Çalışırken</guilabel
+> ve <guilabel
+>Düşük Pille Çalışırken</guilabel
+> güç durumları arasında geçiş yaparken veya belirli bir süre hareketsiz kaldıktan sonra çalıştırılacak özel bir betik yapılandırın. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="advanced-power-settings">
+<title
+>Gelişmiş Güç Ayarları</title>
 <para>
 <screenshot>
 <screeninfo
->Gelişmiş Ayarlar</screeninfo>
+>Gelişmiş Güç Ayarları</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
       <phrase
->Gelişmiş Ayarlar</phrase>
+>Gelişmiş Güç Ayarları</phrase>
     </textobject>
     <caption>
       <para
->Gelişmiş Ayarlar</para>
+>Gelişmiş Güç Ayarları</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
+
+<para
+>Ayarlar modülünün ana sayfasının köşesindeki düğmeye basarak bu sayfayı açın. </para>
+
 <variablelist>
+
 <varlistentry
 ><term
 ><guilabel
@@ -257,7 +356,8 @@
 ></term>
 <listitem>
 <para
->Bu ögeler yalnızca bir pil algılandığında görüntülenir. </para>
+>Bu ayarlar yalnızca pille çalışan sistemlerde görüntülenir. </para>
+
 <variablelist>
 <varlistentry
 ><term
@@ -266,7 +366,11 @@
 ></term>
 <listitem>
 <para
->Burada pilin düşük olarak kabul edileceği yüzdeyi ayarlayabilirsiniz. </para>
+>Bu oranın altında pil şarjı düşük kabul edilir. Sistem fişe takılı değilse <guilabel
+>Pille Çalışırken</guilabel
+> yerine <guilabel
+>Düşük Pille Çalışırken</guilabel
+> profilindeki ayarlar kullanılır. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -276,7 +380,7 @@
 ></term>
 <listitem>
 <para
->Burada pil düzeyinin kritik olarak kabul edileceği yüzdeyi ayarlayabilirsiniz. </para>
+>Bu oranın altında kalan pil şarjı kritik düzeyde kabul edilecektir. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -286,32 +390,70 @@
 ></term>
 <listitem>
 <para
->Pil kritik düzeye geldiğinde yapılacak eylemi tanımlar. </para>
+>Pil şarjı kritik düzeye ulaştığında gerçekleştirilecek eylemi tanımlayın. </para>
 </listitem>
 </varlistentry>
 <varlistentry
 ><term
->Çevresel aygıtlar</term>
+>Çevre birimleri</term>
 <listitem>
 <para
->Çevresel aygıtlar için düşük düzeyi tanımlar; &eg;. kablosuz fare. </para>
+>Bu oranın altında kalan çevre birimlerinin ve kablosuz farelerin pil şarjı düşük kabul edilecektir. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
+
 </varlistentry>
 
 <varlistentry
 ><term
-><guibutton
->Bildirimleri Yapılandır</guibutton
+><guilabel
+>Şarj Sınırı</guilabel
 ></term>
 <listitem>
 <para
->Bildirimleriniz üzerinde daha derin bir denetim istiyorsanız bu düğmeye tıklayarak bildirimlerinizi duyarlılaştırabilirsiniz. </para>
+>Bu ayarlar yalnızca sistem, pili için şarj sınırlarını destekliyorsa görüntülenir. </para>
+
+<para
+>Pili düzenli olarak yüzde yüze yakın şarj etmek veya yüzde sıfıra yakın tamamen boşaltmak, pilin daha hızlı bozulmasına neden olabilir. En yüksek pil şarjını sınırlayarak pilinizin ömrünü uzatabilirsiniz. </para>
+
+<para
+>Farklı kaynaklar, lityum iyon piller için farklı şarj düzeyleri önermektedir. Geçerli araştırmalardaki genel kanı, pilinizin kapasitesini yıllar boyunca korumak için %25–%75 aralığında tutmanın ideal olduğu yönündedir. %15–%85 aralığı, daha geniş aralıklara kıyasla pil ömrünü önemli ölçüde artırır. </para>
+
+<para
+>Pil ömrünün, şarj ve deşarj döngülerinin sayısından çok, zaman içindeki şarj düzeylerinden etkilendiğini unutmayın. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Şu düzeyde şarjı durdur</guilabel
+></term>
+<listitem>
+<para
+>Pilinizin üst şarj sınırı. Bu düzeye ulaşıldığında, pil tamamen şarj olmuş sayılır ve sistem daha fazla şarj etmez. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>Şu düzeyin altında şarj etmeye başla</guilabel
+></term>
+<listitem>
+<para
+>Alt şarj sınırı. Pil bu düzeyin üzerine çıktığında, sistem yeniden şarj etmeye başlar. Bu, üst sınırdan biraz daha düşük veya pil şarjı sabit kalırken güç çekmeyi sürdürmek için aynı yüzdede olabilir. </para>
 </listitem>
 </varlistentry>
 </variablelist>
+
+<para
+>Bazı sistemler, ayarlara uyulması için güç kablosunun çıkarılıp yeniden takılmasını gerektirir. Bazı sistemler, kapalıyken şarj limitlerini kaydetmez. Olası sınırlamalara dikkat edin. </para>
+</listitem>
+
+</varlistentry>
+</variablelist>
+
 </sect2>
 
 </sect1>
@@ -325,12 +467,12 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Bu; profil, parlaklık, regülatör ve daha fazlasını değiştirmeyi çok daha kolay ve hızlı hale getirir. Çalıştırıcı, işlevlerine erişmek için girebileceğiniz çeşitli anahtar sözcüklere sahiptir. </para>
+>). Bu; profil, parlaklık, güç profili ve daha fazlasını değiştirmeyi çok daha kolay ve hızlı hale getirir. Çalıştırıcı, işlevlerine erişmek için girebileceğiniz çeşitli anahtar sözcüklere sahiptir. </para>
 <sect2 id="runnerwords">
 <title
 >Çalıştırıcı Anahtar Sözcükleri</title>
 <para
->İşte PowerDevil ile ilgili eylemleri gerçekleştirmek için &krunner;'a girebileceğiniz anahtar sözcüklerin bir listesi. </para>
+>İşte PowerDevil ile ilgili eylemleri gerçekleştirmek için &krunner;’a girebileceğiniz anahtar sözcüklerin bir listesi. </para>
 <variablelist>
 <varlistentry
 ><term
@@ -339,7 +481,7 @@
 ></term>
 <listitem>
 <para
->Bu anahtar sözcüğü kullanarak elle bir profil seçebilirsiniz. Kullanılabilir tüm profiller &krunner; eşleşmeleri biçiminde gösterilir. </para>
+>Bu anahtar sözcüğü kullanarak elle bir güç profili seçebilirsiniz. Geçerli tüm profiller &krunner; eşleşmeleri şeklinde gösterilecektir. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -351,9 +493,9 @@
 ></term>
 <listitem>
 <para
->Bu anahtar sözcükle ekran parlaklığını denetleyebilirsiniz. Bu biçimde, bazı genel işlemleri yapmanıza izin veren bazı &krunner; eşleşmeleri gösterilecektir. Anahtar sözcükten sonra bir değer girerseniz (&eg;, <userinput
+>Ekran parlaklığını bu anahtar sözcük aracılığıyla denetleyebilirsiniz. Bu formda, ortak güç eylemlerini çalıştırmanıza olanak tanıyan bazı &krunner; eşleşmeleri gösterilecektir. Anahtar sözcükten sonra bir değer girerseniz (örneğin, <userinput
 >ekran parlaklığı 50</userinput
->) parlaklık bu değere ayarlanır. </para>
+>), parlaklık bu değere ayarlanacaktır. </para>
 </listitem>
 </varlistentry>
 <varlistentry
@@ -363,7 +505,7 @@
 >, <userinput
 >uyut</userinput
 >, <userinput
->hazırda beklet</userinput
+>derin uyku</userinput
 >, <userinput
 >belleğe</userinput
 > veya <userinput
