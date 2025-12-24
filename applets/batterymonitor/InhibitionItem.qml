@@ -41,6 +41,9 @@ PlasmaComponents3.ItemDelegate {
     property var requestedInhibitions: []
     property bool inhibitsLidAction
 
+    readonly property bool hasRequestedIdleInhibitions: root.requestedInhibitions.some((inh) => inh.what.includes("idle"))
+    readonly property bool hasRequestedSleepInhibitions: root.requestedInhibitions.some((inh) => inh.what.includes("sleep"))
+
     readonly property bool hasActiveIdleInhibitions: root.requestedInhibitions.some((inh) => inh.active && inh.what.includes("idle"))
     readonly property bool hasActiveSleepInhibitions: root.requestedInhibitions.some((inh) => inh.active && inh.what.includes("sleep"))
     readonly property bool hasActiveInhibitions: root.hasActiveIdleInhibitions || root.hasActiveSleepInhibitions
@@ -58,7 +61,17 @@ PlasmaComponents3.ItemDelegate {
         title: i18n("Power Management")
     }
 
-    Accessible.description: pmStatusLabel.text
+    Accessible.description: {
+        if (root.isManuallyInhibited || (root.hasActiveIdleInhibitions && root.hasActiveSleepInhibitions)) {
+            return i18nc("Sleep and Screen Locking after Inactivity", "Blocked");
+        } else if (root.hasActiveIdleInhibitions) {
+            return i18n("Automatic Sleep; Screen Locking is blocked");
+        } else if (root.hasActiveSleepInhibitions) {
+            return i18n("Automatic Screen Locking; Sleep is blocked");
+        } else {
+            return i18nc("Sleep and Screen Locking after Inactivity", "Automatic");
+        }
+    }
     Accessible.role: Accessible.CheckBox
 
     contentItem: RowLayout {
@@ -84,15 +97,33 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Label {
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: root.text
+                    text: i18nc("Automatic or Blocked", "Sleep after Inactivity")
                     textFormat: Text.PlainText
                     wrapMode: Text.Wrap
                 }
 
                 PlasmaComponents3.Label {
-                    id: pmStatusLabel
                     Layout.alignment: Qt.AlignRight | Qt.AlignTop
-                    text: (root.isManuallyInhibited || root.hasActiveInhibitions) ? i18nc("Sleep and Screen Locking after Inactivity", "Blocked") : i18nc("Sleep and Screen Locking after Inactivity", "Automatic")
+                    text: (root.isManuallyInhibited || root.hasActiveSleepInhibitions) ? i18nc("Sleep after Inactivity", "Blocked") : i18nc("Sleep after Inactivity", "Automatic")
+                    textFormat: Text.PlainText
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Kirigami.Units.largeSpacing
+
+                PlasmaComponents3.Label {
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: i18nc("Automatic or Blocked", "Screen Locking after Inactivity")
+                    textFormat: Text.PlainText
+                    wrapMode: Text.Wrap
+                }
+
+                PlasmaComponents3.Label {
+                    Layout.alignment: Qt.AlignRight | Qt.AlignTop
+                    text: (root.isManuallyInhibited || root.hasActiveIdleInhibitions) ? i18nc("Screen Locking after Inactivity", "Blocked") : i18nc("Screen Locking after Inactivity", "Automatic")
                     textFormat: Text.PlainText
                 }
             }
@@ -116,14 +147,26 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Label {
                     id: inhibitionExplanation
                     Layout.fillWidth: true
-                    visible: root.requestedInhibitions.length > 1
+                    visible: root.hasRequestedIdleInhibitions || root.hasRequestedSleepInhibitions
                     font: Kirigami.Theme.smallFont
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 3
-                    text: i18np("%1 application currently wants to block sleep and screen locking:",
+                    text: {
+                        if (root.hasRequestedIdleInhibitions && root.hasRequestedSleepInhibitions) {
+                            return i18np("%1 application currently wants to block sleep and screen locking:",
                                 "%1 applications currently want to block sleep and screen locking:",
-                                root.requestedInhibitions.length)
+                                root.requestedInhibitions.length);
+                        } else if (root.hasRequestedIdleInhibitions) {
+                            return i18np("%1 application currently wants to block screen locking:",
+                                "%1 applications currently want to block screen locking:",
+                                root.requestedInhibitions.length);
+                        } else { // root.hasRequestedSleepInhibitions
+                            return i18np("%1 application currently wants to block sleep:",
+                                "%1 applications currently want to block sleep:",
+                                root.requestedInhibitions.length);
+                        }
+                    }
                     textFormat: Text.PlainText
                 }
 
@@ -137,34 +180,39 @@ PlasmaComponents3.ItemDelegate {
                         required property string reason
                         required property bool active
                         required property bool allowed
+                        required property var what
 
                         Layout.fillWidth: true
 
                         iconSource: icon || (KWindowSystem.KWindowSystem.isPlatformWayland ? "wayland" : "xorg")
                         text: {
-                            if (!allowed) {
-                                return i18nc("Application name; reason", "%1 has been prevented from blocking sleep and screen locking for %2", prettyName, reason)
-                            } else if (root.requestedInhibitions.length === 1) {
-                                if (reason && prettyName) {
-                                    return i18n("%1 is currently blocking sleep and screen locking (%2)", prettyName, reason)
-                                } else if (prettyName) {
-                                    return i18n("%1 is currently blocking sleep and screen locking (unknown reason)", prettyName)
-                                } else if (reason) {
-                                    return i18n("An application is currently blocking sleep and screen locking (%1)", reason)
-                                } else {
-                                    return i18n("An application is currently blocking sleep and screen locking (unknown reason)")
+                            const why = reason ?? i18nc("Sleep and/or screen locking inhibition reason if none is provided by the application", "unknown reason");
+                            const who = prettyName ?? appName;
+
+                            const isIdleInhibition = what.includes("idle");
+                            const isSleepInhibition = what.includes("sleep");
+
+                            var inhibitionBehavior;
+                            if (allowed && root.requestedInhibitions.length > 1) { // for 1 exactly, inhibitionExplanation above already says the same thing
+                                if (isIdleInhibition && isSleepInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Blocking sleep and screen locking.");
+                                } else if (isIdleInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Blocking screen locking.");
+                                } else if (isSleepInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Blocking sleep.");
                                 }
-                            } else {
-                                if (reason && prettyName) {
-                                    return i18nc("Application name: reason for preventing sleep and screen locking", "%1: %2", prettyName, reason)
-                                } else if (prettyName) {
-                                    return i18nc("Application name: reason for preventing sleep and screen locking", "%1: unknown reason", prettyName)
-                                } else if (reason) {
-                                    return i18nc("Application name: reason for preventing sleep and screen locking", "Unknown application: %1", reason)
-                                } else {
-                                    return i18nc("Application name: reason for preventing sleep and screen locking", "Unknown application: unknown reason")
+                            } else if (!allowed) {
+                                if (isIdleInhibition && isSleepInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Prevented from blocking sleep and screen locking.");
+                                } else if (isIdleInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Prevented from blocking screen locking.");
+                                } else if (isSleepInhibition) {
+                                    inhibitionBehavior = i18nc("Text below inhibiting application name and reason.", "Prevented from blocking sleep.");
                                 }
                             }
+
+                            const whoAndWhy = i18nc("Application name: reason for preventing sleep and screen locking", "%1: %2", who, why);
+                            return inhibitionBehavior ? (whoAndWhy + "\n" + inhibitionBehavior) : whoAndWhy;
                         }
 
                         PlasmaComponents3.Button {
