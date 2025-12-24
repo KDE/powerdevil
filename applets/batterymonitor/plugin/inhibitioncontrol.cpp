@@ -344,7 +344,7 @@ QList<RequestedInhibition> InhibitionControl::updatedInhibitions(const QList<Pol
             .prettyName = prettyName,
             .icon = icon,
             .reason = inhibition.why,
-            .what = whats,
+            .behaviors = whats,
             .active = static_cast<bool>(inhibition.flags & PolicyAgentInhibition::Active),
             .allowed = static_cast<bool>(inhibition.flags & PolicyAgentInhibition::Allowed),
         });

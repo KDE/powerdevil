@@ -43,7 +43,7 @@ class RequestedInhibition
     Q_PROPERTY(QString prettyName MEMBER prettyName CONSTANT FINAL)
     Q_PROPERTY(QString icon MEMBER icon CONSTANT FINAL)
     Q_PROPERTY(QString reason MEMBER reason CONSTANT FINAL)
-    Q_PROPERTY(QStringList what MEMBER what CONSTANT FINAL)
+    Q_PROPERTY(QStringList behaviors MEMBER behaviors CONSTANT FINAL)
     Q_PROPERTY(bool active MEMBER active CONSTANT FINAL)
     Q_PROPERTY(bool allowed MEMBER allowed CONSTANT FINAL)
 
@@ -55,7 +55,7 @@ public:
     QString prettyName;
     QString icon;
     QString reason;
-    QStringList what;
+    QStringList behaviors;
     bool active;
     bool allowed;
 };

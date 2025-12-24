@@ -38,7 +38,7 @@ PlasmaExtras.Representation {
     //  prettyName: string,
     //  icon: string,
     //  reason: string,
-    //  what: array<string>, // what's inhibited: "idle", "sleep", both, or any future inhibition types
+    //  behaviors: array<string>, // what's inhibited: "idle", "sleep", both, or any future inhibition types
     //  active: bool,
     //  allowed: bool,
     // }]
