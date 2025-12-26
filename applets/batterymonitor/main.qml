@@ -47,7 +47,7 @@ PlasmoidItem {
         id: inhibitionControl
     }
 
-    readonly property bool kcmAuthorized: KConfig.KAuthorized.authorizeControlModule("powerdevilprofilesconfig")
+    readonly property bool kcmAuthorized: KConfig.KAuthorized.authorizeControlModule("kcm_powerdevilprofilesconfig")
     readonly property bool kcmEnergyInformationAuthorized: KConfig.KAuthorized.authorizeControlModule("kcm_energyinfo")
 
     readonly property bool inPanel: [
@@ -325,6 +325,10 @@ PlasmoidItem {
     }
 
     Component.onCompleted: {
-        Plasmoid.setInternalAction("configure", configureAction);
+        if (batterymonitor.kcmAuthorized) {
+            Plasmoid.setInternalAction("configure", configureAction);
+        } else {
+            Plasmoid.removeInternalAction("configure");
+        }
     }
 }
