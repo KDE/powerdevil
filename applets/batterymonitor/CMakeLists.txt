@@ -12,6 +12,7 @@ plasma_add_applet(org.kde.plasma.battery
         CompactRepresentation.qml
         InhibitionHint.qml
         InhibitionItem.qml
+        InhibitionSwitch.qml
         main.qml
         PopupDialog.qml
         PowerProfileItem.qml
