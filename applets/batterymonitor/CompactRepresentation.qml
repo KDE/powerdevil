@@ -97,6 +97,7 @@ MouseArea {
             anchors.right: parent.right
 
             visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
+                && root.batteryPercent < 100 // 100 makes the text too wide
 
             text: i18nc("battery percentage below battery icon", "%1%", root.batteryPercent)
             icon: overallBatteryIcon
