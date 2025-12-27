@@ -96,7 +96,9 @@ MouseArea {
             anchors.bottom: parent.bottom
             anchors.right: parent.right
 
+            // 100% is not necessarily fully charged, but that's mostly irrelevant to users
             visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
+                && root.batteryPercent < 100
 
             text: i18nc("battery percentage below battery icon", "%1%", root.batteryPercent)
             icon: overallBatteryIcon
