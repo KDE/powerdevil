@@ -29,13 +29,13 @@
 </authorgroup>
 
 <date
->18/08/2013</date>
+>26/08/2016</date>
 <releaseinfo
->&kde; 4.11</releaseinfo>
+>&plasma; 5.7</releaseinfo>
 
 <keywordset>
 <keyword
->KDE</keyword>
+>Plasma</keyword>
 <keyword
 >Configuração do Sistema</keyword>
 <keyword
@@ -52,9 +52,7 @@
 >PowerDevil, um Servidor de Gerenciamento de Energia</title>
 
 <para
->Este módulo é uma ferramenta de configuração para o Gerenciamento de Energia no &kde;. É um módulo de configuração para o servidor do PowerDevil, que você poderá iniciar ou parar no módulo do <guilabel
->Gerenciador de Serviços</guilabel
->. </para>
+>Este módulo é uma ferramenta de configuração para o Gerenciamento de Energia no &plasma;. É um módulo de configuração para o servidor do PowerDevil.</para>
 
 <para
 >Através deste módulo, você poderá definir o comportamento do seu computador em várias situações, o que lhe permite poupar o máximo possível de energia. </para>
@@ -98,12 +96,12 @@
 </para>
 <para
 >Existem diversas opções que você poderá configurar para cada perfil: </para>
-<!--FIXME in 4.11/master additional Keyboard Backlight ??-->
+
 <variablelist>
 <varlistentry
 ><term
 ><guilabel
->Brilho da tela</guilabel
+>Brilho da tela </guilabel
 ></term>
 <listitem>
 <para
@@ -114,7 +112,7 @@
 <varlistentry
 ><term
 ><guilabel
->Escurecer a tela</guilabel
+>Escurecer tela</guilabel
 ></term>
 <listitem>
 <para
@@ -129,7 +127,7 @@
 ></term>
 <listitem>
 <para
->Aqui você poderá definir a economia de energia para o seu monitor. A caixa de seleção define se o suporte ao DPMS deve estar ativado ou não. Se você optar por ativá-lo, define os tempos de ativação nas caixas incrementais abaixo. </para>
+>Aqui você pode definir o tempo limite para desligar na caixa de seleção. </para>
 </listitem>
 </varlistentry>
 
@@ -162,6 +160,7 @@
 >Selecione as ações executadas quando a tela do notebook for aberta ou um botão for pressionado.</para>
 </listitem>
 </varlistentry>
+
 <varlistentry
 ><term
 ><guilabel
@@ -173,6 +172,17 @@
 </listitem>
 </varlistentry>
 
+<varlistentry
+><term
+><guilabel
+>Economia de energia sem fio</guilabel
+></term>
+<listitem>
+<para
+>Ative esta opção para definir ações individuais para conexões Wi-Fi, banda larga móvel ou Bluetooth. </para>
+</listitem>
+</varlistentry>
+
 </variablelist>
 </sect2>
 
@@ -181,7 +191,7 @@
 >Configurações da atividade</title>
 <para
 >Aqui você poderá configurar as opções de gerenciamento de energia por atividade. As opções de cada atividade podem ser configuradas na sua própria aba.</para>
-<para>
+
 <screenshot>
 <screeninfo
 >Configurações da atividade</screeninfo>
@@ -199,8 +209,9 @@
     </caption>
   </mediaobject>
 </screenshot>
-</para>
+
 <variablelist>
+
 <varlistentry>
 <term
 >Não usar as configurações especiais</term>
@@ -211,20 +222,7 @@
 >. </para>
 </listitem>
 </varlistentry>
-<varlistentry>
-<term
->Funcionar como</term>
-<listitem>
-<para
->Aqui você poderá escolher um perfil predefinido a partir da lista: <guimenuitem
->PC usando o adaptador de energia</guimenuitem
->, <guimenuitem
->PC usando a bateria</guimenuitem
-> ou <guimenuitem
->PC com pouca carga de bateria</guimenuitem
->. </para>
-</listitem>
-</varlistentry>
+
 <varlistentry>
 <term
 >Definir um comportamento especial</term>
@@ -234,7 +232,7 @@
 >Nunca desligar a tela</guilabel
 > e <guilabel
 >Nunca suspender ou desligar o computador</guilabel
->. Também é possível definir o intervalo de tempo para o computador mudar para um modo de suspensão para as atividades de economia de energia. </para>
+>. Também é possível definir o intervalo de tempo para que o computador entre em modo de suspensão para as atividades de economia de energia. </para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -285,7 +283,7 @@
 <varlistentry
 ><term
 ><guilabel
->A bateria está em nível baixo com</guilabel
+>Nível baixo</guilabel
 ></term>
 <listitem>
 <para
@@ -295,7 +293,7 @@
 <varlistentry
 ><term
 ><guilabel
->A bateria está em nível crítico com</guilabel
+>Nível crítico</guilabel
 ></term>
 <listitem>
 <para
@@ -305,43 +303,25 @@
 <varlistentry
 ><term
 ><guilabel
->Quando a bateria está em nível crítico</guilabel
+>No nível crítico</guilabel
 ></term>
 <listitem>
 <para
 >Define a ação a efetuar quando a bateria atingir o nível crítico. </para>
 </listitem>
 </varlistentry>
+<varlistentry
+><term
+>Dispositivos periféricos</term>
+<listitem>
+<para
+>Define o nível baixo para dispositivos periféricos, &eg;, um mouse sem fio. </para>
+</listitem>
+</varlistentry>
 </variablelist>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><guilabel
->Eventos</guilabel
-></term>
-<listitem>
-<variablelist>
-<varlistentry
-><term
-><guilabel
->Bloquear a tela ao reativar</guilabel
-></term>
-<listitem>
-<para
->Quando esta opção estiver assinalada, sempre que o PC for suspenso, a tela ficará bloqueada ao recuperar. Será solicitada uma senha ao retornar do estado de suspensão.</para>
-</listitem>
-</varlistentry>
-<varlistentry
-><term
-><guilabel
->Nunca impedir uma ação ao fechar a tampa</guilabel
-></term>
-<listitem>
-<para
->Quando esta opção estiver selecionada, os aplicativos não poderão inibir a suspensão quando a tampa for fechada. </para>
-</listitem>
-</varlistentry>
+
 <varlistentry
 ><term
 ><guibutton
@@ -350,9 +330,6 @@
 <listitem>
 <para
 >Se você quiser um maior controle sobre as suas notificações, você poderá ajustá-las clicando neste botão. </para>
-</listitem>
-</varlistentry>
-</variablelist>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -378,31 +355,20 @@
 <variablelist>
 <varlistentry
 ><term
-><guibutton
->Perfil de Energia</guibutton
+><userinput
+>perfil de energia</userinput
 ></term>
 <listitem>
 <para
 >Você poderá escolher manualmente um perfil com esta palavra-chave. Todos os perfis disponíveis irão aparecer como ocorrências do &krunner;. </para>
 </listitem>
 </varlistentry>
-<!--no runner keyword  in 4.11 
 <varlistentry
 ><term
-><guibutton
->Power Scheme</guibutton
-></term>
-<listitem>
-<para>
-Lets you manually set the system powersaving scheme. Available schemes will be shown as &krunner; matches.
-</para>
-</listitem>
-</varlistentry>
--->
-<varlistentry
-><term
-><guibutton
->Brilho da tela</guibutton
+><userinput
+>brilho da tela</userinput
+> ou <userinput
+>escurecer tela</userinput
 ></term>
 <listitem>
 <para
@@ -413,31 +379,36 @@ Lets you manually set the system powersaving scheme. Available schemes will be s
 </varlistentry>
 <varlistentry
 ><term
-><guibutton
->Suspender</guibutton
+><userinput
+>suspender</userinput
+>, <userinput
+>dormir</userinput
+>,<userinput
+>hibernar</userinput
+>, <userinput
+>para memória RAM</userinput
+> ou <userinput
+>para disco</userinput
 ></term>
 <listitem>
 <para
->Você poderá suspender o seu PC com esta palavra-chave. Os métodos de suspensão irão aparecer como ocorrências do &krunner;. </para>
+>Você poderá deixar o seu computador em um mode de baixo consumo de energia usando estas palavra-chave. Os métodos de disponíveis irão aparecer como ocorrências do &krunner;. </para>
 </listitem>
 </varlistentry>
 </variablelist>
 </sect2>
 </sect1>
 </article>
-<!--FIXME in 4.11
-"Note this is a KRunner keyword"
-"power profile"
-"suspend"
-"sleep"
-"hibernate"
-"to disk"
-"to ram"
-"screen brightness"
-"dim screen"
-"power profile %1"
-"screen brightness %1"
-"dim screen %1"
+<!--FIXME in 5.7
+plasma-workspace/runners/powerdevil/
+PowerDevilRunner.cpp:55:    commands << i18nc("Note this is a KRunner keyword", "power profile")
+PowerDevilRunner.cpp:56:             << i18nc("Note this is a KRunner keyword", "suspend")
+PowerDevilRunner.cpp:57:             << i18nc("Note this is a KRunner keyword", "sleep")
+PowerDevilRunner.cpp:58:             << i18nc("Note this is a KRunner keyword", "hibernate")
+PowerDevilRunner.cpp:59:             << i18nc("Note this is a KRunner keyword", "to disk")
+PowerDevilRunner.cpp:60:             << i18nc("Note this is a KRunner keyword", "to ram")
+PowerDevilRunner.cpp:61:             << i18nc("Note this is a KRunner keyword", "screen brightness")
+PowerDevilRunner.cpp:62:             << i18nc("Note this is a KRunner keyword", "dim screen");
 -->
 
 <!--
