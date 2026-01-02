@@ -2,30 +2,32 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the powerdevil package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2025, 2026 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 00:46+0000\n"
-"PO-Revision-Date: 2009-01-20 10:11-0500\n"
-"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2026-01-01 17:33+0000\n"
+"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Kevin Scannell"
+msgstr "Kevin Scannell,Charlotte"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kscanne@gmail.com"
+msgstr "kscanne@gmail.com,altronic25@protonmail.com"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
@@ -37,22 +39,19 @@ msgid "Power Management"
 msgstr "Bainisteoireacht Próifíle"
 
 #: actions/bundled/dpms.cpp:76
-#, fuzzy, kde-format
-#| msgid "Turn off screen"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr "Múch an scáileán"
+msgstr "Múch an Scáileán"
 
 #: actions/bundled/handlebuttonevents.cpp:51
-#, fuzzy, kde-format
-#| msgid "Suspend to RAM"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr "Cuir ar fionraí i RAM"
+msgstr "Cuir ar fionraí"
 
 #: actions/bundled/handlebuttonevents.cpp:56
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Geimhrigh"
@@ -61,15 +60,14 @@ msgstr "Geimhrigh"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr ""
+msgstr "Múch Cumhacht"
 
 #: actions/bundled/handlebuttonevents.cpp:75
-#, fuzzy, kde-format
-#| msgid "PowerDevil"
+#, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr "PowerDevil"
+msgstr "Múch Cumhacht"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, fuzzy, kde-format
@@ -109,7 +107,7 @@ msgstr ""
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:102
 #, kde-format
@@ -127,24 +125,22 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr ""
+msgstr "Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Cothaitheoir"
 
 #: powerdevilapp.cpp:108
-#, fuzzy, kde-format
-#| msgid "Dario Freddi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
@@ -193,7 +189,7 @@ msgstr "Stadfaidh an ríomhaire i gceann 1 soicind."
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilcore.cpp:548
 #, kde-format
@@ -207,22 +203,22 @@ msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
-msgstr ""
+msgstr "Tá an cadhnra in \"%1\" ar dul in éag, agus an gléas "
 
 #: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Cadhnra Luiche Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Cadhnra Méarchláir Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Cadhnra Bluetooth Gléis Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:573
 #, kde-format
@@ -231,6 +227,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
+"Tá an cadhnra in Bluetooth gléis \"%1\" ag rith, agus féadfar an gléas a "
+"mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra, le do thoil."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -242,7 +240,7 @@ msgstr ""
 #: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
-msgstr ""
+msgstr "Plugáilte an corda cumhachta isteach."
 
 #: powerdevilcore.cpp:637
 #, fuzzy, kde-format
@@ -252,12 +250,11 @@ msgid "The system will shut down in 60 seconds."
 msgstr "Cuirfear an ríomhaire sa mhód fuireachais i gceann 1 soicind."
 
 #: powerdevilcore.cpp:639
-#, fuzzy, kde-format
-#| msgid "Shutdown"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Múch"
+msgstr "Múch Anois"
 
 #: powerdevilcore.cpp:645
 #, fuzzy, kde-format
@@ -283,25 +280,19 @@ msgid "The system will go to sleep in 60 seconds."
 msgstr "Cuirfear an ríomhaire ar fionraí i RAM i gceann 1 soicind."
 
 #: powerdevilcore.cpp:655
-#, fuzzy, kde-format
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Codail"
+msgstr "Codail Anois"
 
 #: powerdevilcore.cpp:661
-#, fuzzy, kde-format
-#| msgid "Your battery level is critical, save your work as soon as possible."
+#, kde-format
 msgid "Please save your work."
-msgstr ""
-"Shroich do chadhnra leibhéal criticiúil: sábháil do chuid oibre chomh luath "
-"agus is féidir."
+msgstr "Sábháil do chuid oibre, le do thoil."
 
 #: powerdevilcore.cpp:667
-#, fuzzy, kde-format
-#| msgctxt "Interrupts the suspension/shutdown process"
-#| msgid "Cancel"
+#, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
@@ -311,7 +302,7 @@ msgstr "Cealaigh"
 #: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Cadhnra Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:686
 #, kde-format
