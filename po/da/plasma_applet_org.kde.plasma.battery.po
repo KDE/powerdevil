@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:45+0000\n"
+"POT-Creation-Date: 2026-01-10 00:45+0000\n"
 "PO-Revision-Date: 2025-10-29 11:15+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -98,30 +98,102 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:51
+#: InhibitionItem.qml:53
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Slumring og skærmlåsning efter inaktivitet"
 
-#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Strømstyring"
 
-#: InhibitionItem.qml:95
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Blocked"
-msgstr "Blokeret"
+#: InhibitionItem.qml:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+msgctxt "accessible-only status text"
+msgid "Automatic sleep and screen locking are currently blocked."
+msgstr ""
+"Automatisk slumring og låsning af skærm er deaktiveret: midterklik for at "
+"genaktivere"
 
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:67
 #, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Automatic"
-msgstr "Automatisk"
+msgctxt "accessible-only status text"
+msgid ""
+"Screen locking is currently blocked. Sleep is automatic after inactivity."
+msgstr ""
+
+#: InhibitionItem.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid ""
+"Sleep is currently blocked. Screen locking is automatic after inactivity."
+msgstr "Slumring og skærmlåsning efter inaktivitet"
+
+#: InhibitionItem.qml:71
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid "Sleep and screen locking are automatic after inactivity."
+msgstr "Slumring og skærmlåsning efter inaktivitet"
+
+#: InhibitionItem.qml:94
+#, fuzzy, kde-format
+#| msgid "Failed to block automatic sleep and screen locking"
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block Sleep and Screen Locking"
+msgstr "Kunne ikke automatisk blokere slumring og skærmlåsning"
 
 #: InhibitionItem.qml:112
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "Kunne ikke fjerne blokering af automatisk slumring og skærmlåsning"
+
+#: InhibitionItem.qml:115
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "Kunne ikke automatisk blokere slumring og skærmlåsning"
+
+#: InhibitionItem.qml:129
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Minimize the length of this string as much as possible but the sentence "
+#| "about higher energy consumption must be included (EU regulations)"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label corresponding to Manually Block Sleep and Screen Locking toggle"
+msgid "This will result in higher energy consumption."
+msgstr ""
+"Du har manuelt blokeret slumring og skærmlåsning. Dette vil resultere i "
+"højere strømforbrug."
+
+#: InhibitionItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Minimize the length of this string as much as possible but the sentence "
+#| "about higher energy consumption must be included (EU regulations)"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label accessible - the sentence about higher energy consumption must be "
+"included (EU regulations)"
+msgid ""
+"You have manually blocked automatic sleep and screen locking. This will "
+"result in higher energy consumption."
+msgstr ""
+"Du har manuelt blokeret slumring og skærmlåsning. Dette vil resultere i "
+"højere strømforbrug."
+
+#: InhibitionItem.qml:137
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -131,71 +203,95 @@ msgstr ""
 "Din bærbare er konfigureret til ikke at slumre når låget lukkes, mens en "
 "ekstern skærm er tilsluttet."
 
-#: InhibitionItem.qml:124
-#, kde-format
-msgid "%1 application currently wants to block sleep and screen locking:"
-msgid_plural ""
-"%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 program vil i øjeblikket gerne blokere slumring og skærmlåsning:"
-msgstr[1] ""
-"%1 programmer vil i øjeblikket gerne blokere slumring og skærmlåsning:"
-
-#: InhibitionItem.qml:146
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr ""
-"%1 er blevet forhindret i at blokere slumring og låsning af skærm for (%2)"
-
-#: InhibitionItem.qml:149
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
-
-#: InhibitionItem.qml:151
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "%1 blokerer i øjeblikket slumring og låsning af skærm (ukendt årsag)"
-
-#: InhibitionItem.qml:153
-#, kde-format
-msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "Et program blokerer i øjeblikket slumring og skærmlåsning: (%1)"
-
-#: InhibitionItem.qml:155
-#, kde-format
-msgid ""
-"An application is currently blocking sleep and screen locking (unknown "
-"reason)"
-msgstr ""
-"Et program forhindrer i øjeblikket slumring og låsning af skærm (ukendt "
-"årsag)"
-
-#: InhibitionItem.qml:159
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: InhibitionItem.qml:161
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: unknown reason"
+#: InhibitionItem.qml:156
+#, fuzzy, kde-format
+#| msgctxt "Application name: reason for preventing sleep and screen locking"
+#| msgid "%1: unknown reason"
+msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+msgid "Unknown reason."
 msgstr "%1: ukendt årsag"
 
 #: InhibitionItem.qml:163
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: %1"
-msgstr "Ukendt program: %1"
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep and screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
 
 #: InhibitionItem.qml:165
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:167
 #, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: unknown reason"
-msgstr "Ukendt program: ukendt årsag"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep. (%2)"
+msgstr ""
+
+#: InhibitionItem.qml:171
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep and screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
 
 #: InhibitionItem.qml:173
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:175
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:179
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep and screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:181
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking screen locking. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:183
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep. (%2)"
+msgstr "%1 blokere i øjeblikket slumring og skærmlåsning (%2)"
+
+#: InhibitionItem.qml:191
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -203,48 +299,13 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Fjern blokering"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
-msgid "Block Again"
-msgstr "Blokér igen"
-
-#: InhibitionItem.qml:194
-#, kde-format
-msgctxt ""
-"Minimize the length of this string as much as possible but the sentence "
-"about higher energy consumption must be included (EU regulations)"
-msgid ""
-"You have manually blocked sleep and screen locking. This will result in "
-"higher energy consumption."
+msgid "Allow"
 msgstr ""
-"Du har manuelt blokeret slumring og skærmlåsning. Dette vil resultere i "
-"højere strømforbrug."
-
-#: InhibitionItem.qml:199
-#, kde-format
-msgctxt ""
-"@action:button Undo blocking sleep and screen locking after inactivity"
-msgid "Unblock"
-msgstr "Fjern blokering"
-
-#: InhibitionItem.qml:218 InhibitionItem.qml:256
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Kunne ikke fjerne blokering af automatisk slumring og skærmlåsning"
-
-#: InhibitionItem.qml:221 InhibitionItem.qml:259
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "Kunne ikke automatisk blokere slumring og skærmlåsning"
-
-#: InhibitionItem.qml:237
-#, kde-format
-msgctxt "@action:button Block sleep and screen locking after inactivity"
-msgid "Manually Block"
-msgstr "Blokér manuelt"
 
 #: main.qml:76
 #, kde-format
@@ -478,6 +539,68 @@ msgstr ""
 "Strømprofiler er måske understøttet på din enhed.<nl/>Prøv at installere "
 "<command>power-profiles-daemon</command>-pakken ved at bruge din "
 "distributions pakkehåndtør og genstart systemet."
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Blocked"
+#~ msgstr "Blokeret"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Automatic"
+#~ msgstr "Automatisk"
+
+#~ msgid "%1 application currently wants to block sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications currently want to block sleep and screen locking:"
+#~ msgstr[0] ""
+#~ "%1 program vil i øjeblikket gerne blokere slumring og skærmlåsning:"
+#~ msgstr[1] ""
+#~ "%1 programmer vil i øjeblikket gerne blokere slumring og skærmlåsning:"
+
+#~ msgctxt "Application name; reason"
+#~ msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+#~ msgstr ""
+#~ "%1 er blevet forhindret i at blokere slumring og låsning af skærm for (%2)"
+
+#~ msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+#~ msgstr ""
+#~ "%1 blokerer i øjeblikket slumring og låsning af skærm (ukendt årsag)"
+
+#~ msgid "An application is currently blocking sleep and screen locking (%1)"
+#~ msgstr "Et program blokerer i øjeblikket slumring og skærmlåsning: (%1)"
+
+#~ msgid ""
+#~ "An application is currently blocking sleep and screen locking (unknown "
+#~ "reason)"
+#~ msgstr ""
+#~ "Et program forhindrer i øjeblikket slumring og låsning af skærm (ukendt "
+#~ "årsag)"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: %1"
+#~ msgstr "Ukendt program: %1"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: unknown reason"
+#~ msgstr "Ukendt program: ukendt årsag"
+
+#~ msgctxt ""
+#~ "@action:button Undo preventing an app from blocking automatic sleep and "
+#~ "screen locking after inactivity"
+#~ msgid "Block Again"
+#~ msgstr "Blokér igen"
+
+#~ msgctxt ""
+#~ "@action:button Undo blocking sleep and screen locking after inactivity"
+#~ msgid "Unblock"
+#~ msgstr "Fjern blokering"
+
+#~ msgctxt "@action:button Block sleep and screen locking after inactivity"
+#~ msgid "Manually Block"
+#~ msgstr "Blokér manuelt"
 
 #~ msgctxt ""
 #~ "@action:button Prevent an app from blocking automatic sleep and screen "

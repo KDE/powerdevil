@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:45+0000\n"
+"POT-Creation-Date: 2026-01-10 00:45+0000\n"
 "PO-Revision-Date: 2025-03-11 13:07-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -97,30 +97,92 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:51
+#: InhibitionItem.qml:53
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "ਨਾ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ ਸਲੀਪ ਤੇ ਸਕਰੀਨ ਲਾਕ"
 
-#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ"
 
-#: InhibitionItem.qml:95
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Blocked"
-msgstr "ਰੋਕ ਲੱਗੀ"
+#: InhibitionItem.qml:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+msgctxt "accessible-only status text"
+msgid "Automatic sleep and screen locking are currently blocked."
+msgstr "ਆਪਣੇ-ਆਪ ਸਲੀਪ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨਾ ਅਸਮਰੱਥ ਹੈ; ਮੁੜ-ਚਾਲੂ ਕਰਨ ਲਈ ਵਿਚਕਾਰਲਾ ਬਟਨ ਦੱਬੋ"
 
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:67
 #, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Automatic"
-msgstr "ਆਟੋਮੈਟਿਕ"
+msgctxt "accessible-only status text"
+msgid ""
+"Screen locking is currently blocked. Sleep is automatic after inactivity."
+msgstr ""
+
+#: InhibitionItem.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid ""
+"Sleep is currently blocked. Screen locking is automatic after inactivity."
+msgstr "ਨਾ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ ਸਲੀਪ ਤੇ ਸਕਰੀਨ ਲਾਕ"
+
+#: InhibitionItem.qml:71
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid "Sleep and screen locking are automatic after inactivity."
+msgstr "ਨਾ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ ਸਲੀਪ ਤੇ ਸਕਰੀਨ ਲਾਕ"
+
+#: InhibitionItem.qml:94
+#, fuzzy, kde-format
+#| msgid "Failed to block automatic sleep and screen locking"
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block Sleep and Screen Locking"
+msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
 #: InhibitionItem.qml:112
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
+
+#: InhibitionItem.qml:115
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
+
+#: InhibitionItem.qml:129
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label corresponding to Manually Block Sleep and Screen Locking toggle"
+msgid "This will result in higher energy consumption."
+msgstr "ਤੁਸੀਂ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਖੁਦ ਰੋਕਿਆ ਹੈ। ਨਤੀਜੇ ਵਜੋਂ ਵੱਧ ਊਰਜਾ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
+
+#: InhibitionItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label accessible - the sentence about higher energy consumption must be "
+"included (EU regulations)"
+msgid ""
+"You have manually blocked automatic sleep and screen locking. This will "
+"result in higher energy consumption."
+msgstr "ਤੁਸੀਂ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਖੁਦ ਰੋਕਿਆ ਹੈ। ਨਤੀਜੇ ਵਜੋਂ ਵੱਧ ਊਰਜਾ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
+
+#: InhibitionItem.qml:137
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -130,70 +192,95 @@ msgstr ""
 "ਤੁਹਾਡੇ ਲੈਪਟਾਪ ਕਵਰ ਬੰਦ ਕਰਨ ਦੌਰਾਨ ਸਲੀਪ ਕਰਨ ਲਈ ਸੰਰਚਿਤ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਜਦੋਂ ਕਿ ਬਾਹਰੀ ਮਾਨੀਟਰ "
 "ਕਨੈਕਟ ਕੀਤਾ ਹੋਵੇ।"
 
-#: InhibitionItem.qml:124
+#: InhibitionItem.qml:156
 #, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
-msgid "%1 application currently wants to block sleep and screen locking:"
-msgid_plural ""
-"%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "ਇਸ ਵੇਲੇ %1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ:"
-msgstr[1] "ਇਸ ਵੇਲੇ %1 ਐਪਲੀਕੇਸ਼ਨਾਂ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀਆਂ ਹਨ:"
-
-#: InhibitionItem.qml:146
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ %2 ਕਰਕੇ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ"
-
-#: InhibitionItem.qml:149
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
-
-#: InhibitionItem.qml:151
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (ਅਣਪਛਾਤਾ ਕਾਰਨ)"
-
-#: InhibitionItem.qml:153
-#, kde-format
-msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "ਇਸ ਵੇਲੇ ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%1)"
-
-#: InhibitionItem.qml:155
-#, kde-format
-msgid ""
-"An application is currently blocking sleep and screen locking (unknown "
-"reason)"
-msgstr "ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (ਅਣਪਛਾਤਾ ਕਾਰਨ)"
-
-#: InhibitionItem.qml:159
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: InhibitionItem.qml:161
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: unknown reason"
+#| msgctxt "Application name: reason for preventing sleep and screen locking"
+#| msgid "%1: unknown reason"
+msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+msgid "Unknown reason."
 msgstr "%1: ਅਣਪਛਾਤਾ ਕਾਰਨ"
 
 #: InhibitionItem.qml:163
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: %1"
-msgstr "ਅਣਪਛਾਤੀ ਐਪਲੀਕੇਸ਼ਨ: %1"
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep and screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
 #: InhibitionItem.qml:165
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:167
 #, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: unknown reason"
-msgstr "ਅਣਪਛਾਤੀ ਐਪਲੀਕੇਸ਼ਨ: ਅਣਪਛਾਤਾ ਕਾਰਨ"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep. (%2)"
+msgstr ""
+
+#: InhibitionItem.qml:171
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep and screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
 #: InhibitionItem.qml:173
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:175
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:179
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep and screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:181
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking screen locking. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:183
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep. (%2)"
+msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
+
+#: InhibitionItem.qml:191
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -201,50 +288,13 @@ msgctxt ""
 msgid "Unblock"
 msgstr "ਰੋਕ ਹਟਾਓ"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
-msgid "Block Again"
-msgstr "ਮੁੜ ਰੋਕ ਲਾਓ"
-
-#: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
-msgctxt ""
-"Minimize the length of this string as much as possible but the sentence "
-"about higher energy consumption must be included (EU regulations)"
-msgid ""
-"You have manually blocked sleep and screen locking. This will result in "
-"higher energy consumption."
-msgstr "ਤੁਸੀਂ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਖੁਦ ਰੋਕਿਆ ਹੈ। ਨਤੀਜੇ ਵਜੋਂ ਵੱਧ ਊਰਜਾ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
-
-#: InhibitionItem.qml:199
-#, kde-format
-msgctxt ""
-"@action:button Undo blocking sleep and screen locking after inactivity"
-msgid "Unblock"
-msgstr "ਰੋਕ ਹਟਾਓ"
-
-#: InhibitionItem.qml:218 InhibitionItem.qml:256
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
-
-#: InhibitionItem.qml:221 InhibitionItem.qml:259
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
-
-#: InhibitionItem.qml:237
-#, kde-format
-msgctxt "@action:button Block sleep and screen locking after inactivity"
-msgid "Manually Block"
-msgstr "ਖੁਦ ਰੋਕੋ"
+msgid "Allow"
+msgstr ""
 
 #: main.qml:76
 #, kde-format
@@ -474,6 +524,66 @@ msgstr ""
 "ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਉੱਤੇ ਪਾਵਰ ਪਰੋਫਾਇਲ ਸਹਾਇਕ ਹੋ ਸਕਦੇ ਹਨ।<nl/>ਆਪਣੀ ਡਿਸਟ੍ਰਿਬਿਊਸ਼ਨ ਦੇ ਪੈਕੇਜ ਮੈਨੇਜਰ "
 "ਰਾਹੀਂ <command>power-profiles-daemon</command> ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਅਤੇ ਸਿਸਟਮ "
 "ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕਰੋ।"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Blocked"
+#~ msgstr "ਰੋਕ ਲੱਗੀ"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Automatic"
+#~ msgstr "ਆਟੋਮੈਟਿਕ"
+
+#, fuzzy
+#~| msgid "%1 application is currently blocking sleep and screen locking:"
+#~| msgid_plural ""
+#~| "%1 applications are currently blocking sleep and screen locking:"
+#~ msgid "%1 application currently wants to block sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications currently want to block sleep and screen locking:"
+#~ msgstr[0] "ਇਸ ਵੇਲੇ %1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ:"
+#~ msgstr[1] "ਇਸ ਵੇਲੇ %1 ਐਪਲੀਕੇਸ਼ਨਾਂ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀਆਂ ਹਨ:"
+
+#~ msgctxt "Application name; reason"
+#~ msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+#~ msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ %2 ਕਰਕੇ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ"
+
+#~ msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+#~ msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (ਅਣਪਛਾਤਾ ਕਾਰਨ)"
+
+#~ msgid "An application is currently blocking sleep and screen locking (%1)"
+#~ msgstr "ਇਸ ਵੇਲੇ ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%1)"
+
+#~ msgid ""
+#~ "An application is currently blocking sleep and screen locking (unknown "
+#~ "reason)"
+#~ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (ਅਣਪਛਾਤਾ ਕਾਰਨ)"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: %1"
+#~ msgstr "ਅਣਪਛਾਤੀ ਐਪਲੀਕੇਸ਼ਨ: %1"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: unknown reason"
+#~ msgstr "ਅਣਪਛਾਤੀ ਐਪਲੀਕੇਸ਼ਨ: ਅਣਪਛਾਤਾ ਕਾਰਨ"
+
+#~ msgctxt ""
+#~ "@action:button Undo preventing an app from blocking automatic sleep and "
+#~ "screen locking after inactivity"
+#~ msgid "Block Again"
+#~ msgstr "ਮੁੜ ਰੋਕ ਲਾਓ"
+
+#~ msgctxt ""
+#~ "@action:button Undo blocking sleep and screen locking after inactivity"
+#~ msgid "Unblock"
+#~ msgstr "ਰੋਕ ਹਟਾਓ"
+
+#~ msgctxt "@action:button Block sleep and screen locking after inactivity"
+#~ msgid "Manually Block"
+#~ msgstr "ਖੁਦ ਰੋਕੋ"
 
 #~ msgctxt ""
 #~ "@action:button Prevent an app from blocking automatic sleep and screen "

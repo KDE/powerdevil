@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:45+0000\n"
+"POT-Creation-Date: 2026-01-10 00:45+0000\n"
 "PO-Revision-Date: 2024-11-17 22:42+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -103,30 +103,89 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:51
+#: InhibitionItem.qml:53
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "無操作状態が続いた後スリープ＆画面ロック"
 
-#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "電源管理"
 
-#: InhibitionItem.qml:95
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Blocked"
-msgstr "無効"
+#: InhibitionItem.qml:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+msgctxt "accessible-only status text"
+msgid "Automatic sleep and screen locking are currently blocked."
+msgstr ""
+"自動的なスリープと画面ロックは無効化されています - 中クリックして再有効化"
 
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:67
 #, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Automatic"
-msgstr "自動"
+msgctxt "accessible-only status text"
+msgid ""
+"Screen locking is currently blocked. Sleep is automatic after inactivity."
+msgstr ""
+
+#: InhibitionItem.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid ""
+"Sleep is currently blocked. Screen locking is automatic after inactivity."
+msgstr "無操作状態が続いた後スリープ＆画面ロック"
+
+#: InhibitionItem.qml:71
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid "Sleep and screen locking are automatic after inactivity."
+msgstr "無操作状態が続いた後スリープ＆画面ロック"
+
+#: InhibitionItem.qml:94
+#, fuzzy, kde-format
+#| msgid "Failed to block automatic sleep and screen locking"
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block Sleep and Screen Locking"
+msgstr "自動的なスリープと画面ロックの無効化に失敗しました"
 
 #: InhibitionItem.qml:112
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "自動的なスリープと画面ロックの有効化に失敗しました"
+
+#: InhibitionItem.qml:115
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "自動的なスリープと画面ロックの無効化に失敗しました"
+
+#: InhibitionItem.qml:129
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid "You have manually blocked sleep and screen locking."
+msgctxt ""
+"@label corresponding to Manually Block Sleep and Screen Locking toggle"
+msgid "This will result in higher energy consumption."
+msgstr "スリープと画面ロックを手動で妨げています。"
+
+#: InhibitionItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid "You have manually blocked sleep and screen locking."
+msgctxt ""
+"@label accessible - the sentence about higher energy consumption must be "
+"included (EU regulations)"
+msgid ""
+"You have manually blocked automatic sleep and screen locking. This will "
+"result in higher energy consumption."
+msgstr "スリープと画面ロックを手動で妨げています。"
+
+#: InhibitionItem.qml:137
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -136,70 +195,95 @@ msgstr ""
 "このラップトップは、外部モニタが接続されている間は画面を閉じてもスリープしな"
 "いように設定されています。"
 
-#: InhibitionItem.qml:124
+#: InhibitionItem.qml:156
 #, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
-msgid "%1 application currently wants to block sleep and screen locking:"
-msgid_plural ""
-"%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "現在 %1 個のアプリケーションがスリープと画面ロックを妨げています:"
-
-#: InhibitionItem.qml:146
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "現在 %1 はスリープと画面ロックを妨げることができません (%2)"
-
-#: InhibitionItem.qml:149
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
-
-#: InhibitionItem.qml:151
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "現在 %1 がスリープと画面ロックを妨げています (未知の理由)"
-
-#: InhibitionItem.qml:153
-#, kde-format
-msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "現在 1 個のアプリケーションがスリープと画面ロックを妨げています (%1)"
-
-#: InhibitionItem.qml:155
-#, kde-format
-msgid ""
-"An application is currently blocking sleep and screen locking (unknown "
-"reason)"
-msgstr ""
-"現在 1 個のアプリケーションがスリープと画面ロックを妨げています (未知の理由)"
-
-#: InhibitionItem.qml:159
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: InhibitionItem.qml:161
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: unknown reason"
+#| msgctxt "Application name: reason for preventing sleep and screen locking"
+#| msgid "%1: unknown reason"
+msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+msgid "Unknown reason."
 msgstr "%1: 未知の理由"
 
 #: InhibitionItem.qml:163
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: %1"
-msgstr "未知のアプリケーション: %1"
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep and screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
 
 #: InhibitionItem.qml:165
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:167
 #, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: unknown reason"
-msgstr "未知のアプリケーション: 未知の理由"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep. (%2)"
+msgstr ""
+
+#: InhibitionItem.qml:171
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep and screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
 
 #: InhibitionItem.qml:173
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:175
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:179
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep and screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:181
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking screen locking. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:183
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep. (%2)"
+msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+
+#: InhibitionItem.qml:191
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -207,48 +291,13 @@ msgctxt ""
 msgid "Unblock"
 msgstr "解除"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
-msgid "Block Again"
-msgstr "再度妨げる"
-
-#: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
-msgctxt ""
-"Minimize the length of this string as much as possible but the sentence "
-"about higher energy consumption must be included (EU regulations)"
-msgid ""
-"You have manually blocked sleep and screen locking. This will result in "
-"higher energy consumption."
-msgstr "スリープと画面ロックを手動で妨げています。"
-
-#: InhibitionItem.qml:199
-#, kde-format
-msgctxt ""
-"@action:button Undo blocking sleep and screen locking after inactivity"
-msgid "Unblock"
-msgstr "解除"
-
-#: InhibitionItem.qml:218 InhibitionItem.qml:256
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "自動的なスリープと画面ロックの有効化に失敗しました"
-
-#: InhibitionItem.qml:221 InhibitionItem.qml:259
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "自動的なスリープと画面ロックの無効化に失敗しました"
-
-#: InhibitionItem.qml:237
-#, kde-format
-msgctxt "@action:button Block sleep and screen locking after inactivity"
-msgid "Manually Block"
-msgstr "手動で無効化"
+msgid "Allow"
+msgstr ""
 
 #: main.qml:76
 #, kde-format
@@ -479,6 +528,69 @@ msgstr ""
 "いのディストリビューションのパッケージマネージャを利用して <command>power-"
 "profiles-daemon</command> パッケージをインストールし、再起動してみてくださ"
 "い。"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Blocked"
+#~ msgstr "無効"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Automatic"
+#~ msgstr "自動"
+
+#, fuzzy
+#~| msgid "%1 application is currently blocking sleep and screen locking:"
+#~| msgid_plural ""
+#~| "%1 applications are currently blocking sleep and screen locking:"
+#~ msgid "%1 application currently wants to block sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications currently want to block sleep and screen locking:"
+#~ msgstr[0] ""
+#~ "現在 %1 個のアプリケーションがスリープと画面ロックを妨げています:"
+
+#~ msgctxt "Application name; reason"
+#~ msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+#~ msgstr "現在 %1 はスリープと画面ロックを妨げることができません (%2)"
+
+#~ msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+#~ msgstr "現在 %1 がスリープと画面ロックを妨げています (未知の理由)"
+
+#~ msgid "An application is currently blocking sleep and screen locking (%1)"
+#~ msgstr ""
+#~ "現在 1 個のアプリケーションがスリープと画面ロックを妨げています (%1)"
+
+#~ msgid ""
+#~ "An application is currently blocking sleep and screen locking (unknown "
+#~ "reason)"
+#~ msgstr ""
+#~ "現在 1 個のアプリケーションがスリープと画面ロックを妨げています (未知の理"
+#~ "由)"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: %1"
+#~ msgstr "未知のアプリケーション: %1"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: unknown reason"
+#~ msgstr "未知のアプリケーション: 未知の理由"
+
+#~ msgctxt ""
+#~ "@action:button Undo preventing an app from blocking automatic sleep and "
+#~ "screen locking after inactivity"
+#~ msgid "Block Again"
+#~ msgstr "再度妨げる"
+
+#~ msgctxt ""
+#~ "@action:button Undo blocking sleep and screen locking after inactivity"
+#~ msgid "Unblock"
+#~ msgstr "解除"
+
+#~ msgctxt "@action:button Block sleep and screen locking after inactivity"
+#~ msgid "Manually Block"
+#~ msgstr "手動で無効化"
 
 #~ msgctxt ""
 #~ "@action:button Prevent an app from blocking automatic sleep and screen "

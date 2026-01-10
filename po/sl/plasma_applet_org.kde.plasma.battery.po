@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:45+0000\n"
+"POT-Creation-Date: 2026-01-10 00:45+0000\n"
 "PO-Revision-Date: 2025-08-15 08:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -104,30 +104,102 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1 %"
 
-#: InhibitionItem.qml:51
+#: InhibitionItem.qml:53
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Spanje in zaklepanje zaslona po nedejavnosti"
 
-#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Upravljanje z energijo"
 
-#: InhibitionItem.qml:95
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Blocked"
-msgstr "Blokirano"
+#: InhibitionItem.qml:65
+#, fuzzy, kde-format
+#| msgid ""
+#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+msgctxt "accessible-only status text"
+msgid "Automatic sleep and screen locking are currently blocked."
+msgstr ""
+"Samodejno spanje in zaklepanje zaslona sta onemogočena; srednji klik za "
+"ponovno omogočenje"
 
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:67
 #, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Automatic"
-msgstr "Samodejno"
+msgctxt "accessible-only status text"
+msgid ""
+"Screen locking is currently blocked. Sleep is automatic after inactivity."
+msgstr ""
+
+#: InhibitionItem.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid ""
+"Sleep is currently blocked. Screen locking is automatic after inactivity."
+msgstr "Spanje in zaklepanje zaslona po nedejavnosti"
+
+#: InhibitionItem.qml:71
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Sleep and Screen Locking after Inactivity"
+msgctxt "accessible-only status text"
+msgid "Sleep and screen locking are automatic after inactivity."
+msgstr "Spanje in zaklepanje zaslona po nedejavnosti"
+
+#: InhibitionItem.qml:94
+#, fuzzy, kde-format
+#| msgid "Failed to block automatic sleep and screen locking"
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block Sleep and Screen Locking"
+msgstr "Blokiranje samodejnega spanja in zaklepanja zaslona ni uspelo"
 
 #: InhibitionItem.qml:112
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "Odblokiranje samodejnega spanja in zaklepanja zaslona ni uspelo"
+
+#: InhibitionItem.qml:115
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "Blokiranje samodejnega spanja in zaklepanja zaslona ni uspelo"
+
+#: InhibitionItem.qml:129
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Minimize the length of this string as much as possible but the sentence "
+#| "about higher energy consumption must be included (EU regulations)"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label corresponding to Manually Block Sleep and Screen Locking toggle"
+msgid "This will result in higher energy consumption."
+msgstr ""
+"Ročno ste blokirali spanje in zaklepanje zaslona. To bo povzročilo večjo "
+"porabo energije."
+
+#: InhibitionItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Minimize the length of this string as much as possible but the sentence "
+#| "about higher energy consumption must be included (EU regulations)"
+#| msgid ""
+#| "You have manually blocked sleep and screen locking. This will result in "
+#| "higher energy consumption."
+msgctxt ""
+"@label accessible - the sentence about higher energy consumption must be "
+"included (EU regulations)"
+msgid ""
+"You have manually blocked automatic sleep and screen locking. This will "
+"result in higher energy consumption."
+msgstr ""
+"Ročno ste blokirali spanje in zaklepanje zaslona. To bo povzročilo večjo "
+"porabo energije."
+
+#: InhibitionItem.qml:137
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -137,72 +209,95 @@ msgstr ""
 "Vaš prenosnik je nastavljen, da ne preide v stanje spanja ob zaprtju "
 "pokrova, ko je nanj povezan zunanji zaslon."
 
-#: InhibitionItem.qml:124
-#, kde-format
-msgid "%1 application currently wants to block sleep and screen locking:"
-msgid_plural ""
-"%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 programov trenutno želi preprečiti spanje in zaklepanje zaslona:"
-msgstr[1] "%1 program trenutno želi preprečiti spanje in zaklepanje zaslona:"
-msgstr[2] ""
-"%1 programa trenutno želita preprečiti spanje in zaklepanje zaslona:"
-msgstr[3] ""
-"%1 programi trenutno želijo preprečiti spanje in zaklepanje zaslona:"
-
-#: InhibitionItem.qml:146
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 je bilo preprečeno blokiranje spanja in zaklepanje zaslona za %2"
-
-#: InhibitionItem.qml:149
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
-
-#: InhibitionItem.qml:151
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (neznan razlog)"
-
-#: InhibitionItem.qml:153
-#, kde-format
-msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "Program trenutno preprečuje spanje in zaklepanje zaslona (%1)"
-
-#: InhibitionItem.qml:155
-#, kde-format
-msgid ""
-"An application is currently blocking sleep and screen locking (unknown "
-"reason)"
-msgstr ""
-"Program trenutno preprečuje spanje in zaklepanje zaslona (neznan razlog)"
-
-#: InhibitionItem.qml:159
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: InhibitionItem.qml:161
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: unknown reason"
+#: InhibitionItem.qml:156
+#, fuzzy, kde-format
+#| msgctxt "Application name: reason for preventing sleep and screen locking"
+#| msgid "%1: unknown reason"
+msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+msgid "Unknown reason."
 msgstr "%1: neznan razlog"
 
 #: InhibitionItem.qml:163
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: %1"
-msgstr "Neznan program: %1"
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep and screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
 
 #: InhibitionItem.qml:165
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:167
 #, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: unknown reason"
-msgstr "Neznan program: neznan razlog"
+msgctxt ""
+"Application (1) with reason (2) has been prevented from blocking this "
+"inactivity behavior. The user can choose to allow it again."
+msgid "%1 wants to block sleep. (%2)"
+msgstr ""
+
+#: InhibitionItem.qml:171
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep and screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
 
 #: InhibitionItem.qml:173
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:175
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, in addition to the user's manual block switch."
+msgid "%1 is also blocking sleep. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:179
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep and screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:181
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking screen locking. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:183
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt ""
+"Application (1) with reason (2) is currently blocking this inactivity "
+"behavior, the user can choose to unblock it."
+msgid "%1 is blocking sleep. (%2)"
+msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (%2)"
+
+#: InhibitionItem.qml:191
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -210,48 +305,13 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Deblokiraj"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
-msgid "Block Again"
-msgstr "Spet blokiraj"
-
-#: InhibitionItem.qml:194
-#, kde-format
-msgctxt ""
-"Minimize the length of this string as much as possible but the sentence "
-"about higher energy consumption must be included (EU regulations)"
-msgid ""
-"You have manually blocked sleep and screen locking. This will result in "
-"higher energy consumption."
+msgid "Allow"
 msgstr ""
-"Ročno ste blokirali spanje in zaklepanje zaslona. To bo povzročilo večjo "
-"porabo energije."
-
-#: InhibitionItem.qml:199
-#, kde-format
-msgctxt ""
-"@action:button Undo blocking sleep and screen locking after inactivity"
-msgid "Unblock"
-msgstr "Deblokiraj"
-
-#: InhibitionItem.qml:218 InhibitionItem.qml:256
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Odblokiranje samodejnega spanja in zaklepanja zaslona ni uspelo"
-
-#: InhibitionItem.qml:221 InhibitionItem.qml:259
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "Blokiranje samodejnega spanja in zaklepanja zaslona ni uspelo"
-
-#: InhibitionItem.qml:237
-#, kde-format
-msgctxt "@action:button Block sleep and screen locking after inactivity"
-msgid "Manually Block"
-msgstr "Ročno blokiraj"
 
 #: main.qml:76
 #, kde-format
@@ -491,6 +551,69 @@ msgstr ""
 "Profili upravljanja z energijo so morda podprti na vaši napravi.<nl/"
 ">Poskusite namestiti  paket <command>power-profiles-daemon</command> z "
 "upravljalnikom paketov vaše distribucije in znova zaženite sistem."
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Blocked"
+#~ msgstr "Blokirano"
+
+#~ msgctxt "Sleep and Screen Locking after Inactivity"
+#~ msgid "Automatic"
+#~ msgstr "Samodejno"
+
+#~ msgid "%1 application currently wants to block sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications currently want to block sleep and screen locking:"
+#~ msgstr[0] ""
+#~ "%1 programov trenutno želi preprečiti spanje in zaklepanje zaslona:"
+#~ msgstr[1] ""
+#~ "%1 program trenutno želi preprečiti spanje in zaklepanje zaslona:"
+#~ msgstr[2] ""
+#~ "%1 programa trenutno želita preprečiti spanje in zaklepanje zaslona:"
+#~ msgstr[3] ""
+#~ "%1 programi trenutno želijo preprečiti spanje in zaklepanje zaslona:"
+
+#~ msgctxt "Application name; reason"
+#~ msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+#~ msgstr "%1 je bilo preprečeno blokiranje spanja in zaklepanje zaslona za %2"
+
+#~ msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+#~ msgstr "%1 trenutno preprečuje spanje in zaklepanje zaslona (neznan razlog)"
+
+#~ msgid "An application is currently blocking sleep and screen locking (%1)"
+#~ msgstr "Program trenutno preprečuje spanje in zaklepanje zaslona (%1)"
+
+#~ msgid ""
+#~ "An application is currently blocking sleep and screen locking (unknown "
+#~ "reason)"
+#~ msgstr ""
+#~ "Program trenutno preprečuje spanje in zaklepanje zaslona (neznan razlog)"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "%1: %2"
+#~ msgstr "%1: %2"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: %1"
+#~ msgstr "Neznan program: %1"
+
+#~ msgctxt "Application name: reason for preventing sleep and screen locking"
+#~ msgid "Unknown application: unknown reason"
+#~ msgstr "Neznan program: neznan razlog"
+
+#~ msgctxt ""
+#~ "@action:button Undo preventing an app from blocking automatic sleep and "
+#~ "screen locking after inactivity"
+#~ msgid "Block Again"
+#~ msgstr "Spet blokiraj"
+
+#~ msgctxt ""
+#~ "@action:button Undo blocking sleep and screen locking after inactivity"
+#~ msgid "Unblock"
+#~ msgstr "Deblokiraj"
+
+#~ msgctxt "@action:button Block sleep and screen locking after inactivity"
+#~ msgid "Manually Block"
+#~ msgstr "Ročno blokiraj"
 
 #~ msgctxt ""
 #~ "@action:button Prevent an app from blocking automatic sleep and screen "
