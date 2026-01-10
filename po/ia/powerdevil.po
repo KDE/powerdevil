@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2019, 2020, 2021, 2023, 2024 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2019, 2020, 2021, 2023, 2024, 2026 g.sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 02:40+0000\n"
-"PO-Revision-Date: 2024-09-03 14:20+0200\n"
+"PO-Revision-Date: 2026-01-09 08:51+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -115,12 +115,10 @@ msgstr ""
 "PowerDevil es un avantiate, modular e legier demone de gestion de energia"
 
 #: powerdevilapp.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
 #, kde-format
@@ -309,8 +307,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Le computator jammais essera suspendite in dormir."
 
 #: powerdevilcore.cpp:720
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Executante con le energia AC"
 

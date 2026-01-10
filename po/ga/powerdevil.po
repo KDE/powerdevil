@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 02:40+0000\n"
-"PO-Revision-Date: 2026-01-01 19:01+0000\n"
+"PO-Revision-Date: 2026-01-08 22:04+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,11 +32,10 @@ msgstr "kscanne@gmail.com,altronic25@protonmail.com"
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:47
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
-#, fuzzy, kde-format
-#| msgid "Profile Management"
+#, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Bainisteoireacht Próifíle"
+msgstr "Bainisteoireacht Cumhachta"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -69,20 +69,16 @@ msgid "Power Down"
 msgstr "Múch Cumhacht"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr "Méadaigh Gile an Scáileáin"
+msgstr "Méadaigh Gile an Méarchláir"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr "Laghdaigh Gile an Scáileáin"
+msgstr "Laghdaigh Gile an Méarchláir"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
@@ -145,11 +141,10 @@ msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
 #: powerdevilapp.cpp:108
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "Cothaitheoir"
+msgstr "Iarchothaitheoir"
 
 #: powerdevilapp.cpp:116
 #, kde-format
@@ -303,20 +298,17 @@ msgstr "Cadhnra Íseal (%1% Atá Fágtha)"
 #: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr ""
+msgstr "Cadhnra Criticiúil (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:717
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Cuibheoir SA Plugáilte Isteach"
+msgstr "Corda Cumhachta Plugáilte Isteach"
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "The computer will be halted in 1 second."
-#| msgid_plural "The computer will be halted in %1 seconds."
+#, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "Stadfaidh an ríomhaire i gceann 1 soicind."
+msgstr "Ní stadfaidh an ríomhaire a thuilleadh."
 
 #: powerdevilcore.cpp:720
 #, kde-format
@@ -324,10 +316,9 @@ msgid "Running on AC Power"
 msgstr "Ar Chumhacht SA"
 
 #: powerdevilcore.cpp:721
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Tá an cuibheoir cumhachta plugáilte isteach."
+msgstr "Tá an corda cumhachta plugáilte isteach."
 
 #: powerdevilcore.cpp:733
 #, kde-format

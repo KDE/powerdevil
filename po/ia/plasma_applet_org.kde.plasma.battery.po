@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2020, 2021, 2022, 2023, 2024, 2025 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2020, 2021, 2022, 2023, 2024, 2025, 2026 g.sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-03-11 10:43+0100\n"
+"PO-Revision-Date: 2026-01-09 08:50+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -130,15 +130,13 @@ msgstr ""
 "durante que un monstrator externe es connectite."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 es currentemente blocante somno e bloco de schermo:"
-msgstr[1] "%1 applicationes impedi somno e bloco de schermo:"
+msgstr[0] "%1 application currentemente vole blocar somno e blocar de schermo:"
+msgstr[1] ""
+"%1 applicationes currentemente vole blocar somno e blocar de schermo:"
 
 #: InhibitionItem.qml:146
 #, kde-format
@@ -212,11 +210,7 @@ msgid "Block Again"
 msgstr "Bloca novemente"
 
 #: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"
@@ -325,7 +319,7 @@ msgstr ""
 #: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Pulsa in lemedie per dishabilitar somno e blocar de schermo automatic"
+msgstr "Pulsa in le medie per dishabilitar somno e blocar de schermo automatic"
 
 #: main.qml:172
 #, kde-format
