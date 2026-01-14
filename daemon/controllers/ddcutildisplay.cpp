@@ -231,12 +231,14 @@ void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
 #ifdef WITH_DDCUTIL
     qCDebug(POWERDEVIL) << "[DDCutilDisplay]:" << display->m_label << "setting brightness to" << value << "with temporary display handle";
 
-    DDCA_Display_Handle displayHandle = nullptr;
-    DDCA_Status status = DDCRC_OK;
-
     {
         QMutexLocker locker(display->m_openDisplayMutex);
-
+        DDCA_Display_Handle displayHandle = nullptr;
+        DDCA_Status status = DDCRC_OK;
+        if (!display->m_displayRef) {
+            Q_EMIT ddcBrightnessChangeApplied(false);
+            return;
+        }
         if (status = ddca_open_display2(display->m_displayRef, true, &displayHandle); status != DDCRC_OK) {
             qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
         } else {
@@ -264,9 +266,9 @@ void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
                 status = closeStatus;
             }
         }
+        Q_EMIT ddcBrightnessChangeApplied(status == DDCRC_OK);
     }
 
-    Q_EMIT ddcBrightnessChangeApplied(status == DDCRC_OK);
 #endif
 }
 
