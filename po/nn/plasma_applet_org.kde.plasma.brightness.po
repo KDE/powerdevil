@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-14 00:46+0000\n"
 "PO-Revision-Date: 2024-09-25 21:11+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -65,6 +65,23 @@ msgstr "Lysstyrke"
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
 msgstr "Lysstyrke skjerm – %1"
+
+#: DarkModeItem.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Dark Mode"
+msgstr ""
+
+#: DarkModeItem.qml:81 NightLightItem.qml:147
+#, kde-format
+msgid "Configure…"
+msgstr "Set opp …"
+
+#: DarkModeItem.qml:101
+#, kde-format
+msgctxt "Describes what theme dark mode toggle would switch to"
+msgid "Switch to %1"
+msgstr ""
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -230,11 +247,6 @@ msgstr "Set på pause"
 
 #: NightLightItem.qml:147
 #, kde-format
-msgid "Configure…"
-msgstr "Set opp …"
-
-#: NightLightItem.qml:147
-#, kde-format
 msgid "Enable and Configure…"
 msgstr "Slå på og set opp …"
 
@@ -272,7 +284,12 @@ msgstr "Tastaturbaklys"
 msgid "Keyboard Color"
 msgstr "Tastaturfarge"
 
-#: PopupDialog.qml:168
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "Kveldsfargar"
+
+#: PopupDialog.qml:178
+#, kde-format
+msgid "Theme"
+msgstr ""

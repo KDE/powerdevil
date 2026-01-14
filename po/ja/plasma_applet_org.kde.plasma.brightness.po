@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-14 00:46+0000\n"
 "PO-Revision-Date: 2025-03-08 20:38+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -63,6 +63,23 @@ msgstr "明るさ"
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
 msgstr "ディスプレイの明るさ - %1"
+
+#: DarkModeItem.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Dark Mode"
+msgstr ""
+
+#: DarkModeItem.qml:81 NightLightItem.qml:147
+#, kde-format
+msgid "Configure…"
+msgstr "設定…"
+
+#: DarkModeItem.qml:101
+#, kde-format
+msgctxt "Describes what theme dark mode toggle would switch to"
+msgid "Switch to %1"
+msgstr ""
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -227,11 +244,6 @@ msgstr "停止"
 
 #: NightLightItem.qml:147
 #, kde-format
-msgid "Configure…"
-msgstr "設定…"
-
-#: NightLightItem.qml:147
-#, kde-format
 msgid "Enable and Configure…"
 msgstr "有効化して設定..."
 
@@ -269,7 +281,12 @@ msgstr "キーボードバックライト"
 msgid "Keyboard Color"
 msgstr "キーボードの色"
 
-#: PopupDialog.qml:168
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "Night Light"
+
+#: PopupDialog.qml:178
+#, kde-format
+msgid "Theme"
+msgstr ""

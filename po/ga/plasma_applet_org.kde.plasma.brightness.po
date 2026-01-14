@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-01-14 00:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -64,6 +64,23 @@ msgstr ""
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
+msgstr ""
+
+#: DarkModeItem.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Dark Mode"
+msgstr ""
+
+#: DarkModeItem.qml:81 NightLightItem.qml:147
+#, kde-format
+msgid "Configure…"
+msgstr ""
+
+#: DarkModeItem.qml:101
+#, kde-format
+msgctxt "Describes what theme dark mode toggle would switch to"
+msgid "Switch to %1"
 msgstr ""
 
 #: KeyboardColorItem.qml:73
@@ -229,11 +246,6 @@ msgstr ""
 
 #: NightLightItem.qml:147
 #, kde-format
-msgid "Configure…"
-msgstr ""
-
-#: NightLightItem.qml:147
-#, kde-format
 msgid "Enable and Configure…"
 msgstr ""
 
@@ -271,7 +283,12 @@ msgstr ""
 msgid "Keyboard Color"
 msgstr ""
 
-#: PopupDialog.qml:168
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
+msgstr ""
+
+#: PopupDialog.qml:178
+#, kde-format
+msgid "Theme"
 msgstr ""
