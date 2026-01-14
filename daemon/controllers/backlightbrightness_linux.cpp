@@ -58,7 +58,7 @@ void BacklightDetector::detect()
     } else if (QList<BacklightSysfsDevice> devices = BacklightSysfsDevice::getBacklightTypeDevices(); !devices.isEmpty()) {
         m_display.reset(new BacklightBrightness(std::move(devices), this));
     } else {
-        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "not supported: no kernel backlight interface found";
+        qCInfo(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "not supported: no kernel backlight interface found";
     }
     Q_EMIT detectionFinished(m_display != nullptr);
 }
