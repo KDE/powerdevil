@@ -291,4 +291,4 @@ msgstr "Noční světlo"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Motiv"

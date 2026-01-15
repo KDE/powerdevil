@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-14 00:46+0000\n"
-"PO-Revision-Date: 2025-01-29 04:29+0100\n"
+"PO-Revision-Date: 2026-01-14 05:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -70,7 +70,7 @@ msgstr "ეკრანის სიკაშკაშე - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "მუქი რეჟიმი"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -81,7 +81,7 @@ msgstr "მორგება…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1-ზე გადართვა"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -291,7 +291,7 @@ msgstr "ღამის სინათლე"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "თემა"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"

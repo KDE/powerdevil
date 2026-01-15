@@ -4,14 +4,14 @@
 # Marcello Anni <marcello.anni@alice.it>, 2007, 2008, 2009, 2010, 2012.
 # Pino Toscano <toscano.pino@tiscali.it>, 2010.
 # Nicola Ruggero <nicola@nxnt.org>, 2013.
-# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2025-12-06 15:46+0100\n"
+"PO-Revision-Date: 2026-01-13 09:54+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -113,14 +113,11 @@ msgid "Power Management"
 msgstr "Gestione energetica"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr ""
-"La sospensione automatica e il blocco dello schermo sono disabilitati; clic "
-"centrale per riabilitarli"
+"Al momento la sospensione automatica e il blocco dello schermo sono impediti."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -128,31 +125,31 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Il blocco dello schermo è attualmente impedito. La sospensione avviene "
+"automaticamente dopo inattività."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "Sospensione e blocco dello schermo dopo l'inattività"
+msgstr ""
+"La modalità sospensione è attualmente bloccata. Il blocco dello schermo "
+"avviene automaticamente dopo l'inattività."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "Sospensione e blocco dello schermo dopo l'inattività"
+msgstr ""
+"La sospensione e il blocco dello schermo avvengono automaticamente dopo "
+"l'inattività."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr ""
-"Impossibile bloccare la sospensione automatica e il blocco dello schermo"
+msgstr "Impedisci manualmente la sospensione e il blocco dello schermo"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -167,28 +164,14 @@ msgstr ""
 "Impossibile bloccare la sospensione automatica e il blocco dello schermo"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
-"Hai bloccato manualmente la sospensione e il blocco dello schermo. Ciò "
-"comporterà un maggiore consumo di energia."
+msgstr "Ciò comporterà un maggiore consumo di energia."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -196,8 +179,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"Hai bloccato manualmente la sospensione e il blocco dello schermo. Ciò "
-"comporterà un maggiore consumo di energia."
+"Hai impedito manualmente la sospensione automatica e il blocco dello "
+"schermo. Ciò comporterà un maggiore consumo di energia."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -210,30 +193,26 @@ msgstr ""
 "dello schermo quando è collegato un monitor esterno."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: motivo sconosciuto"
+msgstr "Motivo sconosciuto."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 vuole impedire la sospensione e il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 vuole impedire il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -241,61 +220,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 vuole impedire la sospensione. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo anche la sospensione e il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo anche il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo anche la sospensione. (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo la sospensione e il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo il blocco dello schermo. (%2)"
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 sta impedendo la sospensione e il blocco dello schermo (%2)"
+msgstr "%1 sta impedendo la sospensione. (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -311,7 +284,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Consenti"
 
 #: main.qml:76
 #, kde-format

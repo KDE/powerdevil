@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-01-11 01:27+0000\n"
+"PO-Revision-Date: 2026-01-11 18:09+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -147,7 +147,7 @@ msgstr "Cineál"
 #: ui/BatteryPage.qml:139
 #, kde-format
 msgid "Serial Number"
-msgstr ""
+msgstr "Sraithuimhir"
 
 #: ui/BatteryPage.qml:147
 #, kde-format
@@ -157,32 +157,32 @@ msgstr "Teicneolaíocht"
 #: ui/BatteryPage.qml:150
 #, kde-format
 msgid "Lithium ion"
-msgstr ""
+msgstr "Ian litiam"
 
 #: ui/BatteryPage.qml:151
 #, kde-format
 msgid "Lithium polymer"
-msgstr ""
+msgstr "Polaiméir litiam"
 
 #: ui/BatteryPage.qml:152
 #, kde-format
 msgid "Lithium iron phosphate"
-msgstr ""
+msgstr "Fosfáit iarainn litiam"
 
 #: ui/BatteryPage.qml:153
 #, kde-format
 msgid "Lead acid"
-msgstr ""
+msgstr "Aigéad luaidhe"
 
 #: ui/BatteryPage.qml:154
 #, kde-format
 msgid "Nickel cadmium"
-msgstr ""
+msgstr "Caidmiam nicile"
 
 #: ui/BatteryPage.qml:155
 #, kde-format
 msgid "Nickel metal hydride"
-msgstr ""
+msgstr "Hidríd miotail nicile"
 
 #: ui/BatteryPage.qml:156
 #, kde-format

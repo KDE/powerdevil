@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-14 00:46+0000\n"
-"PO-Revision-Date: 2025-01-29 07:20+0100\n"
+"PO-Revision-Date: 2026-01-14 07:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Svetlost zaslona - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Temni način"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "Konfiguriraj…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Preklopi na %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -173,7 +173,7 @@ msgstr "Konfiguriraj nočno svetlobo…"
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "Konfiguriraj upravljanje napajanja..."
+msgstr "Konfiguriraj upravljanje napajanja…"
 
 #: NightLightItem.qml:75
 #, kde-format
@@ -288,7 +288,7 @@ msgstr "Nočna svetloba"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
