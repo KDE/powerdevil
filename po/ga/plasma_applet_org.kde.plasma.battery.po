@@ -2,56 +2,51 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the plasma_applet_battery package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
+# SPDX-FileCopyrightText: 2026 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-base/plasma_applet_battery.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2007-07-23 06:59-0500\n"
-"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
-"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2026-01-11 18:47+0000\n"
+"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Charging"
-msgstr "%1% (á luchtú)"
+msgstr "Á Luchtú"
 
 #: BatteryItem.qml:101
-#, fuzzy, kde-format
-#| msgid "%1% (discharging)"
+#, kde-format
 msgid "Discharging"
-msgstr "%1% (á dhíluchtú)"
+msgstr "Á Díluchtú"
 
 #: BatteryItem.qml:103 main.qml:122
 #, kde-format
 msgid "Fully Charged"
-msgstr ""
+msgstr "Luchtaithe Go hIomlán "
 
 #: BatteryItem.qml:105
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Not Charging"
-msgstr "%1% (á luchtú)"
+msgstr "Níl Á Luchtú"
 
 #: BatteryItem.qml:108
-#, fuzzy, kde-format
-#| msgctxt "Battery is not plugged in"
-#| msgid "Not present"
+#, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "Níl cadhnra ann"
 
 #: BatteryItem.qml:120
-#, fuzzy, kde-format
-#| msgctxt "overlay on the battery, needs to be really tiny"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1%"
@@ -86,9 +81,7 @@ msgid "Battery Health:"
 msgstr "Cadhnra:"
 
 #: BatteryItem.qml:226
-#, fuzzy, kde-format
-#| msgctxt "overlay on the battery, needs to be really tiny"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1%"
@@ -99,9 +92,7 @@ msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 
 #: CompactRepresentation.qml:103 CompactRepresentation.qml:152
-#, fuzzy, kde-format
-#| msgctxt "overlay on the battery, needs to be really tiny"
-#| msgid "%1%"
+#, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
@@ -280,7 +271,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Díbhlocáil "
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -298,11 +289,9 @@ msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
 
 # correct unlenited here
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgctxt "tooltip on the config button in the popup"
-#| msgid "Configure Power Management..."
+#, kde-format
 msgid "Power and Battery"
-msgstr "Cumraigh Bainisteoireacht Cumhachta..."
+msgstr "Cumhachta agus Cadhnra"
 
 #: main.qml:116
 #, kde-format
@@ -310,29 +299,24 @@ msgid "Battery is not present in the bay"
 msgstr ""
 
 #: main.qml:129
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "%1% (á luchtú)"
+msgstr "Cadhnra ag %1%, Níl Á Luchtú"
 
 #: main.qml:131
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
-msgstr "%1% (á luchtú)"
+msgstr "Cadhnra ag %1%, plugáilte isteach ach fós á díluchtú"
 
 #: main.qml:133
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Battery at %1%, Charging"
-msgstr "%1% (á luchtú)"
+msgstr "Cadhnra ag %1%, Á Luchtú"
 
 #: main.qml:136
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is the battery ID"
-#| msgid "Battery %1:"
+#, kde-format
 msgid "Battery at %1%"
-msgstr "Cadhnra %1:"
+msgstr "Cadhnra ag %1"
 
 #: main.qml:144
 #, fuzzy, kde-format
@@ -358,10 +342,9 @@ msgid "%1 remaining"
 msgstr ""
 
 #: main.qml:160
-#, fuzzy, kde-format
-#| msgid "%1% (charging)"
+#, kde-format
 msgid "Not charging"
-msgstr "%1% (á luchtú)"
+msgstr "Níl á luchtú"
 
 #: main.qml:165
 #, kde-format
@@ -430,10 +413,9 @@ msgid "&Configure Power Management…"
 msgstr "Cumraigh Bainisteoireacht Cumhachta..."
 
 #: PowerProfileItem.qml:41
-#, fuzzy, kde-format
-#| msgid "Power Settings"
+#, kde-format
 msgid "Power Save"
-msgstr "Socruithe Cumhachta"
+msgstr "Sábháil Cumhachta"
 
 #: PowerProfileItem.qml:45
 #, kde-format
@@ -446,10 +428,9 @@ msgid "Performance"
 msgstr ""
 
 #: PowerProfileItem.qml:66
-#, fuzzy, kde-format
-#| msgid "Power Profile:"
+#, kde-format
 msgid "Power Profile"
-msgstr "Próifíl Chumhachta:"
+msgstr "Próifíl Chumhachta"
 
 #: PowerProfileItem.qml:110
 #, kde-format
@@ -525,7 +506,7 @@ msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
 "activating performance mode"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: PowerProfileItem.qml:302
 #, kde-format

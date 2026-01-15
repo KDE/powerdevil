@@ -8,19 +8,20 @@
 # Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 # Dušan Kazik <prescott66@gmail.com>, 2020.
 # Ferdinand Galko <galko.ferdinand@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2026 Lucia Mrenica <lucia.mrenica@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2023-12-02 19:47+0100\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2026-01-14 18:40+0100\n"
+"Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: BatteryItem.qml:99
@@ -106,7 +107,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Spánok a uzamknutie obrazovky po nečinnosti"
 
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -149,18 +150,14 @@ msgid "Manually Block Sleep and Screen Locking"
 msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
 
 #: InhibitionItem.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
+msgstr "Nepodarilo sa odblokovať automatické spanie a uzamknutie obrazovky"
 
 #: InhibitionItem.qml:115
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
+msgstr "Nepodarilo sa zablokovať automatické spanie a uzamknutie obrazovky"
 
 #: InhibitionItem.qml:129
 #, fuzzy, kde-format
@@ -194,12 +191,10 @@ msgstr ""
 "pripojený externý monitor."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: neznámy dôvod"
+msgstr "Neznámy dôvod."
 
 #: InhibitionItem.qml:163
 #, fuzzy, kde-format
@@ -287,7 +282,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Odblokovať"
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -295,13 +290,12 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Povoliť"
 
 #: main.qml:76
-#, fuzzy, kde-format
-#| msgid "An application is preventing sleep and screen locking:"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "Aplikácia zabraňuje spánku a uzamknutiu obrazovky:"
+msgstr "Applet batérie povolil potlačenie spánku a uzamknutie obrazovky"
 
 #: main.qml:97
 #, kde-format
@@ -311,7 +305,7 @@ msgstr "Napájanie a batéria"
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Batéria nie je prítomná v priehradke"
 
 #: main.qml:129
 #, kde-format
@@ -361,18 +355,19 @@ msgid "Not charging"
 msgstr "Nenabíja sa"
 
 #: main.qml:165
-#, fuzzy, kde-format
-#| msgid "Automatic sleep and screen locking are disabled"
+#, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
-msgstr "Automatický spánok a uzamknutie obrazovky sú vypnuté"
+msgstr ""
+"Automatický režim spánku a uzamknutie obrazovky sú vypnuté; opätovným "
+"kliknutím stredným tlačidlom myši ich zapnete."
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
+msgstr ""
+"Kliknutím prostredným tlačidlom myši vypnete automatický režim spánku a "
+"uzamknutie obrazovky"
 
 #: main.qml:172
 #, kde-format
@@ -383,10 +378,9 @@ msgstr[1] "%1 aplikácie požiadali o aktiváciu režimu Vysokého výkonu"
 msgstr[2] "%1 aplikácií požiadalo o aktiváciu režimu Vysokého výkonu"
 
 #: main.qml:176
-#, fuzzy, kde-format
-#| msgid "System is in Performance mode"
+#, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr "System je v režime Vysokého výkonu"
+msgstr "System je v režime Vysokého výkonu; kolieskom myši zmeníte"
 
 #: main.qml:180
 #, kde-format
@@ -397,15 +391,14 @@ msgstr[1] "%1 aplikácie požiadali o aktiváciu Úsporného režimu"
 msgstr[2] "%1 aplikácií požiadalo o aktiváciu Úsporného režimu"
 
 #: main.qml:184
-#, fuzzy, kde-format
-#| msgid "System is in Power Save mode"
+#, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr "System je v režime Šetrenia energie"
+msgstr "System je v režime Šetrenia energie; kolieskom myši zmeníte"
 
 #: main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
-msgstr ""
+msgstr "System je v režime Vyvážený; kolieskom myši zmeníte"
 
 #: main.qml:301
 #, kde-format
@@ -418,10 +411,9 @@ msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Zobrazenie percenta batérie na ikone, keď nie je úplne nabitá"
 
 #: main.qml:320
-#, fuzzy, kde-format
-#| msgid "&Configure Energy Saving…"
+#, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Nastaviť šetrenie energie…"
+msgstr "Nastaviť správu napájania..."
 
 #: PowerProfileItem.qml:41
 #, kde-format
@@ -447,7 +439,7 @@ msgstr "Profil napájania"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Automatické"
 
 #: PowerProfileItem.qml:111
 #, kde-format
@@ -519,12 +511,12 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Služba TLP automaticky kontroluje výkonové profily"
 
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Napájacie profily nie sú vo vašom zariadení podporované."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format

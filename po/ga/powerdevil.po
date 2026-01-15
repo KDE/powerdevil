@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 00:46+0000\n"
-"PO-Revision-Date: 2026-01-08 22:04+0000\n"
+"PO-Revision-Date: 2026-01-14 04:09+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -59,7 +59,7 @@ msgstr "Geimhrigh"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr "Múch Cumhacht"
+msgstr "Múch"
 
 #: actions/bundled/handlebuttonevents.cpp:75
 #, kde-format
@@ -189,7 +189,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Cadhnra Gléis Íseal (%1 Atá Fágtha)"
+msgstr "Cadhnra Gléis Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:550
 #, kde-format
@@ -197,7 +197,9 @@ msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
-msgstr "Tá an cadhnra in \"%1\" ar dul in éag, agus an gléas "
+msgstr ""
+"Tá an cadhnra i \"%1\" a rith íseal, agus féadfaidh an gléas a mhúchadh am "
+"ar bith. Athluchtaítear nó athsholáthar an cadhnra."
 
 #: powerdevilcore.cpp:557
 #, kde-format
@@ -221,8 +223,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"Tá an cadhnra in Bluetooth gléis \"%1\" ag rith, agus féadfar an gléas a "
-"mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra, le do thoil."
+"Tá an cadhnra in Bluetooth gléis \"%1\" a rith íseal, agus féadfar an gléas "
+"a mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra, le do thoil."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -234,14 +236,12 @@ msgstr ""
 #: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
-msgstr "Plugáilte an corda cumhachta isteach."
+msgstr "Plugáil an corda cumhachta isteach."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Cuirfear an ríomhaire sa mhód fuireachais i gceann 1 soicind."
+msgstr "Múchfar an ríomhaire i gceann 60 soicind."
 
 #: powerdevilcore.cpp:639
 #, kde-format
@@ -251,11 +251,9 @@ msgid "Shut Down Now"
 msgstr "Múch Anois"
 
 #: powerdevilcore.cpp:645
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Cuirfear an ríomhaire ar fionraí i RAM i gceann 1 soicind."
+msgstr "Geimhrítear an ríomhaire i gceann 60 soicind."
 
 #: powerdevilcore.cpp:647
 #, kde-format
@@ -323,11 +321,10 @@ msgstr "Tá an corda cumhachta plugáilte isteach."
 #: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on Battery Power"
-msgstr "Ar Chumhacht Chadhnra"
+msgstr "Ar Chumhacht Chadhnra Ag Rith"
 
 #: powerdevilcore.cpp:737
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Bhí an cuibheoir cumhachta díphlugáilte."
 
