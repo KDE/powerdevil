@@ -19,3 +19,5 @@ plasma_add_applet(org.kde.plasma.battery
         main.xml
     GENERATE_APPLET_CLASS
 )
+
+add_dependencies(org.kde.plasma.battery batterymonitorplugin)
