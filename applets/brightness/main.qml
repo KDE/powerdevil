@@ -92,7 +92,7 @@ PlasmoidItem {
     switchWidth: Kirigami.Units.gridUnit * 10
     switchHeight: Kirigami.Units.gridUnit * 10
 
-    Plasmoid.title: i18n("Brightness and Color")
+    Plasmoid.title: i18n("Brightness & Color")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection == Qt.RightToLeft
     LayoutMirroring.childrenInherit: true

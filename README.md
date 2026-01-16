@@ -9,7 +9,7 @@ It is responsible for some (but not all) interactions with hardware functionalit
 * Monitor the current battery charge, and set charge thresholds for battery-powered devices that support it.
 * Keep track of system state - e.g. suspend/idle/etc. inhibitors, activities, screen locking - to adjust power management behaviors accordingly.
 * Communicate with underlying services such as [UPower](https://gitlab.freedesktop.org/upower/upower), [power-profiles-daemon](https://gitlab.freedesktop.org/upower/power-profiles-daemon), [ddcutil](https://github.com/rockowitz/ddcutil), and/or [systemd](https://systemd.io/) to implement some of the above.
-* Provide a D-Bus interface for other Plasma components such as the Power Management applet or the Brightness and Color applet.
+* Provide a D-Bus interface for other Plasma components such as the Power Management applet or the Brightness & Color applet.
 
 
 ## Related components
@@ -17,7 +17,7 @@ It is responsible for some (but not all) interactions with hardware functionalit
 Directly interacting with this service, but not located in this repository:
 
 * The [Power Management applet](https://invent.kde.org/plasma/plasma-workspace/-/tree/master/applets/batterymonitor) in plasma-workspace.
-* The [Brightness and Color applet](https://invent.kde.org/plasma/plasma-workspace/-/tree/master/applets/brightness), also part of plasma-workspace.
+* The [Brightness & Color applet](https://invent.kde.org/plasma/plasma-workspace/-/tree/master/applets/brightness), also part of plasma-workspace.
 * Even [KRunner commands for PowerDevil actions](https://invent.kde.org/plasma/plasma-workspace/-/tree/master/runners/powerdevil) are part of plasma-workspace for some reason.
 * In a Wayland session, [KWin](https://invent.kde.org/plasma/kwin) takes over certain functionality related to user activity tracking and turning displays on/off which in X11 is managed by PowerDevil directly.
 * Plasma Mobile has [its own UI for power management settings](https://invent.kde.org/plasma/plasma-mobile/-/tree/master/kcms/powermanagement).

@@ -27,7 +27,7 @@ ecm_qt_declare_logging_category(brightnesscontrolplugin
     IDENTIFIER "APPLETS::BRIGHTNESS"
     CATEGORY_NAME org.kde.applets.brightness
     DEFAULT_SEVERITY Warning
-    DESCRIPTION "Brightness and Color applet" EXPORT "APPLETS::BRIGHTNESS"
+    DESCRIPTION "Brightness & Color applet" EXPORT "APPLETS::BRIGHTNESS"
 )
 
 ecm_finalize_qml_module(brightnesscontrolplugin)

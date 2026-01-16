@@ -94,7 +94,7 @@ PlasmoidItem {
     switchWidth: Kirigami.Units.gridUnit * 10
     switchHeight: Kirigami.Units.gridUnit * 10
 
-    Plasmoid.title: batteryControl.hasBatteries ? i18n("Power and Battery") : i18n("Power Management")
+    Plasmoid.title: batteryControl.hasBatteries ? i18n("Power & Battery") : i18n("Power Management")
 
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true

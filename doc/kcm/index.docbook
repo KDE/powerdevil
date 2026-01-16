@@ -143,7 +143,7 @@ Laptop displays and keyboard backlights account for much of the power draw of an
 <listitem>
 <para>Define a brightness level to set when switching between <guilabel>On AC Power</guilabel>, <guilabel>On Battery</guilabel>, and <guilabel>On Low Battery</guilabel> power states.
 </para>
-<para>Screen and keyboard brightness can also be changed on the fly through the <guilabel>Brightness and Color</guilabel> applet, as well as with keyboard shortcuts. Changing brightness on the fly will not affect the settings in this module. If no brightness level is set in this settings module, the brightness will remain the same when switching between power states.
+<para>Screen and keyboard brightness can also be changed on the fly through the <guilabel>Brightness &amp;amp; Color</guilabel> applet, as well as with keyboard shortcuts. Changing brightness on the fly will not affect the settings in this module. If no brightness level is set in this settings module, the brightness will remain the same when switching between power states.
 </para>
 </listitem>
 </varlistentry>
@@ -174,7 +174,7 @@ Laptop displays and keyboard backlights account for much of the power draw of an
 <listitem>
 <para>Define system performance characteristics to set when switching between <guilabel>On AC Power</guilabel>, <guilabel>On Battery</guilabel>, and <guilabel>On Low Battery</guilabel> power states. A power profile such as <guilabel>Power Save</guilabel>, <guilabel>Balanced</guilabel> and <guilabel>Performance</guilabel> allows you to trade off performance vs. power consumption, which also affects the levels of heat and fan noise your system will produce.
 </para>
-<para>Power profiles can also be changed on the fly through the <guilabel>Power and Battery</guilabel> applet, as well as with keyboard shortcuts. Changing power profiles on the fly will not affect the settings in this module. If no brightness level is set in this settings module, the brightness will remain the same when switching between power states.
+<para>Power profiles can also be changed on the fly through the <guilabel>Power &amp;amp; Battery</guilabel> applet, as well as with keyboard shortcuts. Changing power profiles on the fly will not affect the settings in this module. If no brightness level is set in this settings module, the brightness will remain the same when switching between power states.
 </para>
 </listitem>
 </varlistentry>
