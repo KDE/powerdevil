@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-14 00:46+0000\n"
-"PO-Revision-Date: 2025-08-23 14:20+0300\n"
+"PO-Revision-Date: 2026-01-15 14:44+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -71,7 +71,7 @@ msgstr "Ekrano ryškumas – %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Tamsi veiksena"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -82,7 +82,7 @@ msgstr "Konfigūruoti…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Perjungti į %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -295,7 +295,7 @@ msgstr "Naktinė šviesa"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Apipavidalinimas"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"

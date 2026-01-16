@@ -186,30 +186,27 @@ msgstr ""
 "externího monitoru."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: neznámý důvod"
+msgstr ""
 
 #: InhibitionItem.qml:163
 #, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#| msgid "Failed to block automatic sleep and screen locking"
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -221,57 +218,53 @@ msgstr ""
 
 #: InhibitionItem.qml:171
 #, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#| msgid "Failed to block automatic sleep and screen locking"
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: InhibitionItem.qml:179
 #, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#| msgid "Failed to block automatic sleep and screen locking"
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -519,43 +512,3 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-
-#~ msgctxt "Sleep and Screen Locking after Inactivity"
-#~ msgid "Blocked"
-#~ msgstr "Blokován"
-
-#~ msgctxt "Sleep and Screen Locking after Inactivity"
-#~ msgid "Automatic"
-#~ msgstr "Automaticky"
-
-#~ msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-#~ msgstr "%1 právě brání spánku nebo zamčení obrazovky (neznámý důvod)"
-
-#~ msgid "An application is currently blocking sleep and screen locking (%1)"
-#~ msgstr "Aplikace právě brání spánku nebo zamčení obrazovky (%1)"
-
-#~ msgid ""
-#~ "An application is currently blocking sleep and screen locking (unknown "
-#~ "reason)"
-#~ msgstr "Aplikace právě brání spánku nebo zamčení obrazovky (neznámý důvod)"
-
-#~ msgctxt "Application name: reason for preventing sleep and screen locking"
-#~ msgid "%1: %2"
-#~ msgstr "%1: %2"
-
-#~ msgctxt "Application name: reason for preventing sleep and screen locking"
-#~ msgid "Unknown application: %1"
-#~ msgstr "Neznámá aplikace: %1"
-
-#~ msgctxt "Application name: reason for preventing sleep and screen locking"
-#~ msgid "Unknown application: unknown reason"
-#~ msgstr "Neznámá aplikace: neznámý důvod"
-
-#~ msgctxt ""
-#~ "@action:button Undo blocking sleep and screen locking after inactivity"
-#~ msgid "Unblock"
-#~ msgstr "Odblokovat"
-
-#~ msgctxt "@action:button Block sleep and screen locking after inactivity"
-#~ msgid "Manually Block"
-#~ msgstr "Ručně zablokovat"

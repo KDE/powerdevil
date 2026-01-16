@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-14 00:46+0000\n"
-"PO-Revision-Date: 2025-01-29 17:09+0400\n"
+"PO-Revision-Date: 2026-01-15 09:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -70,7 +70,7 @@ msgstr "سطوع العرض - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "الوضع المظلم"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -81,7 +81,7 @@ msgstr "اضبط…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "بدل إلى %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -291,7 +291,7 @@ msgstr "الإضاءة الليلية"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "السمة"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
