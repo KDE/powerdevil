@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/powerdevil/plasma_applet_org.kde.plasma."
+"X-Crowdin-File: /kf6-stable/messages/powerdevil/plasma_applet_org.kde.plasma."
 "battery.pot\n"
-"X-Crowdin-File-ID: 54392\n"
+"X-Crowdin-File-ID: 55840\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -110,33 +110,33 @@ msgstr "电源管理"
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
+msgstr "自动睡眠和锁屏当前已被阻止"
 
 #: InhibitionItem.qml:67
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
-msgstr ""
+msgstr "锁屏当前已被阻止。空闲后自动睡眠。"
 
 #: InhibitionItem.qml:69
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr ""
+msgstr "睡眠当前已被阻止。空闲后自动锁屏。"
 
 #: InhibitionItem.qml:71
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr ""
+msgstr "空闲后自动睡眠和锁屏。"
 
 #: InhibitionItem.qml:94
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr ""
+msgstr "阻止自动锁屏和睡眠"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -153,7 +153,7 @@ msgstr "阻止自动睡眠和锁屏失败"
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
+msgstr "这将增加耗电量。"
 
 #: InhibitionItem.qml:130
 #, kde-format
@@ -163,7 +163,7 @@ msgctxt ""
 msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
-msgstr ""
+msgstr "您手动阻止了自动睡眠和锁屏。这将增加耗电量。"
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr ""
+msgstr "未知原因。"
 
 #: InhibitionItem.qml:163
 #, kde-format
@@ -185,7 +185,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1 想要阻止睡眠和锁屏。(%2)"
 
 #: InhibitionItem.qml:165
 #, kde-format
@@ -193,7 +193,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr ""
+msgstr "%1 想要阻止锁屏。(%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -201,7 +201,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 想要阻止睡眠。(%2)"
 
 #: InhibitionItem.qml:171
 #, kde-format
@@ -209,7 +209,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1 也在阻止睡眠和锁屏。(%2)"
 
 #: InhibitionItem.qml:173
 #, kde-format
@@ -217,7 +217,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 也在阻止锁屏。(%2)"
 
 #: InhibitionItem.qml:175
 #, kde-format
@@ -225,7 +225,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 也在阻止睡眠。(%2)"
 
 #: InhibitionItem.qml:179
 #, kde-format
@@ -233,7 +233,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1 正在阻止睡眠和锁屏。(%2)"
 
 #: InhibitionItem.qml:181
 #, kde-format
@@ -241,7 +241,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 正在阻止锁屏。(%2)"
 
 #: InhibitionItem.qml:183
 #, kde-format
@@ -249,7 +249,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 正在阻止睡眠。(%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -265,7 +265,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "允许"
 
 #: main.qml:76
 #, kde-format
