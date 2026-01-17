@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
 # SPDX-FileCopyrightText: 2023 Xavier Besnard <xavier.besnard@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-14 00:46+0000\n"
-"PO-Revision-Date: 2025-01-30 09:03+0100\n"
+"PO-Revision-Date: 2026-01-15 11:19+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <French <kde-francophone@kde.org>>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Afficher la luminosité - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Mode sombre"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "Configurer…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Basculer vers %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -288,7 +288,7 @@ msgstr "Lumière de nuit"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Thème"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
