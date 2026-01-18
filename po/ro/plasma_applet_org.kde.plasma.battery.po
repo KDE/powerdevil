@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-10-05 00:21+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -317,8 +317,9 @@ msgstr ""
 "ecranului"
 
 #: main.qml:97
-#, kde-format
-msgid "Power and Battery"
+#, fuzzy, kde-format
+#| msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Alimentare și acumulator"
 
 #: main.qml:116

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2015-02-15 13:01+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -293,7 +293,7 @@ msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Omogućenu upravljanje napajanjem"
 
 #: main.qml:116

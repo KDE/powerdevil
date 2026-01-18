@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-09-11 17:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -323,8 +323,9 @@ msgstr ""
 "eston"
 
 #: main.qml:97
-#, kde-format
-msgid "Power and Battery"
+#, fuzzy, kde-format
+#| msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Virranhallinta"
 
 #: main.qml:116

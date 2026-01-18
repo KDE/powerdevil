@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2008-04-18 14:31+0330\n"
 "Last-Translator: Saied Taghavi <s.taghavi@gmail.com>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -271,9 +271,10 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr ""
 
 #: main.qml:97
-#, kde-format
-msgid "Power and Battery"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Battery"
+msgid "Power & Battery"
+msgstr "باتری"
 
 #: main.qml:116
 #, kde-format
@@ -495,11 +496,6 @@ msgstr ""
 #~| msgid "Battery"
 #~ msgctxt "Placeholder is the battery number"
 #~ msgid "Battery %1"
-#~ msgstr "باتری"
-
-#, fuzzy
-#~| msgid "Battery"
-#~ msgid "Battery"
 #~ msgstr "باتری"
 
 #, fuzzy

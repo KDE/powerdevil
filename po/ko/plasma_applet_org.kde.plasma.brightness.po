@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-04-07 00:33+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -88,8 +88,9 @@ msgid "Follow accent color"
 msgstr "강조색 따르기"
 
 #: main.qml:95
-#, kde-format
-msgid "Brightness and Color"
+#, fuzzy, kde-format
+#| msgid "Brightness and Color"
+msgid "Brightness & Color"
 msgstr "밝기와 색상"
 
 #: main.qml:135

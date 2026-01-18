@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2021-08-13 02:10+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -313,7 +313,7 @@ msgstr "बैटरी एप्लेट ने तंत्र-व्या�
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "शक्ति प्रबंधन"
 
 #: main.qml:116

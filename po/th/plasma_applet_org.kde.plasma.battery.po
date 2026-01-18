@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2010-12-17 16:07+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -296,7 +296,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "tooltip on the config button in the popup"
 #| msgid "Configure Power Management..."
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "ปรับแต่งการจัดการพลังงาน..."
 
 #: main.qml:116

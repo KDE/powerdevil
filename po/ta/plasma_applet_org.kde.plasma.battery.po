@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-09-07 18:30+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -305,8 +305,9 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "திரை பூட்டல் மற்றும் தானியக்க உறக்கம், மின்கல பிளாஸ்மாய்டால் தடுக்கப்பட்டுள்ளது"
 
 #: main.qml:97
-#, kde-format
-msgid "Power and Battery"
+#, fuzzy, kde-format
+#| msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "ஆற்றலும் மின்கலமும்"
 
 #: main.qml:116

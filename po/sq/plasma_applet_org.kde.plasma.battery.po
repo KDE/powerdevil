@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2009-10-21 13:14+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -277,7 +277,7 @@ msgstr ""
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Menaxhimi i Tensionit"
 
 #: main.qml:116

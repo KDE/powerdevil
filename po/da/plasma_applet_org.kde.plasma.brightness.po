@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-10-29 11:13+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -88,8 +88,9 @@ msgid "Follow accent color"
 msgstr "Følg accentfarve"
 
 #: main.qml:95
-#, kde-format
-msgid "Brightness and Color"
+#, fuzzy, kde-format
+#| msgid "Brightness and Color"
+msgid "Brightness & Color"
 msgstr "Lysstyrke og farve"
 
 #: main.qml:135

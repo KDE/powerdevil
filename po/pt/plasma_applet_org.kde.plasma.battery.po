@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2023-02-17 12:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -297,7 +297,7 @@ msgstr "A 'applet' da bateria activou a inibição a nível do sistema"
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Gestão de Energia"
 
 #: main.qml:116

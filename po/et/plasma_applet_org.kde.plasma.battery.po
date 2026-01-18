@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2020-10-08 10:11+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -320,7 +320,7 @@ msgstr "Rakendus takistab uinumist ja ekraani lukustamist:"
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Toitehalduse lubamine"
 
 #: main.qml:116

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2013-06-09 05:41+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -295,7 +295,7 @@ msgstr "Батарея апплеті жалпы жүйелік тежеуді �
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Қуаттандыруды басқаруын қосу"
 
 #: main.qml:116

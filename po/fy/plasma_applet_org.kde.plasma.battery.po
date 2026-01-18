@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2009-06-26 00:19+0200\n"
 "Last-Translator: Rinse de Vries <rinsedevries@kde.nl>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: main.qml:97
 #, fuzzy, kde-format
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Enerzjybehear"
 
 #: main.qml:116

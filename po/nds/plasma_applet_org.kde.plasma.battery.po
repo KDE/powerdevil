@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-10 00:45+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2014-09-18 16:09+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -290,7 +290,7 @@ msgstr "Dat Batterie-Lüttprogramm hett Blockeren systeemwiet anmaakt."
 #: main.qml:97
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
-msgid "Power and Battery"
+msgid "Power & Battery"
 msgstr "Stroompleeg anmaken"
 
 #: main.qml:116

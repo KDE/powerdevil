@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2025-01-31 10:58+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -88,8 +88,9 @@ msgid "Follow accent color"
 msgstr "Следване на акцентния цвят"
 
 #: main.qml:95
-#, kde-format
-msgid "Brightness and Color"
+#, fuzzy, kde-format
+#| msgid "Brightness and Color"
+msgid "Brightness & Color"
 msgstr "Яркост и цветове"
 
 #: main.qml:135

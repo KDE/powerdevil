@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-18 00:45+0000\n"
 "PO-Revision-Date: 2023-12-09 09:39+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -92,9 +92,10 @@ msgid "Follow accent color"
 msgstr ""
 
 #: main.qml:95
-#, kde-format
-msgid "Brightness and Color"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Display Brightness"
+msgid "Brightness & Color"
+msgstr "Jas obrazovky"
 
 #: main.qml:135
 #, kde-format
