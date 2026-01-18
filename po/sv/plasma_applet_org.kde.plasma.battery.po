@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2025-08-15 07:23+0200\n"
+"PO-Revision-Date: 2026-01-17 21:36+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -108,14 +108,10 @@ msgid "Power Management"
 msgstr "Strömsparhantering"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
-"Automatiskt viloläge och skärmlåsning är inaktiverade. Mittenklicka för att "
-"aktivera igen."
+msgstr "Automatiskt viloläge och skärmlåsning är för närvarande förhindrade."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -123,30 +119,29 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Skärmlåsning är för närvarande förhindrad. Viloläge är automatiskt efter "
+"inaktivitet."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "Viloläge och skärmlåsning efter inaktivitet"
+msgstr ""
+"Viloläge är för närvarande förhindrat. Skärmlåsning är automatisk efter "
+"inaktivitet."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "Viloläge och skärmlåsning efter inaktivitet"
+msgstr "Viloläge och skärmlåsning är automatiska efter inaktivitet."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Misslyckades blockera automatiskt viloläge och skärmlåsning"
+msgstr "Förhindra viloläge och skärmlåsning manuellt"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -157,31 +152,17 @@ msgstr ""
 #: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "Misslyckades blockera automatiskt viloläge och skärmlåsning"
+msgstr "Misslyckades förhindra automatiskt viloläge och skärmlåsning"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
-"Du har manuellt förhindrat viloläge och skärmlåsning. Det resulterar i högre "
-"energiförbrukning."
+msgstr "Det resulterar i högre energiförbrukning."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -189,8 +170,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"Du har manuellt förhindrat viloläge och skärmlåsning. Det resulterar i högre "
-"energiförbrukning."
+"Du har manuellt förhindrat automatiskt viloläge och skärmlåsning. Det "
+"resulterar i högre energiförbrukning."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -203,30 +184,26 @@ msgstr ""
 "och en extern bildskärm är ansluten."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: okänd orsak"
+msgstr "Okänd orsak."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 vill förhindra viloläge och skärmlåsning (%2)."
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 vill förhindra skärmlåsning (%2)."
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -234,61 +211,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 vill förhindra viloläge (%2)."
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar också viloläge och skärmlåsning (%2)."
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar också skärmlåsning (%2)."
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar också viloläge (%2)."
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar viloläge och skärmlåsning (%2)."
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar skärmlåsning (%2)."
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 förhindrar för närvarande viloläge och skärmlåsning (%2)"
+msgstr "%1 förhindrar viloläge (%2)."
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -296,7 +267,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr "Sluta blockera"
+msgstr "Sluta förhindra"
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -304,7 +275,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Tillåt"
 
 #: main.qml:76
 #, kde-format
