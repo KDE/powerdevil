@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2026-01-14 04:09+0000\n"
+"PO-Revision-Date: 2026-01-16 11:47+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -38,12 +38,10 @@ msgid "Power Management"
 msgstr "Bainisteoireacht Cumhachta"
 
 #: actions/bundled/brightnesscontrol.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "Méadaigh Gile an Scáileáin"
+msgstr "Méadaigh Gile na Scáileáin"
 
 #: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
@@ -187,7 +185,7 @@ msgstr "Laghdaigh Gile an Méarchláir"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr ""
+msgstr "Scoránaigh Solas Cúil Mhéarchláir"
 
 #: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
 #, kde-format
