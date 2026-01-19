@@ -137,6 +137,7 @@
         "Icon": "battery-full",
         "License": "GPL-2.0+",
         "Name": "Power & Battery",
+        "Name[ka]": "კვება და ელემენტი",
         "Website": "https://kde.org/plasma-desktop/"
     },
     "Keywords": "Power Management;Battery;System;Energy;",

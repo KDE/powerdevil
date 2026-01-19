@@ -180,6 +180,7 @@
         "Icon": "brightness-high",
         "License": "GPL-2.0+",
         "Name": "Brightness & Color",
+        "Name[ka]": "სიკაშკაშე და ფერი",
         "Website": "https://kde.org/plasma-desktop/"
     },
     "Keywords": "Power Management;Brightness;Color;Light;Screen;Display;Monitor;Keyboard;Night;Temperature",
