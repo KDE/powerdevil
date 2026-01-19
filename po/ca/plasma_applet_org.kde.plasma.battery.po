@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-10 14:09+0100\n"
+"PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -296,8 +296,7 @@ msgstr ""
 "bloqueig de pantalla"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "Energia i bateria"
 

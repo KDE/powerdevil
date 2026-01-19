@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-14 07:07+0100\n"
+"PO-Revision-Date: 2026-01-18 09:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -86,8 +86,7 @@ msgid "Follow accent color"
 msgstr "Sledi barvi poudarka"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Svetlost in barva"
 
@@ -174,7 +173,7 @@ msgstr "Konfiguriraj nočno svetlobo…"
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "Konfiguriraj upravljanje napajanja…"
+msgstr "Konfiguriraj upravljanje moči…"
 
 #: NightLightItem.qml:75
 #, kde-format

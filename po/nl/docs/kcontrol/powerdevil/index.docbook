@@ -224,7 +224,7 @@
 >. </para>
 <para
 >Helderheid van scherm en toetsenbord kan ook on-the-fly gewijzigd worden via de applet <guilabel
->Helderheid en kleur</guilabel
+>Helderheid &amp; kleur</guilabel
 >, evenals met sneltoetsen. Helderheid on-the-fly wijzigen zal de instellingen in deze module niet beïnvloeden. Als geen helderheidsniveau is ingesteld in deze instellingenmodule, zal de helderheid hetzelfde blijven bij omschakelen tussen energiestatussen. </para>
 </listitem>
 </varlistentry>
@@ -282,7 +282,7 @@
 > bieden u te kiezen tussen prestatie vs. energiegebruik, die ook de niveaus van hitte en ventilatorruis die uw systeem zal produceren beïnvloedt. </para>
 <para
 >Energieprofielen kunnen ook on-the-fly gewijzigd worden via de applet <guilabel
->Energie en batterij</guilabel
+>Energie &amp; batterij</guilabel
 >, evenals met sneltoetsen. Wijzigen van energieprofielen on-the-fly zal de instellingen in deze module niet beïnvloeden. Als geen helderheidsniveau is ingesteld in deze instellingenmodule, zal de helderheid hetzelfde blijven bij omschakelen van energiestatus. </para>
 </listitem>
 </varlistentry>

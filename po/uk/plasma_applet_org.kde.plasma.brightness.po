@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-14 04:51+0200\n"
+"PO-Revision-Date: 2026-01-18 15:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -89,8 +89,7 @@ msgid "Follow accent color"
 msgstr "Відповідно до кольору акценту"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Яскравість і колір"
 

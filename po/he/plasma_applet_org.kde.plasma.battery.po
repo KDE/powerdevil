@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-10 13:18+0200\n"
+"PO-Revision-Date: 2026-01-18 20:31+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -279,8 +279,7 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "יישומון הסוללה הפעיל בלימה של שינה ונעילת מסך"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "צריכת חשמל וסוללה"
 

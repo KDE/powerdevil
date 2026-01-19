@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-10 02:39+0100\n"
+"PO-Revision-Date: 2026-01-18 02:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -281,8 +281,7 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "ელემენტის აპლეტმა ჩართო ძილის გათიშვა და ეკრანის დაბლოკვა"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "კვება და ელემენტი"
 

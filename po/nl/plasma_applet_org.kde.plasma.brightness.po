@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-14 17:08+0100\n"
+"PO-Revision-Date: 2026-01-18 14:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -88,10 +88,9 @@ msgid "Follow accent color"
 msgstr "Accentuatiekleur volgen"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
-msgstr "Helderheid en kleur"
+msgstr "Helderheid & kleur"
 
 #: main.qml:135
 #, kde-format

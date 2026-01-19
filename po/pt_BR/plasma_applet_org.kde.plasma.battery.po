@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-10 07:15-0300\n"
+"PO-Revision-Date: 2026-01-18 11:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -293,10 +293,9 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "O miniaplicativo de bateria inibiu a suspensão e o bloqueio de tela"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
-msgstr "Bateria e energia"
+msgstr "Fonte de energia e bateria"
 
 #: main.qml:116
 #, kde-format

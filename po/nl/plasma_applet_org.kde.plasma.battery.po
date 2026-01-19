@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-10 12:48+0100\n"
+"PO-Revision-Date: 2026-01-18 14:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
 msgid "Charging"
-msgstr "Opladen"
+msgstr "Bezig met opladen"
 
 #: BatteryItem.qml:101
 #, kde-format
@@ -284,10 +284,9 @@ msgstr ""
 "onderdrukt"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
-msgstr "Energie en batterij"
+msgstr "Energie & batterij"
 
 #: main.qml:116
 #, kde-format
