@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-01-31 10:58+0100\n"
+"PO-Revision-Date: 2026-01-19 22:50+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "Яркост на екрана - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Тъмен режим"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "Конфигуриране…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Превключване към %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -88,8 +88,7 @@ msgid "Follow accent color"
 msgstr "Следване на акцентния цвят"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Яркост и цветове"
 
@@ -292,4 +291,4 @@ msgstr "Вечерни цветове"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Тема"

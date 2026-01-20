@@ -89,10 +89,9 @@ msgid "Follow accent color"
 msgstr "跟随系统重点色"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
-msgstr "亮度和颜色"
+msgstr ""
 
 #: main.qml:135
 #, kde-format

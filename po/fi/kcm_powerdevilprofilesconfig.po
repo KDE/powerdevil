@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the kde-workspace package.
 # Jorma Karvonen <karvonen.jorma@gmail.com>, 2010-2011.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011.
-# SPDX-FileCopyrightText: 2012, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2012, 2020, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 #
 # KDE Finnish translation sprint participants:
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2025-03-15 08:56+0200\n"
+"PO-Revision-Date: 2026-01-05 18:08+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -496,12 +496,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "Avaa ”Aktiviteetit”-asetussivu"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "&Virranhallinnan lisäasetukset…"
+msgstr "&Lisäasetukset…"
 
 #: ui/main.qml:44
 #, kde-format

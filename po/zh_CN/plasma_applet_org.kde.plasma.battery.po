@@ -273,10 +273,9 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "电池小部件启用了阻止睡眠和锁屏"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
-msgstr "电量和电池"
+msgstr ""
 
 #: main.qml:116
 #, kde-format
