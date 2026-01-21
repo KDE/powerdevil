@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2026-01-13 14:23+0200\n"
+"PO-Revision-Date: 2026-01-20 23:44+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -295,8 +295,7 @@ msgstr ""
 "užrakinimo slopinimą"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "Maitinimas ir akumuliatorius"
 
