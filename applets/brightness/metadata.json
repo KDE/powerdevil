@@ -181,6 +181,7 @@
         "License": "GPL-2.0+",
         "Name": "Brightness & Color",
         "Name[ar]": "السطوع والألوان",
+        "Name[bg]": "Яркост и цветове",
         "Name[ca@valencia]": "Brillantor i color",
         "Name[ca]": "Lluminositat i color",
         "Name[es]": "Brillo y color",
@@ -191,6 +192,7 @@
         "Name[sl]": "Svetlost in barva",
         "Name[tr]": "Parlaklık ve Renk",
         "Name[uk]": "Яскравість і колір",
+        "Name[zh_TW]": "亮度與顏色",
         "Website": "https://kde.org/plasma-desktop/"
     },
     "Keywords": "Power Management;Brightness;Color;Light;Screen;Display;Monitor;Keyboard;Night;Temperature",
