@@ -5,14 +5,14 @@
 # SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 # SPDX-FileCopyrightText: 2025 Stephan Brunner <s.brunner@stephan-brunner.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2025-10-21 00:49+0200\n"
+"PO-Revision-Date: 2026-01-18 01:40+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "%1 %"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr "Ruhemodus und Bildschirmsperre nach Inaktivität"
+msgstr "Standby-Modus und Bildschirmsperre nach Inaktivität"
 
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -113,14 +113,12 @@ msgid "Power Management"
 msgstr "Energieverwaltung"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr ""
-"Automatischer Ruhezustand und Bildschirmsperre sind deaktiviert; Mit "
-"mittlerer Maustaste erneut aktivieren"
+"Der automatische Standby-Modus und die Bildschirmsperre werden gerade "
+"verhindert."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -128,70 +126,55 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Die Bildschirmsperre wird gerade verhindert. Nach Inaktivität wird "
+"automatisch in den Standby-Modus gewechselt."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "Ruhemodus und Bildschirmsperre nach Inaktivität"
+msgstr ""
+"Der Standby-Modus wird gerade verhindert. Nach Inaktivität wird der "
+"Bildschirm automatisch gesperrt."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "Ruhemodus und Bildschirmsperre nach Inaktivität"
+msgstr ""
+"Automatischer Standby-Modus und automatische Bildschirmsperre nach "
+"Inaktivität."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr ""
-"Blockierung des automatischen Ruhezustandes und der Bildschirmsperre "
-"fehlgeschlagen"
+msgstr "Standby-Modus und Bildschirmsperre manuell verhindern"
 
 #: InhibitionItem.qml:112
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
-"Entsperrung des automatischen Ruhezustandes und der Bildschirmsperre "
-"fehlgeschlagen"
+"Aufheben der Verhinderung des automatischen Standby-Modus und der "
+"Bildschirmsperre fehlgeschlagen"
 
 #: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
-"Blockierung des automatischen Ruhezustandes und der Bildschirmsperre "
+"Verhindern des automatischen Standby-Modus und der Bildschirmsperre "
 "fehlgeschlagen"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
-"Ruhezustand und Bildschirmsperre sind manuell blockiert. Das verursacht "
-"einen höheren Energieverbrauch."
+msgstr "Das verursacht einen höheren Energieverbrauch."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -199,8 +182,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"Ruhezustand und Bildschirmsperre sind manuell blockiert. Das verursacht "
-"einen höheren Energieverbrauch."
+"Sie haben den automatischen Standby-Modus und die Bildschirmsperre "
+"deaktiviert. Das verursacht einen höheren Energieverbrauch."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -209,34 +192,30 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"Ihr Laptop wechselt beim Zuklappen des Bildschirms nicht in den Ruhezustand, "
-"wenn ein externer Bildschirm angeschlossen ist."
+"Ihr Laptop wechselt beim Zuklappen des Bildschirms nicht in den Standby-"
+"Modus, wenn ein externer Bildschirm angeschlossen ist."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: unbekannter Grund"
+msgstr "Unbekannter Grund."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 möchte den Standby-Modus und die Bildschirmsperre verhindern. (%2)"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 möchte die Bildschirmsperre verhindern. (%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -244,61 +223,56 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 möchte den Standby-Modus verhindern. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr ""
+"%1 verhindert ebenfalls den Standby-Modus und die Bildschirmsperre. (%2)"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 verhindert ebenfalls die Bildschirmsperre. (%2)"
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 verhindert ebenfalls den Standby-Modus. (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 verhindert den Standby-Modus und die Bildschirmsperre. (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 verhindert die Bildschirmsperre. (%2)"
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 blockiert zurzeit Ruhezustand und Bildschirmsperre (%2)"
+msgstr "%1 verhindert den Standby-Modus. (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -306,7 +280,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr "Erlauben"
+msgstr "Nicht mehr verhindern"
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -314,13 +288,13 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Zulassen"
 
 #: main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr ""
-"Die Energieverwaltung unterdrückt derzeit den Ruhezustand und die "
+"Das Akku-Miniprogramm verhindert derzeit den Standby-Modus und die "
 "Bildschirmsperre"
 
 #: main.qml:97
@@ -385,15 +359,15 @@ msgstr "Wird nicht geladen"
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
-"Automatischer Ruhezustand und Bildschirmsperre sind deaktiviert; Mit "
-"mittlerer Maustaste erneut aktivieren"
+"Automatischer Standby-Modus und Bildschirmsperre sind deaktiviert – mit der "
+"mittleren Maustaste wieder aktivieren"
 
 #: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
-"Mit mittlerer Maustaste den automatischen Ruhezustand und die automatische "
-"Bildschirmsperre blockieren"
+"Mittelklick, um den automatischen Standby-Modus und die automatische "
+"Bildschirmsperre zu deaktivieren"
 
 #: main.qml:172
 #, kde-format
