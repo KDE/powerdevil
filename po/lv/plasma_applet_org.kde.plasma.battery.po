@@ -6,20 +6,20 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008, 2009, 2010.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011.
-# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-09-24 16:39+0300\n"
+"PO-Revision-Date: 2026-01-19 16:35+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -111,17 +111,13 @@ msgstr "Iesnaudināšana un ekrāna slēgšana pēc neaktivitātes perioda"
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr "Jaudas pārvaldība"
+msgstr "Energokontrole"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
-"Automātiskā ekrāna slēgšana un iesnaudināšana ir izslēgta. Ieslēdziet ar "
-"peles vidējo pogu."
+msgstr "Automātiskā ekrāna slēgšana un iesnaudināšana ir bloķēta."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -129,30 +125,28 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Ekrāna slēgšana ir bloķēta. Iesnaudināšana ir automātiska, nenotiekot "
+"darbībām."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "Iesnaudināšana un ekrāna slēgšana pēc neaktivitātes perioda"
+msgstr ""
+"Iesnaudināšana ir bloķēta. Ekrāns automātiski bloķēsies, nenotiekot darbībām."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "Iesnaudināšana un ekrāna slēgšana pēc neaktivitātes perioda"
+msgstr "Iesnaudināšana un ekrāna slēgšana ir automātiska, nenotiek darbībām."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Neizdevās bloķēt automātisku iesnaudināšanu un ekrāna slēgšanu"
+msgstr "Manuāli bloķēt iesnaudināšanu un ekrāna slēgšanu"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -165,28 +159,14 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Neizdevās bloķēt automātisku iesnaudināšanu un ekrāna slēgšanu"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
-"Jūs manuāli bloķējāt iesnaudināšanu un ekrāna slēgšanu. Tas ilgtermiņā "
-"palielinās elektroenerģijas patēriņu."
+msgstr "Tas novedīs pie augstāka elektroenerģijas patēriņa."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -194,8 +174,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"Jūs manuāli bloķējāt iesnaudināšanu un ekrāna slēgšanu. Tas ilgtermiņā "
-"palielinās elektroenerģijas patēriņu."
+"Jūs varat manuāli bloķēt automātisku iesnaudināšanu un ekrāna slēgšanu. Tas "
+"novedīs pie augstāka elektroenerģijas patēriņa."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -204,34 +184,30 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"Jūsu portatīvais dators ir iestatīts neaizmigt, ja aizver tā vāku kamēr ir "
-"pieslēgts ārējais monitors."
+"Jūsu portatīvais dators ir iestatīts neieslēgt iesnaudināšanu, aizverot tā "
+"vāku, ja ir pieslēgts ārējais monitors."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: nezināms iemesls"
+msgstr "Nezināms iemesls."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ vēlas bloķēt iesnaudināšanu un ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ vēlas bloķēt ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -239,61 +215,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "„%1“ vēlas bloķēt iesnaudināšanu. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ arī bloķē iesnaudināšanu un ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ arī bloķē ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ arī bloķē iesnaudināšanu. (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ bloķē ekrāna slēgšanu. (%2)"
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ bloķē iesnaudināšanu. (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -309,7 +279,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Atļaut"
 
 #: main.qml:76
 #, kde-format
@@ -319,10 +289,9 @@ msgstr ""
 "bloķēšanu"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
-msgstr "Jauda un baterija"
+msgstr "Energokontrole un baterija"
 
 #: main.qml:116
 #, kde-format
@@ -395,14 +364,14 @@ msgstr ""
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] "%1 programma ir pieprasījusi aktivizēt jaudas režīmu"
-msgstr[1] "%1 programmas ir pieprasījušas aktivizēt jaudas režīmu"
-msgstr[2] "%1 programmu ir pieprasījušas aktivizēt jaudas režīmu"
+msgstr[0] "%1 programma ir pieprasījusi aktivizēt veiktspējas režīmu"
+msgstr[1] "%1 programmas ir pieprasījušas aktivizēt veiktspējas režīmu"
+msgstr[2] "%1 programmu ir pieprasījušas aktivizēt veiktspējas režīmu"
 
 #: main.qml:176
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr "Sistēma atrodas jaudas režīmā. Ritiniet, lai mainītu."
+msgstr "Sistēma atrodas veiktspējas režīmā. Ritiniet, lai mainītu."
 
 #: main.qml:180
 #, kde-format
@@ -435,12 +404,12 @@ msgstr "Rādīt baterijas atlikumu procentos uz ikonas, kad nav pilnībā uzlād
 #: main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Konfigurēt jaudas pārvaldību..."
+msgstr "&Konfigurēt energokontroli..."
 
 #: PowerProfileItem.qml:41
 #, kde-format
 msgid "Power Save"
-msgstr "Energotaupība"
+msgstr "Enerģijas taupība"
 
 #: PowerProfileItem.qml:45
 #, kde-format
@@ -450,12 +419,12 @@ msgstr "Balansēta"
 #: PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
-msgstr "Jauda"
+msgstr "Veiktspēja"
 
 #: PowerProfileItem.qml:66
 #, kde-format
 msgid "Power Profile"
-msgstr "Jaudas profils"
+msgstr "Energokontroles profils"
 
 #: PowerProfileItem.qml:110
 #, kde-format
@@ -472,7 +441,7 @@ msgstr "Nav pieejams"
 #: PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr "Neizdevās aktivizēt %1 režīmu"
+msgstr "Neizdevās aktivizēt „%1“ režīmu"
 
 #: PowerProfileItem.qml:228
 #, kde-format
@@ -480,19 +449,19 @@ msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
-"Jaudas režīms ir izslēgts, lai samazinātu karstuma ģenerēšanu, jo ierīce ir "
-"konstatējusi, ka jūs, iespējams, to turat klēpī."
+"Energokontroles režīms ir izslēgts, lai samazinātu karstuma ģenerēšanu, jo "
+"ierīce ir konstatējusi, ka jūs, iespējams, to turat klēpī."
 
 #: PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
-msgstr "Jaudas režīms nav pieejams, jo dators ir pārāk karsts."
+msgstr "Veiktspējas režīms nav pieejams, jo dators ir pārāk karsts."
 
 #: PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
-msgstr "Jaudas režīms nav pieejams."
+msgstr "Veiktspējas režīms nav pieejams."
 
 #: PowerProfileItem.qml:248
 #, kde-format
@@ -532,12 +501,12 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr "TLP serviss automātiski kontrolē jaudas profilus"
+msgstr "TLP serviss automātiski kontrolē energokontroles profilus"
 
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr "Jūsu ierīce neatbalsta jaudas profilus."
+msgstr "Jūsu ierīce neatbalsta energokontroles profilus."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format
@@ -546,9 +515,9 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-"Jūsu ierīce varētu atbalstīt jaudas profilus.<nl/>Mēģiniet instalēt "
-"<command>power-profiles-daemon</command> pakotni no savas operētājsistēmas "
-"pakotņu pārvaldnieka un pārstartējiet sistēmu."
+"Jūsu ierīce varētu atbalstīt energokontroles profilus.<nl/>Mēģiniet instalēt "
+"<command>power-profiles-daemon</command> pakotni, izmantojot savas "
+"operētājsistēmas pakotņu pārvaldnieku, un pārstartējiet sistēmu."
 
 #~ msgctxt "Sleep and Screen Locking after Inactivity"
 #~ msgid "Blocked"

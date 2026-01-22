@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the plasma-workspace package.
 #
 # Māris Nartišs <maris.kde@gmail.com>, 2023.
-# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-02-02 10:43+0200\n"
+"PO-Revision-Date: 2026-01-19 16:37+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -71,18 +71,18 @@ msgstr "Ekrāna spilgtums — %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Tumšais režīms"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
 msgid "Configure…"
-msgstr "Konfigurēt..."
+msgstr "Konfigurēt…"
 
 #: DarkModeItem.qml:101
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Pārslēgties uz „%1“"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -90,8 +90,7 @@ msgid "Follow accent color"
 msgstr "Ievērot akcenta krāsu"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Spilgtums un krāsa"
 
@@ -174,12 +173,12 @@ msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
-msgstr "Konfigurēt nakts gaismu..."
+msgstr "Konfigurēt nakts gaismu…"
 
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Konfigurēt jaudas pārvaldību..."
+msgstr "&Konfigurēt energokontroli…"
 
 #: NightLightItem.qml:75
 #, kde-format
@@ -250,7 +249,7 @@ msgstr "Apturēt"
 #: NightLightItem.qml:147
 #, kde-format
 msgid "Enable and Configure…"
-msgstr "Ieslēgt un konfigurēt..."
+msgstr "Ieslēgt un konfigurēt…"
 
 #: NightLightItem.qml:175
 #, kde-format
@@ -294,7 +293,7 @@ msgstr "Nakts gaisma"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Motīvs"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"

@@ -5,13 +5,13 @@
 # SPDX-FileCopyrightText: 2024 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Sven J. Grewe <svengrewe@posteo.de>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2025-06-19 13:29+0200\n"
+"PO-Revision-Date: 2026-01-17 12:11+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -499,12 +499,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "Öffnen der Seite „Aktivitäten“"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "Erweiterte Energieein&stellungen …"
+msgstr "Erweiterte Ein&stellungen einrichten …"
 
 #: ui/main.qml:44
 #, kde-format
@@ -659,7 +657,7 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr "Selbst wenn ein externer Monitor angeschlossen ist"
+msgstr "Selbst, wenn ein externer Monitor angeschlossen ist"
 
 #: ui/ProfileConfig.qml:255
 #, kde-format
@@ -927,7 +925,7 @@ msgstr "Befehl oder Skript beim Verlassen des Zustands „%1“"
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr ""
-"Die Dauer der Inaktivität bevor der Befehl oder das Skript ausgeführt wird"
+"Die Dauer der Inaktivität, bevor der Befehl oder das Skript ausgeführt wird"
 
 #: ui/ProfileConfig.qml:838
 #, kde-format

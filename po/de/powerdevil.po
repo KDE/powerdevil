@@ -7,13 +7,13 @@
 # SPDX-FileCopyrightText: 2011 Kai Uwe Broulik <KaiUweBroulik2@hotmail.com>
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 00:46+0000\n"
-"PO-Revision-Date: 2025-09-16 11:03+0200\n"
+"PO-Revision-Date: 2026-01-17 13:49+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -70,7 +70,7 @@ msgstr "Ausschalten"
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr "Abschalten"
+msgstr "Ausschalten"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
@@ -202,8 +202,8 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"Der Ladestand von „%1“ ist niedrig und das Gerät kann sich jederzeit "
-"abschalten. Bitte ersetzen Sie die Batterie oder laden Sie den Akku."
+"Der Ladestand von „%1“ ist niedrig, das Gerät könnte sich jederzeit "
+"ausschalten. Bitte ersetzen Sie die Batterie oder laden Sie den Akku."
 
 #: powerdevilcore.cpp:557
 #, kde-format
@@ -227,8 +227,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"Der Ladestand des Bluetooth-Geräts „%1“ ist niedrig und das Gerät kann sich "
-"jederzeit abschalten. Bitte ersetzen Sie die Batterie oder laden Sie den "
+"Der Ladestand des Bluetooth-Geräts „%1“ ist niedrig, das Gerät könnte sich "
+"jederzeit ausschalten. Bitte ersetzen Sie die Batterie oder laden Sie den "
 "Akku."
 
 #: powerdevilcore.cpp:615
