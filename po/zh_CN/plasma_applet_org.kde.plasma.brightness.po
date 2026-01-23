@@ -91,7 +91,7 @@ msgstr "跟随系统重点色"
 #: main.qml:95
 #, kde-format
 msgid "Brightness & Color"
-msgstr ""
+msgstr "亮度和色彩"
 
 #: main.qml:135
 #, kde-format

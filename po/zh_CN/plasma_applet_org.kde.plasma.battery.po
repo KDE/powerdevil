@@ -275,7 +275,7 @@ msgstr "电池小部件启用了阻止睡眠和锁屏"
 #: main.qml:97
 #, kde-format
 msgid "Power & Battery"
-msgstr ""
+msgstr "电源和电池"
 
 #: main.qml:116
 #, kde-format
