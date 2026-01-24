@@ -187,6 +187,7 @@
         "Name[es]": "Brillo y color",
         "Name[fr]": "Luminosité et couleurs",
         "Name[he]": "בהירות וצבע",
+        "Name[it]": "Luminosità e colore",
         "Name[ka]": "სიკაშკაშე და ფერი",
         "Name[lt]": "Ryškumas ir spalva",
         "Name[lv]": "Spilgtums un krāsa",
@@ -195,6 +196,7 @@
         "Name[sl]": "Svetlost in barva",
         "Name[tr]": "Parlaklık ve Renk",
         "Name[uk]": "Яскравість і колір",
+        "Name[zh_CN]": "亮度和色彩",
         "Name[zh_TW]": "亮度與顏色",
         "Website": "https://kde.org/plasma-desktop/"
     },

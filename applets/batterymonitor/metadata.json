@@ -144,6 +144,7 @@
         "Name[es]": "Energía y batería",
         "Name[fr]": "Énergie et batterie",
         "Name[he]": "חשמל וסוללה",
+        "Name[it]": "Alimentazione e batteria",
         "Name[ka]": "კვება და ელემენტი",
         "Name[lt]": "Maitinimas ir akumuliatorius",
         "Name[lv]": "Energokontrole un baterija",
@@ -152,6 +153,7 @@
         "Name[sl]": "Moč in baterija",
         "Name[tr]": "Güç ve Pil",
         "Name[uk]": "Живлення і акумулятор",
+        "Name[zh_CN]": "电源和电池",
         "Name[zh_TW]": "電源與電池",
         "Website": "https://kde.org/plasma-desktop/"
     },
