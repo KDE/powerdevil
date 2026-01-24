@@ -41,6 +41,14 @@ PlasmoidItem {
 
         readonly property int remainingTime: smoothedRemainingMsec
         readonly property bool isSomehowFullyCharged: pluggedIn && state === BatteryControlModel.FullyCharged
+        // Some devices will report 100% charge when discharging as a quirk of how they report battery percentage.
+        // It is logically impossible to be truly at 100% while discharging, and displaying a difference
+        // between 100% & charged and 100% & discharging isn't particularly useful to the user. In order to keep
+        // The "Show Battery Percentage on Icon When Not Fully Charged" setting true to its name and purpose,
+        // we change the percent that we display to be artificially lower than the 100% reported by the device.
+        // It may not be smart to obscure the technical details of how the battery is reported to programmers,
+        // so we have a display percentage property here instead of changing the percent given by the model.
+        readonly property int displayPercent: percent === 100 && !isSomehowFullyCharged ? 99 : percent
     }
 
     InhibitionControl {
@@ -122,7 +130,7 @@ PlasmoidItem {
             return i18n("Fully Charged");
         }
 
-        const percent = batteryControl.percent;
+        const percent = batteryControl.displayPercent;
         if (batteryControl.pluggedIn) {
             const state = batteryControl.state;
             if (state === BatteryControlModel.NoCharge) {
@@ -206,7 +214,7 @@ PlasmoidItem {
     }
 
     compactRepresentation: CompactRepresentation {
-        batteryPercent: batteryControl.percent
+        batteryPercent: batteryControl.displayPercent
         batteryPluggedIn: batteryControl.pluggedIn
         hasBatteries: batteryControl.hasBatteries
         hasInternalBatteries: batteryControl.hasInternalBatteries
