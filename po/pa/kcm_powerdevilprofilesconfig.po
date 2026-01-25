@@ -1,20 +1,20 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2020, 2024, 2025 A S Alam <aalam@users.sf.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2020, 2024, 2025, 2026 A S Alam <aalam@users.sf.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2025-09-15 09:39-0500\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
-"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-01-24 08:24-0600\n"
+"Last-Translator: A S Alam <aman@punlinux.org>\n"
+"Language-Team: pa\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerButtonActionModel.cpp:31
@@ -315,6 +315,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"ਬੈਟਰੀ ਦਾ ਪੱਧਰ ਗੰਭੀਰ ਰੂਪ ਵਿੱਚ ਘੱਟ ਹੋਣ ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤੀ ਕਾਰਵਾਈ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ "
+"ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ ਰਹੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -488,12 +490,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "\"ਸਰਗਰਮੀਆਂ\" ਸੈਟਿੰਗਾਂ ਸਫ਼ੇ ਨੂੰ ਖੋਲ੍ਹੋ"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "ਤਕਨੀਕੀ ਪਾਵਰ ਸੈਟਿੰਗਾਂ(&S)…"
+msgstr "ਤਕਨੀਕੀ ਸੈਟਿੰਗਾਂ ਦੀ ਸੰਰਚਨਾ(&S)…"
 
 #: ui/main.qml:44
 #, kde-format
@@ -537,6 +537,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"ਨਾ-ਸਰਗਰਮ ਹੋਣ ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤੀ ਕਾਰਵਾਈ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ ਰਹੀ "
+"ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
 #: ui/ProfileConfig.qml:61
 #, kde-format
@@ -580,13 +582,13 @@ msgstr "…ਕਸਟਮ"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "ਆਪਣੇ-ਆਪ ਸਸਪੈਂਡ ਕਰਨ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨ ਨਾਲ ਵੱਧ ਊਰਜਾ ਦੀ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
 #: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "ਸਮਾਂ ਵਧਾਉਣ ਨਾਲ ਵੱਧ ਊਰਜਾ ਦੀ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
 #: ui/ProfileConfig.qml:176
 #, kde-format
@@ -595,6 +597,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਪਾਵਰ ਬਟਨ ਨੂੰ ਦਬਾਉਣ ਦਾ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ "
+"ਰਿਹਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
 #: ui/ProfileConfig.qml:183
 #, kde-format
@@ -617,6 +621,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਕਵਰ (lid) ਬੰਦ ਕਰਨ ਦਾ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ "
+"ਰਿਹਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
 #: ui/ProfileConfig.qml:222
 #, kde-format
@@ -652,6 +658,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਸਲੀਪ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ ਰਿਹਾ ਹੈ। ਕਿਰਪਾ "
+"ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
@@ -717,7 +725,7 @@ msgstr "ਕਦੇ ਨਹੀਂ"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr ""
+msgstr "ਸਕਰੀਨ ਦੇ ਛੇਤੀ ਹੀ ਬੰਦ ਕੀਤੇ ਜਾਣ ਦੀ ਸੰਰਚਨਾ ਕਰਕੇ ਇਸ ਨੂੰ ਡਿਮ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
@@ -876,38 +884,30 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਵਿੱਚ ਜਾਵੇ:"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "ਜਦੋਂ ਇਸ ਪਾਵਰ ਹਾਲਤ ਵਿੱਚ ਜਾਓ ਤਾਂ ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ"
+msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਵਿੱਚ ਜਾਓ ਤਾਂ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ"
 
 #: ui/ProfileConfig.qml:799
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&xiting this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "ਜਦੋਂ ਇਹ ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ(&x):"
+msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ(&x):"
 
 #: ui/ProfileConfig.qml:803
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "ਜਦੋਂ ਇਸ ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ ਤਾਂ ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ"
+msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ ਤਾਂ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ"
 
 #: ui/ProfileConfig.qml:832
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ ਚਲਾਉਣ ਲਈ ਨਾ-ਸਰਗਰਮੀ ਦਾ ਸਮਾਂ"
+msgstr "ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ ਚਲਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਨਾ-ਸਰਗਰਮੀ ਦਾ ਅੰਤਰਾਲ"
 
 #: ui/ProfileConfig.qml:838
 #, kde-format
@@ -916,12 +916,10 @@ msgid "When i&nactive:"
 msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ(&n):"
 
 #: ui/ProfileConfig.qml:841
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "ਪਸੰਦੀਦਾ ਸਕ੍ਰਿਪਟ ਚਲਾਓ:"
+msgstr "ਇਸ ਦੇ ਬਾਅਦ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਚਲਾਓ:"
 
 #: ui/ProfileConfig.qml:846
 #, kde-format

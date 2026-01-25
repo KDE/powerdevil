@@ -1,21 +1,21 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 A S Alam <aalam@punlinux.org>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 A S Alam <aalam@punlinux.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-03-24 14:50-0500\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
-"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-01-24 08:10-0600\n"
+"Last-Translator: A S Alam <aman@punlinux.org>\n"
+"Language-Team: pa\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "ਡਿਸਪਲੇਅ ਚਮਕ - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "ਗੂੜ੍ਹਾ ਢੰਗ"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "…ਸੰਰਚਨਾ"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1 ਲਈ ਬਦਲੋ"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -88,8 +88,7 @@ msgid "Follow accent color"
 msgstr "ਤੀਬਰ ਰੰਗ ਦੇ ਮੁਤਾਬਕ"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "ਚਮਕ ਅਤੇ ਰੰਗ"
 
@@ -291,7 +290,7 @@ msgstr "ਰਾਤ ਦੇ ਰੰਗ"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "ਥੀਮ"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
