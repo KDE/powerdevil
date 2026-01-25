@@ -35,10 +35,7 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
     c.registerService(u"org.freedesktop.PowerManagement.Inhibit"_s);
 
     connect(m_core->batteryController(), &BatteryController::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
-    connect(PolicyAgent::instance(),
-            SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
-            this,
-            SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
+    connect(PolicyAgent::instance(), &PolicyAgent::unavailablePoliciesChanged, this, &FdoConnector::onUnavailablePoliciesChanged);
 }
 
 bool FdoConnector::CanHibernate()
