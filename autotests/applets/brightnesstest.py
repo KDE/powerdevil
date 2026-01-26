@@ -6,6 +6,7 @@
 
 import logging
 import os
+import platform
 import shutil
 import subprocess
 import sys
@@ -210,18 +211,20 @@ class BrightnessTests(unittest.TestCase):
         debug_env = os.environ.copy()
         debug_env["QT_LOGGING_RULES"] = "qt.dbus*.debug=true"
         debug_env["UMOCKDEV_DIR"] = cls.testbed.get_root_dir()
-        cls.backlighthelper = subprocess.Popen([BACKLIGHTHELPER_PATH], env=debug_env, stdout=sys.stderr, stderr=sys.stderr)
-        cls.addClassCleanup(cls.backlighthelper.kill)
         system_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SYSTEM)
-        backlighthelper_started: bool = False
-        for _ in range(10):
-            assert not isinstance(cls.backlighthelper.returncode, int), cls.backlighthelper.returncode
-            if name_has_owner(system_bus, BACKLIGHTHELPER_SERVICE_NAME):
-                backlighthelper_started = True
-                break
-            print("waiting for backlighthelper to appear on the dbus session", file=sys.stderr, flush=True)
-            time.sleep(1)
-        assert backlighthelper_started, "backlighthelper is not running"
+
+        if platform.system() != "Linux": # on Linux, we use org.freedesktop.login1 instead to set brightness
+            cls.backlighthelper = subprocess.Popen([BACKLIGHTHELPER_PATH], env=debug_env, stdout=sys.stderr, stderr=sys.stderr)
+            cls.addClassCleanup(cls.backlighthelper.kill)
+            backlighthelper_started: bool = False
+            for _ in range(10):
+                assert not isinstance(cls.backlighthelper.returncode, int), cls.backlighthelper.returncode
+                if name_has_owner(system_bus, BACKLIGHTHELPER_SERVICE_NAME):
+                    backlighthelper_started = True
+                    break
+                print("waiting for backlighthelper to appear on the dbus session", file=sys.stderr, flush=True)
+                time.sleep(1)
+            assert backlighthelper_started, "backlighthelper is not running"
 
         # Start PowerDevil which is used by the dataengine
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
@@ -279,7 +282,8 @@ class BrightnessTests(unittest.TestCase):
 
         cls.driver.quit()
 
-        assert cls.backlighthelper.wait(10) == 0, cls.backlighthelper.returncode
+        if platform.system() != "Linux": # on Linux, we use org.freedesktop.login1 instead to set brightness
+            assert cls.backlighthelper.wait(10) == 0, cls.backlighthelper.returncode
 
     def test_1_bug487743_set_keyboard_brightness(self) -> None:
         """
@@ -365,6 +369,7 @@ class BrightnessTests(unittest.TestCase):
 if __name__ == '__main__':
     assert 'umockdev' in os.environ.get("LD_PRELOAD", "")
     assert os.path.exists(POWERDEVIL_PATH), f"{POWERDEVIL_PATH} does not exist"
-    assert os.path.exists(BACKLIGHTHELPER_PATH), f"{BACKLIGHTHELPER_PATH} does not exist"
+    if platform.system() != "Linux": # on Linux, we use org.freedesktop.login1 instead to set brightness
+        assert os.path.exists(BACKLIGHTHELPER_PATH), f"{BACKLIGHTHELPER_PATH} does not exist"
     logging.getLogger().setLevel(logging.INFO)
     unittest.main()
