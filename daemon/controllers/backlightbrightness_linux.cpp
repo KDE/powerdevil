@@ -11,7 +11,7 @@
 
 #include "backlightbrightness_linux.h"
 
-#include <powerdevil_debug.h>
+#include <powerdevil_backlightbrightness_debug.h>
 
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
@@ -54,11 +54,11 @@ void BacklightDetector::detect()
     std::shared_ptr<BacklightBrightness> deleteAfterDetectionFinished(m_display.release());
 
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: not supported: missing D-Bus service" << LOGIN1_SERVICE;
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "not supported: missing D-Bus service" << LOGIN1_SERVICE;
     } else if (QList<BacklightSysfsDevice> devices = BacklightSysfsDevice::getBacklightTypeDevices(); !devices.isEmpty()) {
         m_display.reset(new BacklightBrightness(std::move(devices), this));
     } else {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: not supported: no kernel backlight interface found";
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "not supported: no kernel backlight interface found";
     }
     Q_EMIT detectionFinished(m_display != nullptr);
 }
@@ -110,7 +110,7 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
     int lastObservedBrightness = m_observedBrightness;
     m_observedBrightness = *newBrightness;
 
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed brightness to:" << m_observedBrightness << "for" << device.sysfsPath();
+    qCDebug(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Udev device changed brightness to:" << m_observedBrightness << "for" << device.sysfsPath();
 
     //
     // Ignore any brightness changes that we initiated in this class, send signals only for external changes
@@ -135,7 +135,7 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
         }
     }
 
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << m_devices.constFirst().maxBrightness;
+    qCDebug(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "External brightness change observed:" << m_observedBrightness << "/" << m_devices.constFirst().maxBrightness;
     m_requestedBrightness = m_observedBrightness;
     m_executedBrightness = m_observedBrightness;
     m_expectedMinBrightness = -1;
@@ -176,11 +176,11 @@ int BacklightBrightness::brightness() const
 void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
 {
     if (!isSupported()) {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Not supported, setBrightness() should not be called";
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Not supported, setBrightness() should not be called";
         return;
     }
     if (newBrightness < 0 || newBrightness > maxBrightness()) {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Invalid brightness requested:" << newBrightness << "- ignoring | valid range: 0 to" << maxBrightness();
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Invalid brightness requested:" << newBrightness << "- ignoring | valid range: 0 to" << maxBrightness();
         return;
     }
     m_requestedBrightness = newBrightness;
@@ -289,8 +289,8 @@ void BacklightBrightness::setBrightnessWithLogin1(int newBrightness, bool isFina
 
                 if (reply.isError()) {
                     m_isWaitingForAsyncIPC = false;
-                    qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness via" << LOGIN1_SERVICE
-                                          << "D-Bus service:" << reply.error().message();
+                    qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS)
+                        << "Failed to set screen brightness via" << LOGIN1_SERVICE << "D-Bus service:" << reply.error().message();
                     cancelBrightnessAnimation();
                     std::optional<int> currentBrightness = m_devices.constFirst().readBrightness();
                     if (currentBrightness.has_value()) {

@@ -55,6 +55,13 @@ ecm_qt_declare_logging_category(powerdevil_log_static
    DEFAULT_SEVERITY Warning
    DESCRIPTION "Powerdevil" EXPORT POWERDEVIL
 )
+ecm_qt_declare_logging_category(powerdevil_log_static
+   HEADER powerdevil_backlightbrightness_debug.h
+   IDENTIFIER POWERDEVIL_BACKLIGHTBRIGHTNESS
+   CATEGORY_NAME org.kde.powerdevil.backlightbrightness
+   DEFAULT_SEVERITY Warning
+   DESCRIPTION "Powerdevil [BacklightBrightness]" EXPORT POWERDEVIL
+)
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS
     ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc

@@ -11,7 +11,7 @@
 
 #include "backlightbrightness_freebsd.h"
 
-#include <powerdevil_debug.h>
+#include <powerdevil_backlightbrightness_debug.h>
 
 #include <QDebug>
 #include <QFileInfo>
@@ -46,8 +46,7 @@ void BacklightDetector::detect()
     KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
     connect(brightnessJob, &KJob::result, this, [this, brightnessJob, deleteOld = std::move(deleteOld)] {
         if (brightnessJob->error()) {
-            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
-            qCDebug(POWERDEVIL) << brightnessJob->errorText();
+            qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "org.kde.powerdevil.backlighthelper.brightness failed:" << brightnessJob->errorText();
             Q_EMIT detectionFinished(false);
             return;
         }
@@ -58,8 +57,7 @@ void BacklightDetector::detect()
         KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
         connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob, cachedBrightness, deleteOld = std::move(deleteOld)] {
             if (brightnessMaxJob->error()) {
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
-                qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
+                qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "org.kde.powerdevil.backlighthelper.brightnessmax failed" << brightnessMaxJob->errorText();
                 Q_EMIT detectionFinished(false);
                 return;
             }
@@ -127,11 +125,11 @@ int BacklightBrightness::brightness() const
 void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
 {
     if (!isSupported()) {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Not supported, setBrightness() should not be called";
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Not supported, setBrightness() should not be called";
         return;
     }
     if (newBrightness < 0 || newBrightness > maxBrightness()) {
-        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Invalid brightness requested:" << newBrightness << "- ignoring | valid range: 0 to" << maxBrightness();
+        qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Invalid brightness requested:" << newBrightness << "- ignoring | valid range: 0 to" << maxBrightness();
         return;
     }
     m_requestedBrightness = newBrightness;
@@ -172,7 +170,7 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
         m_isWaitingForKAuthJob = false;
 
         if (job->error()) {
-            qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->errorText();
+            qCWarning(POWERDEVIL_BACKLIGHTBRIGHTNESS) << "Failed to set screen brightness" << job->errorText();
             Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
             return;
         }
