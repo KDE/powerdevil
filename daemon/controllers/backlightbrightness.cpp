@@ -103,7 +103,7 @@ void BacklightDetector::detect()
 
 QList<DisplayBrightness *> BacklightDetector::displays() const
 {
-    return m_display ? QList<DisplayBrightness *>(1, m_display.get()) : QList<DisplayBrightness *>();
+    return m_display ? QList<DisplayBrightness *>{m_display.get()} : QList<DisplayBrightness *>{};
 }
 
 BacklightBrightness::BacklightBrightness(int observedBrightness, int maxBrightness, QString syspath, QObject *parent)
