@@ -39,7 +39,7 @@ BacklightDetector::BacklightDetector(QObject *parent)
 void BacklightDetector::detect()
 {
     if (m_display) {
-        disconnect(m_display.get(), nullptr, nullptr, nullptr);
+        disconnect(m_display.get(), nullptr, this, nullptr);
     }
     std::shared_ptr<BacklightBrightness> deleteOld(m_display.release());
 
