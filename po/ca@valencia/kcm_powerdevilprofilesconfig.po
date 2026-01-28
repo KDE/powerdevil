@@ -383,7 +383,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr "A&tura la càrrega al:"
+msgstr "&Para la càrrega al:"
 
 #: ui/GlobalConfig.qml:268
 #, kde-format
