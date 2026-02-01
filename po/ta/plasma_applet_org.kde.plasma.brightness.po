@@ -1,21 +1,21 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-02-02 15:59+0530\n"
+"PO-Revision-Date: 2026-01-31 17:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
-"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "திரையின் பிரகாசம் — %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "கருமையான தோற்றத்திட்டம்"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "அமை..."
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1-க்கு மாறு"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -88,8 +88,7 @@ msgid "Follow accent color"
 msgstr "சிறப்பு நிறத்தைப் பயன்படுத்து"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "நிறமும் பிரகாசமும்"
 
@@ -291,7 +290,7 @@ msgstr "இரவு நிறமாற்றம்"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "தோற்றத்திட்டம்"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
