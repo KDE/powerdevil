@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2026-01-14 18:39+0100\n"
+"PO-Revision-Date: 2026-01-31 17:56+0100\n"
 "Last-Translator: Lucia Mrenica <lucia.mrenica@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -118,12 +118,10 @@ msgid "Standby, then hibernate"
 msgstr "Režim pohotovosti, potom hibernovať"
 
 #: SleepModeModel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Príkaz skriptu po určitom čase nečinnosti"
+msgstr "Prejsť do režimu hibernácie, keď je batéria slabá"
 
 #: SleepModeModel.cpp:39
 #, kde-format
@@ -328,6 +326,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Akcia, ktorú ste predtým nakonfigurovali pre dosiahnutie kritickej úrovne "
+"batérie, teraz nie je vo vašom systéme podporovaná. Vyberte inú akciu."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -459,19 +459,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Otvorte stránku nastavení \"Oznámenia\", časť \"Správa napájania\"."
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Oznámenia: Správa napájania"
+msgstr "Skratky: Správa napájania"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Otvorte stránku nastavení \"Oznámenia\", časť \"Správa napájania\"."
+msgstr "Otvorte stránku nastavení „Skratky“, časť „Správa napájania“"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
@@ -480,10 +476,9 @@ msgid "Screen Locking"
 msgstr "Zamykanie obrazovky"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Activities\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Otvorte stránku nastavení \"Aktivity\""
+msgstr "Otvorte stránku nastavení „Zamknutie obrazovky“"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -508,12 +503,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "Otvorte stránku nastavení \"Aktivity\""
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "Pokročilé nastavenia napájania…"
+msgstr "Konfigurácia pokročilých nastavení..."
 
 #: ui/main.qml:44
 #, kde-format
@@ -557,6 +550,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Akcia, ktorú ste predtým nakonfigurovali tak, aby sa vykonala v prípade "
+"neaktivity, teraz nie je vo vašom systéme podporovaná. Vyberte inú akciu."
 
 #: ui/ProfileConfig.qml:61
 #, kde-format
@@ -603,12 +598,14 @@ msgstr "Vlastné…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Vypnutie automatického pozastavenia bude mať za následok vyššiu spotrebu "
+"energie."
 
 #: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Dlhá doba trvania bude mať za následok vyššiu spotrebu energie."
 
 #: ui/ProfileConfig.qml:176
 #, kde-format
@@ -617,6 +614,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Akcia, ktorú ste predtým nakonfigurovali pre stlačenie tlačidla napájania, "
+"teraz nie je vo vašom systéme podporovaná. Vyberte inú akciu."
 
 #: ui/ProfileConfig.qml:183
 #, kde-format
@@ -639,6 +638,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Akcia, ktorú ste predtým nakonfigurovali pre uzavretie veka, teraz nie je vo "
+"vašom systéme podporovaná. Vyberte inú akciu."
 
 #: ui/ProfileConfig.qml:222
 #, kde-format
@@ -674,6 +675,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Režim spánku, ktorý ste predtým nakonfigurovali, teraz nie je vo vašom "
+"systéme podporovaný . Vyberte iný režim."
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
@@ -794,15 +797,13 @@ msgid "When locked, turn off screen after:"
 msgstr "Keď je obrazovka zamknutá, vypnúť ju po:"
 
 #: ui/ProfileConfig.qml:536
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Keď je obrazovka zamknutá, vypnúť ju:"
-msgstr[1] "Keď je obrazovka zamknutá, vypnúť ju:"
-msgstr[2] "Keď je obrazovka zamknutá, vypnúť ju:"
+msgstr[0] "Keď je obrazovka zamknutá: %1 sekunda"
+msgstr[1] "Keď je obrazovka zamknutá: %1 sekundy"
+msgstr[2] "Keď je obrazovka zamknutá: %1 sekúnd"
 
 #: ui/ProfileConfig.qml:538
 #, kde-format
@@ -856,12 +857,10 @@ msgid "Switch to power profile"
 msgstr "Prepnúť na profil napájania"
 
 #: ui/ProfileConfig.qml:673
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Spustiť vlastný skript:"
+msgstr "Spustiť príkaz alebo skript:"
 
 #: ui/ProfileConfig.qml:683
 #, kde-format
@@ -872,12 +871,10 @@ msgid "Choose run conditions"
 msgstr "Vybrať podmienky spustenia"
 
 #: ui/ProfileConfig.qml:685
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Vybrať podmienky spustenia skriptu"
+msgstr "Vyberte podmienky spustenia pre príkaz alebo skript"
 
 #: ui/ProfileConfig.qml:705
 #, kde-format
@@ -910,12 +907,10 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "Pri vstupe do režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Príkaz skriptu pri vstupe do tohto stavu napájania"
+msgstr "Príkaz alebo skript pri vstupe do stavu „%1“"
 
 #: ui/ProfileConfig.qml:799
 #, kde-format
@@ -926,20 +921,16 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "Pri odchode z režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:803
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Príkaz skriptu pri ukončení tohto stavu napájania"
+msgstr "Príkaz alebo skript pri ukončení stavu „%1“"
 
 #: ui/ProfileConfig.qml:832
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Doba nečinnosti, kým sa nevykoná príkaz skriptu"
+msgstr "Doba nečinnosti pred spustením príkazu alebo skriptu"
 
 #: ui/ProfileConfig.qml:838
 #, kde-format
@@ -948,34 +939,28 @@ msgid "When i&nactive:"
 msgstr "Pri neaktivite:"
 
 #: ui/ProfileConfig.qml:841
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Spustiť vlastný skript:"
+msgstr "Spustiť príkaz alebo skript po:"
 
 #: ui/ProfileConfig.qml:846
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "po %1 sek"
-msgstr[1] "po %1 sek"
-msgstr[2] "po %1 sek"
+msgstr[0] "Spustiť po %1 sekude"
+msgstr[1] "Spustiť po %1 sekudách"
+msgstr[2] "Spustiť po %1 sekudách"
 
 #: ui/ProfileConfig.qml:848
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "po %1 min"
-msgstr[1] "po %1 min"
-msgstr[2] "po %1 min"
+msgstr[0] "Spustiť po %1 minúte"
+msgstr[1] "Spustiť po %1 minútach"
+msgstr[2] "Spustiť po %1 minútach"
 
 #: ui/ProfileConfig.qml:890
 #, kde-format
@@ -984,18 +969,16 @@ msgid "Command or script when inactive"
 msgstr "Príkaz alebo skript pri neaktivite:"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Zadajte príkaz alebo vyberte súbor..."
+msgstr "Zadajte príkaz alebo skriptový súbor"
 
 #: ui/RunScriptEdit.qml:35
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Zadajte príkaz alebo vyberte súbor..."
+msgstr "Zadajte príkaz alebo vyberte súbor skriptu"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format

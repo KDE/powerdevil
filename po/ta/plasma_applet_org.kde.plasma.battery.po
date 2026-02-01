@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-10 00:45+0000\n"
-"PO-Revision-Date: 2025-09-07 18:30+0530\n"
+"PO-Revision-Date: 2026-01-31 20:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -108,12 +108,10 @@ msgid "Power Management"
 msgstr "ஆற்றல் மேலாண்மை"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr "தானியங்கி தூக்கம் மற்றும் திரை பூட்டுதல் முடங்கியுள்ளன; இயக்க நடு-கிளிக் செய்யவும்"
+msgstr "தானியங்கி தூக்கம் மற்றும் திரை பூட்டல் தடுக்கப்பட்டுள்ளன."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -121,30 +119,28 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"தானியக்க திரை பூட்டல் தடுக்கப்பட்டுள்ளது. ஒன்றும் செய்யாதபோது கணினி தானாக உறக்க நிலைக்கு "
+"செல்லும்."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "ஒன்றும் செய்யாதபோது தூங்குவதும் திரையை பூட்டுவதும்"
+msgstr "தானியக்க உறக்கம் தடுக்கப்பட்டுள்ளது. ஒன்றும் செய்யாதபோது திரை தானாக பூட்டப்படும்."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "ஒன்றும் செய்யாதபோது தூங்குவதும் திரையை பூட்டுவதும்"
+msgstr ""
+"ஒன்றும் செய்யாதபோது திரை தானாக பூட்டப்படும், மேலும் கணினி உறக்க நிலைக்கு செல்லும்."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "தானாக தூங்குவதையும் திரைபூட்டுவதையும் தடுக்க முடியவில்லை"
+msgstr "தானாக தூங்குவதையும் திரைபூட்டுவதையும் தடு"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -157,33 +153,22 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "தானாக தூங்குவதையும் திரைபூட்டுவதையும் தடுக்க முடியவில்லை"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr "தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர். மின்சார பயன்பாட்டு இதனால் அதிகமாகும்."
+msgstr "மின்சார பயன்பாட்டு இதனால் அதிகமாகும்."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
 msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
-msgstr "தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர். மின்சார பயன்பாட்டு இதனால் அதிகமாகும்."
+msgstr ""
+"தானியக்க தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர். மின்சார பயன்பாட்டு இதனால் அதிகமாகும்."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -196,30 +181,26 @@ msgstr ""
 "கணினி அமைக்கப்பட்டுள்ளது."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: தெரியாத காரணம்"
+msgstr "தெரியாத காரணம்."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்க விரும்புகிறது (%2)"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "%1 திரை பூட்டலை தடுக்க விரும்புகிறது (%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -227,61 +208,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 தூக்கத்தை தடுக்க விரும்புகிறது (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "இத்துடன் %1-உம் தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "இத்துடன் %1-உம் திரை பூட்டலை தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "இத்துடன் %1-உம் தூக்கத்தை தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "%1 தூக்கத்தையும் திரை பூட்டலையும் தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "%1 திரை பூட்டலை தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
+msgstr "%1 தூக்கத்தை தடுக்கிறது (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -297,7 +272,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "அனுமதி"
 
 #: main.qml:76
 #, kde-format
