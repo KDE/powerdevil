@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# SPDX-FileCopyrightText: 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-04-07 00:33+0200\n"
+"PO-Revision-Date: 2026-02-03 22:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "화면 밝기 - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "어두운 모드"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "설정…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1(으)로 전환|/|%1$[으 %1]로 전환"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -88,8 +88,7 @@ msgid "Follow accent color"
 msgstr "강조색 따르기"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "밝기와 색상"
 
@@ -291,7 +290,7 @@ msgstr "야간 조명"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "테마"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
