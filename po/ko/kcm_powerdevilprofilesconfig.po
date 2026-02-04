@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2010, 2012, 2020, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2010, 2012, 2020, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-19 00:45+0000\n"
-"PO-Revision-Date: 2025-04-07 00:33+0200\n"
+"PO-Revision-Date: 2026-02-03 22:41+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -480,12 +480,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "\"활동\" 설정 페이지 열기"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "고급 전원 설정(&S)…"
+msgstr "고급 설정(&S)…"
 
 #: ui/main.qml:44
 #, kde-format

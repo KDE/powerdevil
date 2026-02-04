@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-01-11 18:09+0000\n"
+"PO-Revision-Date: 2026-02-01 17:53+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -76,7 +76,7 @@ msgstr "Eolas"
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr "Tá sé in-athluchtaithe"
+msgstr "Is é in-athluchtaithe"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
