@@ -809,8 +809,8 @@ void Core::onCriticalBatteryTimerExpired()
         m_criticalBatteryNotification = nullptr;
     }
 
-    // Do that only if we're not on AC
-    if (m_batteryController->acAdapterState() == BatteryController::Unplugged) {
+    // Do that only if we're not on AC and battery level is still critical
+    if (m_batteryController->acAdapterState() == BatteryController::Unplugged && currentChargePercent() <= m_globalSettings->batteryCriticalLevel()) {
         triggerCriticalBatteryAction();
     }
 }
