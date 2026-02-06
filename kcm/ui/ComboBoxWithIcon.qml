@@ -42,7 +42,6 @@ QQC2.ComboBox {
         required property string name
         required property string iconName
 
-        width: comboBox.popup.width
         text: name
         highlighted: index === currentIndex
         icon.name: iconName
