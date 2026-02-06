@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-03-04 15:53+0100\n"
+"PO-Revision-Date: 2026-02-05 13:37+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -69,7 +69,7 @@ msgstr "Brillantia de Monstrator - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Modo obscur"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -80,7 +80,7 @@ msgstr "Configura…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Passa a %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -88,10 +88,9 @@ msgid "Follow accent color"
 msgstr "Seque color de accento"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
-msgstr "Brillantia e Color"
+msgstr "Brillantia & Color"
 
 #: main.qml:135
 #, kde-format
@@ -292,7 +291,7 @@ msgstr "Color de Nocte"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Thema"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
