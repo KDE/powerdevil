@@ -26,9 +26,13 @@ Kirigami.FormLayout {
     }
 
     Connections {
-        target: profileSettings
-        onAutoSuspendIdleTimeoutSecChanged: suspendComplianceWarning.showIfNeeded();
-        onAutoSuspendActionChanged: suspendComplianceWarning.showIfNeeded();
+        target: root.profileSettings
+        function onAutoSuspendIdleTimeoutSecChanged() {
+            suspendComplianceWarning.showIfNeeded();
+        }
+        function onAutoSuspendActionChanged() {
+            suspendComplianceWarning.showIfNeeded();
+        }
     }
 
     //
