@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-07 00:45+0000\n"
 "PO-Revision-Date: 2026-01-24 08:24-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -524,13 +524,13 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/ProfileConfig.qml:39
+#: ui/ProfileConfig.qml:43
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr "ਸ਼ੈਸ਼ਨ ਨੂੰ ਸਸਪੈਂਡ ਕਰੋ"
 
-#: ui/ProfileConfig.qml:54
+#: ui/ProfileConfig.qml:58
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -540,7 +540,7 @@ msgstr ""
 "ਨਾ-ਸਰਗਰਮ ਹੋਣ ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤੀ ਕਾਰਵਾਈ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ ਰਹੀ "
 "ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
-#: ui/ProfileConfig.qml:61
+#: ui/ProfileConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -548,13 +548,13 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ(&i):"
 
-#: ui/ProfileConfig.qml:70
+#: ui/ProfileConfig.qml:74
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "ਜਦੋਂ ਸਿਸਟਮ ਬਿਨਾਂ ਸਰਗਰਮ ਦੇ ਹੋਵੇ ਤਾਂ ਕਾਰਵਾਈ ਕਰੋ"
 
-#: ui/ProfileConfig.qml:101
+#: ui/ProfileConfig.qml:105
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -562,7 +562,7 @@ msgid_plural "After %1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ ਬਾਅਦ"
 msgstr[1] "%1 ਸਕਿੰਟਾਂ ਬਾਅਦ"
 
-#: ui/ProfileConfig.qml:103
+#: ui/ProfileConfig.qml:107
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -570,27 +570,27 @@ msgid_plural "After %1 minutes"
 msgstr[0] "%1 ਮਿੰਟ ਬਾਅਦ"
 msgstr[1] "%1 ਮਿੰਟਾਂ ਬਾਅਦ"
 
-#: ui/ProfileConfig.qml:116 ui/ProfileConfig.qml:411 ui/ProfileConfig.qml:552
-#: ui/ProfileConfig.qml:861
+#: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
+#: ui/ProfileConfig.qml:865
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "…ਕਸਟਮ"
 
-#: ui/ProfileConfig.qml:162
+#: ui/ProfileConfig.qml:166
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr "ਆਪਣੇ-ਆਪ ਸਸਪੈਂਡ ਕਰਨ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨ ਨਾਲ ਵੱਧ ਊਰਜਾ ਦੀ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
-#: ui/ProfileConfig.qml:164
+#: ui/ProfileConfig.qml:168
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
 msgstr "ਸਮਾਂ ਵਧਾਉਣ ਨਾਲ ਵੱਧ ਊਰਜਾ ਦੀ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
-#: ui/ProfileConfig.qml:176
+#: ui/ProfileConfig.qml:180
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -600,7 +600,7 @@ msgstr ""
 "ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਪਾਵਰ ਬਟਨ ਨੂੰ ਦਬਾਉਣ ਦਾ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ "
 "ਰਿਹਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
-#: ui/ProfileConfig.qml:183
+#: ui/ProfileConfig.qml:187
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -608,13 +608,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "ਜਦੋਂ ਪਾਵਰ ਬਟਨ ਦੱਬਿਆ ਜਾਵੇ(&p):"
 
-#: ui/ProfileConfig.qml:185
+#: ui/ProfileConfig.qml:189
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "ਜਦੋਂ ਪਾਵਰ ਬਟਨ ਦੱਬਿਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ਕਾਰਵਾਈ ਕਰੋ"
 
-#: ui/ProfileConfig.qml:215
+#: ui/ProfileConfig.qml:219
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -624,7 +624,7 @@ msgstr ""
 "ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਕਵਰ (lid) ਬੰਦ ਕਰਨ ਦਾ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ "
 "ਰਿਹਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
-#: ui/ProfileConfig.qml:222
+#: ui/ProfileConfig.qml:226
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -632,13 +632,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr " ਜਦੋਂ ਲੈਪਟਾਪ ਦੀ &Lid ਨੂੰ ਬੰਦ ਕੀਤਾ ਜਾਵੇ:"
 
-#: ui/ProfileConfig.qml:224
+#: ui/ProfileConfig.qml:228
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "ਜਦੋਂ ਲੈਪਟਾਪ ਦੀ lid ਨੂੰ ਬੰਦ ਕੀਤਾ ਜਾਵੇ ਤਾਂ ਕਾਰਵਾਈ ਕਰੋ"
 
-#: ui/ProfileConfig.qml:253
+#: ui/ProfileConfig.qml:257
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -646,12 +646,12 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "ਭਾਵੇਂ ਕਿ ਬਾਹਰੀ ਮਾਨੀਟਰ ਕਨੈਕਟ ਹੋਵੇ"
 
-#: ui/ProfileConfig.qml:255
+#: ui/ProfileConfig.qml:259
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr "ਭਾਵੇਂ ਕਿ ਬਾਹਰੀ ਮਾਨੀਟਰ ਕਨੈਕਟ ਹੋਵੇ ਤਾਂ ਵੀ ਲੈਪਟਾਪ lid ਕਾਰਵਾਈ ਕਰੋ"
 
-#: ui/ProfileConfig.qml:273
+#: ui/ProfileConfig.qml:277
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -661,44 +661,44 @@ msgstr ""
 "ਤੁਹਾਡੇ ਵਲੋਂ ਪਹਿਲਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਸਲੀਪ ਢੰਗ ਹੁਣ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ ਸਹਾਇਕ ਨਹੀਂ ਰਿਹਾ ਹੈ। ਕਿਰਪਾ "
 "ਕਰਕੇ ਵੱਖਰਾ ਚੁਣੋ ਜੀ।"
 
-#: ui/ProfileConfig.qml:280
+#: ui/ProfileConfig.qml:284
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਕਰੋ:"
 
-#: ui/ProfileConfig.qml:282
+#: ui/ProfileConfig.qml:286
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਇਹ ਪਾਵਰ-ਬੱਚਤ ਮੋਡ ਵਿੱਚ ਜਾਓ"
 
-#: ui/ProfileConfig.qml:331
+#: ui/ProfileConfig.qml:335
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "ਡਿਸਪਲੇਅ ਅਤੇ ਚਮਕ"
 
-#: ui/ProfileConfig.qml:341
+#: ui/ProfileConfig.qml:345
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "ਸਕਰੀਨ ਦੀ ਚਮਕ ਨੂੰ ਬਦਲੋ(&e):"
 
-#: ui/ProfileConfig.qml:388
+#: ui/ProfileConfig.qml:392
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "ਆਪਣੇ-ਆਪ ਡਿਮ ਕਰੋ(&m):"
 
-#: ui/ProfileConfig.qml:390
+#: ui/ProfileConfig.qml:394
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "ਆਪਣੇ-ਆਪ ਡਿਮ ਇਸ ਦੇ ਬਾਅਦ ਕਰੋ(&m):"
 
-#: ui/ProfileConfig.qml:395
+#: ui/ProfileConfig.qml:399
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
@@ -706,7 +706,7 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ"
 msgstr[1] "%1 ਸਕਿੰਟ"
 
-#: ui/ProfileConfig.qml:397
+#: ui/ProfileConfig.qml:401
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
@@ -714,32 +714,32 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 ਮਿੰਟ"
 msgstr[1] "%1 ਮਿੰਟ"
 
-#: ui/ProfileConfig.qml:404
+#: ui/ProfileConfig.qml:408
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "ਕਦੇ ਨਹੀਂ"
 
-#: ui/ProfileConfig.qml:456
+#: ui/ProfileConfig.qml:460
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "ਸਕਰੀਨ ਦੇ ਛੇਤੀ ਹੀ ਬੰਦ ਕੀਤੇ ਜਾਣ ਦੀ ਸੰਰਚਨਾ ਕਰਕੇ ਇਸ ਨੂੰ ਡਿਮ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
-#: ui/ProfileConfig.qml:461
+#: ui/ProfileConfig.qml:465
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "ਸਕਰੀਨ ਬੰਦ ਕਰੋ(&T):"
 
-#: ui/ProfileConfig.qml:473
+#: ui/ProfileConfig.qml:477
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "ਇਸ ਦੇ ਬਾਅਦ ਸਕਰੀਨ ਬੰਦ ਕਰੋ:"
 
-#: ui/ProfileConfig.qml:477
+#: ui/ProfileConfig.qml:481
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
@@ -747,7 +747,7 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ"
 msgstr[1] "%1 ਸਕਿੰਟ"
 
-#: ui/ProfileConfig.qml:479
+#: ui/ProfileConfig.qml:483
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
@@ -755,13 +755,13 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 ਮਿੰਟ"
 msgstr[1] "%1 ਮਿੰਟ"
 
-#: ui/ProfileConfig.qml:486
+#: ui/ProfileConfig.qml:490
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "ਕਦੇ ਨਹੀਂ"
 
-#: ui/ProfileConfig.qml:493
+#: ui/ProfileConfig.qml:497
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -769,13 +769,13 @@ msgctxt ""
 msgid "Custom…"
 msgstr "…ਕਸਟਮ"
 
-#: ui/ProfileConfig.qml:532
+#: ui/ProfileConfig.qml:536
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਇਸ ਦੇ ਬੰਦ ਕਰੋ:"
 
-#: ui/ProfileConfig.qml:536
+#: ui/ProfileConfig.qml:540
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
@@ -783,7 +783,7 @@ msgid_plural "When locked: %1 seconds"
 msgstr[0] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਸਕਿੰਟ"
 msgstr[1] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਸਕਿੰਟ"
 
-#: ui/ProfileConfig.qml:538
+#: ui/ProfileConfig.qml:542
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
@@ -791,7 +791,7 @@ msgid_plural "When locked: %1 minutes"
 msgstr[0] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਮਿੰਟ"
 msgstr[1] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਮਿੰਟ"
 
-#: ui/ProfileConfig.qml:545
+#: ui/ProfileConfig.qml:549
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -799,25 +799,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "ਜਦੋਂ ਲਾਕ ਅਤੇ ਅਣ-ਲਾਕ ਹੈ"
 
-#: ui/ProfileConfig.qml:547
+#: ui/ProfileConfig.qml:551
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: ਫ਼ੌਰਨ"
 
-#: ui/ProfileConfig.qml:586
+#: ui/ProfileConfig.qml:590
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "ਕੀਬੋਰ ਚਮਕ ਨੂੰ ਬਦਲੋ(&b):"
 
-#: ui/ProfileConfig.qml:634
+#: ui/ProfileConfig.qml:638
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "ਹੋਰ ਸੈਟਿੰਗਾਂ"
 
-#: ui/ProfileConfig.qml:642
+#: ui/ProfileConfig.qml:646
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -825,7 +825,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "ਪਾਵਰ ਪਰੋਫਾਇਲ ਲਈ ਬਦਲੋ(&w):"
 
-#: ui/ProfileConfig.qml:646
+#: ui/ProfileConfig.qml:650
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -833,13 +833,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "ਪਾਵਰ ਪਰੋਫਾਇਲ ਲਈ ਬਦਲੋ"
 
-#: ui/ProfileConfig.qml:673
+#: ui/ProfileConfig.qml:677
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਨੂੰ ਚਲਾਓ:"
 
-#: ui/ProfileConfig.qml:683
+#: ui/ProfileConfig.qml:687
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -847,13 +847,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "ਲਾਉਣ ਲਈ ਸ਼ਰਤਾਂ ਚੁਣੋ"
 
-#: ui/ProfileConfig.qml:685
+#: ui/ProfileConfig.qml:689
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "ਕਮਾਂਡ ਜਾਂ ਕਮਾਂਡ ਚਲਾਉਣ ਲਈ ਸ਼ਰਤਾਂ ਚੁਣੋ"
 
-#: ui/ProfileConfig.qml:705
+#: ui/ProfileConfig.qml:709
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -861,7 +861,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਵਿੱਚ ਜਾਵੇ"
 
-#: ui/ProfileConfig.qml:723
+#: ui/ProfileConfig.qml:727
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -869,13 +869,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਆਉਣਾ ਹੋਵੇ"
 
-#: ui/ProfileConfig.qml:741
+#: ui/ProfileConfig.qml:745
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ"
 
-#: ui/ProfileConfig.qml:764
+#: ui/ProfileConfig.qml:768
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -883,13 +883,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਵਿੱਚ ਜਾਵੇ:"
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:772
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਵਿੱਚ ਜਾਓ ਤਾਂ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ"
 
-#: ui/ProfileConfig.qml:799
+#: ui/ProfileConfig.qml:803
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -897,31 +897,31 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ(&x):"
 
-#: ui/ProfileConfig.qml:803
+#: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "ਜਦੋਂ \"%1\" ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ ਤਾਂ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ"
 
-#: ui/ProfileConfig.qml:832
+#: ui/ProfileConfig.qml:836
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ ਚਲਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਨਾ-ਸਰਗਰਮੀ ਦਾ ਅੰਤਰਾਲ"
 
-#: ui/ProfileConfig.qml:838
+#: ui/ProfileConfig.qml:842
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ(&n):"
 
-#: ui/ProfileConfig.qml:841
+#: ui/ProfileConfig.qml:845
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "ਇਸ ਦੇ ਬਾਅਦ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ ਚਲਾਓ:"
 
-#: ui/ProfileConfig.qml:846
+#: ui/ProfileConfig.qml:850
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -929,7 +929,7 @@ msgid_plural "Run after %1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ ਬਾਅਦ ਚਲਾਓ"
 msgstr[1] "%1 ਸਕਿੰਟਾਂ ਬਾਅਦ ਚਲਾਓ"
 
-#: ui/ProfileConfig.qml:848
+#: ui/ProfileConfig.qml:852
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -937,7 +937,7 @@ msgid_plural "Run after %1 minutes"
 msgstr[0] "%1 ਮਿੰਟ ਬਾਅਦ ਚਲਾਓ"
 msgstr[1] "%1 ਮਿੰਟ ਬਾਅਦ ਚਲਾਓ"
 
-#: ui/ProfileConfig.qml:890
+#: ui/ProfileConfig.qml:894
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
