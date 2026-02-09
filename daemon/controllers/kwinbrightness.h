@@ -18,7 +18,7 @@ class KWinDisplayDetector;
 class KWinDisplayBrightness : public DisplayBrightness
 {
 public:
-    explicit KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector);
+    explicit KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector, const QString &label);
 
     QString id() const override;
     QString label() const override;
@@ -39,6 +39,7 @@ private:
 
     const KScreen::OutputPtr m_output;
     KWinDisplayDetector *const m_detector;
+    const QString m_label;
     double m_desiredBrightness;
     double m_desiredDimming = 1.0;
     bool m_inhibitChangeSignal = false;

@@ -44,6 +44,20 @@ QList<DisplayBrightness *> KWinDisplayDetector::displays() const
     return m_displayList;
 }
 
+static QString outputLabel(const KScreen::OutputPtr &output)
+{
+    if (output->type() == KScreen::Output::Panel) {
+        // FIXME: use KWin's output name once it returns a nicer name for internal outputs
+        return i18nc("Display label", "Built-in Screen");
+    }
+    if (KScreen::Edid *edid = output->edid()) {
+        if (!edid->vendor().isEmpty() || !edid->name().isEmpty()) {
+            return i18nc("Display label: vendor + product name", "%1 %2", edid->vendor(), edid->name()).simplified();
+        }
+    }
+    return output->name();
+}
+
 void KWinDisplayDetector::checkOutputs()
 {
     const KScreen::OutputList outputs = m_config->outputs();
@@ -63,8 +77,12 @@ void KWinDisplayDetector::checkOutputs()
             continue;
         }
         auto &brightness = m_displays[output.get()];
-        if (!brightness) {
-            brightness = std::make_unique<KWinDisplayBrightness>(output, this);
+        // NOTE that libkscreen re-uses output objects when they have the same ID,
+        // even if underlying data about the screen has changed (like the EDID),
+        // but we need to re-create the DisplayBrightness object when that happens
+        const QString label = outputLabel(output);
+        if (!brightness || brightness->label() != label) {
+            brightness = std::make_unique<KWinDisplayBrightness>(output, this, label);
             changed = true;
         }
     }
@@ -111,9 +129,10 @@ void KWinDisplayDetector::setConfigDone()
     }
 }
 
-KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector)
+KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector, const QString &label)
     : m_output(output)
     , m_detector(detector)
+    , m_label(label)
     , m_desiredBrightness(m_output->brightness())
     , m_desiredDimming(m_output->dimming())
 {
@@ -127,16 +146,7 @@ QString KWinDisplayBrightness::id() const
 
 QString KWinDisplayBrightness::label() const
 {
-    if (isInternal()) {
-        // FIXME: use KWin's output name once it returns a nicer name for internal outputs
-        return i18nc("Display label", "Built-in Screen");
-    }
-    if (KScreen::Edid *edid = m_output->edid()) {
-        if (!edid->vendor().isEmpty() || !edid->name().isEmpty()) {
-            return i18nc("Display label: vendor + product name", "%1 %2", edid->vendor(), edid->name()).simplified();
-        }
-    }
-    return m_output->name();
+    return m_label;
 }
 
 int KWinDisplayBrightness::knownSafeMinBrightness() const
