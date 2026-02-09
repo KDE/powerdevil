@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2026 André Barata <andretiagob@protonmail.com>
+# SPDX-FileCopyrightText: 2026 César A. P. Cláudio <cesarapclaudio@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-04 00:46+0000\n"
-"PO-Revision-Date: 2022-11-28 16:25+0000\n"
-"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
-"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"PO-Revision-Date: 2026-02-08 22:14+0000\n"
+"Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
+"Language-Team: pt\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,16 +22,17 @@ msgstr ""
 "X-POFile-SpellExtra: powersaved DBus Xext cpufreqondemand KWin DPMS Energy\n"
 "X-POFile-SpellExtra: Star XTest XScreensaver ConsoleKit MetalWorkers pre\n"
 "X-POFile-SpellExtra: wrap white space Co infra Fi Wi Kai Uwe Broulik\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "José Nuno Pires"
+msgstr "André Barata, José Nuno Pires"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "zepires@gmail.com"
+msgstr "andretiagob@protonmail.com"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
@@ -39,13 +40,13 @@ msgstr "zepires@gmail.com"
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Gestão de Energia"
+msgstr "Gestão de energia"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr "Desligar o Ecrã"
+msgstr "Desligar o ecrã"
 
 #: actions/bundled/handlebuttonevents.cpp:51
 #, kde-format
@@ -63,44 +64,43 @@ msgstr "Hibernar"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr "Desligar"
+msgstr "Encerrar"
 
 #: actions/bundled/handlebuttonevents.cpp:75
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr "Desligar"
+msgstr "Encerrar"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr "Aumentar o Brilho do Teclado"
+msgstr "Aumentar o brilho do teclado"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr "Diminuir o Brilho do Teclado"
+msgstr "Diminuir o brilho do teclado"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr "Comutar a Luz Traseira do Teclado"
+msgstr "Ligar ou desligar a luz do teclado"
 
 #: actions/bundled/powerprofile.cpp:70
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Desligar ao fim de"
+msgstr "Alterar o perfil de energia"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Ecrã embutido"
 
 #: controllers/kwinbrightness.cpp:136
 #, fuzzy, kde-format
@@ -113,15 +113,14 @@ msgstr "%1 %2"
 #: powerdevilapp.cpp:102
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "Sistema de Gestão de Energia do KDE"
+msgstr "Sistema de gestão de energia do KDE"
 
 #: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr ""
-"O PowerDevil, um servidor de gestão de energia avançado, modular e leve"
+msgstr "PowerDevil, um 'daemon' de gestão de energia avançado, modular e leve"
 
 #: powerdevilapp.cpp:106
 #, fuzzy, kde-format
@@ -141,7 +140,7 @@ msgstr "Kai Uwe Broulik"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "Manutenção"
+msgstr "Responsável pela manutenção"
 
 #: powerdevilapp.cpp:108
 #, kde-format
@@ -153,7 +152,7 @@ msgstr "Dario Freddi"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "Manutenção anterior"
+msgstr "Responsável pela manutenção anterior"
 
 #: powerdevilapp.cpp:116
 #, kde-format
@@ -163,28 +162,27 @@ msgstr "Substituir uma instância existente"
 #: powerdevilcore.cpp:403 powerdevilcore.cpp:414
 #, kde-format
 msgid "Activity Manager"
-msgstr "Gestor de Actividades"
+msgstr "Gestor de atividades"
 
 #: powerdevilcore.cpp:404
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "As políticas desta actividade impedem que o sistema suspenda"
+msgstr "As políticas desta atividade impedem que o sistema suspenda"
 
 #: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "As políticas desta actividade impedem a gestão de energia do ecrã"
+msgstr "As políticas desta atividade impedem a gestão de energia do ecrã"
 
 #: powerdevilcore.cpp:480
 #, kde-format
 msgid "Extra Battery Added"
-msgstr "Bateria Extra Adicionada"
+msgstr "Foi adicionada uma bateria extra"
 
 #: powerdevilcore.cpp:481
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "O computador não entrará mais em suspensão."
+msgstr "O sistema já não vai entrar em modo de suspensão"
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -196,7 +194,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Bateria do Dispositivo Fraca (Falta %1%)"
+msgstr "Bateria do dispositivo baixa (Falta %1%)"
 
 #: powerdevilcore.cpp:550
 #, kde-format
@@ -205,23 +203,23 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"A bateria do \"%1\" está num nível baixo, sendo que o dispositivo se poderá "
-"desligar em qualquer altura. Por favor, substitua ou carregue a bateria."
+"A bateria de \"%1\" está num nível baixo, o dispositivo poderá desligar-se a "
+"qualquer altura. Carregue a bateria ou substitua a mesma, por favor."
 
 #: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Bateria do Rato Fraca (Falta %1%)"
+msgstr "Bateria do rato baixa (Falta %1%)"
 
 #: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Bateria do Teclado Fraca (Falta %1%)"
+msgstr "Bateria do teclado baixa (Falta %1%)"
 
 #: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Bateria do Dispositivo Bluetooth Fraca (Falta %1%)"
+msgstr "Bateria do dispositivo bluetooth baixa (Falta %1%)"
 
 #: powerdevilcore.cpp:573
 #, kde-format
@@ -230,46 +228,40 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"A bateria do seu dispositivo Bluetooth (\"%1\") está num nível baixo, sendo "
-"que o dispositivo se poderá desligar em qualquer altura. Por favor, "
-"substitua ou carregue a bateria."
+"A bateria do seu dispositivo bluetooth \"%1\" está num nível baixo, o "
+"dispositivo poderá desligar-se a qualquer altura. Carregue a bateria ou "
+"substitua a mesma, por favor."
 
 #: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"A bateria está fraca - para continuar a usar o seu computador, certifique-se "
-"que o mesmo está ligado à corrente e que tem potência suficiente."
+"Certifique-se de que o cabo de energia está ligado à corrente e que o "
+"carregador seja capaz de fornecer a energia necessária."
 
 #: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
-msgstr ""
+msgstr "Insira o cabo do carregador."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"A bateria atingiu um nível crítico. O seu computador será encerrado daqui a "
-"60 segundos."
+msgstr "O sistema vai encerrar dentro de 60 segundos."
 
 #: powerdevilcore.cpp:639
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Desligar Agora"
+msgstr "Encerrar agora"
 
 #: powerdevilcore.cpp:645
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "O sistema vai hibernar dentro de 60 segundos."
 
 #: powerdevilcore.cpp:647
 #, kde-format
@@ -277,29 +269,24 @@ msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hibernar Agora"
+msgstr "Hibernar agora"
 
 #: powerdevilcore.cpp:653
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"A bateria atingiu um nível crítico. O seu computador será suspenso daqui a "
-"60 segundos."
+msgstr "O sistema vai suspender dentro de 60 segundos."
 
 #: powerdevilcore.cpp:655
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Suspender Agora"
+msgstr "Suspender agora"
 
 #: powerdevilcore.cpp:661
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "A bateria atingiu um nível crítico. Por favor, grave o seu trabalho."
+msgstr "Guarde o seu trabalho, por favor."
 
 #: powerdevilcore.cpp:667
 #, kde-format
@@ -312,84 +299,76 @@ msgstr "Cancelar"
 #: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Bateria Fraca (Falta %1%)"
+msgstr "Nível de bateria fraco (Falta %1%)"
 
 #: powerdevilcore.cpp:686
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Bateria Crítica (Falta %1%)"
+msgstr "Nível de bateria crítico (Falta %1%)"
 
 #: powerdevilcore.cpp:720
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Ligação à Corrente Activa"
+msgstr "O cabo de energia foi inserido"
 
 #: powerdevilcore.cpp:721
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "O computador não entrará mais em suspensão."
+msgstr "O computador já não entrará em suspensão."
 
 #: powerdevilcore.cpp:723
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "A funcionar ligado à corrente"
+msgstr "A utilizar a energia do carregador"
 
 #: powerdevilcore.cpp:724
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "O computador foi ligado à corrente."
+msgstr "O cabo de energia foi inserido."
 
 #: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on Battery Power"
-msgstr "A funcionar com a bateria"
+msgstr "A utilizar a energia da bateria"
 
 #: powerdevilcore.cpp:737
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "O computador foi desligado da corrente."
+msgstr "O cabo de energia foi removido."
 
 #: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
-msgstr "Carga Completa"
+msgstr "Carregamento completo"
 
 #: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
-msgstr "A bateria está agora completamente carregada."
+msgstr "A bateria está completamente carregada."
 
 #: powerdevilscreenbrightnessagent.cpp:141
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "Aumentar o Brilho do Ecrã"
+msgstr "Aumentar o brilho do ecrã"
 
 #: powerdevilscreenbrightnessagent.cpp:148
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Aumentar o Brilho do Ecrã"
+msgstr "Aumentar o brilho do ecrã por 1%"
 
 #: powerdevilscreenbrightnessagent.cpp:155
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "Diminuir o Brilho do Ecrã"
+msgstr "Diminuir o brilho do ecrã"
 
 #: powerdevilscreenbrightnessagent.cpp:162
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Diminuir o Brilho do Ecrã"
+msgstr "Diminuir o brilho do ecrã por 1%"
 
 #, fuzzy
 #~| msgid ""

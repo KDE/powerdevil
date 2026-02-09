@@ -1,22 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the plasma-settings package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2026 André Barata <andretiagob@protonmail.com>
+# SPDX-FileCopyrightText: 2026 César A. P. Cláudio <cesarapclaudio@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2022-07-31 22:57+0100\n"
-"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
-"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"PO-Revision-Date: 2026-02-08 22:11+0000\n"
+"Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
+"Language-Team: pt\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: min Tomaz Canabrava Devin Lin Hidreto UPS PDA\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: mobilepower.cpp:33
 #, kde-format
@@ -49,10 +50,9 @@ msgid "15 min"
 msgstr "15 min"
 
 #: mobilepower.cpp:39
-#, fuzzy, kde-format
-#| msgid "10 min"
+#, kde-format
 msgid "30 min"
-msgstr "10 min"
+msgstr "30 min"
 
 #: mobilepower.cpp:40
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Informação da Bateria"
 #: ui/BatteryPage.qml:34
 #, kde-format
 msgid "Usage Graph"
-msgstr "Gráfico de Utilização"
+msgstr "Gráfico de utilização"
 
 #: ui/BatteryPage.qml:77
 #, kde-format
@@ -77,7 +77,7 @@ msgstr "Informação"
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr "É Recarregável"
+msgstr "É recarregável"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
@@ -92,22 +92,22 @@ msgstr "Não"
 #: ui/BatteryPage.qml:91
 #, kde-format
 msgid "Charge State"
-msgstr "Estado da Carga"
+msgstr "Estado da carga"
 
 #: ui/BatteryPage.qml:94
 #, kde-format
 msgid "Not charging"
-msgstr "Não está em carga"
+msgstr "Não está a carregar"
 
 #: ui/BatteryPage.qml:95
 #, kde-format
 msgid "Charging"
-msgstr "A Carregar"
+msgstr "A carregar"
 
 #: ui/BatteryPage.qml:96
 #, kde-format
 msgid "Discharging"
-msgstr "A Descarregar"
+msgstr "A descarregar"
 
 #: ui/BatteryPage.qml:97
 #, kde-format
@@ -117,20 +117,18 @@ msgstr "Carga completa"
 #: ui/BatteryPage.qml:98
 #, kde-format
 msgid "Unknown"
-msgstr "Desconhecida"
+msgstr "Desconhecido"
 
 #: ui/BatteryPage.qml:107
 #, kde-format
 msgid "Current Charge"
-msgstr "Carga Actual"
+msgstr "Carga atual"
 
 #: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "%1 is value, %2 is unit"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "%1 is percentage value"
 msgid "%1 %"
-msgstr "%1 %2"
+msgstr "%1 %"
 
 #: ui/BatteryPage.qml:115
 #, kde-format
@@ -150,7 +148,7 @@ msgstr "Modelo"
 #: ui/BatteryPage.qml:139
 #, kde-format
 msgid "Serial Number"
-msgstr "Número de Série"
+msgstr "Número de série"
 
 #: ui/BatteryPage.qml:147
 #, kde-format
@@ -193,12 +191,10 @@ msgid "Unknown technology"
 msgstr "Tecnologia desconhecida"
 
 #: ui/Graph.qml:141
-#, fuzzy, kde-format
-#| msgctxt "%1 is value, %2 is unit"
-#| msgid "%1%2"
+#, kde-format
 msgctxt "%1 is a percentage value"
 msgid "%1%"
-msgstr "%1%2"
+msgstr "%1%"
 
 #: ui/main.qml:33
 #, kde-format
@@ -213,7 +209,7 @@ msgstr "Bateria interna"
 #: ui/main.qml:80
 #, kde-format
 msgid "UPS battery"
-msgstr "Bateria da UPS"
+msgstr "Bateria UPS"
 
 #: ui/main.qml:81
 #, kde-format
@@ -246,12 +242,10 @@ msgid "Unknown battery"
 msgstr "Bateria desconhecida"
 
 #: ui/main.qml:89
-#, fuzzy, kde-format
-#| msgctxt "%1 is value, %2 is unit"
-#| msgid "%1%2"
+#, kde-format
 msgctxt "%1 is the charge percent, % is the percent sign"
 msgid "%1%"
-msgstr "%1%2"
+msgstr "%1%"
 
 #: ui/main.qml:91
 #, kde-format

@@ -1,11 +1,12 @@
+# SPDX-FileCopyrightText: 2026 André Barata <andretiagob@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2023-02-17 12:33+0000\n"
-"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
-"Language-Team: pt <kde-i18n-pt@kde.org>\n"
+"PO-Revision-Date: 2026-01-28 17:34+0000\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,32 +14,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: pre wrap AC white space Oxygen perfilActual\n"
 "X-POFile-SpellExtra: PowerDevil perfisDisponiveis\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
 msgid "Charging"
-msgstr "A Carregar"
+msgstr "A carregar"
 
 #: BatteryItem.qml:101
 #, kde-format
 msgid "Discharging"
-msgstr "A Descarregar"
+msgstr "A descarregar"
 
 #: BatteryItem.qml:103 main.qml:122
 #, kde-format
 msgid "Fully Charged"
-msgstr "Completamente Carregada"
+msgstr "Completamente carregada"
 
 #: BatteryItem.qml:105
 #, kde-format
 msgid "Not Charging"
-msgstr "Fora de Carga"
+msgstr "Não está a carregar"
 
 #: BatteryItem.qml:108
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
-msgstr "Ausente"
+msgstr "Bateria ausente"
 
 #: BatteryItem.qml:120
 #, kde-format
@@ -52,18 +54,18 @@ msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
-"O estado de saúde da bateria está em apenas %1% e deverá ser substituída. "
+"O estado de saúde da Bateria está em apenas %1% e deve ser substituída. "
 "Contacte o fabricante."
 
 #: BatteryItem.qml:203
 #, kde-format
 msgid "Time To Full:"
-msgstr "Tempo até Carga Total:"
+msgstr "Tempo até carregamento total:"
 
 #: BatteryItem.qml:204
 #, kde-format
 msgid "Remaining Time:"
-msgstr "Tempo Restante:"
+msgstr "Tempo restante:"
 
 #: BatteryItem.qml:210
 #, kde-format
@@ -85,7 +87,7 @@ msgstr "%1%"
 #: BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr "A bateria está configurada para carregar aproximadamente até aos %1%."
+msgstr "A Bateria está configurada para carregar aproximadamente até %1%."
 
 #: CompactRepresentation.qml:103 CompactRepresentation.qml:152
 #, kde-format
@@ -97,7 +99,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Suspender e Bloqueio do Ecrã após inatividade"
 
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -105,11 +107,11 @@ msgid "Power Management"
 msgstr "Gestão de Energia"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Automatic sleep and screen locking are disabled"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr "A suspensão automática e o bloqueio do ecrã estão desactivados"
+msgstr ""
+"A suspensão e o bloqueio do ecrã automáticos estão de momento desativados."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -117,6 +119,8 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"O bloquear do ecrã está de momento desativado. A suspensão será automática "
+"após inatividade."
 
 #: InhibitionItem.qml:69
 #, kde-format
@@ -124,55 +128,49 @@ msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"A suspensão está de momento desativada. O bloqueio do ecrã será automático "
+"após inatividade."
 
 #: InhibitionItem.qml:71
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr ""
+msgstr "A suspensão e o bloqueio do ecrã serão automáticos após inatividade."
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
 
 #: InhibitionItem.qml:112
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
+msgstr "O desbloqueio automático da suspensão e do bloqueio do ecrã falhou"
 
 #: InhibitionItem.qml:115
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
+msgstr "O bloqueio automático da suspensão e do bloqueio do ecrã falhou"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
+msgstr "Isto vai resultar num maior consumo de energia."
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
 msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
-msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
+msgstr ""
+"Bloqueou manualmente a suspensão e o bloqueio do ecrã automáticos. Isto vai "
+"resultar num maior consumo de energia."
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -181,34 +179,30 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"O seu portátil está configurado para não se suspender, quando fechar o "
-"tampo, enquanto estiver ligado a um monitor externo."
+"O seu portátil está configurado para não suspender quando fechar a tampa do "
+"ecrã, enquanto estiver ligado a um monitor externo."
 
 #: InhibitionItem.qml:156
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: razão desconhecida"
+msgstr "Razão desconhecida."
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 quer impedir a suspensão e o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 quer a impedir o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -216,61 +210,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "O %1 quer a impedir a suspensão. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está também a impedir a suspensão e o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está também a impedir o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:175
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está também a impedir a suspensão. (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está a impedir o bloqueio do ecrã. (%2)"
 
 #: InhibitionItem.qml:183
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+msgstr "O %1 está a impedir a suspensão. (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -278,7 +266,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -286,55 +274,54 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Permitir"
 
 #: main.qml:76
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "A 'applet' da bateria activou a inibição a nível do sistema"
+msgstr ""
+"A 'applet' da bateria ativou a inibição da suspensão e do bloqueio do ecrã"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power Management"
+#, kde-format
 msgid "Power & Battery"
-msgstr "Gestão de Energia"
+msgstr "Energia & Bateria"
 
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "A Bateria não se encontra instalada"
 
 #: main.qml:129
 #, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "Bateria a %1%, a Não Carregar"
+msgstr "Bateria está a %1%, a não carregar"
 
 #: main.qml:131
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
-msgstr "Bateria a %1%, ligada mas continua a não carregar"
+msgstr "Bateria está a %1%, ligada mas continua a descarregar"
 
 #: main.qml:133
 #, kde-format
 msgid "Battery at %1%, Charging"
-msgstr "Bateria a %1%, a Carregar"
+msgstr "Bateria está a %1%, a carregar"
 
 #: main.qml:136
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Bateria a %1%"
+msgstr "Bateria está a %1%"
 
 #: main.qml:144
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr ""
-"A fonte de alimentação não é poderosa o suficiente para carregar a bateria"
+"A fonte de alimentação não tem capacidade suficiente para carregar a Bateria"
 
 #: main.qml:148
 #, kde-format
 msgid "No Batteries Available"
-msgstr "Sem Baterias Disponíveis"
+msgstr "Sem Baterias disponíveis"
 
 #: main.qml:155
 #, kde-format
@@ -346,111 +333,115 @@ msgstr "%1 até estar totalmente carregada"
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
-msgstr "Falta %1"
+msgstr "Faltam %1"
 
 #: main.qml:160
 #, kde-format
 msgid "Not charging"
-msgstr "Não está em carga"
+msgstr "Não está a carregar"
 
 #: main.qml:165
-#, fuzzy, kde-format
-#| msgid "Automatic sleep and screen locking are disabled"
+#, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
-msgstr "A suspensão automática e o bloqueio do ecrã estão desactivados"
+msgstr ""
+"A suspensão e o bloqueio do ecrã automáticos estão desativados; clique no "
+"botão do meio do rato para reativar"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
+msgstr ""
+"Clique no botão do meio do rato para desativar a suspensão e o bloqueio do "
+"ecrã"
 
 #: main.qml:172
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] "Uma aplicação pediu a activação do modo de performance"
-msgstr[1] "%1 aplicações pediram a activação do modo de performance"
+msgstr[0] "Uma aplicação solicitou a ativação do modo Melhor Desempenho"
+msgstr[1] "%1 aplicações solicitaram a ativação do modo Melhor Desempenho"
 
 #: main.qml:176
-#, fuzzy, kde-format
-#| msgid "System is in Performance mode"
+#, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr "O sistema está no modo de Performance"
+msgstr ""
+"O sistema está no modo Melhor Desempenho; deslize a roda do rato para alterar"
 
 #: main.qml:180
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
-msgstr[0] "Uma aplicação pediu a activação do modo de poupança de energia"
-msgstr[1] "%1 aplicações pediram a activação do modo de poupança de energia"
+msgstr[0] ""
+"Uma aplicação solicitou a ativação do modo Melhor Eficiência Energética"
+msgstr[1] ""
+"%1 aplicações solicitaram a ativação do modo Melhor Eficiência Energética"
 
 #: main.qml:184
-#, fuzzy, kde-format
-#| msgid "System is in Power Save mode"
+#, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr "O sistema está no modo de Poupança de Energia"
+msgstr ""
+"O sistema está no modo Melhor Eficiência Energética; deslize a roda do rato "
+"para alterar"
 
 #: main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
+"O sistema está no modo Equilibrado; deslize a roda do rato para alterar"
 
 #: main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
-msgstr "Mo&strar a Informação de Energia…"
+msgstr "&Mostrar a informação de energia…"
 
 #: main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
-msgstr "Mostrar a Percentagem da Bateria no Ícone com a Carga Incompleta"
+msgstr ""
+"Mostrar percentagem da Bateria no ícone quando não carregada completamente"
 
 #: main.qml:320
-#, fuzzy, kde-format
-#| msgid "&Configure Energy Saving…"
+#, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Configurar a Poupança de Energia…"
+msgstr "&Configurar a Gestão de Energia..."
 
 #: PowerProfileItem.qml:41
 #, kde-format
 msgid "Power Save"
-msgstr "Poupança de Energia"
+msgstr "Melhor eficiência energética"
 
 #: PowerProfileItem.qml:45
 #, kde-format
 msgid "Balanced"
-msgstr "Balanceado"
+msgstr "Equilibrado"
 
 #: PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
-msgstr "Performance"
+msgstr "Melhor desempenho"
 
 #: PowerProfileItem.qml:66
 #, kde-format
 msgid "Power Profile"
-msgstr "Perfil de Energia"
+msgstr "Perfil de energia"
 
 #: PowerProfileItem.qml:110
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 #: PowerProfileItem.qml:111
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgctxt "Power profile"
 msgid "Not available"
-msgstr "Sem Baterias Disponíveis"
+msgstr "Não disponível"
 
 #: PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr "Não foi possível activar o modo %1"
+msgstr "A ativação do modo %1 falhou"
 
 #: PowerProfileItem.qml:228
 #, kde-format
@@ -458,21 +449,21 @@ msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
-"O modo de performance foi desactivado para reduzir a geração de calor, "
-"porque o computador detectou que está ao seu colo."
+"O modo 'Melhor desempenho' foi desativado para reduzir a temperatura do seu "
+"computador."
 
 #: PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
-"O modo de performance não está disponível, porque o computador está "
+"O modo 'Melhor desempenho' não está disponível porque o seu computador está "
 "demasiado quente."
 
 #: PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
-msgstr "O modo de performance não está disponível."
+msgstr "O modo 'Melhor desempenho' não está disponível."
 
 #: PowerProfileItem.qml:248
 #, kde-format
@@ -480,27 +471,26 @@ msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
-"A performance pode ser diminuída para reduzir a geração de calor, porque o "
-"computador detectou que está ao seu colo."
+"Para reduzir a temperatura do seu computador, o desempenho do mesmo "
+"poderáser reduzido."
 
 #: PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
-"A performance pode ser diminuída, porque o computador está a ficar demasiado "
-"quente."
+"O desempenho do seu computador poderá reduzir porque está demasiado quente."
 
 #: PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
-msgstr "A performance pode ter sido reduzida."
+msgstr "O desempenho poderá ser reduzido."
 
 #: PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
-msgstr[0] "Uma aplicação pediu a activação de %2:"
-msgstr[1] "%1 aplicações pediram a activação de %2:"
+msgstr[0] "Uma aplicação solicitou a ativação do modo %2:"
+msgstr[1] "%1 aplicações solicitaram a ativação do modo %2:"
 
 #: PowerProfileItem.qml:284
 #, kde-format
@@ -513,12 +503,12 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "O serviço 'TLP' controla automaticamente os perfis de energia"
 
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "O seu dispositivo não suporta perfis de energia."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format
@@ -527,6 +517,9 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
+"O seu dispositivo pode suportar perfis de energia.<nl/>Tente instalar o "
+"pacote <command>power-profiles-daemon</command> usando o gestor de pacotes "
+"da sua distribuição e depois reinicie o sistema."
 
 #, fuzzy
 #~| msgid "%1 application is currently blocking sleep and screen locking:"
