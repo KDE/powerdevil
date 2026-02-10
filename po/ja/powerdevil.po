@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2026-02-10 02:38+0000\n"
 "PO-Revision-Date: 2025-03-15 18:40+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -95,13 +95,13 @@ msgstr "キーボードのバックライトをオン/オフ"
 msgid "Switch Power Profile"
 msgstr "電源プロファイルを切り替え"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "内蔵スクリーン"
 
-#: controllers/kwinbrightness.cpp:136
+#: controllers/kwinbrightness.cpp:55
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
