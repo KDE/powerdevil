@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2026-02-10 00:46+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -97,13 +97,13 @@ msgstr "Обрни осветљење тастатуре"
 msgid "Switch Power Profile"
 msgstr "Угаси послије"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr ""
 
-#: controllers/kwinbrightness.cpp:136
+#: controllers/kwinbrightness.cpp:55
 #, fuzzy, kde-format
 #| msgctxt "%1 is vendor name, %2 is product name"
 #| msgid "%1 %2"

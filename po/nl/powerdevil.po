@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2026-02-10 00:46+0000\n"
 "PO-Revision-Date: 2025-07-15 10:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -89,13 +89,13 @@ msgstr "Toetsenbordverlichting aan/uit"
 msgid "Switch Power Profile"
 msgstr "Energieprofiel omschakelen"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "Ingebouwd scherm"
 
-#: controllers/kwinbrightness.cpp:136
+#: controllers/kwinbrightness.cpp:55
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"

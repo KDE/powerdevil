@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2026-02-10 00:46+0000\n"
 "PO-Revision-Date: 2025-09-20 16:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -91,13 +91,13 @@ msgstr "Conmutar la luz trasera del teclado"
 msgid "Switch Power Profile"
 msgstr "Cambiar perfil de energía"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "Pantalla integrada"
 
-#: controllers/kwinbrightness.cpp:136
+#: controllers/kwinbrightness.cpp:55
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"

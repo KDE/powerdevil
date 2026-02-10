@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: potwerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2026-02-10 00:46+0000\n"
 "PO-Revision-Date: 2010-06-01 18:58+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: American English <kde-translation@bengalinux.org>\n"
@@ -96,14 +96,14 @@ msgstr ""
 msgid "Switch Power Profile"
 msgstr "পাওয়ার-ডেভিল প্রোফাইল আমদানি করো"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "স্ক্রীণ লক করো"
 
-#: controllers/kwinbrightness.cpp:136
+#: controllers/kwinbrightness.cpp:55
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
