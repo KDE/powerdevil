@@ -1,16 +1,16 @@
 # Translation for plasma_applet_org.kde.plasma.brightness.po to Euskara/Basque (eu).
-# Copyright (C) 2023-2025 This file is copyright:
+# Copyright (C) 2023-2026 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-01-29 21:29+0100\n"
+"PO-Revision-Date: 2026-02-10 19:48+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "Bistaratzailearen distira - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Modu iluna"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Konfiguratu..."
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Aldatu %1(e)rak"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -91,8 +91,7 @@ msgid "Follow accent color"
 msgstr "Jarraitu azentu-kolorea"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Distira eta kolorea"
 
@@ -294,7 +293,7 @@ msgstr "Gaueko argia"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Gaia"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
