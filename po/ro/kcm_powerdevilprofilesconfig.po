@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:45+0000\n"
-"PO-Revision-Date: 2026-01-28 22:55+0000\n"
+"PO-Revision-Date: 2026-02-11 13:00+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -327,6 +327,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Acțiunea pe care o aveați configurată pentru atingerea nivelului critic de "
+"acumulator nu mai este susținută pe sistemul acesta. Alegeți altă acțiune."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -552,6 +554,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Acțiunea pe care o aveați configurată să se întâmple la inactivitate nu mai "
+"este susținută pe sistemul acesta. Alegeți altă acțiune."
 
 #: ui/ProfileConfig.qml:65
 #, kde-format
@@ -598,12 +602,13 @@ msgstr "Personalizat…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Dezactivarea suspendării automate va duce la creșterea consumului de energie."
 
 #: ui/ProfileConfig.qml:168
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "O durată îndelungată va duce la creșterea consumului de energie."
 
 #: ui/ProfileConfig.qml:180
 #, kde-format
@@ -612,6 +617,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Acțiunea pe care o aveați configurată pentru apăsarea butonului de "
+"alimentare nu mai este susținută pe sistemul acesta. Alegeți altă acțiune."
 
 #: ui/ProfileConfig.qml:187
 #, kde-format
@@ -634,6 +641,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Acțiunea pe care o aveați configurată pentru închiderea capacului nu mai "
+"este susținută pe sistemul acesta. Alegeți altă acțiune."
 
 #: ui/ProfileConfig.qml:226
 #, kde-format
@@ -671,6 +680,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Regimul de somn pe care îl aveați configurat nu mai este susținut pe "
+"sistemul acesta. Alegeți altul."
 
 #: ui/ProfileConfig.qml:284
 #, kde-format

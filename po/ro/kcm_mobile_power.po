@@ -1,27 +1,27 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-settings package.
-# Sergiu Bivol <sergiu@cip.md>, 2021.
+# Sergiu Bivol <sergiu@cip.md>, 2021, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2021-04-16 17:45+0100\n"
+"PO-Revision-Date: 2024-06-09 13:49+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: mobilepower.cpp:33
 #, kde-format
 msgid "30 sec"
-msgstr ""
+msgstr "30 de sec"
 
 #: mobilepower.cpp:34
 #, kde-format
@@ -49,10 +49,9 @@ msgid "15 min"
 msgstr "15 min"
 
 #: mobilepower.cpp:39
-#, fuzzy, kde-format
-#| msgid "10 min"
+#, kde-format
 msgid "30 min"
-msgstr "10 min"
+msgstr "30 de min"
 
 #: mobilepower.cpp:40
 #, kde-format
@@ -62,229 +61,225 @@ msgstr "Niciodată"
 #: ui/BatteryPage.qml:23
 #, kde-format
 msgid "Battery Information"
-msgstr ""
+msgstr "Informații acumulator"
 
 #: ui/BatteryPage.qml:34
 #, kde-format
 msgid "Usage Graph"
-msgstr ""
+msgstr "Grafic de utilizare"
 
 #: ui/BatteryPage.qml:77
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informații"
 
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr ""
+msgstr "E reîncărcabil"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "Nu"
 
 #: ui/BatteryPage.qml:91
 #, kde-format
 msgid "Charge State"
-msgstr ""
+msgstr "Starea încărcării"
 
 #: ui/BatteryPage.qml:94
 #, kde-format
 msgid "Not charging"
-msgstr ""
+msgstr "Nu se încarcă"
 
 #: ui/BatteryPage.qml:95
 #, kde-format
 msgid "Charging"
-msgstr ""
+msgstr "Se încarcă"
 
 #: ui/BatteryPage.qml:96
 #, kde-format
 msgid "Discharging"
-msgstr ""
+msgstr "Se descarcă"
 
 #: ui/BatteryPage.qml:97
 #, kde-format
 msgid "Fully charged"
-msgstr ""
+msgstr "Încărcat deplin"
 
 #: ui/BatteryPage.qml:98
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Necunoscut"
 
 #: ui/BatteryPage.qml:107
 #, kde-format
 msgid "Current Charge"
-msgstr ""
+msgstr "Încărcare actuală"
 
 #: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
 #, kde-format
 msgctxt "%1 is percentage value"
 msgid "%1 %"
-msgstr ""
+msgstr "%1 %"
 
 #: ui/BatteryPage.qml:115
 #, kde-format
 msgid "Health"
-msgstr ""
+msgstr "Sănătate"
 
 #: ui/BatteryPage.qml:123
 #, kde-format
 msgid "Vendor"
-msgstr ""
+msgstr "Vânzător"
 
 #: ui/BatteryPage.qml:131
 #, kde-format
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ui/BatteryPage.qml:139
 #, kde-format
 msgid "Serial Number"
-msgstr ""
+msgstr "Număr de serie"
 
 #: ui/BatteryPage.qml:147
 #, kde-format
 msgid "Technology"
-msgstr ""
+msgstr "Tehnologie"
 
 #: ui/BatteryPage.qml:150
 #, kde-format
 msgid "Lithium ion"
-msgstr ""
+msgstr "Ioni de litiu"
 
 #: ui/BatteryPage.qml:151
 #, kde-format
 msgid "Lithium polymer"
-msgstr ""
+msgstr "Polimeri de litiu"
 
 #: ui/BatteryPage.qml:152
 #, kde-format
 msgid "Lithium iron phosphate"
-msgstr ""
+msgstr "Fosfat de fier cu litiu"
 
 #: ui/BatteryPage.qml:153
 #, kde-format
 msgid "Lead acid"
-msgstr ""
+msgstr "Plumb cu acid"
 
 #: ui/BatteryPage.qml:154
 #, kde-format
 msgid "Nickel cadmium"
-msgstr ""
+msgstr "Nichel și cadmiu"
 
 #: ui/BatteryPage.qml:155
 #, kde-format
 msgid "Nickel metal hydride"
-msgstr ""
+msgstr "Nichel-hidrură metalică"
 
 #: ui/BatteryPage.qml:156
 #, kde-format
 msgid "Unknown technology"
-msgstr ""
+msgstr "Tehnologie necunoscută"
 
 #: ui/Graph.qml:141
 #, kde-format
 msgctxt "%1 is a percentage value"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: ui/main.qml:33
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "Dispozitive"
 
 #: ui/main.qml:79
 #, kde-format
 msgid "Internal battery"
-msgstr ""
+msgstr "Acumulator intern"
 
 #: ui/main.qml:80
 #, kde-format
 msgid "UPS battery"
-msgstr ""
+msgstr "Acumulator UPS"
 
 #: ui/main.qml:81
 #, kde-format
 msgid "Monitor battery"
-msgstr ""
+msgstr "Acumulator monitor"
 
 #: ui/main.qml:82
 #, kde-format
 msgid "Mouse battery"
-msgstr ""
+msgstr "Acumulator maus"
 
 #: ui/main.qml:83
 #, kde-format
 msgid "Keyboard battery"
-msgstr ""
+msgstr "Acumulator tastatură"
 
 #: ui/main.qml:84
 #, kde-format
 msgid "PDA battery"
-msgstr ""
+msgstr "Acumulator PDA"
 
 #: ui/main.qml:85
 #, kde-format
 msgid "Phone battery"
-msgstr ""
+msgstr "Acumulator telefon"
 
 #: ui/main.qml:86
 #, kde-format
 msgid "Unknown battery"
-msgstr ""
+msgstr "Acumulator necunoscut"
 
 #: ui/main.qml:89
 #, kde-format
 msgctxt "%1 is the charge percent, % is the percent sign"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: ui/main.qml:91
 #, kde-format
 msgctxt "%1 is battery type, %2 is charge percent"
 msgid "%1 %2 (Charging)"
-msgstr ""
+msgstr "%1 %2 (Se încarcă)"
 
 #: ui/main.qml:91
 #, kde-format
 msgctxt "%1 is battery type, %2 is charge percent"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: ui/main.qml:115
 #, kde-format
 msgid "Screen"
-msgstr ""
+msgstr "Ecran"
 
 #: ui/main.qml:121
-#, fuzzy, kde-format
-#| msgctxt "Part of a sentence like 'Turn off the Screen after 5 minutes'"
-#| msgid "Turn off the Screen"
+#, kde-format
 msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
 msgid "Dim screen after"
-msgstr "Deconectează ecranul"
+msgstr "Estompează ecranul după"
 
 #: ui/main.qml:131
-#, fuzzy, kde-format
-#| msgctxt "Part of a sentence like 'Turn off the Screen after 5 minutes'"
-#| msgid "Turn off the Screen"
+#, kde-format
 msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
 msgid "Turn off screen after"
-msgstr "Deconectează ecranul"
+msgstr "Deconectează ecranul după"
 
 #: ui/main.qml:141
 #, kde-format
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
-msgstr ""
+msgstr "Suspendă dispozitivul după"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
