@@ -66,7 +66,7 @@ msgstr ""
 #: BatteryItem.qml:204
 #, kde-format
 msgid "Remaining Time:"
-msgstr ""
+msgstr "Am Fagtha:"
 
 #: BatteryItem.qml:210
 #, kde-format
@@ -148,11 +148,12 @@ msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
+"Teipeadh coladh uathoibríoch codladh agus glasála na scáileán a dhíblocáil"
 
 #: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr ""
+msgstr "Teipeadh codladh uathoibríoch agus glasála na scáileán a bhlocáil"
 
 #: InhibitionItem.qml:129
 #, fuzzy, kde-format
@@ -211,7 +212,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "Tá %1 ag iarraidh codladh a bhlocáil. (%2)"
 
 #: InhibitionItem.qml:171
 #, fuzzy, kde-format
@@ -263,7 +264,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "Tá %1 codladh ag blocáil. (%2)"
 
 #: InhibitionItem.qml:191
 #, kde-format
@@ -271,7 +272,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr "Díbhlocáil "
+msgstr "Díbhlocáil"
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -279,7 +280,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Ceadaigh"
 
 #: main.qml:76
 #, fuzzy, kde-format
@@ -296,7 +297,7 @@ msgstr "Cumhachta agus Cadhnra"
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Níl an cadhnra sna bá"
 
 #: main.qml:129
 #, kde-format
@@ -327,7 +328,7 @@ msgstr "Taispeáin lucht an &chadhnra mar chéatadán"
 #: main.qml:148
 #, kde-format
 msgid "No Batteries Available"
-msgstr ""
+msgstr "Gach Cadhnra Ar Fáil"
 
 #: main.qml:155
 #, kde-format
@@ -339,7 +340,7 @@ msgstr ""
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
-msgstr ""
+msgstr "%1 fagtha"
 
 #: main.qml:160
 #, kde-format
@@ -385,7 +386,7 @@ msgstr[4] ""
 #: main.qml:184
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr ""
+msgstr "Tá an córas i mód na Sábháil Chumhacta; scrolláil chuig a athrú"
 
 #: main.qml:187
 #, kde-format
@@ -393,10 +394,9 @@ msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
 #: main.qml:301
-#, fuzzy, kde-format
-#| msgid "Show charge &information"
+#, kde-format
 msgid "&Show Energy Information…"
-msgstr "Taispeáin eolas fao&in lucht"
+msgstr "Taispeáin eola&s faoin lucht"
 
 #: main.qml:307
 #, fuzzy, kde-format
@@ -406,11 +406,9 @@ msgstr "Tais&peáin céatadán"
 
 # correct unlenited here
 #: main.qml:320
-#, fuzzy, kde-format
-#| msgctxt "tooltip on the config button in the popup"
-#| msgid "Configure Power Management..."
+#, kde-format
 msgid "&Configure Power Management…"
-msgstr "Cumraigh Bainisteoireacht Cumhachta..."
+msgstr "&Cumraigh Bainisteoireacht Cumhachta..."
 
 #: PowerProfileItem.qml:41
 #, kde-format
@@ -442,7 +440,7 @@ msgstr ""
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
-msgstr ""
+msgstr "Níl Ar Fáil"
 
 #: PowerProfileItem.qml:151
 #, kde-format
