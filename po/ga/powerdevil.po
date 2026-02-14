@@ -410,7 +410,7 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 "Tá an cadhnra in Bluetooth gléis \"%1\" a rith íseal, agus féadfar an gléas "
-"a mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra, le do thoil."
+"a mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra."
 
 #: powerdevilcore.cpp:647
 #, kde-format
