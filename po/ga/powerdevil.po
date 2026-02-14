@@ -223,7 +223,7 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 "Tá an cadhnra in Bluetooth gléis \"%1\" a rith íseal, agus féadfar an gléas "
-"a mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra, le do thoil."
+"a mhúchadh ag am ar bith. Athluchtaigh nó athraigh an cadhnra."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -277,7 +277,7 @@ msgstr "Codail Anois"
 #: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
-msgstr "Sábháil do chuid oibre, le do thoil."
+msgstr "Sábháil do chuid oibre."
 
 #: powerdevilcore.cpp:667
 #, kde-format
