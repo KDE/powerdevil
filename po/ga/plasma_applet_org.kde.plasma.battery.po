@@ -74,10 +74,9 @@ msgid "Estimating…"
 msgstr ""
 
 #: BatteryItem.qml:220
-#, fuzzy, kde-format
-#| msgid "Battery:"
+#, kde-format
 msgid "Battery Health:"
-msgstr "Cadhnra:"
+msgstr ""
 
 #: BatteryItem.qml:226
 #, kde-format
@@ -102,13 +101,10 @@ msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr ""
 
-# correct unlenited here
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
-#, fuzzy, kde-format
-#| msgctxt "tooltip on the config button in the popup"
-#| msgid "Configure Power Management..."
+#, kde-format
 msgid "Power Management"
-msgstr "Cumraigh Bainisteoireacht Cumhachta..."
+msgstr ""
 
 #: InhibitionItem.qml:65
 #, kde-format
@@ -137,11 +133,10 @@ msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
 
 #: InhibitionItem.qml:94
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -155,23 +150,21 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Teipeadh codladh uathoibríoch agus glasála na scáileán a bhlocáil"
 
 #: InhibitionItem.qml:129
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:130
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
 msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:137
 #, kde-format
@@ -188,22 +181,20 @@ msgid "Unknown reason."
 msgstr ""
 
 #: InhibitionItem.qml:163
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:165
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:167
 #, kde-format
@@ -214,22 +205,20 @@ msgid "%1 wants to block sleep. (%2)"
 msgstr "Tá %1 ag iarraidh codladh a bhlocáil. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:173
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:175
 #, kde-format
@@ -240,22 +229,20 @@ msgid "%1 is also blocking sleep. (%2)"
 msgstr ""
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
 #: InhibitionItem.qml:183
 #, kde-format
@@ -282,17 +269,14 @@ msgid "Allow"
 msgstr "Ceadaigh"
 
 #: main.qml:76
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "Chumasaigh an feidhmchláirín cadhnra urchoilleadh ar fud an chórais"
+msgstr ""
 
-# correct unlenited here
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
-msgstr "Cumhachta agus Cadhnra"
+msgstr ""
 
 #: main.qml:116
 #, kde-format
@@ -320,10 +304,9 @@ msgid "Battery at %1%"
 msgstr "Cadhnra ag %1"
 
 #: main.qml:144
-#, fuzzy, kde-format
-#| msgid "Show the percentage of &charge on the battery"
+#, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr "Taispeáin lucht an &chadhnra mar chéatadán"
+msgstr ""
 
 #: main.qml:148
 #, kde-format
@@ -364,9 +347,6 @@ msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: main.qml:176
 #, kde-format
@@ -379,9 +359,6 @@ msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: main.qml:184
 #, kde-format
@@ -399,10 +376,9 @@ msgid "&Show Energy Information…"
 msgstr "Taispeáin eola&s faoin lucht"
 
 #: main.qml:307
-#, fuzzy, kde-format
-#| msgid "Show &percentage"
+#, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
-msgstr "Tais&peáin céatadán"
+msgstr ""
 
 # correct unlenited here
 #: main.qml:320
@@ -460,13 +436,10 @@ msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
 
-# correct unlenited here
 #: PowerProfileItem.qml:232
-#, fuzzy, kde-format
-#| msgctxt "Label for power management inhibition"
-#| msgid "Power management enabled:"
+#, kde-format
 msgid "Performance mode is unavailable."
-msgstr "Bainisteoireacht cumhachta cumasaithe:"
+msgstr ""
 
 #: PowerProfileItem.qml:248
 #, kde-format
@@ -480,13 +453,10 @@ msgstr ""
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
 
-# correct unlenited here
 #: PowerProfileItem.qml:252
-#, fuzzy, kde-format
-#| msgctxt "Label for power management inhibition"
-#| msgid "Power management enabled:"
+#, kde-format
 msgid "Performance may be reduced."
-msgstr "Bainisteoireacht cumhachta cumasaithe:"
+msgstr ""
 
 #: PowerProfileItem.qml:265
 #, kde-format
@@ -494,9 +464,6 @@ msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: PowerProfileItem.qml:284
 #, kde-format
@@ -523,259 +490,3 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "Placeholder is the battery ID"
-#~| msgid "Battery %1:"
-#~ msgctxt "Placeholder is the battery number"
-#~ msgid "Battery %1"
-#~ msgstr "Cadhnra %1:"
-
-#, fuzzy
-#~| msgid "has Battery"
-#~ msgid "Battery"
-#~ msgstr "Cadhnra aige"
-
-#, fuzzy
-#~| msgctxt "overlay on the battery, needs to be really tiny"
-#~| msgid "%1%"
-#~ msgctxt "Placeholder is brightness percentage"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#, fuzzy
-#~| msgid "Screen Brightness"
-#~ msgid "Battery and Brightness"
-#~ msgstr "Gile an Scáileáin"
-
-#, fuzzy
-#~| msgid "Screen Brightness"
-#~ msgid "Brightness"
-#~ msgstr "Gile an Scáileáin"
-
-#, fuzzy
-#~| msgid "Screen Brightness:"
-#~ msgid "Scroll to adjust screen brightness"
-#~ msgstr "Gile an Scáileáin:"
-
-#, fuzzy
-#~| msgid "Screen Brightness"
-#~ msgid "Display Brightness"
-#~ msgstr "Gile an Scáileáin"
-
-#, fuzzy
-#~| msgid "Screen Brightness"
-#~ msgid "Keyboard Brightness"
-#~ msgstr "Gile an Scáileáin"
-
-# correct unlenited here
-#, fuzzy
-#~| msgctxt "Label for power management inhibition"
-#~| msgid "Power management enabled:"
-#~ msgid "Performance mode has been manually enabled"
-#~ msgstr "Bainisteoireacht cumhachta cumasaithe:"
-
-#~ msgid "General"
-#~ msgstr "Ginearálta"
-
-#, fuzzy
-#~| msgid "%1% (charging)"
-#~ msgid "%1% Charging"
-#~ msgstr "%1% (á luchtú)"
-
-#, fuzzy
-#~| msgctxt "tooltip"
-#~| msgid "Plugged in"
-#~ msgid "%1% Plugged in"
-#~ msgstr "Plugáilte isteach"
-
-#, fuzzy
-#~| msgctxt "overlay on the battery, needs to be really tiny"
-#~| msgid "%1%"
-#~ msgctxt "Placeholder is battery's capacity degradation"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#, fuzzy
-#~| msgctxt "overlay on the battery, needs to be really tiny"
-#~| msgid "%1%"
-#~ msgctxt "Placeholder is battery capacity"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#, fuzzy
-#~| msgctxt "overlay on the battery, needs to be really tiny"
-#~| msgid "%1%"
-#~ msgctxt "Placeholder is battery name"
-#~ msgid "%1:"
-#~ msgstr "%1%"
-
-#~ msgid "1 hour "
-#~ msgid_plural "%1 hours "
-#~ msgstr[0] "1 uair "
-#~ msgstr[1] "%1 uair "
-#~ msgstr[2] "%1 huaire "
-#~ msgstr[3] "%1 n-uaire "
-#~ msgstr[4] "%1 uair "
-
-#~ msgid "1 minute"
-#~ msgid_plural "%1 minutes"
-#~ msgstr[0] "1 nóiméad"
-#~ msgstr[1] "%1 nóiméad"
-#~ msgstr[2] "%1 nóiméad"
-#~ msgstr[3] "%1 nóiméad"
-#~ msgstr[4] "%1 nóiméad"
-
-#, fuzzy
-#~| msgid "AC Adapter:"
-#~ msgid "AC Adapter"
-#~ msgstr "Cuibheoir SA:"
-
-#, fuzzy
-#~| msgid "Plugged in"
-#~ msgid "Plugged In"
-#~ msgstr "Plugáilte isteach"
-
-#, fuzzy
-#~| msgid "Not plugged in"
-#~ msgid "Not Plugged In"
-#~ msgstr "Nach plugáilte isteach"
-
-#, fuzzy
-#~| msgctxt "Label for remaining time"
-#~| msgid "Time Remaining:"
-#~ msgid "Time remaining until full: %1"
-#~ msgstr "Am fágtha:"
-
-#, fuzzy
-#~| msgctxt "Label for remaining time"
-#~| msgid "Time Remaining:"
-#~ msgid "Time remaining until empty: %1"
-#~ msgstr "Am fágtha:"
-
-#, fuzzy
-#~| msgid "%1% (charged)"
-#~ msgid "%1% (charged)"
-#~ msgstr "%1% (luchtaithe)"
-
-#, fuzzy
-#~| msgid "AC Adapter:"
-#~ msgctxt "tooltip"
-#~ msgid "AC Adapter:"
-#~ msgstr "Cuibheoir SA:"
-
-#, fuzzy
-#~| msgid "<b>Plugged in</b>"
-#~ msgctxt "tooltip"
-#~ msgid "<b>Plugged in</b>"
-#~ msgstr "<b>Plugáilte isteach</b>"
-
-#, fuzzy
-#~| msgid "<b>Not plugged in</b>"
-#~ msgctxt "tooltip"
-#~ msgid "<b>Not plugged in</b>"
-#~ msgstr "<b>Nach plugáilte isteach</b>"
-
-#~ msgctxt "overlay on the battery, needs to be really tiny"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#~ msgid "Configure Battery Monitor"
-#~ msgstr "Cumraigh Monatóir an Chadhnra"
-
-#~ msgctxt "Suspend the computer to RAM; translation should be short"
-#~ msgid "Sleep"
-#~ msgstr "Codladh"
-
-#~ msgctxt "Suspend the computer to disk; translation should be short"
-#~ msgid "Hibernate"
-#~ msgstr "Geimhrigh"
-
-#~ msgctxt "Battery is not plugged in"
-#~ msgid "<b>Not present</b>"
-#~ msgstr "<b>Níl cadhnra ann</b>"
-
-#~ msgid "Show the state for &each battery present"
-#~ msgstr "Taisp&eáin staid gach cadhnra atá ann"
-
-#~ msgid "<b>Battery:</b>"
-#~ msgstr "<b>Cadhnra:</b>"
-
-#~ msgctxt "tooltip"
-#~ msgid "<b>AC Adapter:</b>"
-#~ msgstr "<b>Cuibheoir SA:</b>"
-
-#~ msgctxt "tooltip"
-#~ msgid "Not plugged in"
-#~ msgstr "Nach plugáilte isteach"
-
-#~ msgctxt "tooltip: placeholder is the battery ID"
-#~ msgid "<b>Battery %1:</b>"
-#~ msgstr "<b>Cadhnra %1:</b>"
-
-#~ msgid "<b>Battery:</b> "
-#~ msgstr "<b>Cadhnra:</b> "
-
-#~ msgid "Actions"
-#~ msgstr "Gníomhartha"
-
-#~ msgid "<b>Battery:</b> %1% (charging)<br />"
-#~ msgstr "<b>Cadhnra:</b> %1% (á luchtú)<br />"
-
-#~ msgid "<b>Battery %1:</b> %2% (fully charged)<br />"
-#~ msgstr "<b>Cadhnra %1:</b> %2% (luchtaithe go hiomlán)<br />"
-
-#~ msgid "<b>Battery %1:</b> %2% (discharging)<br />"
-#~ msgstr "<b>Cadhnra %1:</b> %2% (á dhíluchtú)<br />"
-
-#~ msgid "<b>AC Adapter:</b> Not plugged in"
-#~ msgstr "<b>Cuibheoir SA:</b> Níl sé plugáilte isteach"
-
-#~ msgid "Oxygen theme"
-#~ msgstr "Téama Oxygen"
-
-#~ msgid "Classic theme"
-#~ msgstr "Téama clasaiceach"
-
-#~ msgid "sources"
-#~ msgstr "foinsí"
-
-#~ msgid "Percent"
-#~ msgstr "Céatadán"
-
-#~ msgid "n/a"
-#~ msgstr "n/a/f"
-
-#~ msgid "Always show &background"
-#~ msgstr "&Taispeáin an cúlra i gcónaí"
-
-#~ msgid "Mains connected"
-#~ msgstr "Príomhshreanga ceangailte"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "Size of the battery:"
-#~ msgstr "Méid an chadhnra:"
-
-#~ msgid "Change battery size"
-#~ msgstr "Athraigh méid an chadhnra"
-
-#~ msgid ""
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'DejaVu Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Change clock size</p></"
-#~ "body></html>"
-#~ msgstr ""
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'DejaVu Serif'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Athraigh méid an "
-#~ "chloig</p></body></html>"

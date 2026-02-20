@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
-"X-Generator: Lokalize 25.12.2\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -136,9 +135,6 @@ msgid "millisecond"
 msgid_plural "milliseconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
@@ -147,9 +143,6 @@ msgid "second"
 msgid_plural "seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
@@ -158,9 +151,6 @@ msgid "minute"
 msgid_plural "minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
@@ -169,9 +159,6 @@ msgid "hour"
 msgid_plural "hours"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
@@ -180,9 +167,6 @@ msgid "day"
 msgid_plural "days"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
@@ -191,9 +175,6 @@ msgid "week"
 msgid_plural "weeks"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
@@ -202,9 +183,6 @@ msgid "month"
 msgid_plural "months"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
@@ -213,9 +191,6 @@ msgid "year"
 msgid_plural "years"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/DurationPromptDialog.qml:168
 #, kde-format
@@ -573,9 +548,6 @@ msgid "After %1 second"
 msgid_plural "After %1 seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:107
 #, kde-format
@@ -584,9 +556,6 @@ msgid "After %1 minute"
 msgid_plural "After %1 minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
 #: ui/ProfileConfig.qml:865
@@ -717,9 +686,6 @@ msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:401
 #, kde-format
@@ -728,9 +694,6 @@ msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:408
 #, kde-format
@@ -764,9 +727,6 @@ msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:483
 #, kde-format
@@ -775,9 +735,6 @@ msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:490
 #, kde-format
@@ -806,9 +763,6 @@ msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:542
 #, kde-format
@@ -817,9 +771,6 @@ msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:549
 #, kde-format
@@ -958,9 +909,6 @@ msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:852
 #, kde-format
@@ -969,9 +917,6 @@ msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: ui/ProfileConfig.qml:894
 #, kde-format
@@ -1014,20 +959,3 @@ msgstr "Roghnaigh comhad scripte"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Kevin Scannell"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "kscanne@gmail.com"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "©, 2010 Dario Freddi"
-
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
-
-#~ msgid "Maintainer"
-#~ msgstr "Cothaitheoir"
