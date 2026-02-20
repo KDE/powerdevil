@@ -48,11 +48,10 @@ msgid "The Power Management Service appears not to be running."
 msgstr ""
 
 #: activitywidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
+#, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "Codladh"
+msgstr ""
 
 #: activitywidget.cpp:102
 #, kde-format
@@ -60,10 +59,9 @@ msgid "Hibernate"
 msgstr "Geimhrigh"
 
 #: activitywidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Shutdown"
+#, kde-format
 msgid "Shut down"
-msgstr "Múchadh"
+msgstr ""
 
 #: activitywidget.cpp:108
 #, kde-format
@@ -139,12 +137,3 @@ msgstr " nóiméad"
 #, kde-format
 msgid "Use separate settings"
 msgstr ""
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "©, 2010 Dario Freddi"
-
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
-
-#~ msgid "Maintainer"
-#~ msgstr "Cothaitheoir"

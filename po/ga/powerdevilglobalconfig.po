@@ -111,10 +111,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
-#, fuzzy, kde-format
-#| msgid "Battery is at critical level at"
+#, kde-format
 msgid "A&t critical level:"
-msgstr "Seo é an leibhéal criticiúil cadhnra"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
@@ -187,29 +186,3 @@ msgstr "Socruithe Eile"
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
-
-#~ msgid "<b>Events</b>"
-#~ msgstr "<b>Imeachtaí</b>"
-
-#~ msgid "Locks screen when waking up from suspension"
-#~ msgstr "Cuir an scáileán faoi ghlas le linn éirí ó fhionraíocht"
-
-#~ msgid "You will be asked for a password when resuming from sleep state"
-#~ msgstr "Fiafrófar díot d'fhocal faire le linn atosaithe tar éis codlata"
-
-#, fuzzy
-#~| msgid "Lock screen on resume"
-#~ msgid "Loc&k screen on resume"
-#~ msgstr "Cuir an scáileán faoi ghlas le linn atosaithe"
-
-#~ msgid "Battery is at low level at"
-#~ msgstr "Seo é an leibhéal íseal cadhnra"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "©, 2010 Dario Freddi"
-
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
-
-#~ msgid "Maintainer"
-#~ msgstr "Cothaitheoir"
