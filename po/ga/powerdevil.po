@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 02:38+0000\n"
-"PO-Revision-Date: 2026-02-17 14:38+0000\n"
+"PO-Revision-Date: 2026-02-21 17:02+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -172,7 +173,7 @@ msgstr ""
 #: powerdevilcore.cpp:481
 #, kde-format
 msgid "The system will no longer go to sleep."
-msgstr ""
+msgstr "Ní stadfaidh an córas a thuilleadh."
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -343,7 +344,7 @@ msgstr "Méadaigh Gile na Scáileáin"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr ""
+msgstr "Méadaigh Gile an Scáileáin 1%"
 
 #: powerdevilscreenbrightnessagent.cpp:155
 #, kde-format
@@ -355,4 +356,4 @@ msgstr "Laghdaigh Gile an Scáileáin"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr ""
+msgstr "Laghdaigh Gile an Scáileáin 1%"
