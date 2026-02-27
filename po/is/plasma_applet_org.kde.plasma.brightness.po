@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2024, 2025 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-12-03 16:22+0000\n"
+"PO-Revision-Date: 2026-02-26 10:14+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -70,7 +70,7 @@ msgstr "Birtustig skjás - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Dökkur hamur"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -81,7 +81,7 @@ msgstr "Grunnstilla…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Skipta yfir í %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -89,8 +89,7 @@ msgid "Follow accent color"
 msgstr "Fylgja áherslulit"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Birtustig og litur"
 
@@ -292,7 +291,7 @@ msgstr "Næturlitir"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Þema"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
