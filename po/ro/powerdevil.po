@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the powerdevil package.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2010, 2011, 2012, 2013, 2020, 2021, 2024.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2020, 2021, 2024, 2026 Sergiu Bivol <sergiu@cip.md>
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 02:38+0000\n"
-"PO-Revision-Date: 2024-06-09 15:16+0100\n"
+"PO-Revision-Date: 2026-02-11 12:54+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -117,12 +117,10 @@ msgstr ""
 "PowerDevil, un demon avansat, modular și ușor de gestiune a alimentării"
 
 #: powerdevilapp.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
 #, kde-format
@@ -175,10 +173,9 @@ msgid "Extra Battery Added"
 msgstr "Acumulator suplimentar adăugat"
 
 #: powerdevilcore.cpp:481
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Calculatorul nu va mai adormi."
+msgstr "Sistemul nu va mai adormi."
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -228,28 +225,23 @@ msgstr ""
 "poate deconecta în orice moment. Reîncărcați sau schimbați bateriile."
 
 #: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Asigurați-vă că adaptorul de alimentare e conectat și furnizează destulă "
-"putere."
+"Asigurați-vă că cablul de alimentare e conectat până la capăt și furnizează "
+"destulă putere."
 
 #: powerdevilcore.cpp:617
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Conectați calculatorul la rețea."
+msgstr "Conectați cablul de alimentare."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Calculatorul va fi trecut în starea de veghe în 1 secundă."
+msgstr "Sistemul va fi deconectat în 60 de secunde."
 
 #: powerdevilcore.cpp:639
 #, kde-format
@@ -259,11 +251,9 @@ msgid "Shut Down Now"
 msgstr "Oprește acum"
 
 #: powerdevilcore.cpp:645
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
+msgstr "Sistemul va hiberna în 60 de secunde."
 
 #: powerdevilcore.cpp:647
 #, kde-format
@@ -274,11 +264,9 @@ msgid "Hibernate Now"
 msgstr "Hibernează acum"
 
 #: powerdevilcore.cpp:653
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
+msgstr "Sistemul va adormi în 60 de secunde."
 
 #: powerdevilcore.cpp:655
 #, kde-format
@@ -311,10 +299,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Acumulator critic (%1% rămas)"
 
 #: powerdevilcore.cpp:720
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Adaptorul de alimentare este atașat"
+msgstr "Cablul de alimentare este atașat"
 
 #: powerdevilcore.cpp:721
 #, kde-format
@@ -322,16 +309,14 @@ msgid "The computer will no longer go to sleep."
 msgstr "Calculatorul nu va mai adormi."
 
 #: powerdevilcore.cpp:723
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Rulează alimentat de la priză"
 
 #: powerdevilcore.cpp:724
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Adaptorul de alimentare a fost atașat."
+msgstr "Cablul de alimentare a fost atașat."
 
 #: powerdevilcore.cpp:736
 #, kde-format
@@ -339,10 +324,9 @@ msgid "Running on Battery Power"
 msgstr "Rulează alimentat de la acumulator"
 
 #: powerdevilcore.cpp:737
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Adaptorul de alimentare a fost detașat."
+msgstr "Cablul de alimentare a fost detașat."
 
 #: powerdevilcore.cpp:800
 #, kde-format
