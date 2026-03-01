@@ -6,14 +6,15 @@
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2015, 2018, 2019.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2025-03-15 18:40+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-02-23 13:19+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -303,7 +304,7 @@ msgstr "KDE 電源管理システム"
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr "PowerDevil - 高度でモジュラ―、そして軽量な電源管理デーモン"
+msgstr "PowerDevil - 高度でモジュラー、そして軽量な電源管理デーモン"
 
 #: powerdevilapp.cpp:65
 #, kde-format
@@ -384,8 +385,8 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"デバイス \"%1\" のバッテリ残量が低下しており、デバイスの電源がいきなり切れる"
-"かもしれません。できるだけ早くバッテリを交換するか充電してください。"
+"デバイス \"%1\" のバッテリ残量が低下しており、デバイスの電源が突然切れるおそ"
+"れがあります。できるだけ早くバッテリを交換するか充電してください。"
 
 #: powerdevilcore.cpp:593
 #, kde-format
@@ -409,9 +410,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"Bluetooth デバイス \"%1\" のバッテリ残量が低下しており、デバイスの電源がいき"
-"なり切れるかもしれません。できるだけ早くバッテリを交換するか充電してくださ"
-"い。"
+"Bluetooth デバイス \"%1\" のバッテリ残量が低下しており、デバイスの電源が突然"
+"切れるおそれがあります。できるだけ早くバッテリを交換するか充電してください。"
 
 #: powerdevilcore.cpp:647
 #, kde-format
