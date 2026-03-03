@@ -3,22 +3,22 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
-# SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2025-02-23 17:08+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2026-02-24 19:43+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "An"
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: BrightnessItem.qml:90
 #, kde-format
@@ -81,18 +81,18 @@ msgstr "Helligkeit und Farbe"
 #: main.qml:135
 #, kde-format
 msgid "Screen brightness at %1%"
-msgstr "Bildschirmhelligkeit ist bei %1 %"
+msgstr "Bildschirmhelligkeit ist bei %1 %"
 
 #: main.qml:136
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Bildschirmhelligkeit von %1 ist bei %2 %"
+msgstr "Bildschirmhelligkeit von %1 ist bei %2 %"
 
 #: main.qml:141
 #, kde-format
 msgid "Keyboard brightness at %1%"
-msgstr "Tastaturbeleuchtung ist bei %1 %"
+msgstr "Tastaturbeleuchtung ist bei %1 %"
 
 #: main.qml:147
 #, kde-format
