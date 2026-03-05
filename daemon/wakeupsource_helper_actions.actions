@@ -62,6 +62,7 @@ Icon=kde
 [org.kde.powerdevil.wakeupsourcehelper.setwakeupcount]
 Name=Set the wakeup count
 Name[ar]=عيين عدد الاستيقاظ
+Name[az]=Oyanma sayını təyin edin
 Name[bg]=Задаване на обратно броене до събуждане
 Name[ca]=Estableix el comptador d'activacions
 Name[ca@valencia]=Establix el comptador d'activacions
@@ -94,6 +95,7 @@ Name[zh_CN]=设置唤醒计数
 Name[zh_TW]=設定喚醒計數
 Description=This allows to read wakeup count on next wakeup to identify wakeup source
 Description[ar]=هذا يسمح بقراءة عدد مرات الاستيقاظ عند الاستيقاظ التالي لتحديد مصدر الاستيقاظ.
+Description[az]=Bu, oyanma mənbəyini müəyyən etmək üçün, növbəti oyanma zamanı oyanma sayını oxumağa icazə verir
 Description[bg]=Това позволява да се прочете броят на събужданията при следващото събуждане, за да се идентифицира източникът на събуждането.
 Description[ca]=Això permet llegir el comptador d'activacions a l'activació següent per a identificar l'origen d'activació
 Description[ca@valencia]=Permet llegir el comptador d'activacions a l'activació següent per a identificar l'origen d'activació
