@@ -1,27 +1,27 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2024 Kheyyam Godjayev <xxmn77@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2026 Kheyyam Godjayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2024-06-11 17:19+0400\n"
-"Last-Translator: Kheyyam Godjayev <xxmn77@gmail.com>\n"
+"PO-Revision-Date: 2026-03-04 22:11+0400\n"
+"Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
-msgstr "Söndürmək"
+msgstr "Söndürülüb"
 
 #: BrightnessItem.qml:31
 #, kde-format
@@ -54,24 +54,22 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Ekran parlaqlığı"
+msgstr "Parlaqlıq"
 
 #: BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Ekran parlaqlığı"
+msgstr "Ekran parlaqlığı - %1"
 
 #: DarkModeItem.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Qaranlıq rejim"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -82,7 +80,7 @@ msgstr "Tənzimləmək..."
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1 ilə dəyişmək"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -90,8 +88,7 @@ msgid "Follow accent color"
 msgstr "Rəngi izləmək"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Parlaqlıq və rəng"
 
@@ -101,11 +98,10 @@ msgid "Screen brightness at %1%"
 msgstr "Ekranın parlaqlığı: %1%"
 
 #: main.qml:136
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Ekranın parlaqlığı: %1%"
+msgstr "Ekranın parlaqlığı: %1 / %2%"
 
 #: main.qml:141
 #, kde-format
@@ -179,7 +175,7 @@ msgstr "Gecə işıqlanmasını tənzimləmək"
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr ""
+msgstr "&Enerjiyə nəzarəti tənizmləyin..."
 
 #: NightLightItem.qml:75
 #, kde-format
@@ -277,10 +273,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Gündüzə keçidin planlaşdırma vaxtı:"
 
 #: PopupDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Klaviatura parlaqlığı"
+msgstr "Klaviatura işıqlanması"
 
 #: PopupDialog.qml:157
 #, kde-format
@@ -295,4 +290,4 @@ msgstr "Gecə işıqlanması"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Görünüş"

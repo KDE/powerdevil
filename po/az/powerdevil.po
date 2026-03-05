@@ -1,21 +1,21 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2026 Kheyyam Gojayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 00:46+0000\n"
-"PO-Revision-Date: 2021-07-22 11:40+0400\n"
-"Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
+"PO-Revision-Date: 2026-03-04 22:41+0400\n"
+"Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -85,21 +85,18 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Klaviatura işıqlarını söndürmək/açın"
 
 #: actions/bundled/powerprofile.cpp:70
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Sönmə vaxtı"
+msgstr "Güc profilinə keçid"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Daxili ekran"
 
 #: controllers/kwinbrightness.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
@@ -118,12 +115,10 @@ msgstr ""
 "PowerDevil - təkmilləşdirilmi, yığcam və yüngül enerjiyə nəzarət xidmətidir"
 
 #: powerdevilapp.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
 #, kde-format
@@ -177,10 +172,9 @@ msgid "Extra Battery Added"
 msgstr "Əlavə batareya qoşuldu"
 
 #: powerdevilcore.cpp:481
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Komputer bundan sonra gözləmə rejiminə keçəcək"
+msgstr "Sistem artıq yuxu rejiminə keçməyəcək."
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -195,18 +189,14 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Ciahz batareyası zəifdir (%1% qalır)"
 
 #: powerdevilcore.cpp:550
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"\"%1\" cihazındakı batareya boşalmaq üzrədir və qurğu hər zaman sönə bilər. "
-"Batareyanı yenidən doldurun və ya yenisi ilə əvəzləyin."
+"\"%1\" cihazındakı batareya boşalmaq üzrədir və cihazınız istənilən vaxt "
+"sönə bilər. Batareyanı yenidən yükləyin və ya yenisi ilə əvəzləyin."
 
 #: powerdevilcore.cpp:557
 #, kde-format
@@ -235,75 +225,60 @@ msgstr ""
 "əvəzləyin."
 
 #: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Batareya boşalmaq üzrəsir. və komputer istənilən vaxt sönə bilər. Komputeri "
-"istifadə etməyə davam etmək istəyirsinizsə batareyanı yenidən doldurun və ya "
-"yenisi ilə əvəzləyin."
+"Güc kabelinin elektrik şəbəkəsinə qoşulduğundan və kifayət qədər enerji ilə "
+"təmin etdiyindən əmin olun."
 
 #: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
-msgstr ""
+msgstr "Güc kabelini elektrik şəbəkəsinə qoşun."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"Batareyanın səviyyəsi kritikdir. Komputeriniz 60 saniyə ərzində sönəcək."
+msgstr "Sistem 60 saniyədən sonra sönəcək."
 
 #: powerdevilcore.cpp:639
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Söndürün"
+msgstr "İndi söndür"
 
 #: powerdevilcore.cpp:645
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "Sistem 60 saniyədən sonra dərin yuxu rejiminə keçəcək."
 
 #: powerdevilcore.cpp:647
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Yuxu rejimi"
+msgstr "Dərin yuxu"
 
 #: powerdevilcore.cpp:653
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"Batareyanın səviyyəsi kritikdir. Komputeriniz 60 saniyə ərzində yuxu "
-"rejiminə keçəcək"
+msgstr "Sistem 60 saniyədən sonra yuxu rejiminə keçəcək."
 
 #: powerdevilcore.cpp:655
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Gözləmə rejimi"
+msgstr "Yuxu"
 
 #: powerdevilcore.cpp:661
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Batareyanın səviyyəsi kritikdir. Lütfən işlərinizi yaddaşda saxlayın."
+msgstr "Gördüyünüş işlərin nəticələrini saxlayın."
 
 #: powerdevilcore.cpp:667
 #, kde-format
@@ -324,10 +299,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batareyanın kritik səviyyəsi (%1% qalır)"
 
 #: powerdevilcore.cpp:720
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Elektrik şəbəkəsinə qoşuldu"
+msgstr "Güc kabeli qoşuldu"
 
 #: powerdevilcore.cpp:721
 #, kde-format
@@ -335,16 +309,14 @@ msgid "The computer will no longer go to sleep."
 msgstr "Komputer bundan sonra gözləmə rejiminə keçəcək"
 
 #: powerdevilcore.cpp:723
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "Elektrik şəbəkəsindən işləyir"
+msgstr "Elektrik şəbəkəsindən qidalanır"
 
 #: powerdevilcore.cpp:724
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Güc adapteri elektrik şəbəkəsinə qoşuldu."
+msgstr "Güc kabeli elektrik şəbəkəsinə qoşulub."
 
 #: powerdevilcore.cpp:736
 #, kde-format
@@ -352,10 +324,9 @@ msgid "Running on Battery Power"
 msgstr "Batareyadan işləyir"
 
 #: powerdevilcore.cpp:737
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Güc adapteri elektrik şəbəkəsindən ayrıldı."
+msgstr "Güc kabeli elektrik şəbəkəsindən ayrıldı."
 
 #: powerdevilcore.cpp:800
 #, kde-format
@@ -374,12 +345,10 @@ msgid "Increase Screen Brightness"
 msgstr "Ekranın Parlaqlığını Artırmaq"
 
 #: powerdevilscreenbrightnessagent.cpp:148
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Ekranın Parlaqlığını Artırmaq"
+msgstr "Ekranın parlaqlığını 1% artırın"
 
 #: powerdevilscreenbrightnessagent.cpp:155
 #, kde-format
@@ -388,12 +357,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Ekranın Parlaqlığını Azaltmaq"
 
 #: powerdevilscreenbrightnessagent.cpp:162
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Ekranın Parlaqlığını Azaltmaq"
+msgstr "Ekranın parlaqlığını 1% azaldın"
 
 #, fuzzy
 #~| msgid ""
