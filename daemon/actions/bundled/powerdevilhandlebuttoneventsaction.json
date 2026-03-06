@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Performs an action whenever a button is pressed",
         "Description[ar]": "تنفيذ حَدَث عند ضغط زِرّ",
+        "Description[az]": "Düyməyə basdlqda bir əməliyyatı icra edir",
         "Description[be]": "Выкананне дзеяння пры націсканні кнопкі",
         "Description[bg]": "Извършва действие при натискане на бутон",
         "Description[ca@valencia]": "Porta a terme una acció quan es prem un botó",

@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Runs a custom script",
         "Description[ar]": "تشغل سكربت مخصص",
+        "Description[az]": "İstifadəçi skriptini başlatmaq",
         "Description[be]": "Запуск адвольнага скрыпта",
         "Description[bg]": "Изпълнява персонализиран скрипт",
         "Description[ca@valencia]": "Executa un script personalitzat",

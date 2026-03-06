@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Suspends the session",
         "Description[ar]": "يعلّق الجلسة",
+        "Description[az]": "Sessiyanı dayandırır",
         "Description[be]": "Прыпыненне сеанса",
         "Description[bg]": "Спира сесията",
         "Description[ca@valencia]": "Suspén la sessió",

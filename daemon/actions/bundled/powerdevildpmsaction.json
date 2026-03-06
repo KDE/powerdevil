@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Controls DPMS settings",
         "Description[ar]": "تتحكم بإعدادات DPMS",
+        "Description[az]": "Monitorun enerji sərfiyyatı ayarlarının idarə edilməsi",
         "Description[be]": "Налады кіравання DPMS",
         "Description[bg]": "Контролира настройките на DPMS",
         "Description[ca@valencia]": "Controla la configuració de DPMS",

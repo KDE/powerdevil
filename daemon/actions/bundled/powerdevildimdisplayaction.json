@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Dims gradually the display on a time basis",
         "Description[ar]": "يعتِم الشاشة تدريجياً بناء على توقيت",
+        "Description[az]": "Ekran parlaqlığı tədricən azalır",
         "Description[be]": "Паступова зацямняе дысплэй у залежнасці ад часу",
         "Description[bg]": "Постепенно затъмнява дисплея за определен период от време",
         "Description[ca@valencia]": "Atenua gradualment la pantalla en funció del temps",

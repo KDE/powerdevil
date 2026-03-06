@@ -3,6 +3,7 @@
     "KPlugin": {
         "Description": "Configure power management settings",
         "Description[ar]": "اضبط إعدادات إدارة الطاقة",
+        "Description[az]": "Enerjiyə nəzarət ayarlarını tənzimləyin",
         "Description[bg]": "Настройки на управление на енергията",
         "Description[ca@valencia]": "Configureu els paràmetres de gestió de l'energia",
         "Description[ca]": "Configuració dels paràmetres de gestió d'energia",
@@ -47,6 +48,7 @@
         "Icon": "preferences-system-power-management",
         "Name": "Energy",
         "Name[ar]": "الطاقة",
+        "Name[az]": "Enerji sərfiyyatı",
         "Name[bg]": "Енергия",
         "Name[ca@valencia]": "Energia",
         "Name[ca]": "Energia",
@@ -87,6 +89,7 @@
     },
     "X-KDE-Keywords": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver",
     "X-KDE-Keywords[ar]": "فيديو، شاشة, رسومات, مهلة زمنية, وضع التعليق, قفل, قفل الشاشة, شاشة التوقف",
+    "X-KDE-Keywords[az]": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver,qrafika,bitmə vaxtı,yuxu,kilid,ekran kilidi,ekran qoruyucusu",
     "X-KDE-Keywords[bg]": "видео, монитор, графика, изчакване, заспиване, заключване, заключване на екрана, скрийнсейвър",
     "X-KDE-Keywords[ca@valencia]": "vídeo,monitor,gràfics,temps d'espera,dormir,bloqueig,bloqueig de la pantalla,estil de la pantalla",
     "X-KDE-Keywords[ca]": "vídeo,monitor,gràfics,temps d'espera,dormir,bloqueig,bloqueig de pantalla,estil de pantalla",
