@@ -1,0 +1,425 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<article id="powerdevil" lang="&language;">
+<articleinfo>
+<title
+>إدارة الطاقة</title>
+<authorgroup>
+<author
+>&Dario.Freddi;&Dario.Freddi.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-08-26</date>
+<releaseinfo
+>بلازما 5.7</releaseinfo>
+
+<keywordset>
+<keyword
+>بلازما</keyword>
+<keyword
+>إعدادات النّظام</keyword>
+<keyword
+>عفريت الطاقة</keyword>
+<keyword
+>إدارة الطاقة</keyword>
+<keyword
+>طاقة حاسوب محمول</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="kcm_powerdevilconfig">
+<title
+>عفريت الطاقة (PowerDevil)، عفريت لإدارة الطاقة</title>
+
+<para
+>هذه الوحدة هي أداة ضبط لإدارة الطاقة في بلازما. وهي أداة لضبط عفريت الطاقة (PowerDevil).</para>
+
+<para
+>عبر هذه الوحدة، يمكنك تحديد سلوك حاسوبك في مختلف المواقف، مما يتيح لك توفير أكبر قدر ممكن من الطاقة. </para>
+
+<para
+>يعمل عفريت الطاقة مع Solid فقط وهو مدمج في سطح مكتبك. لن تلاحظ حتى أنه قيد التشغيل، باستثناء الإشعارات. علاوة على ذلك، يفحص عفريت الطاقة قدرات نظامك أولاً، لذا لن ترى إلا الخيارات المتاحة لنظامك في هذه الوحدة. </para>
+
+<note
+><para
+>لاحظ أن عفريت الطاقة لا يستعلم نظامك باستمرار. وهذا يعني أنه لن يهدر الطاقة أثناء محاولة توفيرها، كما تفعل بعض مديرات الطاقة الأخرى.</para
+></note>
+<sect2 id="energy-saving-setting">
+<title
+>إعدادات توفير الطاقة</title>
+<para
+>تعرض هذه الصفحة إعدادات توفير الطاقة الفعلية. إذا كُشفت بطارية، فسيكون لديك ثلاثة ألسنة بإعدادات مختلفة لتشكيلات: <guilabel
+>على طاقة التيار المتردد</guilabel
+>، و<guilabel
+>على البطارية</guilabel
+>، و<guilabel
+>عند انخفاض البطارية</guilabel
+>. </para>
+<para>
+<screenshot>
+<screeninfo
+>إعدادات توفير الطاقة</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="energy.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+>إعدادات توفير الطاقة</phrase>
+    </textobject>
+    <caption>
+      <para
+>إعدادات توفير الطاقة</para>
+    </caption>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>هناك الكثير من الخيارات التي يمكنك ضبطها لكل تشكيلة: </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>سطوع الشاشة</guilabel
+></term>
+<listitem>
+<para
+>يضبط سطوع الشاشة باستخدام منزلقة.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>أعتِم الشاشة</guilabel
+></term>
+<listitem>
+<para
+>إذا حُدد، ستُعتم الشاشة تدريجيًا حتى يصل السطوع إلى 0، خلال الفترة الزمنية التي تحددها في مربع الخيارات. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>توفير طاقة الشاشة</guilabel
+></term>
+<listitem>
+<para
+>هنا يمكنك ضبط المهلة الزمنية للإطفاء في مربع الخيارات. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>علِّق الحِلسة</guilabel
+></term>
+<listitem>
+<para
+>يُعلق الجلسة بعد الوقت المحدد إلى حالة <guilabel
+>نوم</guilabel
+>، أو <guilabel
+>إسبات</guilabel
+>، أو <guilabel
+>إطفاء</guilabel
+>، أو <guilabel
+>قفل الشاشة</guilabel
+>.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>التعامل مع أحداث الأزرار</guilabel
+></term>
+<listitem>
+<para
+>اختر الإجراءات التي ستُنفذ كلما أُغلق غطاء الحاسوب المحمول أو ضُغط على زر.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>شغل سكربت</guilabel
+></term>
+<listitem>
+<para
+>فعل هذا الخيار لتشغيل سكربت مخصص عند تحميل تشكيلة، أو إلغاء تحميلها، أو بعد مقدار معين من الوقت. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>توفير طاقة اللاسلكي</guilabel
+></term>
+<listitem>
+<para
+>فعل هذا الخيار لضبط إجراءات فردية لاتصالات الواي فاي، أو النطاق العريض للمحمول، أو البلوتوث. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="activity-setting">
+<title
+>إعدادات النشاط</title>
+<para
+>هنا يمكنك ضبط إعدادات إدارة الطاقة لكل نشاط. يمكن ضبط إعدادات كل نشاط في اللسان الخاص به.</para>
+
+<screenshot>
+<screeninfo
+>إعدادات النشاط</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="activity.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+>إعدادات النشاط</phrase>
+    </textobject>
+    <caption>
+      <para
+>إعدادات النشاط</para>
+    </caption>
+  </mediaobject>
+</screenshot>
+
+<variablelist>
+
+<varlistentry>
+<term
+>لا تستخدم إعدادات خاصة</term>
+<listitem>
+<para
+>استخدم الإعدادات المحددة في صفحة <guilabel
+>توفير الطاقة</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+>تحديد سلوك خاص</term>
+<listitem>
+<para
+>إذا اختير هذا الخيار، يمكن اختيار سلوك خاص للنشاط. إذا كان هذا نشاط عرض تقديمي، يمكنك تحديد مربعي <guilabel
+>عدم إطفاء الشاشة أبدًا</guilabel
+> و<guilabel
+>عدم إطفاء الحاسوب أو تركه ينام أبدًا</guilabel
+>. من الممكن أيضًا تحديد الفاصل الزمني للحاسوب للانتقال إلى وضع التعليق لأنشطة توفير الطاقة. </para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+>استخدام إعدادات منفصلة (للمستخدمين المتقدمين فقط)</term>
+<listitem>
+<para
+>يتيح هذا الخيار للمستخدمين اختيار إعدادات توفير الطاقة المفصلة لنشاط منفصل. الإعدادات مشابهة للإعدادات الموجودة في <link linkend="energy-saving-setting"
+>صفحة توفير الطاقة</link
+>. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="advanced-settings">
+<title
+>إعدادات متقدمة</title>
+<para>
+<screenshot>
+<screeninfo
+>إعدادات متقدمة</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="advanced.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+>إعدادات متقدمة</phrase>
+    </textobject>
+    <caption>
+      <para
+>إعدادات متقدمة</para>
+    </caption>
+  </mediaobject>
+</screenshot>
+</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>مستويات البطارية</guilabel
+></term>
+<listitem>
+<para
+>لا تُعرض هذه العناصر إلا إذا كُشفت بطارية. </para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>المستوى المنخفض</guilabel
+></term>
+<listitem>
+<para
+>هنا يمكنك ضبط النسبة المئوية التي سيُعتبر بعدها شحن البطارية منخفضًا. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>المستوى الحَرِج</guilabel
+></term>
+<listitem>
+<para
+>هنا يمكنك ضبط النسبة المئوية التي سيُعتبر بعدها شحن البطارية عند مستوى حرج. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>عند المستوى الحرج</guilabel
+></term>
+<listitem>
+<para
+>يحدد الإجراء الذي سيُنفذ عندما تصل البطارية إلى المستوى الحرج. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+>الأجهزة الطرفية</term>
+<listitem>
+<para
+>يحدد المستوى المنخفض للأجهزة الطرفية (مثل الفأرة اللاسلكية). </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guibutton
+>اضبط الإشعارات</guibutton
+></term>
+<listitem>
+<para
+>إذا كنت تريد تحكمًا أعمق في إشعاراتك، يمكنك صقلها بالنقر فوق هذا الزر. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="powerdevilrunner">
+<title
+>مشغل عفريت الطاقة</title>
+
+<para
+>يمكن التحكم في عفريت الطاقة يدويًا عبر مشغل كيدي (KRunner) (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+>). وهذا يجعل تغيير التشكيلة، والسطوع، والحاكم وغيرها أسهل وأسرع بكثير. يحتوي المشغل على كلمات مفتاحية مختلفة يمكنك إدخالها للوصول إلى وظائفه </para>
+<sect2 id="runnerwords">
+<title
+>الكلمات المفتاحية للمشغل</title>
+<para
+>فيما يلي قائمة بالكلمات المفتاحية التي يمكنك إدخالها في مشغل كيدي (KRunner) لتنفيذ إجراءات متعلقة بعفريت الطاقة. </para>
+<variablelist>
+<varlistentry
+><term
+><userinput
+>تشكيلة الطاقة</userinput
+></term>
+<listitem>
+<para
+>يمكنك اختيار تشكيلة يدويًا باستخدام هذه الكلمة المفتاحية. ستظهر جميع التشكيلات المتاحة في شكل نتائج مطابقة في مشغل كيدي (KRunner). </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><userinput
+>سطوع الشاشة</userinput
+> أو <userinput
+>إعتام الشاشة</userinput
+></term>
+<listitem>
+<para
+>يمكنك التحكم في سطوع الشاشة عبر هذه الكلمة المفتاحية. في هذا الشكل، ستظهر بعض نتائج مشغل كيدي (KRunner) التي تتيح لك القيام ببعض الإجراءات الشائعة. إذا أدخلت قيمة بعد الكلمة المفتاحية (مثل: <userinput
+>سطوع الشاشة 50</userinput
+>)، فسيُضبط السطوع على تلك القيمة. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><userinput
+>تعليق</userinput
+>، <userinput
+>نوم</userinput
+>، <userinput
+>أسبت</userinput
+>، <userinput
+>إلى الرام</userinput
+> أو <userinput
+>إلى القرص</userinput
+></term>
+<listitem>
+<para
+>يمكنك وضع حاسوبك في وضع طاقة منخفضة عبر هذه الكلمات المفتاحية. ستظهر الطرق المتاحة كأطراف مطابقة في مشغل كيدي (KRunner). </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+</sect1>
+</article>
+<!--FIXME in 5.7
+plasma-workspace/runners/powerdevil/
+PowerDevilRunner.cpp:55:    commands << i18nc("Note this is a KRunner keyword", "power profile")
+PowerDevilRunner.cpp:56:             << i18nc("Note this is a KRunner keyword", "suspend")
+PowerDevilRunner.cpp:57:             << i18nc("Note this is a KRunner keyword", "sleep")
+PowerDevilRunner.cpp:58:             << i18nc("Note this is a KRunner keyword", "hibernate")
+PowerDevilRunner.cpp:59:             << i18nc("Note this is a KRunner keyword", "to disk")
+PowerDevilRunner.cpp:60:             << i18nc("Note this is a KRunner keyword", "to ram")
+PowerDevilRunner.cpp:61:             << i18nc("Note this is a KRunner keyword", "screen brightness")
+PowerDevilRunner.cpp:62:             << i18nc("Note this is a KRunner keyword", "dim screen");
+-->
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
