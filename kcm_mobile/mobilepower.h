@@ -11,6 +11,8 @@
 
 #include <PowerDevilProfileSettings.h>
 
+class PowerProfileModel;
+
 class MobilePower : public KQuickConfigModule
 {
     Q_OBJECT
@@ -18,6 +20,9 @@ class MobilePower : public KQuickConfigModule
     Q_PROPERTY(int dimScreenIdx READ dimScreenIdx WRITE setDimScreenIdx NOTIFY dimScreenIdxChanged)
     Q_PROPERTY(int screenOffIdx READ screenOffIdx WRITE setScreenOffIdx NOTIFY screenOffIdxChanged)
     Q_PROPERTY(int suspendSessionIdx READ suspendSessionIdx WRITE setSuspendSessionIdx NOTIFY suspendSessionIdxChanged)
+    Q_PROPERTY(QObject *powerProfileModel READ powerProfileModel CONSTANT)
+    Q_PROPERTY(int powerProfileIdx READ powerProfileIdx WRITE setPowerProfileIdx NOTIFY powerProfileIdxChanged)
+    Q_PROPERTY(bool isPowerProfileSupported READ isPowerProfileSupported NOTIFY isPowerProfileSupportedChanged)
 
 public:
     MobilePower(QObject *parent, const KPluginMetaData &metaData);
@@ -31,11 +36,18 @@ public:
     int screenOffIdx();
     int suspendSessionIdx();
 
+    QObject *powerProfileModel() const;
+    void setPowerProfileIdx(int idx);
+    int powerProfileIdx() const;
+    bool isPowerProfileSupported() const;
+
     BatteryModel *batteries();
 
     Q_SIGNAL void dimScreenIdxChanged();
     Q_SIGNAL void screenOffIdxChanged();
     Q_SIGNAL void suspendSessionIdxChanged();
+    Q_SIGNAL void powerProfileIdxChanged();
+    Q_SIGNAL void isPowerProfileSupportedChanged();
 
     QString stringForValue(int value);
 
@@ -44,6 +56,7 @@ public:
 
 private:
     BatteryModel *m_batteries;
+    PowerProfileModel *m_powerProfileModel;
 
     PowerDevil::ProfileSettings *m_settingsAC;
     PowerDevil::ProfileSettings *m_settingsBattery;
@@ -55,4 +68,5 @@ private:
     bool m_dimScreen;
     int m_screenOffTime;
     bool m_screenOff;
+    QString m_powerProfile;
 };

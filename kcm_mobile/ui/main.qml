@@ -144,5 +144,24 @@ SimpleKCM {
                 onCurrentIndexChanged: kcm.suspendSessionIdx = currentIndex
             }
         }
+
+        FormCard.FormHeader {
+            title: i18n("Power Profile")
+            visible: kcm.isPowerProfileSupported
+        }
+
+        FormCard.FormCard {
+            visible: kcm.isPowerProfileSupported
+
+            FormCard.FormComboBoxDelegate {
+                id: powerProfileCombo
+                text: i18nc("@label:combobox Power Save, Balanced or Performance profile", "Power profile")
+                model: kcm.powerProfileModel
+                textRole: "name"
+                valueRole: "value"
+                currentIndex: kcm.powerProfileIdx
+                onCurrentIndexChanged: kcm.powerProfileIdx = currentIndex
+            }
+        }
     }
 }

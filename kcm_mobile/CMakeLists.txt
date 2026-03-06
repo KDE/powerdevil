@@ -9,6 +9,7 @@ target_sources(kcm_mobile_power PRIVATE
     mobilepower.cpp
     batterymodel.cpp
     statisticsprovider.cpp
+    PowerProfileModel.cpp
 )
 target_link_libraries(kcm_mobile_power PRIVATE
     Qt::DBus

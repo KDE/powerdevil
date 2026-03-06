@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2020 Tomaz Canabrava <tcanabrava@kde.org>
 
 #include "mobilepower.h"
+#include "PowerProfileModel.h"
 #include "statisticsprovider.h"
 
 #include <KConfigGroup>
@@ -56,10 +57,14 @@ const QMap<int, qreal> idxToSeconds = {
 MobilePower::MobilePower(QObject *parent, const KPluginMetaData &metaData)
     : KQuickConfigModule(parent, metaData)
     , m_batteries{new BatteryModel(this)}
+    , m_powerProfileModel{new PowerProfileModel(this)}
 {
     qmlRegisterUncreatableType<BatteryModel>("org.kde.kcm.power.mobile.private", 1, 0, "BatteryModel", QStringLiteral("Use BatteryModel"));
     qmlRegisterUncreatableType<Solid::Battery>("org.kde.kcm.power.mobile.private", 1, 0, "Battery", QStringLiteral(""));
     qmlRegisterType<StatisticsProvider>("org.kde.kcm.power.mobile.private", 1, 0, "HistoryModel");
+
+    connect(m_powerProfileModel, &QAbstractListModel::modelReset, this, &MobilePower::isPowerProfileSupportedChanged);
+    connect(m_powerProfileModel, &QAbstractListModel::modelReset, this, &MobilePower::powerProfileIdxChanged);
 
     setButtons(KQuickConfigModule::NoAdditionalButton);
 
@@ -87,6 +92,8 @@ void MobilePower::load()
     m_screenOff = m_settingsAC->turnOffDisplayWhenIdle();
 
     m_suspendSessionTime = m_settingsAC->autoSuspendIdleTimeoutSec();
+
+    m_powerProfile = m_settingsAC->powerProfile();
 }
 
 void MobilePower::save()
@@ -98,6 +105,7 @@ void MobilePower::save()
         settings->setTurnOffDisplayWhenIdle(m_screenOff);
         settings->setTurnOffDisplayIdleTimeoutSec(m_screenOffTime);
         settings->setAutoSuspendIdleTimeoutSec(m_suspendSessionTime);
+        settings->setPowerProfile(m_powerProfile);
 
         settings->save();
     }
@@ -208,6 +216,45 @@ int MobilePower::screenOffIdx()
 BatteryModel *MobilePower::batteries()
 {
     return m_batteries;
+}
+
+QObject *MobilePower::powerProfileModel() const
+{
+    return m_powerProfileModel;
+}
+
+int MobilePower::powerProfileIdx() const
+{
+    const int count = m_powerProfileModel->rowCount(QModelIndex());
+    for (int i = 0; i < count; ++i) {
+        const QModelIndex idx = m_powerProfileModel->index(i, 0);
+        if (idx.data(PowerProfileModel::Value).toString() == m_powerProfile) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+void MobilePower::setPowerProfileIdx(int idx)
+{
+    const QModelIndex modelIdx = m_powerProfileModel->index(idx, 0);
+    if (!modelIdx.isValid()) {
+        return;
+    }
+
+    const QString profile = modelIdx.data(PowerProfileModel::Value).toString();
+    if (m_powerProfile == profile) {
+        return;
+    }
+
+    m_powerProfile = profile;
+    Q_EMIT powerProfileIdxChanged();
+    save();
+}
+
+bool MobilePower::isPowerProfileSupported() const
+{
+    return m_powerProfileModel->rowCount(QModelIndex()) > 0;
 }
 
 #include "mobilepower.moc"
