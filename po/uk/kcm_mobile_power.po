@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_mobile_powermanagement\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-03-08 00:48+0000\n"
 "PO-Revision-Date: 2024-01-04 09:18+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,45 +20,63 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.1\n"
 
-#: mobilepower.cpp:33
+#: mobilepower.cpp:34
 #, kde-format
 msgid "30 sec"
 msgstr "30 сек."
 
-#: mobilepower.cpp:34
+#: mobilepower.cpp:35
 #, kde-format
 msgid "1 min"
 msgstr "1 хв."
 
-#: mobilepower.cpp:35
+#: mobilepower.cpp:36
 #, kde-format
 msgid "2 min"
 msgstr "2 хв."
 
-#: mobilepower.cpp:36
+#: mobilepower.cpp:37
 #, kde-format
 msgid "5 min"
 msgstr "5 хв."
 
-#: mobilepower.cpp:37
+#: mobilepower.cpp:38
 #, kde-format
 msgid "10 min"
 msgstr "10 хв."
 
-#: mobilepower.cpp:38
+#: mobilepower.cpp:39
 #, kde-format
 msgid "15 min"
 msgstr "15 хв."
 
-#: mobilepower.cpp:39
+#: mobilepower.cpp:40
 #, kde-format
 msgid "30 min"
 msgstr "30 хв."
 
-#: mobilepower.cpp:40
+#: mobilepower.cpp:41
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
+
+#: PowerProfileModel.cpp:41
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Power Save"
+msgstr ""
+
+#: PowerProfileModel.cpp:42
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Balanced"
+msgstr ""
+
+#: PowerProfileModel.cpp:43
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Performance"
+msgstr ""
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -282,6 +300,17 @@ msgstr "Вимкнути екран за"
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
 msgstr "Приспати пристрій за"
+
+#: ui/main.qml:149
+#, kde-format
+msgid "Power Profile"
+msgstr ""
+
+#: ui/main.qml:158
+#, kde-format
+msgctxt "@label:combobox Power Save, Balanced or Performance profile"
+msgid "Power profile"
+msgstr ""
 
 #~ msgid "%"
 #~ msgstr "%"
