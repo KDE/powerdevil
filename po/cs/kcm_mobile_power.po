@@ -61,19 +61,19 @@ msgstr "Nikdy"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Úspora energie"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Vyvážený"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Výkon"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -301,7 +301,7 @@ msgstr "Uspat zařízení po"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "Profil napájení"
 
 #: ui/main.qml:158
 #, kde-format
