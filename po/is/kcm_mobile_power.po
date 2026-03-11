@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# SPDX-FileCopyrightText: 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:48+0000\n"
-"PO-Revision-Date: 2025-11-30 12:05+0000\n"
+"PO-Revision-Date: 2026-03-10 14:37+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -61,19 +61,19 @@ msgstr "Aldrei"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Orkusparnaður"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Jafnvægi"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Afköst"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -301,10 +301,10 @@ msgstr "Stöðva tæki eftir"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "Orkustýringarsnið"
 
 #: ui/main.qml:158
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "Orkustýringarsnið"

@@ -61,19 +61,19 @@ msgstr "从不"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "省电"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "平衡"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "性能"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -301,10 +301,10 @@ msgstr "挂起设备等待时间"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "电源管理方案"
 
 #: ui/main.qml:158
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "电源管理方案"
