@@ -90,6 +90,7 @@ PlasmaComponents3.ItemDelegate {
 
             // UI to undo manually inhibit sleep and screen locking
             PlasmaComponents3.Switch {
+                id: inhibitionSwitch
                 Layout.fillWidth: true
                 text: i18nc("@action:button Block sleep and screen locking after inactivity", "Manually Block Sleep and Screen Locking")
 
@@ -105,6 +106,11 @@ PlasmaComponents3.ItemDelegate {
 
                 Connections {
                     target: root
+
+                    function onIsManuallyInhibitedChanged() {
+                        inhibitionSwitch.checked = root.isManuallyInhibited;
+                    }
+
                     function onIsManuallyInhibitedErrorChanged() {
                         if (root.isManuallyInhibitedError) {
                             root.isManuallyInhibitedError = false;
