@@ -569,6 +569,10 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
             case Battery::HeadsetBattery:
                 icon = QStringLiteral("audio-headset-battery");
                 break;
+            case Battery::PhoneBattery:
+                title = i18n("Phone Battery Low (%1% Remaining)", currentPercent);
+                icon = QStringLiteral("phone-battery");
+                break;
             case Battery::BluetoothBattery:
                 title = i18n("Bluetooth Device Battery Low (%1% Remaining)", currentPercent);
                 icon = QStringLiteral("preferences-system-bluetooth");
