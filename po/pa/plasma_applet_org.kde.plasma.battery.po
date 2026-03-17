@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 02:40+0000\n"
+"POT-Creation-Date: 2026-03-17 02:42+0000\n"
 "PO-Revision-Date: 2025-03-11 13:07-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -140,24 +140,24 @@ msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr "ਨਾ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ ਸਲੀਪ ਤੇ ਸਕਰੀਨ ਲਾਕ"
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, fuzzy, kde-format
 #| msgid "Failed to block automatic sleep and screen locking"
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid ""
@@ -168,7 +168,7 @@ msgctxt ""
 msgid "This will result in higher energy consumption."
 msgstr "ਤੁਸੀਂ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਖੁਦ ਰੋਕਿਆ ਹੈ। ਨਤੀਜੇ ਵਜੋਂ ਵੱਧ ਊਰਜਾ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid ""
@@ -182,7 +182,7 @@ msgid ""
 "result in higher energy consumption."
 msgstr "ਤੁਸੀਂ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਖੁਦ ਰੋਕਿਆ ਹੈ। ਨਤੀਜੇ ਵਜੋਂ ਵੱਧ ਊਰਜਾ ਖ਼ਪਤ ਹੋਵੇਗੀ।"
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -192,7 +192,7 @@ msgstr ""
 "ਤੁਹਾਡੇ ਲੈਪਟਾਪ ਕਵਰ ਬੰਦ ਕਰਨ ਦੌਰਾਨ ਸਲੀਪ ਕਰਨ ਲਈ ਸੰਰਚਿਤ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਜਦੋਂ ਕਿ ਬਾਹਰੀ ਮਾਨੀਟਰ "
 "ਕਨੈਕਟ ਕੀਤਾ ਹੋਵੇ।"
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, fuzzy, kde-format
 #| msgctxt "Application name: reason for preventing sleep and screen locking"
 #| msgid "%1: unknown reason"
@@ -200,7 +200,7 @@ msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "%1: ਅਣਪਛਾਤਾ ਕਾਰਨ"
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -209,7 +209,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -218,7 +218,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -226,7 +226,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -235,7 +235,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -244,7 +244,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -253,7 +253,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -262,7 +262,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -271,7 +271,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt ""
@@ -280,7 +280,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 ਐਪਲੀਕੇਸ਼ਨ ਸਲੀਪ ਕਰਨ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਹੋਣ ਤੋਂ ਰੋਕ ਰਹੀ ਹੈ (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -288,7 +288,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "ਰੋਕ ਹਟਾਓ"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

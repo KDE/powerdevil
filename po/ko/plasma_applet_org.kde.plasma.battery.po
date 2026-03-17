@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 02:40+0000\n"
+"POT-Creation-Date: 2026-03-17 02:42+0000\n"
 "PO-Revision-Date: 2026-02-03 22:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -136,30 +136,30 @@ msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr "비활성 상태일 때 자동으로 절전 모드 진입 및 화면 잠금을 수행합니다."
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "절전 모드 진입과 화면 잠금 수동으로 차단"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "자동 절전 모드 진입과 화면 잠금 차단 해제 실패"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "자동 절전 모드 진입과 화면 잠금 차단 실패"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "에너지를 더 많이 소모합니다."
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -170,7 +170,7 @@ msgid ""
 msgstr ""
 "대기 모드와 화면 잠금을 수동으로 차단했습니다. 에너지를 더 많이 소모합니다."
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -180,13 +180,13 @@ msgstr ""
 "노트북에 외부 모니터가 연결되었을 때 덮개를 닫아도 절전 모드로 들어가지 않도"
 "록 설정되어 있습니다."
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "알 수 없는 오류."
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -194,7 +194,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1에서 절전 모드 진입과 화면 잠금을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -202,7 +202,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1에서 화면 잠금을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -210,7 +210,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1에서 절전 모드 진입을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -218,7 +218,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1에서도 절전 모드 진입과 화면 잠금을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -226,7 +226,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1에서도 화면 잠금을 차단했습니다.(%2)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -234,7 +234,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1에서도 절전 모드 진입을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -242,7 +242,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1에서 절전 모드 진입과 화면 잠금을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -250,7 +250,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1에서 화면 잠금을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -258,7 +258,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1에서 절전 모드 진입을 차단했습니다. (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -266,7 +266,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "차단 해제"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

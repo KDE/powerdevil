@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 02:40+0000\n"
+"POT-Creation-Date: 2026-03-17 02:42+0000\n"
 "PO-Revision-Date: 2026-01-13 14:23+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -148,30 +148,30 @@ msgstr ""
 "Kompiuterio pristabdymas ir ekrano užrakinimas bus vykdomi automatiškai po "
 "neveiklumo."
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Rankiniu būdu blokuoti kompiuterio pristabdymą ir ekrano užrakinimą"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Nepavyko atblokuoti automatinio pristabdymo ir ekrano užrakinimo"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Nepavyko blokuoti automatinio pristabdymo ir ekrano užrakinimo"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Tai sąlygos didesnį energijos vartojimą."
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -183,7 +183,7 @@ msgstr ""
 "Jūs esate rankiniu būdu užblokavę kompiuterio pristabdymą ir ekrano "
 "užrakinimą. Tai sąlygos didesnį energijos vartojimą."
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -193,13 +193,13 @@ msgstr ""
 "Jūsų įrenginys sukonfigūruotas taip, kad uždarius dangtį, kol yra prijungtas "
 "išorinis monitorius, kompiuteris nebūtų pristabdomas."
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Priežastis nežinoma."
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -207,7 +207,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 nori blokuoti kompiuterio pristabdymą ir ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -215,7 +215,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 nori blokuoti ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -223,7 +223,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1 nori blokuoti kompiuterio pristabdymą. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -231,7 +231,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "Be to, %1 blokuoja kompiuterio pristabdymą ir ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -239,7 +239,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "Be to, %1 blokuoja ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -247,7 +247,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "Be to, %1 blokuoja kompiuterio pristabdymą. (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -255,7 +255,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 blokuoja kompiuterio pristabdymą ir ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -263,7 +263,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 blokuoja ekrano užrakinimą. (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -271,7 +271,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 blokuoja kompiuterio pristabdymą. (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -279,7 +279,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Atblokuoti"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
