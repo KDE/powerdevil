@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:46+0000\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
 "PO-Revision-Date: 2024-03-27 14:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -131,7 +131,7 @@ msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt "@action:button Block sleep and screen locking after inactivity"
@@ -139,17 +139,17 @@ msgid "Manually Block Sleep and Screen Locking"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -158,7 +158,7 @@ msgid "This will result in higher energy consumption."
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -170,7 +170,7 @@ msgid ""
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -180,7 +180,7 @@ msgstr ""
 "El portátil ta configuráu pa nun se dormir al zarrar la tapa mentanto heba "
 "un monitor esternu conectáu."
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, fuzzy, kde-format
 #| msgctxt "Application name: reason for preventing sleep and screen locking"
 #| msgid "%1: unknown reason"
@@ -188,7 +188,7 @@ msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "%1: motivu desconocíu"
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -198,7 +198,7 @@ msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -208,7 +208,7 @@ msgid "%1 wants to block screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -216,7 +216,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -226,7 +226,7 @@ msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -236,7 +236,7 @@ msgid "%1 is also blocking screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -244,7 +244,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -254,7 +254,7 @@ msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, fuzzy, kde-format
 #| msgid "An application is currently blocking sleep and screen locking (%1)"
 msgctxt ""
@@ -264,7 +264,7 @@ msgid "%1 is blocking screen locking. (%2)"
 msgstr ""
 "Una aplicación ta bloquiándo la dormición y el bloquéu de la pantalla (%1)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -272,7 +272,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -280,7 +280,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr ""
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

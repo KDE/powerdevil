@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:46+0000\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
 "PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -146,34 +146,34 @@ msgstr ""
 "La suspensió i el bloqueig de la pantalla són automàtics després de la "
 "inactivitat."
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Bloqueig manual de la suspensió i bloqueig de la pantalla"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 "Ha fallat mentre es desbloquejava automàticament la suspensió i el bloqueig "
 "de la pantalla"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
 "No s'ha pogut bloquejar automàticament la suspensió i el bloqueig de la "
 "pantalla"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Donarà lloc a un consum d'energia més alt."
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -185,7 +185,7 @@ msgstr ""
 "Heu bloquejat manualment la suspensió i el bloqueig de la pantalla "
 "automàtics. Açò donarà lloc a un consum d'energia més alt."
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -195,13 +195,13 @@ msgstr ""
 "Este portàtil està configurat per a no adormir-se en tancar la tapa quan hi "
 "ha un monitor extern connectat."
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Motiu desconegut."
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -209,7 +209,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 vol bloquejar la suspensió i el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -217,7 +217,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 vol bloquejar el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -225,7 +225,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1 vol bloquejar la suspensió. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -234,7 +234,7 @@ msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr ""
 "%1 també està bloquejant la suspensió i el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -242,7 +242,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 també està bloquejant el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -250,7 +250,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 també està bloquejant la suspensió. (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -258,7 +258,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 està bloquejant la suspensió i el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -266,7 +266,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 està bloquejant el bloqueig de la pantalla. (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -274,7 +274,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 està bloquejant la suspensió. (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -282,7 +282,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Desbloqueja"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:46+0000\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
 "PO-Revision-Date: 2026-01-28 16:30+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -154,30 +154,30 @@ msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
 "При бездействии будет выполнена блокировка экрана и переход в спящий режим."
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Запретить блокирование экрана и переход в спящий режим"
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Не удалось разрешить блокировку экрана и переход в спящий режим"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Не удалось запретить блокировку экрана и переход в спящий режим"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Это приведёт к росту потребления электроэнергии."
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -189,7 +189,7 @@ msgstr ""
 "Вы запретили блокировку экрана и переход в спящий режим. Это приведёт к "
 "росту потребления электроэнергии."
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -199,13 +199,13 @@ msgstr ""
 "Ноутбук настроен так, что он не будет переходить в спящий режим при закрытии "
 "крышки, если подключён внешний монитор."
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Неизвестная причина."
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -215,7 +215,7 @@ msgstr ""
 "Приложение «%1» запрашивает отключение блокирования экрана и перехода в "
 "спящий режим. (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -223,7 +223,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "Приложение «%1» запрашивает отключение  блокирования экрана. (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -231,7 +231,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "Приложение «%1» запрашивает отключение перехода в спящий режим. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -241,7 +241,7 @@ msgstr ""
 "И приложение «%1» отключило блокирование экрана и переход в спящий режим. "
 "(%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -249,7 +249,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "И приложение «%1» отключило блокирование экрана. (%2)"
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -257,7 +257,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "И приложение «%1» отключило переход в спящий режим. (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -266,7 +266,7 @@ msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr ""
 "Приложение «%1» отключило блокирование экрана и переход в спящий режим. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -274,7 +274,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "Приложение «%1» отключило блокирование экрана. (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -282,7 +282,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "Приложение «%1» отключило переход в спящий режим. (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -290,7 +290,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Отказать"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

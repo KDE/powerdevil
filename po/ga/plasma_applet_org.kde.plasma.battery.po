@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-base/plasma_applet_battery.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-13 00:46+0000\n"
-"PO-Revision-Date: 2026-01-11 18:47+0000\n"
-"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
+"PO-Revision-Date: 2026-02-25 15:25+0000\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -76,7 +77,7 @@ msgstr ""
 #: BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
-msgstr ""
+msgstr "Riocht an Chadhnra:"
 
 #: BatteryItem.qml:226
 #, kde-format
@@ -104,7 +105,7 @@ msgstr ""
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr ""
+msgstr "Bainisteoireacht Chumhachta"
 
 #: InhibitionItem.qml:65
 #, kde-format
@@ -132,31 +133,31 @@ msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
 
-#: InhibitionItem.qml:94
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr ""
 
-#: InhibitionItem.qml:112
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 "Teipeadh coladh uathoibríoch codladh agus glasála na scáileán a dhíblocáil"
 
-#: InhibitionItem.qml:115
+#: InhibitionItem.qml:121
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Teipeadh codladh uathoibríoch agus glasála na scáileán a bhlocáil"
 
-#: InhibitionItem.qml:129
+#: InhibitionItem.qml:135
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr ""
 
-#: InhibitionItem.qml:130
+#: InhibitionItem.qml:136
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -166,7 +167,7 @@ msgid ""
 "result in higher energy consumption."
 msgstr ""
 
-#: InhibitionItem.qml:137
+#: InhibitionItem.qml:143
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -174,29 +175,29 @@ msgid ""
 "external monitor is connected."
 msgstr ""
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:162
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr ""
+msgstr "Cúis anaithnid."
 
-#: InhibitionItem.qml:163
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr ""
+msgstr "Tá %1 ag iarraidh codladh agus glas scáileáin a bhlocáil. (%2)"
 
-#: InhibitionItem.qml:165
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr ""
+msgstr "Tá %1 ag iarraidh glas scáileáin a bhlocáil. (%2)"
 
-#: InhibitionItem.qml:167
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -204,7 +205,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "Tá %1 ag iarraidh codladh a bhlocáil. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -212,7 +213,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -220,7 +221,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:175
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -228,23 +229,23 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr ""
+msgstr "Tá %1 ag blocáil codladh agus glas scáileáin. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr ""
+msgstr "Tá %1 ag blocáil glas scáileáin. (%2)"
 
-#: InhibitionItem.qml:183
+#: InhibitionItem.qml:189
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -252,7 +253,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "Tá %1 codladh ag blocáil. (%2)"
 
-#: InhibitionItem.qml:191
+#: InhibitionItem.qml:197
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -260,7 +261,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Díbhlocáil"
 
-#: InhibitionItem.qml:199
+#: InhibitionItem.qml:205
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -276,7 +277,7 @@ msgstr ""
 #: main.qml:97
 #, kde-format
 msgid "Power & Battery"
-msgstr ""
+msgstr "Cumhachta & Cadhnra"
 
 #: main.qml:116
 #, kde-format
@@ -399,7 +400,7 @@ msgstr ""
 #: PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "Feidhmíocht"
 
 #: PowerProfileItem.qml:66
 #, kde-format
@@ -410,7 +411,7 @@ msgstr "Próifíl Chumhachta"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Uathoibríoch"
 
 #: PowerProfileItem.qml:111
 #, kde-format
@@ -421,7 +422,7 @@ msgstr "Níl Ar Fáil"
 #: PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr ""
+msgstr "Theip ar mód %1 a gníomhachtú"
 
 #: PowerProfileItem.qml:228
 #, kde-format
@@ -436,10 +437,11 @@ msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
 
+# correct unlenited here
 #: PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
-msgstr ""
+msgstr "Níl mód na feidhmíochta ar fáil."
 
 #: PowerProfileItem.qml:248
 #, kde-format
@@ -476,7 +478,7 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Rialaíonn seirbhís na TLP Próifílí Chumhachta go huathoibríoch"
 
 #: PowerProfileItem.qml:304
 #, kde-format
