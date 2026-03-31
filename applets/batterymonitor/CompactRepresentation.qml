@@ -85,6 +85,7 @@ MouseArea {
             hasBattery: root.hasCumulative
             percent: root.batteryPercent
             pluggedIn: root.batteryPluggedIn
+            preferSymbolic: true
             powerProfileIconName: root.isInDefaultPowerProfile ? ""
                                 : root.isInPowersaveProfile    ? "powersave"
                                 : root.isInBalancedProfile     ? "balanced"
