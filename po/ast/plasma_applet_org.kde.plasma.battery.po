@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-01 00:48+0000\n"
 "PO-Revision-Date: 2024-03-27 14:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -88,7 +88,7 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "La batería ta configurada pa cargar hasta'l %1% aproximadamente."
 
-#: CompactRepresentation.qml:101 CompactRepresentation.qml:150
+#: CompactRepresentation.qml:102 CompactRepresentation.qml:151
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"

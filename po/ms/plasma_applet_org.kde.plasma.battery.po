@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:46+0000\n"
+"POT-Creation-Date: 2026-04-01 00:48+0000\n"
 "PO-Revision-Date: 2010-06-21 20:10+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@myrealbox.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -100,7 +100,7 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 
-#: CompactRepresentation.qml:101 CompactRepresentation.qml:150
+#: CompactRepresentation.qml:102 CompactRepresentation.qml:151
 #, fuzzy, kde-format
 #| msgctxt "overlay on the battery, needs to be really tiny"
 #| msgid "%1%"
