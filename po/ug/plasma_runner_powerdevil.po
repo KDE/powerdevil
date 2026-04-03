@@ -21,7 +21,7 @@ msgstr ""
 #, kde-format
 msgctxt "Note this is a KRunner keyword; 'power' as in 'power saving mode'"
 msgid "power"
-msgstr ""
+msgstr "توك تېجەش"
 
 #: PowerDevilRunner.cpp:32
 #, kde-format
@@ -57,13 +57,13 @@ msgstr "دىسكىغا"
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid sleep"
-msgstr ""
+msgstr "ئۈچەك ئۇيقۇ"
 
 #: PowerDevilRunner.cpp:38
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid"
-msgstr ""
+msgstr "ئۈچەك"
 
 #: PowerDevilRunner.cpp:39 PowerDevilRunner.cpp:40 PowerDevilRunner.cpp:66
 #, kde-format
@@ -93,52 +93,43 @@ msgstr "سىستېمىنى دىسكىغا توڭلىتىدۇ"
 #: PowerDevilRunner.cpp:62
 #, kde-format
 msgid "Sleeps now and falls back to hibernate"
-msgstr ""
+msgstr "دەرھال ئۇيقۇ ھالىتىگە كىرىپ ئاندىن ئۈچەك ھالىتىگە قايتىدۇ"
 
 #: PowerDevilRunner.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "Note this is a KRunner keyword"
-#| msgid "screen brightness"
+#, kde-format
 msgctxt ""
 "Note this is a KRunner keyword, <> is a placeholder and should be at the end"
 msgid "screen brightness <percent value>"
-msgstr "ئېكران يورۇقلۇقى"
+msgstr "ئېكران يورۇقلۇقى <percent value>"
 
 #: PowerDevilRunner.cpp:68
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Lists screen brightness options or sets it to the brightness defined by :"
-#| "q:; e.g. screen brightness 50 would dim the screen to 50% maximum "
-#| "brightness"
+#, no-c-format, kde-format
 msgid ""
 "Lists screen brightness options or sets it to the brightness defined by the "
 "search term; e.g. screen brightness 50 would dim the screen to 50% maximum "
 "brightness"
 msgstr ""
-"ئېكران يورۇقلۇق تاللانما تىزىمىنى كۆرسىتىدۇ ياكى :q: دا ئېنىقلىما بېرىلگەن "
-"يورۇقلۇقنى بەلگىلەيدۇ. ئەگەر ئېكران يورۇقلۇقى 50 بولسا ئۇنداقتا ئېكران 50% "
-"سۇسلايدۇ"
+"ئېكران يورۇقلۇق تاللانما تىزىمىنى كۆرسىتىدۇ ياكى ئىزدەش شەرتىدە ئېنىقلىما "
+"بېرىلگەن يورۇقلۇقنى تەڭشەيدۇ. مەسىلەن، ئەگەر ئېكران يورۇقلۇقى 50 بولسا "
+"ئۇنداقتا ئېكران 50% غۇۋالىشىدۇ"
 
 #: PowerDevilRunner.cpp:89
-#, fuzzy, kde-format
-#| msgid "Set Brightness to %1"
+#, kde-format
 msgid "Set Brightness to %1%"
-msgstr "يورۇقلۇقىنى %1 غا تەڭشە"
+msgstr "يورۇقلۇقىنى %1% كە تەڭشە"
 
 #: PowerDevilRunner.cpp:98
 #, kde-format
 msgid "Dim screen totally"
-msgstr "پۈتۈنلەي تۇتۇق ئېكران"
+msgstr "پۈتۈنلەي غۇۋا ئېكران"
 
 #: PowerDevilRunner.cpp:106
 #, kde-format
 msgid "Dim screen by half"
-msgstr "ئېكران يېرىم تۇتۇق"
+msgstr "يېرىم غۇۋا ئېكران"
 
 #: PowerDevilRunner.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "Note this is a KRunner keyword"
-#| msgid "sleep"
+#, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "ئۇخلات"
@@ -146,19 +137,16 @@ msgstr "ئۇخلات"
 #: PowerDevilRunner.cpp:136
 #, kde-format
 msgid "Suspend to RAM"
-msgstr "RAM غا توڭلات"
+msgstr "ئەسلەككە توڭلات"
 
 #: PowerDevilRunner.cpp:141
-#, fuzzy, kde-format
-#| msgctxt "Note this is a KRunner keyword"
-#| msgid "hibernate"
+#, kde-format
 msgctxt "Suspend to disk"
 msgid "Hibernate"
 msgstr "ئۈچەك"
 
 #: PowerDevilRunner.cpp:142
-#, fuzzy, kde-format
-#| msgid "Suspend to Disk"
+#, kde-format
 msgid "Suspend to disk"
 msgstr "دىسكىغا توڭلات"
 
@@ -166,28 +154,24 @@ msgstr "دىسكىغا توڭلات"
 #, kde-format
 msgctxt "Suspend to both RAM and disk"
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "ئۈچەك ئۇيقۇ"
 
 #: PowerDevilRunner.cpp:148
 #, kde-format
 msgid "Sleep now and fall back to hibernate"
-msgstr ""
+msgstr "دەرھال ئۇيقۇ ھالىتىگە كىرىپ ئاندىن ئۈچەك ھالىتىگە قايتىدۇ"
 
 #: PowerDevilRunner.cpp:226
-#, fuzzy, kde-format
-#| msgctxt "Note this is a KRunner keyword"
-#| msgid "screen brightness"
+#, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "screen brightness "
-msgstr "ئېكران يورۇقلۇقى"
+msgstr "ئېكران يورۇقلۇقى "
 
 #: PowerDevilRunner.cpp:228
-#, fuzzy, kde-format
-#| msgctxt "Note this is a KRunner keyword"
-#| msgid "dim screen"
+#, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "dim screen "
-msgstr "تۇتۇق ئېكران"
+msgstr "تۇتۇق ئېكران "
 
 #~ msgctxt "Note this is a KRunner keyword"
 #~ msgid "screen brightness"
@@ -201,7 +185,6 @@ msgstr "تۇتۇق ئېكران"
 #~ msgid "dim screen %1"
 #~ msgstr "تۇتۇق ئېكران %1"
 
-#, fuzzy
 #~| msgctxt "Note this is a KRunner keyword"
 #~| msgid "suspend"
 #~ msgid "Suspend"

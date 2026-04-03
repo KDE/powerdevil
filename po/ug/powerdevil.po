@@ -20,25 +20,23 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
-#, fuzzy, kde-format
-#| msgid "KDE Power Management System"
+#, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "ك د ئې(KDE) توك مەنبە باشقۇرۇش سىستېمىسى"
+msgstr "توك مەنبەسىنى باشقۇرۇش"
 
 #: actions/bundled/dpms.cpp:76
-#, fuzzy, kde-format
-#| msgid "Turn off screen"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "ئېكراننى تاقا"
@@ -47,7 +45,7 @@ msgstr "ئېكراننى تاقا"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr ""
+msgstr "توڭلات"
 
 #: actions/bundled/handlebuttonevents.cpp:56
 #, kde-format
@@ -59,107 +57,98 @@ msgstr "ئۈچەك"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr ""
+msgstr "توكنى ئۈز"
 
 #: actions/bundled/handlebuttonevents.cpp:75
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr ""
+msgstr "توكنى مەجبۇرىي ئۈز"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr ""
+msgstr "ھەرپتاختا يورۇقلۇقىنى ئاشۇر"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr ""
+msgstr "ھەرپتاختا يورۇقلۇقىنى تۆۋەنلەت"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr ""
+msgstr "ھەرپتاختا تەگلىك چىرىغى ئالماشتۇر"
 
 #: actions/bundled/powerprofile.cpp:70
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "تاقاشتىن ئىلگىرى كېچىكتۈرىدىغان ۋاقىت"
+msgstr "توك مەنبە سەپلىمە ھۆججىتىنى ئالماشتۇر"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:51
-#, fuzzy, kde-format
-#| msgid "Locking Screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "ئېكراننى قۇلۇپلا"
+msgstr "ئىچكى ئېكران"
 
 #: controllers/kwinbrightness.cpp:55
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:102
-#, fuzzy, kde-format
-#| msgid "KDE Power Management System"
+#, kde-format
 msgid "KDE Power Management System"
-msgstr "ك د ئې(KDE) توك مەنبە باشقۇرۇش سىستېمىسى"
+msgstr "KDE توك مەنبە باشقۇرۇش سىستېمىسى"
 
 #: powerdevilapp.cpp:104
-#, fuzzy, kde-format
-#| msgid ""
-#| "KDE Power Management System is PowerDevil, an advanced, modular and "
-#| "lightweight Power Management daemon"
+#, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
-"KDE توك مەنبە باشقۇرۇش سىستېمىسى PowerDevil، ئالىي، بۆلەكلىك ۋە يېنىك مەنبە "
-"باشقۇرۇش مۇئەككىلى"
+"KDE توك مەنبە باشقۇرۇش سىستېمىسى PowerDevil، ئالىي، بۆلەكلىك ۋە يېنىك توك "
+"مەنبە باشقۇرۇش نازارەتچىسى"
 
 #: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr ""
+msgstr "Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:107
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "مەسئۇل كىشى"
+msgstr "ئاسرىغۇچى"
 
 #: powerdevilapp.cpp:108
-#, fuzzy, kde-format
-#| msgid "Dario Freddi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
 #: powerdevilapp.cpp:108
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "مەسئۇل كىشى"
+msgstr "ئالدىنقى مەسئۇل ئادەم"
 
 #: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "مەۋجۇت ئۈلگىنى ئالماشتۇر"
 
 #: powerdevilcore.cpp:403 powerdevilcore.cpp:414
 #, kde-format
@@ -170,33 +159,36 @@ msgstr "پائالىيەت باشقۇرغۇچ"
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
+"بۇ پائالىيەتنىڭ تەدبىرى سىستېمىنىڭ ئۇيقۇ ھالىتىگە كىرىشىنىڭ ئالدىنى ئالىدۇ"
 
 #: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
+"بۇ پائالىيەتنىڭ تەدبىرى سىستېمىنىڭ ئېكران توك مەنبەسىنى باشقۇرۇشىنىڭ ئالدىنى "
+"ئالىدۇ"
 
 #: powerdevilcore.cpp:480
 #, kde-format
 msgid "Extra Battery Added"
-msgstr ""
+msgstr "قوشۇمچە توكدان قوشۇلدى"
 
 #: powerdevilcore.cpp:481
 #, kde-format
 msgid "The system will no longer go to sleep."
-msgstr ""
+msgstr "سىستېما ئەمدى ئۇيقۇ ھالىتىگە كىرمەيدۇ."
 
 #: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilcore.cpp:548
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "ئۈسكۈنە توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:550
 #, kde-format
@@ -205,21 +197,23 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
+"«%1» دىكى توكداننىڭ توكى ئاز، ئۇ خالىغان ۋاقىتتا تاقىلىشى مۇمكىن. توكداننى "
+"قايتا توكلاڭ ياكى ئالماشتۇرۇڭ."
 
 #: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "چاشقىنەك توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "ھەرپتاختا توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "كۆكچىش ئۈسكۈنە توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:573
 #, kde-format
@@ -228,6 +222,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
+"«%1» كۆكچىش ئۈسكۈنىسىدىكى توكداننىڭ توكى ئاز، ئۈسكۈنە خالىغان ۋاقىتتا "
+"تاقىلىشى مۇمكىن. توكداننى قايتا توكلاڭ ياكى ئالماشتۇرۇڭ."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -235,69 +231,55 @@ msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
+"توك مەنبە چاتقۇچىنىڭ چېتىلغانلىقى ۋە يېتەرلىك توك مەنبەسى تەمىنلىگەنلىكىنى "
+"جەزملەڭ."
 
 #: powerdevilcore.cpp:617
 #, kde-format
 msgid "Plug in the power cord."
-msgstr ""
+msgstr "توك مەنبە چاتقۇچىنى چېتىڭ."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە توختايدۇ."
+msgstr "سىستېما 60 سېكۇنتتا تاقىلىدۇ."
 
 #: powerdevilcore.cpp:639
-#, fuzzy, kde-format
-#| msgid "Shutdown"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "تاقا"
+msgstr "ھازىرلا تاقا"
 
 #: powerdevilcore.cpp:645
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
-"توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە ئۈچەككە كىرىدۇ."
+msgstr "سىستېما 60 سېكۇنتتا ئۈچەك ھالىتىگە كىرىدۇ"
 
 #: powerdevilcore.cpp:647
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "ئۈچەك"
+msgstr "ھازىرلا ئۈچەككە كىر"
 
 #: powerdevilcore.cpp:653
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە توختايدۇ."
+msgstr "سىستېما 60 سېكۇنتتا ئۇيقۇ ھالىتىگە كىرىدۇ."
 
 #: powerdevilcore.cpp:655
-#, fuzzy, kde-format
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "ئۇخلات"
+msgstr "ھازىرلا ئۇخلات"
 
 #: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
-msgstr ""
+msgstr "خىزمەتلىرىڭىزنى ساقلاڭ"
 
 #: powerdevilcore.cpp:667
 #, kde-format
@@ -305,89 +287,82 @@ msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
 msgid "Cancel"
-msgstr ""
+msgstr "ۋاز كەچ"
 
 #: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:686
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr ""
+msgstr "توكدانىنىڭ توكى بەك ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:720
 #, kde-format
 msgid "Power Cord Plugged In"
-msgstr ""
+msgstr "توك مەنبەسى چېتىلدى"
 
 #: powerdevilcore.cpp:721
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr ""
+msgstr "كومپيۇتېر ئەمدى ئۇيقۇ ھالىتىگە كىرمەيدۇ."
 
 #: powerdevilcore.cpp:723
 #, kde-format
 msgid "Running on AC Power"
-msgstr ""
+msgstr "ئۆزگىرىشچان توك مەنبەسى ئىشلىتىۋاتىدۇ"
 
 #: powerdevilcore.cpp:724
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى چېتىلدى."
 
 #: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on Battery Power"
-msgstr ""
+msgstr "توكدان ئىشلىتىۋاتىدۇ"
 
 #: powerdevilcore.cpp:737
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى ئاجرىتىۋېتىلدى."
 
 #: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
-msgstr ""
+msgstr "توكلاش تامام."
 
 #: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
-msgstr ""
+msgstr "ھازىر توكدان لىق توكلاندى."
 
 #: powerdevilscreenbrightnessagent.cpp:141
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "ئېكران يورۇقلۇق دەرىجىسى ئاشۇر"
+msgstr "ئېكران يورۇقلۇقىنى ئاشۇر"
 
 #: powerdevilscreenbrightnessagent.cpp:148
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "ئېكران يورۇقلۇق دەرىجىسى ئاشۇر"
+msgstr "ئېكران يورۇقلۇقىنى ئاشۇر 1%"
 
 #: powerdevilscreenbrightnessagent.cpp:155
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
+msgstr "ئېكران يورۇقلۇقىنى تۆۋەنلەت"
 
 #: powerdevilscreenbrightnessagent.cpp:162
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
+msgstr "ئېكران يورۇقلۇقىنى تۆۋەنلەت 1%"
 
-#, fuzzy
 #~| msgid ""
 #~| "Your battery level is critical, the computer will be suspended in 30 "
 #~| "seconds."
@@ -396,7 +371,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
 #~ "سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
-#, fuzzy
 #~| msgid ""
 #~| "Your battery level is critical, the computer will be suspended in 30 "
 #~| "seconds."
@@ -407,7 +381,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
 #~ "سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
-#, fuzzy
 #~| msgid ""
 #~| "Your battery level is critical, the computer will be suspended in 30 "
 #~| "seconds."
@@ -433,7 +406,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ msgid "Do nothing"
 #~ msgstr "ھېچقانداق قىلما"
 
-#, fuzzy
 #~| msgid "Sleep"
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -442,7 +414,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ msgid "Hibernate"
 #~ msgstr "ئۈچەك"
 
-#, fuzzy
 #~| msgid "Shutdown"
 #~ msgid "Shut down"
 #~ msgstr "تاقا"
@@ -466,19 +437,16 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ msgid "Level"
 #~ msgstr "دەرىجە"
 
-#, fuzzy
 #~| msgctxt "Name of a power profile"
 #~| msgid "Powersave"
 #~ msgid "Power Save"
 #~ msgstr "توك تېجەش"
 
-#, fuzzy
 #~| msgctxt "Name of a power profile"
 #~| msgid "Performance"
 #~ msgid "Performance"
 #~ msgstr "ئىقتىدارى"
 
-#, fuzzy
 #~| msgid "Switch off after"
 #~ msgctxt "Switch to power management profile"
 #~ msgid "Switch to:"
@@ -490,7 +458,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ msgid "Run script"
 #~ msgstr "قوليازما ئىجرا قىل"
 
-#, fuzzy
 #~| msgid "After"
 #~ msgid "after "
 #~ msgstr "داۋامى"
@@ -504,17 +471,14 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ msgid "Unsupported suspend method"
 #~ msgstr "قوللىمايدىغان توڭلات ئۇسۇلى"
 
-#, fuzzy
 #~| msgid "Turn off screen"
 #~ msgid "Turn off"
 #~ msgstr "ئېكراننى تاقا"
 
-#, fuzzy
 #~| msgid "Turn off screen"
 #~ msgid "Turn on"
 #~ msgstr "ئېكراننى تاقا"
 
-#, fuzzy
 #~| msgid ""
 #~| "No valid Power Management backend plugins are available. A new "
 #~| "installation might solve this problem."
@@ -525,7 +489,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ "ئىناۋەتلىك توك مەنبە باشقۇرۇش ئارقا ئۇچ قىستۇرمىسى يوق. يېڭى ئورنىتىش بۇ "
 #~ "مەسىلىنى ھەل قىلالىشى مۇمكىن."
 
-#, fuzzy
 #~| msgid ""
 #~| "The profile \"%1\" has been selected, but it does not exist.\n"
 #~| "Please check your PowerDevil configuration."
@@ -543,7 +506,6 @@ msgstr "ئېكران يورۇقلۇق دەرىجىسى تۆۋەنلەت"
 #~ "توكدان ئارايۈزىگە باغلىنالمىدى.\n"
 #~ "سىستېما سەپلىمىسىنى تەكشۈرۈڭ."
 
-#, fuzzy
 #~| msgid ""
 #~| "KDE Power Management System could not be initialized. The backend "
 #~| "reported the following error: %1\n"
