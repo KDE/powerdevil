@@ -1,21 +1,22 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-settings package.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:48+0000\n"
-"PO-Revision-Date: 2024-01-07 11:57+0100\n"
+"PO-Revision-Date: 2026-04-04 19:09+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: mobilepower.cpp:34
 #, kde-format
@@ -61,19 +62,19 @@ msgstr "Nigdy"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Oszczędzanie energii"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Zrównoważony"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Wydajność"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -301,13 +302,13 @@ msgstr "Uśpij urządzenie po"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "Tryb zasilania"
 
 #: ui/main.qml:158
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "Tryb zasilania"
 
 #~ msgid "%"
 #~ msgstr "%"
