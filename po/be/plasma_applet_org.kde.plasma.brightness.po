@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2024-06-20 05:37\n"
+"PO-Revision-Date: 2026-04-07 20:35\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,9 +18,9 @@ msgstr ""
 "X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
 "X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/plasma-workspace/"
+"X-Crowdin-File: /main/for-translation/KDE6/be/messages/powerdevil/"
 "plasma_applet_org.kde.plasma.brightness.po\n"
-"X-Crowdin-File-ID: 17866\n"
+"X-Crowdin-File-ID: 22322\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -59,24 +59,22 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Яркасць дысплэя"
+msgstr "Яркасць"
 
 #: BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Яркасць дысплэя"
+msgstr "Яркасць дысплэя - %1"
 
 #: DarkModeItem.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Цёмны рэжым"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -87,7 +85,7 @@ msgstr "Наладжванне…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Пераключыцца на %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -95,8 +93,7 @@ msgid "Follow accent color"
 msgstr "Пільнавацца дамінантнага колеру"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Яркасць і колер"
 
@@ -106,11 +103,10 @@ msgid "Screen brightness at %1%"
 msgstr "Яркасць экрана %1%"
 
 #: main.qml:136
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Яркасць экрана %1%"
+msgstr "Яркасць %1 пры %2%"
 
 #: main.qml:141
 #, kde-format
@@ -184,7 +180,7 @@ msgstr "Наладжванне начнога рэжыму…"
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr ""
+msgstr "&Наладжванне кіравання сілкаваннем…"
 
 #: NightLightItem.qml:75
 #, kde-format
@@ -282,10 +278,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Пераход з начнога рэжыму запланаваны:"
 
 #: PopupDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Яркасць клавіятуры"
+msgstr "Падсвятленне клавіятуры"
 
 #: PopupDialog.qml:157
 #, kde-format
@@ -300,4 +295,4 @@ msgstr "Начны рэжым"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Тэма"
