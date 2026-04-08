@@ -21,8 +21,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -115,8 +115,7 @@ msgid "Power Management"
 msgstr "Správa napájania"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Automatic sleep and screen locking are disabled"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr "Automatický spánok a uzamknutie obrazovky sú vypnuté"
@@ -127,6 +126,7 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Screen locking is currently blocked. Sleep is automatic after inactivity."
 
 #: InhibitionItem.qml:69
 #, kde-format
@@ -134,17 +134,16 @@ msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"Sleep is currently blocked. Screen locking is automatic after inactivity."
 
 #: InhibitionItem.qml:71
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr ""
+msgstr "Sleep and screen locking are automatic after inactivity."
 
 #: InhibitionItem.qml:95
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
@@ -160,18 +159,14 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Nepodarilo sa zablokovať automatické spanie a uzamknutie obrazovky"
 
 #: InhibitionItem.qml:135
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Ručne zakázať spánok a uzamknutie obrazovky"
 
 #: InhibitionItem.qml:136
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -197,8 +192,7 @@ msgid "Unknown reason."
 msgstr "Neznámy dôvod."
 
 #: InhibitionItem.qml:169
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
@@ -206,8 +200,7 @@ msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
@@ -220,11 +213,10 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 wants to block sleep. (%2)"
 
 #: InhibitionItem.qml:177
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
@@ -232,8 +224,7 @@ msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
@@ -241,8 +232,7 @@ msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
@@ -250,8 +240,7 @@ msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:185
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
@@ -259,8 +248,7 @@ msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:187
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
@@ -268,8 +256,7 @@ msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
 
 #: InhibitionItem.qml:189
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
@@ -530,9 +517,6 @@ msgstr ""
 "balíkov vašej distribúcie a reštartujte systém."
 
 #, fuzzy
-#~| msgid "%1 application is currently blocking sleep and screen locking:"
-#~| msgid_plural ""
-#~| "%1 applications are currently blocking sleep and screen locking:"
 #~ msgid "%1 application currently wants to block sleep and screen locking:"
 #~ msgid_plural ""
 #~ "%1 applications currently want to block sleep and screen locking:"
@@ -541,7 +525,6 @@ msgstr ""
 #~ msgstr[2] "%1 aplikácií zabraňuje spánku a uzamknutiu obrazovky:"
 
 #, fuzzy
-#~| msgid "%1 is currently blocking sleep and screen locking (%2)"
 #~ msgctxt "Application name; reason"
 #~ msgid "%1 has been prevented from blocking sleep and screen locking for %2"
 #~ msgstr "%1 aplikácia zabraňuje spánku a uzamknutiu obrazovky (%2)"
@@ -571,9 +554,6 @@ msgstr ""
 #~ msgstr "Neznáma aplikácia: neznámy dôvod"
 
 #, fuzzy
-#~| msgid "%1 application is currently blocking sleep and screen locking:"
-#~| msgid_plural ""
-#~| "%1 applications are currently blocking sleep and screen locking:"
 #~ msgid ""
 #~ "%1 application has been prevented from blocking sleep and screen locking:"
 #~ msgid_plural ""
@@ -584,7 +564,6 @@ msgstr ""
 #~ msgstr[2] "%1 aplikácií zabraňuje spánku a uzamknutiu obrazovky:"
 
 #, fuzzy
-#~| msgid "Battery at %1%"
 #~ msgctxt "Placeholder is the battery number"
 #~ msgid "Battery %1"
 #~ msgstr "Batéria na %1%"
@@ -615,7 +594,6 @@ msgstr ""
 #~ msgstr "Jas klávesnice"
 
 #, fuzzy
-#~| msgid "Performance mode is unavailable."
 #~ msgid "Performance mode has been manually enabled"
 #~ msgstr "Režim vysokého výkonu nie je k dispozícii."
 
@@ -686,14 +664,11 @@ msgstr ""
 #~ msgstr "%1% batérie ostáva"
 
 #, fuzzy
-#~| msgid "Capacity:"
 #~ msgctxt "The degradation in the battery's energy capacity"
 #~ msgid "Capacity degradation:"
 #~ msgstr "Kapacita:"
 
 #, fuzzy
-#~| msgctxt "Placeholder is battery percentage"
-#~| msgid "%1%"
 #~ msgctxt "Placeholder is battery's capacity degradation"
 #~ msgid "%1%"
 #~ msgstr "%1%"
