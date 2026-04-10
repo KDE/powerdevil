@@ -78,7 +78,7 @@ msgstr "Nastaviť..."
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Prepnúť na %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
