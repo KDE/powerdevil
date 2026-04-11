@@ -84,6 +84,7 @@ MouseArea {
             active: root.containsMouse
             hasBattery: root.hasCumulative
             percent: root.batteryPercent
+            isSomehowFullyCharged: root.isSomehowFullyCharged
             pluggedIn: root.batteryPluggedIn
             preferSymbolic: true
             powerProfileIconName: root.isInDefaultPowerProfile ? ""
