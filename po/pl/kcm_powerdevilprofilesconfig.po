@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 02:37+0000\n"
-"PO-Revision-Date: 2026-01-01 12:01+0100\n"
+"PO-Revision-Date: 2026-04-11 10:01+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -705,7 +705,7 @@ msgstr "Zmień jasność &ekranu:"
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr "Sa&m przyciemnij:"
+msgstr "Sa&m przyciemnij po:"
 
 #: ui/ProfileConfig.qml:394
 #, kde-format
@@ -718,18 +718,18 @@ msgstr "Sa&m przyciemnij po:"
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "%1 sekunda"
-msgstr[1] "%1 sekundy"
-msgstr[2] "%1 sekund"
+msgstr[0] "%1 sekundzie"
+msgstr[1] "%1 sekundach"
+msgstr[2] "%1 sekundach"
 
 #: ui/ProfileConfig.qml:401
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "%1 minuta"
-msgstr[1] "%1 minuty"
-msgstr[2] "%1 minut"
+msgstr[0] "%1 minucie"
+msgstr[1] "%1 minutach"
+msgstr[2] "%1 minutach"
 
 #: ui/ProfileConfig.qml:408
 #, kde-format
