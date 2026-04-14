@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-02-01 17:53+0000\n"
-"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"PO-Revision-Date: 2026-04-11 14:35+0100\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: mobilepower.cpp:33
 #, kde-format
@@ -75,17 +76,17 @@ msgstr "Eolas"
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr "Is é in-athluchtaithe"
+msgstr "An é in-athluchtaithe"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "Yes"
-msgstr "Tá"
+msgstr "Is ea"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "No"
-msgstr "Níl"
+msgstr "Ní hea"
 
 #: ui/BatteryPage.qml:91
 #, kde-format
@@ -161,7 +162,7 @@ msgstr "Ian litiam"
 #: ui/BatteryPage.qml:151
 #, kde-format
 msgid "Lithium polymer"
-msgstr "Polaiméir litiam"
+msgstr "Polaiméir Litiam"
 
 #: ui/BatteryPage.qml:152
 #, kde-format

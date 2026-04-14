@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-02-18 17:37+0000\n"
+"PO-Revision-Date: 2026-03-31 09:51+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -39,7 +40,7 @@ msgstr ""
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
-msgstr ""
+msgstr "Ard"
 
 #: BrightnessItem.qml:34
 #, kde-format
@@ -95,13 +96,13 @@ msgstr ""
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
-msgstr ""
+msgstr "Solas Oíche ar fionraí; cliceáil lárnach chun é a atosú"
 
 #: main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
-msgstr ""
+msgstr "Solas Oíche ar fionraí"
 
 #: main.qml:154
 #, kde-format
@@ -164,25 +165,25 @@ msgstr ""
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
-msgstr ""
+msgstr "Curtha ar fionraí"
 
 #: NightLightItem.qml:78
 #, kde-format
 msgctxt "Night light status"
 msgid "Unavailable"
-msgstr ""
+msgstr "Níl ar fáil"
 
 #: NightLightItem.qml:81
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
-msgstr ""
+msgstr "Níl cumasaithe"
 
 #: NightLightItem.qml:84
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
-msgstr ""
+msgstr "Níl ag rith"
 
 #: NightLightItem.qml:87
 #, kde-format
