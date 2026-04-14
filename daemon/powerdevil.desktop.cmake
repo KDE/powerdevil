@@ -20,6 +20,7 @@ Name[et]=Toitehaldus
 Name[eu]=Energia-kudeaketa
 Name[fi]=Virranhallinta
 Name[fr]=Système de gestion de l'énergie
+Name[ga]=Bainisteoireacht Cumhachta
 Name[gl]=Xestión da enerxía
 Name[he]=ניהול צריכת חשמל
 Name[hu]=Energiakezelés
