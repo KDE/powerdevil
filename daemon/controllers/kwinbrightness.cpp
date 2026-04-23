@@ -134,7 +134,7 @@ KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, K
     , m_detector(detector)
     , m_label(label)
     , m_desiredBrightness(m_output->brightness())
-    , m_desiredDimming(m_output->dimming())
+    , m_desiredDimming(1.0)
 {
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
