@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-01 00:48+0000\n"
+"POT-Creation-Date: 2026-04-25 00:47+0000\n"
 "PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -96,7 +96,7 @@ msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 "La bateria està configurada per a carregar només fins al %1% aproximadament."
 
-#: CompactRepresentation.qml:102 CompactRepresentation.qml:151
+#: CompactRepresentation.qml:103 CompactRepresentation.qml:152
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
