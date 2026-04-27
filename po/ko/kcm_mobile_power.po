@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-settings package.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:48+0000\n"
-"PO-Revision-Date: 2024-02-09 19:36+0100\n"
+"PO-Revision-Date: 2026-04-26 20:24+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: mobilepower.cpp:34
 #, kde-format
@@ -61,19 +61,19 @@ msgstr "하지 않음"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "절전"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "균형 조정"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "성능"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -301,13 +301,13 @@ msgstr "다음 시간 후 절전 모드 진입"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "전원 프로필"
 
 #: ui/main.qml:158
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "전원 프로필"
 
 #~ msgid "%"
 #~ msgstr "%"
