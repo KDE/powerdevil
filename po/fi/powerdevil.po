@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-28 00:47+0000\n"
 "PO-Revision-Date: 2025-08-14 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -193,42 +193,46 @@ msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Laitteen akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:550
-#, kde-format
+#: powerdevilcore.cpp:551
+#, fuzzy, kde-format
+#| msgctxt "Placeholder is device name"
+#| msgid ""
+#| "The battery in \"%1\" is running low, and the device may turn off at any "
+#| "time. Please recharge or replace the battery."
 msgctxt "Placeholder is device name"
-msgid ""
-"The battery in \"%1\" is running low, and the device may turn off at any "
-"time. Please recharge or replace the battery."
+msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
 "Laitteen ”%1” virta on vähissä ja laite voi sammua minä hetkenä hyvänsä. "
 "Lataa tai vaihda sen akku."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:553
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid "The battery in “%1” is running low."
+msgstr ""
+
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Hiiren akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Näppäimistön akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:571
+#: powerdevilcore.cpp:573
+#, fuzzy, kde-format
+#| msgid "Mouse Battery Low (%1% Remaining)"
+msgid "Phone Battery Low (%1% Remaining)"
+msgstr "Hiiren akku vähissä (%1 % jäljellä)"
+
+#: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth-laitteen akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:573
-#, kde-format
-msgctxt "Placeholder is device name"
-msgid ""
-"The battery in Bluetooth device \"%1\" is running low, and the device may "
-"turn off at any time. Please recharge or replace the battery."
-msgstr ""
-"Bluetooth-laitteen ”%1” virta on vähissä ja laite voi sammua minä hetkenä "
-"hyvänsä. Lataa tai vaihda sen akku."
-
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -236,29 +240,29 @@ msgid ""
 msgstr ""
 "Varmista, että virtalähde on kunnolla kytketty ja tarjoaa tarpeeksi virtaa."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Kytke virtajohto."
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:639
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Järjestelmä sammuu 60 sekunnissa."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Sammuta nyt"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Järjestelmä siirtyy lepotilaan 60 sekunnissa."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -266,24 +270,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Siirry lepotilaan nyt"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:655
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Järjestelmä siirtyy valmiustilaan 60 sekunnissa."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:657
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Siirry valmiustilaan nyt"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "Please save your work."
 msgstr "Tallenna työsi."
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:669
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -291,52 +295,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Peru"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Akku kriittisen vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:720
+#: powerdevilcore.cpp:722
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Virtajohto kytketty"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tietokone ei enää siirry keskeytystilaan."
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:725
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Verkkovirta käytössä"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:726
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Virtajohto on kytketty."
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Akku käytössä"
 
-#: powerdevilcore.cpp:737
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Virtajohto on irrotettu."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "Lataus valmis"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Akku on nyt ladattu täyteen."
@@ -364,6 +368,14 @@ msgstr "Vähennä näytön kirkkautta"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Vähennä näytön kirkkautta 1 %"
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
+#~ "turn off at any time. Please recharge or replace the battery."
+#~ msgstr ""
+#~ "Bluetooth-laitteen ”%1” virta on vähissä ja laite voi sammua minä hetkenä "
+#~ "hyvänsä. Lataa tai vaihda sen akku."
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."

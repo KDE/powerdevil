@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-28 00:47+0000\n"
 "PO-Revision-Date: 2025-02-16 12:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -190,72 +190,75 @@ msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til eining (%1 % att)"
 
-#: powerdevilcore.cpp:550
-#, kde-format
+#: powerdevilcore.cpp:551
+#, fuzzy, kde-format
+#| msgctxt "Placeholder is device name"
+#| msgid ""
+#| "The battery in \"%1\" is running low, and the device may turn off at any "
+#| "time. Please recharge or replace the battery."
 msgctxt "Placeholder is device name"
-msgid ""
-"The battery in \"%1\" is running low, and the device may turn off at any "
-"time. Please recharge or replace the battery."
+msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
 "Batterinivået til musa «%1» er lågt, og ho kan derfor slutta å fungera når "
 "som helst. Du bør lada eller byta ut batteriet så snart som råd."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:553
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid "The battery in “%1” is running low."
+msgstr ""
+
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til mus (%1 % att)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til tastatur (%1 % att)"
 
-#: powerdevilcore.cpp:571
+#: powerdevilcore.cpp:573
+#, fuzzy, kde-format
+#| msgid "Mouse Battery Low (%1% Remaining)"
+msgid "Phone Battery Low (%1% Remaining)"
+msgstr "Lågt batterinivå til mus (%1 % att)"
+
+#: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til Bluetooth-eining (%1 % att)"
 
-#: powerdevilcore.cpp:573
-#, kde-format
-msgctxt "Placeholder is device name"
-msgid ""
-"The battery in Bluetooth device \"%1\" is running low, and the device may "
-"turn off at any time. Please recharge or replace the battery."
-msgstr ""
-"Batterinivået til Bluetooth-eininga («%1») er lågt, og ho kan derfor slutta "
-"å fungera når som helst. Du bør lada eller byta ut batteriet så snart som "
-"mogleg."
-
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr "Sjå til at straum­kabelen er kopla skikkeleg til og gjev nok straum."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Kopla til straum­kabelen."
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:639
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Maskina vert automatisk slått av om 60 sekund."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Slå av no"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Maskina går i dvalemodus om 60 sekund."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -263,24 +266,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Gå i dvalemodus no"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:655
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Maskina går i kvilemodus om 60 sekund."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:657
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Gå i kvilemodus no"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "Please save your work."
 msgstr "Lagra arbeidet ditt."
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:669
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -288,53 +291,53 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå (%1 % att)"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri på kritisk nivå (%1 % att)"
 
-#: powerdevilcore.cpp:720
+#: powerdevilcore.cpp:722
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Straumkabel kopla til"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:725
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "Køyrer på nettstraum"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:726
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Straumkabelen er kopla til."
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Køyrer på batteri"
 
-#: powerdevilcore.cpp:737
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Straumkabelen er kopla frå."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "Fullført lading"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
@@ -362,3 +365,12 @@ msgstr "Reduser lysstyrken på skjermen"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Reduser lysstyrken på skjermen med 1 %"
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
+#~ "turn off at any time. Please recharge or replace the battery."
+#~ msgstr ""
+#~ "Batterinivået til Bluetooth-eininga («%1») er lågt, og ho kan derfor "
+#~ "slutta å fungera når som helst. Du bør lada eller byta ut batteriet så "
+#~ "snart som mogleg."

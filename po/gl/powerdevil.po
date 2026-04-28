@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-28 00:47+0000\n"
 "PO-Revision-Date: 2025-06-19 09:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -193,43 +193,47 @@ msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batería baixa nun dispositivo (%1% restante)"
 
-#: powerdevilcore.cpp:550
-#, kde-format
+#: powerdevilcore.cpp:551
+#, fuzzy, kde-format
+#| msgctxt "Placeholder is device name"
+#| msgid ""
+#| "The battery in \"%1\" is running low, and the device may turn off at any "
+#| "time. Please recharge or replace the battery."
 msgctxt "Placeholder is device name"
-msgid ""
-"The battery in \"%1\" is running low, and the device may turn off at any "
-"time. Please recharge or replace the battery."
+msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
 "A batería de «%1» está baixa, e o dispositivo podería apagarse en calquera "
 "intre. Recargue ou substitúa a batería."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:553
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid "The battery in “%1” is running low."
+msgstr ""
+
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Batería baixa no rato (%1% restante)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batería baixa no teclado (%1% restante)"
 
-#: powerdevilcore.cpp:571
+#: powerdevilcore.cpp:573
+#, fuzzy, kde-format
+#| msgid "Mouse Battery Low (%1% Remaining)"
+msgid "Phone Battery Low (%1% Remaining)"
+msgstr "Batería baixa no rato (%1% restante)"
+
+#: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Batería baixa nun dispositivo Bluetooth (%1% restante)"
 
-#: powerdevilcore.cpp:573
-#, kde-format
-msgctxt "Placeholder is device name"
-msgid ""
-"The battery in Bluetooth device \"%1\" is running low, and the device may "
-"turn off at any time. Please recharge or replace the battery."
-msgstr ""
-"A batería do dispositivo Bluetooth «%1» está baixa, e o dispositivo podería "
-"apagarse en calquera intre. Recargue ou substitúa a batería."
-
 # skip-rule: trasno-provide
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -238,29 +242,29 @@ msgstr ""
 "Asegúrese de que o cable de corrente está enchufado correctamente e recibe "
 "corrente dabondo."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Enchufe o cable de corrente."
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:639
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "O sistema apagarase en 60 segundos."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Apagar agora"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "O sistema hibernará en 60 segundos."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -268,24 +272,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernar agora"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:655
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "O sistema durmirá en 60 segundos."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:657
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Durmir agora"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "Please save your work."
 msgstr "Garde o que estea a facer."
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:669
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -293,53 +297,53 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batería baixa (%1% restante)"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batería no nivel crítico (%1% restante)"
 
-#: powerdevilcore.cpp:720
+#: powerdevilcore.cpp:722
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Enchufouse o cable de corrente"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "O computador deixará de poñerse a durmir."
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:725
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "Enchufado"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:726
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Enchufouse o cable de corrente."
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Estase gastando a batería"
 
-#: powerdevilcore.cpp:737
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Desenchufouse o cable de corrente."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "Carga completa"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "A batería ten a carga completa."
@@ -367,6 +371,14 @@ msgstr "Diminuír o brillo da pantalla"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Diminuír o brillo da pantalla un 1%"
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
+#~ "turn off at any time. Please recharge or replace the battery."
+#~ msgstr ""
+#~ "A batería do dispositivo Bluetooth «%1» está baixa, e o dispositivo "
+#~ "podería apagarse en calquera intre. Recargue ou substitúa a batería."
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr ""

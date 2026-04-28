@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-28 00:47+0000\n"
 "PO-Revision-Date: 2025-07-15 07:56+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -187,71 +187,75 @@ msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:550
-#, kde-format
+#: powerdevilcore.cpp:551
+#, fuzzy, kde-format
+#| msgctxt "Placeholder is device name"
+#| msgid ""
+#| "The battery in \"%1\" is running low, and the device may turn off at any "
+#| "time. Please recharge or replace the battery."
 msgctxt "Placeholder is device name"
-msgid ""
-"The battery in \"%1\" is running low, and the device may turn off at any "
-"time. Please recharge or replace the battery."
+msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
 "עוצמת הסוללה של „%1” נמוכה, וההתקן עשוי לכבות בכל רגע. נא להחליף סוללות או "
 "להטעין אותו."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:553
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid "The battery in “%1” is running low."
+msgstr ""
+
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "עוצמת סוללת העכבר נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "עוצמת סוללת המקלדת נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:571
+#: powerdevilcore.cpp:573
+#, fuzzy, kde-format
+#| msgid "Mouse Battery Low (%1% Remaining)"
+msgid "Phone Battery Low (%1% Remaining)"
+msgstr "עוצמת סוללת העכבר נמוכה (נותרו %1% אחוז)"
+
+#: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "עוצמת סוללת התקן הבלוטות׳ נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:573
-#, kde-format
-msgctxt "Placeholder is device name"
-msgid ""
-"The battery in Bluetooth device \"%1\" is running low, and the device may "
-"turn off at any time. Please recharge or replace the battery."
-msgstr ""
-"עוצמת הסוללה של התקן הבלוטות׳ שלך „%1” נמוכה, וההתקן עשוי לכבות בכל רגע. נא "
-"להחליף סוללות או להטעין אותו."
-
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr "נא לוודא שכבל החשמל מחובר לכל אורכו ומספק מספיק חשמל."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "לחבר את כבל החשמל."
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:639
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "המערכת תיכבה תוך 60 שניות."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "לכבות כעת"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "במערכת תירדם תוך 60 שניות."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -259,24 +263,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "להרדים כעת"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:655
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "המערכת תישן תוך 60 שניות."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:657
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "לישון כעת"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "Please save your work."
 msgstr "נא לשמור את העבודה שלך."
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:669
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -284,52 +288,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ביטול"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "עוצמת הסוללה נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "עוצמת הסוללה במצב קריטי (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:720
+#: powerdevilcore.cpp:722
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "הכבל החשמלי מחובר"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "המחשב לא יישן עוד."
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:725
 #, kde-format
 msgid "Running on AC Power"
 msgstr "פועל על מטען"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:726
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "כבל החשמל חובר."
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "פועל על סוללה"
 
-#: powerdevilcore.cpp:737
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "כבל החשמל נותק."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "הטעינה הושלמה"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "הסוללה טעונה במלואה כעת."
@@ -357,6 +361,14 @@ msgstr "החשכת המסך"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "החשכת המסך ב־1%"
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
+#~ "turn off at any time. Please recharge or replace the battery."
+#~ msgstr ""
+#~ "עוצמת הסוללה של התקן הבלוטות׳ שלך „%1” נמוכה, וההתקן עשוי לכבות בכל רגע. "
+#~ "נא להחליף סוללות או להטעין אותו."
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr "מצב הסוללה קריטי. המחשב ייכבה בעוד 60 שניות."

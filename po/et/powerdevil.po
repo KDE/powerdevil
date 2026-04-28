@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:46+0000\n"
+"POT-Creation-Date: 2026-04-28 00:47+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -193,46 +193,46 @@ msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Seadme aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:550
+#: powerdevilcore.cpp:551
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
 #| "The battery in (\"%1\") is running low, and the device may turn off at "
 #| "any time. Please recharge or replace the battery."
 msgctxt "Placeholder is device name"
-msgid ""
-"The battery in \"%1\" is running low, and the device may turn off at any "
-"time. Please recharge or replace the battery."
+msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
 "Sinu seadme (\"%1\") aku laetuse tase on madal ja seade võib iga hetk välja "
 "lülituda. Palun vaheta või lae aku niipea kui võimalik."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:553
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid "The battery in “%1” is running low."
+msgstr ""
+
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Hiire aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Klaviatuuri aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:571
+#: powerdevilcore.cpp:573
+#, fuzzy, kde-format
+#| msgid "Mouse Battery Low (%1% Remaining)"
+msgid "Phone Battery Low (%1% Remaining)"
+msgstr "Hiire aku madal tase (%1% alles)"
+
+#: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetoothi seadme aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:573
-#, kde-format
-msgctxt "Placeholder is device name"
-msgid ""
-"The battery in Bluetooth device \"%1\" is running low, and the device may "
-"turn off at any time. Please recharge or replace the battery."
-msgstr ""
-"Sinu Bluetoothi seadme \"%1\" aku laetuse tase on madal ja seade võib iga "
-"hetk välja lülituda. Palun vaheta või lae aku niipea kui võimalik."
-
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -244,19 +244,19 @@ msgstr ""
 "Aku tase on madal. Kui soovid arvutit edasi kasutada, ühenda see vooluvõrku "
 "või sulge arvuti ja vaheta aku välja."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Plug in the power cord."
 msgstr ""
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:639
 #, fuzzy, kde-format
 #| msgid "The computer will be put into standby in 1 second."
 #| msgid_plural "The computer will be put into standby in %1 seconds."
 msgid "The system will shut down in 60 seconds."
 msgstr "Arvuti pannakse ooterežiimi 1 sekundi pärast."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -264,14 +264,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Seiskamine"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The system will hibernate in 60 seconds."
 msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -280,14 +280,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Talveuni"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:655
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:657
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -296,7 +296,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Uni"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -304,7 +304,7 @@ msgstr ""
 "Aku laetus on jõudnud kriitilisele tasemele, salvesta oma töö nii kiiresti "
 "kui võimalik."
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:669
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -312,56 +312,56 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Loobu"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku kriitiline tase (%1% alles)"
 
-#: powerdevilcore.cpp:720
+#: powerdevilcore.cpp:722
 #, fuzzy, kde-format
 #| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "AC adapter on ühendatud"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:723
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Arvuti enam magama ei lähe."
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:725
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "Vooluvõrgust töötav arvuti"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:726
 #, fuzzy, kde-format
 #| msgid "The power adapter has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "Arvuti ühendati elektrivõrku."
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Aku peal töötav arvuti"
 
-#: powerdevilcore.cpp:737
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "The power adapter has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "Arvuti lahutati elektrivõrgust."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laadimine on tehtud"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."
@@ -393,6 +393,14 @@ msgstr "Ekraani heleduse vähendamine"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Ekraani heleduse vähendamine"
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
+#~ "turn off at any time. Please recharge or replace the battery."
+#~ msgstr ""
+#~ "Sinu Bluetoothi seadme \"%1\" aku laetuse tase on madal ja seade võib iga "
+#~ "hetk välja lülituda. Palun vaheta või lae aku niipea kui võimalik."
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr ""
