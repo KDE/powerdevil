@@ -1,15 +1,15 @@
 # Spanish translations for powerdevil.po package.
-# Copyright (C) 2014-2025 This file is copyright:
+# Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014-2017, 2019-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-09-20 16:52+0100\n"
+"PO-Revision-Date: 2026-04-29 00:15+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -190,22 +190,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batería del dispositivo baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"La batería «%1» se está agotando y el dispositivo se puede apagar en "
-"cualquier momento. Por favor, recargue o sustituya la batería."
+msgstr "La batería de «%1» se está agotando. Recargue o sustituya la batería."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "La batería de «%1» se está agotando."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -218,10 +212,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batería del teclado baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Batería del ratón baja (queda el %1 %)"
+msgstr "Batería del teléfono baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
@@ -282,7 +275,7 @@ msgstr "Entrar en reposo ahora"
 #: powerdevilcore.cpp:663
 #, kde-format
 msgid "Please save your work."
-msgstr "Por favor, guarde su trabajo."
+msgstr "Guarde su trabajo."
 
 #: powerdevilcore.cpp:669
 #, kde-format
@@ -365,12 +358,3 @@ msgstr "Disminuir el brillo de la pantalla"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Disminuir el brillo de la pantalla un 1 %"
-
-#~ msgctxt "Placeholder is device name"
-#~ msgid ""
-#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
-#~ "turn off at any time. Please recharge or replace the battery."
-#~ msgstr ""
-#~ "La batería del dispositivo Bluetooth «%1» se está agotando y el "
-#~ "dispositivo se puede apagar en cualquier momento. Por favor, recargue o "
-#~ "sustituya la batería."

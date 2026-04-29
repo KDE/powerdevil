@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-07-15 15:44+0300\n"
+"PO-Revision-Date: 2026-04-28 08:11+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -192,23 +192,18 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора пристрою (лишилося %1%)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
-"Заряд акумулятора у «%1» майже вичерпано, пристрій може припинити роботу "
-"дуже скоро. Будь ласка, замініть або перезарядіть джерело живлення якомога "
-"скоріше."
+"Заряд акумулятора у «%1» майже вичерпано. Будь ласка, перезарядіть "
+"акумулятор."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Заряд акумулятора «%1» низький."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -221,10 +216,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора клавіатури (лишилося %1%)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Низький рівень заряду акумулятора миші (лишилося %1%)"
+msgstr "Низький рівень заряду акумулятора телефону (лишилося %1%)"
 
 #: powerdevilcore.cpp:577
 #, kde-format

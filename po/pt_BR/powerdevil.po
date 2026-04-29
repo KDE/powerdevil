@@ -6,20 +6,21 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
+# SPDX-FileCopyrightText: 2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-07-23 00:58-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2026-04-28 06:55-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -194,22 +195,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria do dispositivo fraca (%1% restantes)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"A bateria no \"%1\" está fraca e o dispositivo pode se desligar a qualquer "
-"momento. Recarregue ou substitua a bateria."
+msgstr "A bateria no \"%1\" está com nível baixo. Recarregue a bateria."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "A bateria no \"%1\" está com nível baixo."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -222,10 +217,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Bateria do teclado fraca (%1% restantes)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Bateria do mouse fraca (%1% restantes)"
+msgstr "Bateria do telefone fraca (%1% restantes)"
 
 #: powerdevilcore.cpp:577
 #, kde-format

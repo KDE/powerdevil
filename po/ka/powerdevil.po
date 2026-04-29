@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-07-15 03:57+0200\n"
+"PO-Revision-Date: 2026-04-28 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -187,22 +187,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "მოწყობილობის ელემენტი დასატებია (დარჩენილია %1%)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"ელემენტი \"%1\"-ში დასატენია და მოწყობილობა ნებისმიერ დროს შეიძლება "
-"გამოირთოს. გთხოვთ დამუხტოთ ან გამოცვალოთ ელემენტი."
+msgstr "ელემენტი \"%1\"-ში დასატენია. ელემენტს დამუხტვა სჭირდება."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "ელემენტის მუხტი \"%1\"-ში დაბალია."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -215,10 +209,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "კლავიატურის ელემენტი დასატენია (დარჩენილია %1%)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "თაგუნას ელემენტი დასატენია (დარჩენილია %1%)"
+msgstr "ტელეფონის ელემენტი დასატენია (დარჩენილია %1%)"
 
 #: powerdevilcore.cpp:577
 #, kde-format

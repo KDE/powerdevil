@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2026-01-09 09:21+0100\n"
+"PO-Revision-Date: 2026-04-28 16:31+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -187,22 +187,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batteria de dispositivo basse (Remanente %1%)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Le batteria in \"%1\" es basse, e le dispositivo pote extinguer se in "
-"qualquer momento. Pro favor recarga o reimplacia le batteria."
+msgstr "Le batteria in \"%1\" es basse. Pro favor recarga le batteria."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Le batteria in “%1” es basse."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -215,10 +209,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batteria de claviero basse (Remanente %1%)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Batteria de mus  basse (Remanente %1%)"
+msgstr "Batteria de Telephono Basse (Remanente %1%)"
 
 #: powerdevilcore.cpp:577
 #, kde-format

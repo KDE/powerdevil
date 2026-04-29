@@ -187,22 +187,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia (%1% zostáva)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Batéria v \"%1\" je slabá a zariadenie sa môže každú chvíľu samo vypnúť. "
-"Prosím, vymeňte alebo nabite batériu čo najskôr."
+msgstr "Batéria v „%1“ je slabá. Prosím, nabite batériu."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Batéria v „%1“ je slabá."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -215,10 +209,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie klávesnice (%1% zostáva)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Nízka úroveň batérie myši (%1% zostáva)"
+msgstr "Nízka úroveň batérie telefónu (%1% zostáva)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
