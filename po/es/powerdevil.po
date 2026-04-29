@@ -1,15 +1,15 @@
 # Spanish translations for powerdevil.po package.
-# Copyright (C) 2014-2025 This file is copyright:
+# Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014-2017, 2019-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 02:38+0000\n"
-"PO-Revision-Date: 2025-09-20 16:52+0100\n"
+"PO-Revision-Date: 2026-04-29 00:14+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -279,7 +279,7 @@ msgstr "Entrar en reposo ahora"
 #: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
-msgstr "Por favor, guarde su trabajo."
+msgstr "Guarde su trabajo."
 
 #: powerdevilcore.cpp:667
 #, kde-format
