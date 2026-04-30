@@ -2,14 +2,14 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2009, 2016, 2025 Sveinn í Felli <sveinki@nett.is>
+# SPDX-FileCopyrightText: 2009, 2016, 2025, 2026 Sveinn í Felli <sveinki@nett.is>
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-12-03 16:23+0000\n"
+"PO-Revision-Date: 2026-04-29 16:01+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -191,22 +191,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Lítil hleðsla á rafhlöðu tækis (%1% eftir)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Rafhlaðan í \"%1\" er að tæmast og það gæti slokknað á tækinu hvenær sem er. "
-"Settu rafhlöðuna í hleðslu eða skiptu um hana."
+msgstr "Rafhlaðan í \"%1\" er að tæmast. Settu rafhlöðuna í hleðslu."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Rafhlaðan í \"%1\" er að tæmast."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -219,10 +213,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Lyklaborðsrafhlaða að tæmast (%1% eftir)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Músarrafhlaða að tæmast (%1% eftir)"
+msgstr "Símarafhlaða að tæmast (%1% eftir)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
