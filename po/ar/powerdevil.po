@@ -1,7 +1,7 @@
 # translation of powerdevil.po to Arabic
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2008, 2024, 2025 zayed <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2024, 2025, 2026 zayed <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
 # Safa Alfulaij <safaalfulaij@hotmail.con>, 2013.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-08-09 18:26+0400\n"
+"PO-Revision-Date: 2026-04-30 09:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -190,22 +190,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "بطارية الجهاز منخفضة (%1٪ متبقية)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"أوشكت البطارية في \"%1\" على النفاد، وقد يُطفى الجهاز في أي وقت. يرجى إعادة "
-"شحن البطارية أو استبدالها."
+msgstr "البطارية في ”%1“ على وشك النفاد. يرجى إعادة شحن البطارية."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "البطارية في ”%1“ على وشك النفاد."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -218,10 +212,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "بطارية لوحة المفاتيح منخفضة (%1٪ متبقية)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "بطارية الفأرة منخفضة (%1٪ متبقية)"
+msgstr "بطارية الهاتف منخفضة (تبقى %1٪)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
