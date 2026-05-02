@@ -2,13 +2,13 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the powerdevil package.
 # Kevin Scannell <kscanne@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2025, 2026 Charlotte <altronic25@protonmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2026-04-11 15:07+0100\n"
+"PO-Revision-Date: 2026-05-01 14:11+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -187,19 +187,14 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Cadhnra Gléis Íseal (%1% Atá Fágtha)"
+msgstr "Cadhnra Gléis Íseal (%1% Fágtha)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
-"Tá an cadhnra i \"%1\" a rith íseal, agus féadfaidh an gléas a mhúchadh am "
-"ar bith. Athluchtaítear nó athsholáthar an cadhnra."
+"Tá an cadhnra i “%1” a rith íseal. Athluchtaítear nó athsholáthar an cadhnra."
 
 #: powerdevilcore.cpp:553
 #, kde-format
@@ -218,10 +213,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Cadhnra Méarchláir Íseal (%1% Atá Fágtha)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Cadhnra Luiche Íseal (%1% Atá Fágtha)"
+msgstr "Cadhnra Fóin Íseal (%1% Fágtha)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
@@ -293,12 +287,12 @@ msgstr "Cealaigh"
 #: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Cadhnra Íseal (%1% Atá Fágtha)"
+msgstr "Cadhnra Íseal (%1% Fágtha)"
 
 #: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Cadhnra Criticiúil (%1% Atá Fágtha)"
+msgstr "Cadhnra Criticiúil (%1% Fágtha)"
 
 #: powerdevilcore.cpp:722
 #, kde-format
