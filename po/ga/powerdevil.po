@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-10 02:38+0000\n"
-"PO-Revision-Date: 2026-05-01 05:04+0100\n"
+"PO-Revision-Date: 2026-05-01 17:24+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -95,7 +95,7 @@ msgstr "Athraigh Próifíl Chumhachta"
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Scáileán Tógtha Isteach"
 
 #: controllers/kwinbrightness.cpp:55
 #, kde-format
@@ -150,7 +150,7 @@ msgstr "Iarchothaitheoir"
 #: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Ionadaigh ásc atá ann"
 
 #: powerdevilcore.cpp:403 powerdevilcore.cpp:414
 #, kde-format
@@ -202,12 +202,12 @@ msgstr ""
 #: powerdevilcore.cpp:557
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Cadhnra Luiche Íseal (%1% Atá Fágtha)"
+msgstr "Cadhnra Luiche Íseal (%1% Fágtha)"
 
 #: powerdevilcore.cpp:561
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Cadhnra Méarchláir Íseal (%1% Atá Fágtha)"
+msgstr "Cadhnra Méarchláir Íseal (%1% Fágtha)"
 
 #: powerdevilcore.cpp:571
 #, kde-format
