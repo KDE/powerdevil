@@ -186,14 +186,10 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "设备电池电量低 (剩余 %1%)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr "“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
+msgstr ""
 
 #: powerdevilcore.cpp:553
 #, kde-format
@@ -212,10 +208,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "键盘电池电量低 (剩余 %1%)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "鼠标电池电量低 (剩余 %1%)"
+msgstr ""
 
 #: powerdevilcore.cpp:577
 #, kde-format
@@ -357,10 +352,3 @@ msgstr "降低屏幕亮度"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "降低屏幕亮度 1%"
-
-#~ msgctxt "Placeholder is device name"
-#~ msgid ""
-#~ "The battery in Bluetooth device \"%1\" is running low, and the device may "
-#~ "turn off at any time. Please recharge or replace the battery."
-#~ msgstr ""
-#~ "蓝牙设备“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
