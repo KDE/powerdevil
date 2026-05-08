@@ -45,7 +45,6 @@ ecm_qt_declare_logging_category(powerdevil_log_static
    HEADER powerdevil_debug.h
    IDENTIFIER POWERDEVIL
    CATEGORY_NAME org.kde.powerdevil
-   DEFAULT_SEVERITY Warning
    DESCRIPTION "Powerdevil" EXPORT POWERDEVIL
 )
 

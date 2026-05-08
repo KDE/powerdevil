@@ -23,7 +23,6 @@ ecm_qt_declare_logging_category(batterymonitorplugin
         HEADER "batterymonitor_debug.h"
         IDENTIFIER "APPLETS::BATTERYMONITOR"
         CATEGORY_NAME org.kde.applets.batterymonitor
-        DEFAULT_SEVERITY Warning
         DESCRIPTION "Battery Monitor applet" EXPORT "APPLETS::BATTERYMONITOR"
 )
 
