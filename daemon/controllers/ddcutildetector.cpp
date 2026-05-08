@@ -143,7 +143,7 @@ void DDCutilPrivateSingleton::detect()
     while (displayRefs[displayCount] != nullptr) {
         ++displayCount;
     }
-    qCInfo(POWERDEVIL) << "[DDCutilDetector]:" << displayCount << "display(s) were detected";
+    qCDebug(POWERDEVIL) << "[DDCutilDetector]:" << displayCount << "display(s) were detected";
 
     for (int i = 0; i < displayCount; ++i) {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
@@ -274,7 +274,7 @@ void DDCutilDetector::detect()
     }
     Q_EMIT detectionFinished(!DDCutilPrivateSingleton::instance().displays().empty());
 #else
-    qCInfo(POWERDEVIL) << "[DDCutilDetector] compiled without DDC/CI support";
+    qCDebug(POWERDEVIL) << "[DDCutilDetector] compiled without DDC/CI support";
     Q_EMIT detectionFinished(false);
 #endif
 }

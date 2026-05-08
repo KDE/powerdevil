@@ -22,7 +22,7 @@
 #include <QDBusServiceWatcher>
 #include <QPointer>
 
-// debug category for qCInfo()
+// debug category
 #include <powerdevil_debug.h>
 
 using namespace Qt::StringLiterals;
@@ -64,12 +64,12 @@ void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &
     job->exec();
 
     if (!thisAlive || !jobAlive) {
-        qCInfo(POWERDEVIL) << action.name() << "failed: was deleted during job execution";
+        qCWarning(POWERDEVIL) << action.name() << "failed: was deleted during job execution";
         return;
     }
 
     if (job->error()) {
-        qCInfo(POWERDEVIL) << "KAuth action" << action.name() << "failed:" << job->errorText();
+        qCWarning(POWERDEVIL) << "KAuth action" << action.name() << "failed:" << job->errorText();
     }
     callback(job);
 }
