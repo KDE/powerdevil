@@ -189,13 +189,13 @@ msgstr "设备电池电量低 (剩余 %1%)"
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
+msgstr "“%1”电池电量低。请充电。"
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "“%1”电池电量低。"
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -210,7 +210,7 @@ msgstr "键盘电池电量低 (剩余 %1%)"
 #: powerdevilcore.cpp:573
 #, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "电话电池电量低 (剩余 %1%)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
