@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2026-01-17 13:49+0100\n"
+"PO-Revision-Date: 2026-05-04 13:57+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -193,46 +193,39 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand des Geräts niedrig (%1 % geladen)"
+msgstr "Akkuladestand des Geräts niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Der Ladestand von „%1“ ist niedrig, das Gerät könnte sich jederzeit "
-"ausschalten. Bitte ersetzen Sie die Batterie oder laden Sie den Akku."
+msgstr "Der Akkuladestand von „%1“ ist niedrig. Bitte laden Sie den Akku auf."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Der Akkuladestand von „%1“ ist niedrig."
 
 #: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand der Maus niedrig (%1 % geladen)"
+msgstr "Akkuladestand der Maus niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand der Tastatur niedrig (%1 % geladen)"
+msgstr "Akkuladestand der Tastatur niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand der Maus niedrig (%1 % geladen)"
+msgstr "Akkuladestand des Telefons niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand des Bluetooth-Geräts niedrig (%1 % geladen)"
+msgstr "Akkuladestand des Bluetooth-Geräts niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:617
 #, kde-format
@@ -301,12 +294,12 @@ msgstr "Abbrechen"
 #: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Akku-Ladestand niedrig (%1 % geladen)"
+msgstr "Akkuladestand niedrig (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Akku-Ladestand kritisch (%1 % verbleibend)"
+msgstr "Akkuladestand kritisch (%1 % verbleibend)"
 
 #: powerdevilcore.cpp:722
 #, kde-format
