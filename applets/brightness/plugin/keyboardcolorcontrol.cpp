@@ -39,7 +39,7 @@ KeyboardColorControl::KeyboardColorControl(QObject *parent)
         return;
     } else {
         m_supported = supported.value();
-        qCInfo(APPLETS::BRIGHTNESS) << "kameleon supported" << m_supported;
+        qCWarning(APPLETS::BRIGHTNESS) << "kameleon supported" << m_supported;
     }
 
     QDBusReply<bool> enabled =
@@ -49,7 +49,7 @@ KeyboardColorControl::KeyboardColorControl(QObject *parent)
         return;
     } else {
         m_enabled = enabled.value();
-        qCInfo(APPLETS::BRIGHTNESS) << "kameleon enabled" << m_enabled;
+        qCWarning(APPLETS::BRIGHTNESS) << "kameleon enabled" << m_enabled;
     }
 }
 
