@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2014-2017, 2019-2024, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2026-01-01 12:01+0100\n"
+"PO-Revision-Date: 2026-05-16 12:44+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -187,22 +187,17 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria urządzenia na niskim poziomie (Pozostało %1%)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
-"Bateria w \"%1\" jest na niskim poziomie i urządzenie może się wyłączyć samo "
-"w każdej chwili. Wymień baterię lub ją naładuj."
+"Bateria w \"%1\" ma niski poziom naładowania. Zalecamy jej naładowanie."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Bateria w \"%1\" ma niski poziom naładowania."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -215,10 +210,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Bateria klawiatury na niskim poziomie (Pozostało %1%)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Bateria myszy na niskim poziomie (Pozostało %1%)"
+msgstr "Bateria telefonu ma niski poziom naładowania (Pozostało %1%)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
