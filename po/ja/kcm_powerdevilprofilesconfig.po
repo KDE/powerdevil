@@ -4,14 +4,15 @@
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2018, 2023.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:45+0000\n"
-"PO-Revision-Date: 2025-03-08 22:04+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-05-10 19:27+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -454,7 +455,7 @@ msgstr "「通知」設定ページの「電源管理」セクションを開く
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "スクリーンロック"
 
 #: ui/GlobalConfig.qml:404
 #, fuzzy, kde-format
@@ -485,12 +486,10 @@ msgid "Open \"Activities\" settings page"
 msgstr "「アクティビティ」設定ページを開く"
 
 #: ui/main.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Advanced Power &Settings…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "電源の詳細設定(&S)..."
+msgstr "詳細設定(&S)…"
 
 #: ui/main.qml:44
 #, kde-format
@@ -577,13 +576,13 @@ msgstr "カスタム..."
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "自動サスペンドを無効にすると消費電力の増加につながるおそれがあります。"
 
 #: ui/ProfileConfig.qml:168
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "長時間の起動は消費電力の増加につながるおそれがあります。"
 
 #: ui/ProfileConfig.qml:180
 #, kde-format
@@ -719,7 +718,7 @@ msgstr "しない"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr "画面がすぐオフになるよう設定されているため、暗くなりません。"
+msgstr "先に画面がオフになるよう設定されているため、暗くなりません。"
 
 #: ui/ProfileConfig.qml:465
 #, kde-format
