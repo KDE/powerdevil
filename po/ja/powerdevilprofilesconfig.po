@@ -4,6 +4,7 @@
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2018, 2023.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
@@ -11,7 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
 "PO-Revision-Date: 2025-03-08 22:04+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
