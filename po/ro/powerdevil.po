@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2026-02-11 12:54+0000\n"
+"PO-Revision-Date: 2026-05-16 20:14+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -190,22 +190,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al dispozitivului (%1% rămase)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Acumulatorul din „%1” e scăzut și dispozitivul se poate deconecta în orice "
-"moment. Reîncărcați sau schimbați acumulatorul."
+msgstr "Acumulatorul din „%1” e scăzut. Reîncărcați acumulatorul."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Acumulatorul din „%1” e scăzut."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -218,10 +212,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al tastaturii (%1% rămase)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Acumulator scăzut al mausului (%1% rămase)"
+msgstr "Acumulator scăzut al telefonului (%1% rămase)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
