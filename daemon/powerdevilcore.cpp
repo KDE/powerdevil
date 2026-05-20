@@ -996,11 +996,6 @@ void Core::onScreenLockerActiveChanged(bool active)
 }
 
 void Core::onResumeFromSuspend() {
-    // If KIdleTime::catchNextResumeEvent() loses its registration state during the suspend/wake-up cycle
-    // DimDisplay::onWakeupFromIdle() will never be called, so dimmingRatio will be stuck at 0.3 indefinitely.
-    // Calling onResumingFromIdle() is to fix this problem
-    onResumingFromIdle();
-    
     const int percent = currentChargePercent();
     emitBatteryChargePercentNotification(percent, 1000);
 
