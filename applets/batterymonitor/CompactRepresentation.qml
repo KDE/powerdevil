@@ -95,8 +95,10 @@ MouseArea {
         }
 
         WorkspaceComponents.BadgeOverlay {
+            readonly property bool widerThanIcon: implicitWidth > root.width
             anchors.bottom: parent.bottom
-            anchors.right: parent.right
+            anchors.right: widerThanIcon ? undefined : parent.right
+            anchors.horizontalCenter: widerThanIcon ? parent.horizontalCenter : undefined
 
             visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
 
