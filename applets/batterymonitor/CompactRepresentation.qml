@@ -95,15 +95,26 @@ MouseArea {
         }
 
         WorkspaceComponents.BadgeOverlay {
-            readonly property bool widerThanIcon: implicitWidth > root.width
+            id: badge
+
+            anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.right: widerThanIcon ? undefined : parent.right
-            anchors.horizontalCenter: widerThanIcon ? parent.horizontalCenter : undefined
 
             visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
 
             text: i18nc("battery percentage below battery icon", "%1%", root.batteryPercent)
-            icon: overallBatteryIcon
+
+            // Non-default state to center if the badge is wider than the icon
+            states: [
+                State {
+                    when: badge.width >= overallBatteryInfo.width
+                    AnchorChanges {
+                        target: badge
+                        anchors.right: undefined
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+            ]
         }
     }
 
