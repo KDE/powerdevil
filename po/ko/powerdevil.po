@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-28 00:47+0000\n"
-"PO-Revision-Date: 2025-07-20 01:17+0200\n"
+"PO-Revision-Date: 2026-05-25 22:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -184,22 +184,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "장치 배터리 부족(%1% 남음)"
 
 #: powerdevilcore.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"\"%1\"의 배터리가 부족하여 언제든지 저절로 꺼질 수 있습니다. 배터리를 재충전"
-"하거나 교체하십시오."
+msgstr "\"%1\"의 배터리가 부족합니다. 배터리를 재충전하십시오."
 
 #: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "\"%1\"의 배터리가 부족합니다."
 
 #: powerdevilcore.cpp:559
 #, kde-format
@@ -212,10 +206,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "키보드 배터리 부족(%1% 남음)"
 
 #: powerdevilcore.cpp:573
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "마우스 배터리 부족(%1% 남음)"
+msgstr "휴대폰 배터리 부족(%1% 남음)"
 
 #: powerdevilcore.cpp:577
 #, kde-format
