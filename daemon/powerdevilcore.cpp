@@ -422,7 +422,7 @@ void Core::loadProfile(bool force)
     // If the lid is closed, retrigger the lid close signal
     // so that "switching profile then closing the lid" has the same result as
     // "closing lid then switching profile".
-    if (m_lidController->isLidClosed()) {
+    if (m_lidController->isLidClosed() && (m_currentProfile != profileId || force)) {
         Q_EMIT m_lidController->lidClosedChanged(true);
     }
 }
