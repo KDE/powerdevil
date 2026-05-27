@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-22 02:48+0000\n"
+"POT-Creation-Date: 2026-05-27 02:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -89,7 +89,7 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "电池已配置为仅充电到约 %1%。"
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:154
+#: CompactRepresentation.qml:105 CompactRepresentation.qml:165
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -171,7 +171,7 @@ msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
-msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
+msgstr "此笔记本已配置为外接显示器时合盖不睡眠。"
 
 #: InhibitionItem.qml:162
 #, kde-format

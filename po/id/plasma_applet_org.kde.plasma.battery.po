@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-22 02:48+0000\n"
+"POT-Creation-Date: 2026-05-27 02:42+0000\n"
 "PO-Revision-Date: 2024-10-14 17:21+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -94,7 +94,7 @@ msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 "Baterai Anda telah dikonfigurasi ke hanya pengisian kira-kira sampai %1%."
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:154
+#: CompactRepresentation.qml:105 CompactRepresentation.qml:165
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"

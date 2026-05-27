@@ -287,7 +287,7 @@ msgstr "电池电量低 (剩余 %1%)"
 #: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "电池电量危急 (剩余 %1%)"
+msgstr "电池电量极低 (剩余 %1%)"
 
 #: powerdevilcore.cpp:722
 #, kde-format

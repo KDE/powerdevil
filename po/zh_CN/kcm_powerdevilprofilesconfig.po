@@ -281,13 +281,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr "危急电量临界值(&I)："
+msgstr "极低电量临界值(&I)："
 
 #: ui/GlobalConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr "危急电量临界值"
+msgstr "极低电量临界值"
 
 #: ui/GlobalConfig.qml:138
 #, kde-format
@@ -297,8 +297,8 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
-"当电池电量低于此临界值时将被视作危急电量。系统将发出一条短暂警告，然后按照“进"
-"入危急电量时”的设置自动挂起系统或者关机。"
+"当电池电量低于此临界值时将被视作极低电量。系统将发出一条短暂警告，然后按照“进"
+"入极低电量时”的设置自动挂起系统或者关机。"
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -306,7 +306,7 @@ msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
-msgstr "您之前配置的危急电量临界值操作现已不支持此系统。请选择其他操作。"
+msgstr "您之前配置的极低电量临界值操作现已不支持此系统。请选择其他操作。"
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -314,13 +314,13 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr "进入危急电量时(&T)："
+msgstr "进入极低电量时(&T)："
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr "进入危急电量时执行的操作"
+msgstr "进入极低电量时执行的操作"
 
 #: ui/GlobalConfig.qml:181
 #, kde-format
@@ -579,7 +579,7 @@ msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
-msgstr "您之前配置的按下电源键时操作现已不支持此系统。请选择其他操作。"
+msgstr "您之前配置的电源键按下时操作现已不支持此系统。请选择其他操作。"
 
 #: ui/ProfileConfig.qml:187
 #, kde-format
@@ -587,7 +587,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr "按下电源键时(&P)："
+msgstr "电源键按下时(&P)："
 
 #: ui/ProfileConfig.qml:189
 #, kde-format
@@ -601,7 +601,7 @@ msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
-msgstr "您之前配置的合上笔记本盖时操作现已不支持此系统。请选择其他操作。"
+msgstr "您之前配置的笔记本合盖操作现已不支持此系统。请选择其他操作。"
 
 #: ui/ProfileConfig.qml:226
 #, kde-format
@@ -609,13 +609,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr "合上笔记本盖时(&L)："
+msgstr "笔记本合盖时(&L)："
 
 #: ui/ProfileConfig.qml:228
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr "合上笔记本盖时的操作"
+msgstr "笔记本合盖时执行的操作"
 
 #: ui/ProfileConfig.qml:257
 #, kde-format
@@ -623,12 +623,12 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr "即使在外接了显示器时"
+msgstr "外接显示器时仍然执行"
 
 #: ui/ProfileConfig.qml:259
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
-msgstr "即使在外接了显示器时也依然执行合上笔记本盖的操作"
+msgstr "外接显示器时仍然执行笔记本合盖操作"
 
 #: ui/ProfileConfig.qml:277
 #, kde-format
@@ -643,7 +643,7 @@ msgstr "您之前配置的睡眠模式现已不支持此系统。请选择其他
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr "睡眠时进入此模式："
+msgstr "睡眠方式："
 
 #: ui/ProfileConfig.qml:286
 #, kde-format
