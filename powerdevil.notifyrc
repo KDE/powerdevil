@@ -396,7 +396,7 @@ Name[ta]=நெருக்கடியான அறிவிப்பு
 Name[tg]=Огоҳиномаи танқидӣ
 Name[tr]=Kritik Bildirim
 Name[uk]=Сповіщення про критичні події
-Name[zh_CN]=危急通知
+Name[zh_CN]=极低电量通知
 Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
 Comment[ar]=يُنبِّه عن حدث حَرِج
@@ -451,7 +451,7 @@ Comment[ta]=நெருக்கடியான நிகழ்வை அறி
 Comment[tg]=Дар бораи рӯйдоди танқидӣ огоҳ мекунад
 Comment[tr]=Kritik bir durumu bildirir
 Comment[uk]=Сповіщає про критичну подію
-Comment[zh_CN]=危急事件通知
+Comment[zh_CN]=极低电量事件通知
 Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
@@ -614,7 +614,7 @@ Name[ta]=மின்கல நெருக்கடி
 Name[tg]=Барқи батарея дар дараҷаи танқидӣ аст
 Name[tr]=Pil Kritik
 Name[uk]=Заряд на критичному рівні
-Name[zh_CN]=电池电量危急
+Name[zh_CN]=电池电量极低
 Name[zh_TW]=電量嚴重不足
 Comment=Battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave it on.
 Comment[ar]=وصلت البطارية إلى مستوى حرج. يُفعِّل هذا الإشعار عدًّا تنازليًّا قبل تنفيذ حَدَث، حيث يُنصّح بشدّة إبقاء هذا الخيار مفعّلاً.
