@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-22 00:46+0000\n"
+"POT-Creation-Date: 2026-05-27 00:47+0000\n"
 "PO-Revision-Date: 2007-10-20 05:40+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:154
+#: CompactRepresentation.qml:105 CompactRepresentation.qml:165
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
