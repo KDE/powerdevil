@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the plasma-settings package.
 #
 # SPDX-FileCopyrightText: 2021, 2023 Kristóf Kiszel <kiszel.kristof@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2022, 2024, 2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:48+0000\n"
-"PO-Revision-Date: 2024-01-05 11:36+0100\n"
+"PO-Revision-Date: 2026-05-30 21:37+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: mobilepower.cpp:34
 #, kde-format
@@ -62,19 +62,19 @@ msgstr "Soha"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Energiatakarékos"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Kiegyensúlyozott"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Teljesítmény"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
@@ -302,13 +302,13 @@ msgstr "Eszköz felfüggesztése"
 #: ui/main.qml:149
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "Energiakezelési profil"
 
 #: ui/main.qml:158
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "Energiakezelési profil"
 
 #~ msgid "%"
 #~ msgstr "%"
