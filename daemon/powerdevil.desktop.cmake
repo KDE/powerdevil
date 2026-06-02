@@ -54,6 +54,7 @@ Name[sv]=Strömhantering
 Name[ta]=ஆற்றல் மேலாண்மை
 Name[tg]=Идоракунии барқ
 Name[tr]=Güç Yönetimi
+Name[ug]=توك مەنبە باشقۇرۇش
 Name[uk]=Керування живленням
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
