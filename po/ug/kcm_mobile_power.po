@@ -1,0 +1,310 @@
+# Uyghur translation for kcm_mobile_power.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-03-08 00:48+0000\n"
+"PO-Revision-Date: 2026-06-01 18:31-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: mobilepower.cpp:34
+#, kde-format
+msgid "30 sec"
+msgstr ""
+
+#: mobilepower.cpp:35
+#, kde-format
+msgid "1 min"
+msgstr "1 مىنۇت"
+
+#: mobilepower.cpp:36
+#, kde-format
+msgid "2 min"
+msgstr ""
+
+#: mobilepower.cpp:37
+#, kde-format
+msgid "5 min"
+msgstr "5 مىنۇت"
+
+#: mobilepower.cpp:38
+#, kde-format
+msgid "10 min"
+msgstr "10 مىنۇت"
+
+#: mobilepower.cpp:39
+#, kde-format
+msgid "15 min"
+msgstr "15 مىنۇت"
+
+#: mobilepower.cpp:40
+#, kde-format
+msgid "30 min"
+msgstr "30 مىنۇت"
+
+#: mobilepower.cpp:41
+#, kde-format
+msgid "Never"
+msgstr "ھەرگىز"
+
+#: PowerProfileModel.cpp:41
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Power Save"
+msgstr "توك تېجەش"
+
+#: PowerProfileModel.cpp:42
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Balanced"
+msgstr "تەڭپۇڭ"
+
+#: PowerProfileModel.cpp:43
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Performance"
+msgstr "ئۈنۈم"
+
+#: ui/BatteryPage.qml:23
+#, kde-format
+msgid "Battery Information"
+msgstr ""
+
+#: ui/BatteryPage.qml:34
+#, kde-format
+msgid "Usage Graph"
+msgstr ""
+
+#: ui/BatteryPage.qml:77
+#, kde-format
+msgid "Information"
+msgstr "ئۇچۇر"
+
+#: ui/BatteryPage.qml:83
+#, kde-format
+msgid "Is Rechargeable"
+msgstr ""
+
+#: ui/BatteryPage.qml:84
+#, kde-format
+msgid "Yes"
+msgstr "ھەئە"
+
+#: ui/BatteryPage.qml:84
+#, kde-format
+msgid "No"
+msgstr "ياق"
+
+#: ui/BatteryPage.qml:91
+#, kde-format
+msgid "Charge State"
+msgstr "ھالىتىنى ئۆزگەرت"
+
+#: ui/BatteryPage.qml:94
+#, kde-format
+msgid "Not charging"
+msgstr "توكلىمايۋاتىدۇ"
+
+#: ui/BatteryPage.qml:95
+#, kde-format
+msgid "Charging"
+msgstr "توكلاۋاتىدۇ"
+
+#: ui/BatteryPage.qml:96
+#, kde-format
+msgid "Discharging"
+msgstr "توكسىزلاۋاتىدۇ"
+
+#: ui/BatteryPage.qml:97
+#, kde-format
+msgid "Fully charged"
+msgstr "تولۇق توكلاندى"
+
+#: ui/BatteryPage.qml:98
+#, kde-format
+msgid "Unknown"
+msgstr "يوچۇن"
+
+#: ui/BatteryPage.qml:107
+#, kde-format
+msgid "Current Charge"
+msgstr ""
+
+#: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
+#, kde-format
+msgctxt "%1 is percentage value"
+msgid "%1 %"
+msgstr "%1 %"
+
+#: ui/BatteryPage.qml:115
+#, kde-format
+msgid "Health"
+msgstr "ساغلاملىق"
+
+#: ui/BatteryPage.qml:123
+#, kde-format
+msgid "Vendor"
+msgstr "تارقاتقۇچى"
+
+#: ui/BatteryPage.qml:131
+#, kde-format
+msgid "Model"
+msgstr "ئەندىزە"
+
+#: ui/BatteryPage.qml:139
+#, kde-format
+msgid "Serial Number"
+msgstr "تەرتىپ نومۇرى"
+
+#: ui/BatteryPage.qml:147
+#, kde-format
+msgid "Technology"
+msgstr "تېخنىكا"
+
+#: ui/BatteryPage.qml:150
+#, kde-format
+msgid "Lithium ion"
+msgstr "لىتىي ئىيون"
+
+#: ui/BatteryPage.qml:151
+#, kde-format
+msgid "Lithium polymer"
+msgstr "لىتىي پولىمېر"
+
+#: ui/BatteryPage.qml:152
+#, kde-format
+msgid "Lithium iron phosphate"
+msgstr "لىتىي تۆمۈر فوسفات"
+
+#: ui/BatteryPage.qml:153
+#, kde-format
+msgid "Lead acid"
+msgstr "قوغۇشۇن كىسلاتاسى"
+
+#: ui/BatteryPage.qml:154
+#, kde-format
+msgid "Nickel cadmium"
+msgstr "نىكېل كادمىي"
+
+#: ui/BatteryPage.qml:155
+#, kde-format
+msgid "Nickel metal hydride"
+msgstr "نىكېل مېتال ھىدرىد"
+
+#: ui/BatteryPage.qml:156
+#, kde-format
+msgid "Unknown technology"
+msgstr "نامەلۇم تېخنىكا"
+
+#: ui/Graph.qml:141
+#, kde-format
+msgctxt "%1 is a percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/main.qml:33
+#, kde-format
+msgid "Devices"
+msgstr "ئۈسكۈنە"
+
+#: ui/main.qml:79
+#, kde-format
+msgid "Internal battery"
+msgstr ""
+
+#: ui/main.qml:80
+#, kde-format
+msgid "UPS battery"
+msgstr ""
+
+#: ui/main.qml:81
+#, kde-format
+msgid "Monitor battery"
+msgstr ""
+
+#: ui/main.qml:82
+#, kde-format
+msgid "Mouse battery"
+msgstr ""
+
+#: ui/main.qml:83
+#, kde-format
+msgid "Keyboard battery"
+msgstr ""
+
+#: ui/main.qml:84
+#, kde-format
+msgid "PDA battery"
+msgstr ""
+
+#: ui/main.qml:85
+#, kde-format
+msgid "Phone battery"
+msgstr ""
+
+#: ui/main.qml:86
+#, kde-format
+msgid "Unknown battery"
+msgstr ""
+
+#: ui/main.qml:89
+#, kde-format
+msgctxt "%1 is the charge percent, % is the percent sign"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/main.qml:91
+#, kde-format
+msgctxt "%1 is battery type, %2 is charge percent"
+msgid "%1 %2 (Charging)"
+msgstr ""
+
+#: ui/main.qml:91
+#, kde-format
+msgctxt "%1 is battery type, %2 is charge percent"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: ui/main.qml:115
+#, kde-format
+msgid "Screen"
+msgstr "ئېكران"
+
+#: ui/main.qml:121
+#, kde-format
+msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
+msgid "Dim screen after"
+msgstr ""
+
+#: ui/main.qml:131
+#, kde-format
+msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
+msgid "Turn off screen after"
+msgstr ""
+
+#: ui/main.qml:141
+#, kde-format
+msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
+msgid "Suspend device after"
+msgstr ""
+
+#: ui/main.qml:149
+#, kde-format
+msgid "Power Profile"
+msgstr "توك مەنبە سەپلىمە ھۆججەت"
+
+#: ui/main.qml:158
+#, kde-format
+msgctxt "@label:combobox Power Save, Balanced or Performance profile"
+msgid "Power profile"
+msgstr ""
