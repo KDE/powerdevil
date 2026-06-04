@@ -670,10 +670,17 @@ void Core::handleCriticalBattery(int percent)
 void Core::updateBatteryNotifications(int percent)
 {
     if (m_lowBatteryNotification) {
-        m_lowBatteryNotification->setTitle(i18n("Battery Low (%1% Remaining)", percent));
+        if (percent > m_globalSettings->batteryLowLevel()) {
+            m_lowBatteryNotification->close();
+            m_lowBatteryNotification = nullptr;
+        } else {
+            m_lowBatteryNotification->setTitle(i18n("Battery Low (%1% Remaining)", percent));
+        }
     }
 
-    if (m_criticalBatteryNotification) {
+    if (percent > m_globalSettings->batteryCriticalLevel()) {
+        cancelCriticalBatteryNotification();
+    } else if (m_criticalBatteryNotification) {
         m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
     }
 }
