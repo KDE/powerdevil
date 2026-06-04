@@ -292,11 +292,7 @@ void Core::reparseConfiguration()
 
     // Check if critical threshold might have changed and cancel the timer if necessary.
     if (currentChargePercent() > m_globalSettings->batteryCriticalLevel()) {
-        m_criticalBatteryTimer->stop();
-        if (m_criticalBatteryNotification) {
-            m_criticalBatteryNotification->close();
-            m_criticalBatteryNotification = nullptr;
-        }
+        cancelCriticalBatteryNotification();
     }
 
     if (m_lowBatteryNotification && currentChargePercent() > m_globalSettings->batteryLowLevel()) {
@@ -469,17 +465,14 @@ void Core::onDeviceAdded(const QString &udi)
     }
 
     if (currentChargePercent() > m_globalSettings->batteryCriticalLevel()) {
-        if (m_criticalBatteryNotification) {
-            m_criticalBatteryNotification->close();
-            m_criticalBatteryNotification = nullptr;
-        }
-
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
             emitRichNotification(QStringLiteral("pluggedin"), //
                                  i18n("Extra Battery Added"),
                                  i18n("The system will no longer go to sleep."));
         }
+        // This stops the timer, so for the notification we check if it was active before that.
+        cancelCriticalBatteryNotification();
     }
 }
 
@@ -668,11 +661,7 @@ void Core::handleCriticalBattery(int percent)
     auto cancelAction =
         m_criticalBatteryNotification->addAction(i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel"));
     connect(cancelAction, &KNotificationAction::activated, this, [this] {
-        m_criticalBatteryTimer->stop();
-        if (m_criticalBatteryNotification) {
-            m_criticalBatteryNotification->close();
-            m_criticalBatteryNotification = nullptr;
-        }
+        cancelCriticalBatteryNotification();
     });
 
     m_criticalBatteryNotification->sendEvent();
@@ -703,11 +692,6 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
             m_lowBatteryNotification = nullptr;
         }
 
-        if (m_criticalBatteryNotification) {
-            m_criticalBatteryNotification->close();
-            m_criticalBatteryNotification = nullptr;
-        }
-
         if (m_powerCordUnpluggedNotification) {
             m_powerCordUnpluggedNotification->close();
             m_powerCordUnpluggedNotification = nullptr;
@@ -725,6 +709,9 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
             m_powerCordPluggedInNotification->setTitle(i18n("Running on AC Power"));
             m_powerCordPluggedInNotification->setText(i18n("The power cord has been plugged in."));
         }
+        // This stops the timer, so for the notification we check if it was active before that.
+        cancelCriticalBatteryNotification();
+
         m_powerCordPluggedInNotification->sendEvent();
     } else if (state == BatteryController::Unplugged) {
         if (m_powerCordPluggedInNotification) {
@@ -806,10 +793,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 
 void Core::onCriticalBatteryTimerExpired()
 {
-    if (m_criticalBatteryNotification) {
-        m_criticalBatteryNotification->close();
-        m_criticalBatteryNotification = nullptr;
-    }
+    cancelCriticalBatteryNotification();
 
     // Do that only if we're not on AC and battery level is still critical
     if (m_batteryController->acAdapterState() == BatteryController::Unplugged && currentChargePercent() <= m_globalSettings->batteryCriticalLevel()) {
@@ -825,6 +809,15 @@ void Core::triggerCriticalBatteryAction()
         args[QStringLiteral("Type")] = QVariant::fromValue<uint>(m_globalSettings->batteryCriticalAction());
         args[QStringLiteral("Explicit")] = true;
         helperAction->trigger(args);
+    }
+}
+
+void Core::cancelCriticalBatteryNotification()
+{
+    m_criticalBatteryTimer->stop();
+    if (m_criticalBatteryNotification) {
+        m_criticalBatteryNotification->close();
+        m_criticalBatteryNotification = nullptr;
     }
 }
 
