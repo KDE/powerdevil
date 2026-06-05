@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-28 00:47+0000\n"
+"POT-Creation-Date: 2026-06-05 00:47+0000\n"
 "PO-Revision-Date: 2026-05-25 22:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -146,105 +146,105 @@ msgstr "이전 관리자"
 msgid "Replace an existing instance"
 msgstr "실행 중인 인스턴스 대체"
 
-#: powerdevilcore.cpp:403 powerdevilcore.cpp:414
+#: powerdevilcore.cpp:399 powerdevilcore.cpp:410
 #, kde-format
 msgid "Activity Manager"
 msgstr "활동 관리자"
 
-#: powerdevilcore.cpp:404
+#: powerdevilcore.cpp:400
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "이 활동의 정책은 시스템이 대기 모드로 전환되는 것을 방지합니다"
 
-#: powerdevilcore.cpp:415
+#: powerdevilcore.cpp:411
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "이 활동 정책으로 인하여 화면 전원 관리를 사용할 수 없습니다"
 
-#: powerdevilcore.cpp:480
+#: powerdevilcore.cpp:471
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "여분의 배터리 추가됨"
 
-#: powerdevilcore.cpp:481
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "시스템이 더 이상 절전 모드로 전환되지 않습니다."
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:548
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "장치 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:544
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr "\"%1\"의 배터리가 부족합니다. 배터리를 재충전하십시오."
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
 msgstr "\"%1\"의 배터리가 부족합니다."
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:552
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "마우스 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:563
+#: powerdevilcore.cpp:556
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "키보드 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:566
 #, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
 msgstr "휴대폰 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:577
+#: powerdevilcore.cpp:570
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "블루투스 장치 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:610
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr "전원에 연결되어 있고 충분한 전력 공급이 가능한지 확인하십시오."
 
-#: powerdevilcore.cpp:619
+#: powerdevilcore.cpp:612
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "전원 코드를 연결하십시오."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:632
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "시스템이 60초 후에 종료됩니다."
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:634
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "시스템이 60초 후에 최대 절전 모드로 진입합니다."
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:642
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -252,24 +252,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "지금 최대 절전 모드로 전환"
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "시스템이 60초 후에 대기 모드로 전환됩니다."
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:650
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "지금 대기 모드로 전환"
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "Please save your work."
 msgstr "작업을 저장하십시오."
 
-#: powerdevilcore.cpp:669
+#: powerdevilcore.cpp:662
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -277,52 +277,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "취소"
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "배터리 바닥남(%1% 남음)"
 
-#: powerdevilcore.cpp:722
+#: powerdevilcore.cpp:713
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "전원 코드가 연결됨"
 
-#: powerdevilcore.cpp:723
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
-#: powerdevilcore.cpp:725
+#: powerdevilcore.cpp:716
 #, kde-format
 msgid "Running on AC Power"
 msgstr "AC 전원으로 실행 중"
 
-#: powerdevilcore.cpp:726
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "전원 코드가 연결되었습니다."
 
-#: powerdevilcore.cpp:738
+#: powerdevilcore.cpp:732
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "배터리 전원으로 실행 중"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "전원 코드의 연결이 해제되었습니다."
 
-#: powerdevilcore.cpp:802
+#: powerdevilcore.cpp:796
 #, kde-format
 msgid "Charging Complete"
 msgstr "충전 완료"
 
-#: powerdevilcore.cpp:802
+#: powerdevilcore.cpp:796
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "배터리가 완전히 충전되었습니다."
