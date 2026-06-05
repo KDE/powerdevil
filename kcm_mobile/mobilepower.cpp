@@ -5,6 +5,8 @@
 #include "PowerProfileModel.h"
 #include "statisticsprovider.h"
 
+#include "qqml.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
