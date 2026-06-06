@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-08 00:48+0000\n"
+"POT-Creation-Date: 2026-06-06 00:45+0000\n"
 "PO-Revision-Date: 2026-04-10 23:38\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -22,42 +22,42 @@ msgstr ""
 "kcm_mobile_power.po\n"
 "X-Crowdin-File-ID: 22414\n"
 
-#: mobilepower.cpp:34
+#: mobilepower.cpp:36
 #, kde-format
 msgid "30 sec"
 msgstr "30 сек"
 
-#: mobilepower.cpp:35
+#: mobilepower.cpp:37
 #, kde-format
 msgid "1 min"
 msgstr "1 хв"
 
-#: mobilepower.cpp:36
+#: mobilepower.cpp:38
 #, kde-format
 msgid "2 min"
 msgstr "2 хв"
 
-#: mobilepower.cpp:37
+#: mobilepower.cpp:39
 #, kde-format
 msgid "5 min"
 msgstr "5 хв"
 
-#: mobilepower.cpp:38
+#: mobilepower.cpp:40
 #, kde-format
 msgid "10 min"
 msgstr "10 хв"
 
-#: mobilepower.cpp:39
+#: mobilepower.cpp:41
 #, kde-format
 msgid "15 min"
 msgstr "15 хв"
 
-#: mobilepower.cpp:40
+#: mobilepower.cpp:42
 #, kde-format
 msgid "30 min"
 msgstr "30 хв"
 
-#: mobilepower.cpp:41
+#: mobilepower.cpp:43
 #, kde-format
 msgid "Never"
 msgstr "Ніколі"

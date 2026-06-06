@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-08 00:48+0000\n"
+"POT-Creation-Date: 2026-06-06 00:45+0000\n"
 "PO-Revision-Date: 2026-04-11 14:35+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -18,42 +18,42 @@ msgstr ""
 "3 : 4\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: mobilepower.cpp:34
+#: mobilepower.cpp:36
 #, kde-format
 msgid "30 sec"
 msgstr "30 soic"
 
-#: mobilepower.cpp:35
+#: mobilepower.cpp:37
 #, kde-format
 msgid "1 min"
 msgstr "1 nóim"
 
-#: mobilepower.cpp:36
+#: mobilepower.cpp:38
 #, kde-format
 msgid "2 min"
 msgstr "2 nóim"
 
-#: mobilepower.cpp:37
+#: mobilepower.cpp:39
 #, kde-format
 msgid "5 min"
 msgstr "5 nóim"
 
-#: mobilepower.cpp:38
+#: mobilepower.cpp:40
 #, kde-format
 msgid "10 min"
 msgstr "10 nóim"
 
-#: mobilepower.cpp:39
+#: mobilepower.cpp:41
 #, kde-format
 msgid "15 min"
 msgstr "15 nóim"
 
-#: mobilepower.cpp:40
+#: mobilepower.cpp:42
 #, kde-format
 msgid "30 min"
 msgstr "30 nóim"
 
-#: mobilepower.cpp:41
+#: mobilepower.cpp:43
 #, kde-format
 msgid "Never"
 msgstr "Riamh"

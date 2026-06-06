@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-08 00:48+0000\n"
+"POT-Creation-Date: 2026-06-06 00:45+0000\n"
 "PO-Revision-Date: 2026-06-01 18:31-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -18,42 +18,42 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: mobilepower.cpp:34
+#: mobilepower.cpp:36
 #, kde-format
 msgid "30 sec"
 msgstr ""
 
-#: mobilepower.cpp:35
+#: mobilepower.cpp:37
 #, kde-format
 msgid "1 min"
 msgstr "1 مىنۇت"
 
-#: mobilepower.cpp:36
+#: mobilepower.cpp:38
 #, kde-format
 msgid "2 min"
 msgstr ""
 
-#: mobilepower.cpp:37
+#: mobilepower.cpp:39
 #, kde-format
 msgid "5 min"
 msgstr "5 مىنۇت"
 
-#: mobilepower.cpp:38
+#: mobilepower.cpp:40
 #, kde-format
 msgid "10 min"
 msgstr "10 مىنۇت"
 
-#: mobilepower.cpp:39
+#: mobilepower.cpp:41
 #, kde-format
 msgid "15 min"
 msgstr "15 مىنۇت"
 
-#: mobilepower.cpp:40
+#: mobilepower.cpp:42
 #, kde-format
 msgid "30 min"
 msgstr "30 مىنۇت"
 
-#: mobilepower.cpp:41
+#: mobilepower.cpp:43
 #, kde-format
 msgid "Never"
 msgstr "ھەرگىز"
