@@ -177,8 +177,7 @@ void Core::onControllersReady()
     refreshActions();
 
     // Set up the critical battery timer
-    m_criticalBatteryTimer->setSingleShot(true);
-    m_criticalBatteryTimer->setInterval(60000);
+    m_criticalBatteryTimer->setInterval(1000);
     connect(m_criticalBatteryTimer, &QTimer::timeout, this, &Core::onCriticalBatteryTimerExpired);
 
     // wait until the notification system is set up before firing notifications
@@ -625,11 +624,12 @@ void Core::handleCriticalBattery(int percent)
     // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
     m_criticalBatteryNotification = new KNotification(QStringLiteral("criticalbattery"), KNotification::Persistent, nullptr);
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
-    updateBatteryNotifications(percent); // sets title
+
+    m_criticalBatteryRemainingTime = g_criticalBatteryDefaultTimeout;
+    updateBatteryNotifications(percent); // sets title and countdown text.
 
     switch (static_cast<PowerButtonAction>(m_globalSettings->batteryCriticalAction())) {
     case PowerButtonAction::Shutdown: {
-        m_criticalBatteryNotification->setText(i18n("The system will shut down in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -637,7 +637,6 @@ void Core::handleCriticalBattery(int percent)
         break;
     }
     case PowerButtonAction::Hibernate: {
-        m_criticalBatteryNotification->setText(i18n("The system will hibernate in 60 seconds."));
         auto action = m_criticalBatteryNotification->addAction(
             i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -645,7 +644,6 @@ void Core::handleCriticalBattery(int percent)
         break;
     }
     case PowerButtonAction::Sleep: {
-        m_criticalBatteryNotification->setText(i18n("The system will go to sleep in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -682,6 +680,23 @@ void Core::updateBatteryNotifications(int percent)
         cancelCriticalBatteryNotification();
     } else if (m_criticalBatteryNotification) {
         m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
+
+        switch (static_cast<PowerButtonAction>(m_globalSettings->batteryCriticalAction())) {
+        case PowerButtonAction::Shutdown:
+            m_criticalBatteryNotification->setText(
+                i18np("The system will shut down in %1 second.", "The system will shut down in %1 seconds.", m_criticalBatteryRemainingTime));
+            break;
+        case PowerButtonAction::Hibernate:
+            m_criticalBatteryNotification->setText(
+                i18np("The system will hibernate in %1 second.", "The system will hibernate in %1 seconds.", m_criticalBatteryRemainingTime));
+            break;
+        case PowerButtonAction::Sleep:
+            m_criticalBatteryNotification->setText(
+                i18np("The system will go to sleep in %1 second.", "The system will go to sleep in %1 seconds.", m_criticalBatteryRemainingTime));
+            break;
+        default:
+            break;
+        }
     }
 }
 
@@ -800,11 +815,15 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 
 void Core::onCriticalBatteryTimerExpired()
 {
-    cancelCriticalBatteryNotification();
+    if (--m_criticalBatteryRemainingTime == 0) {
+        cancelCriticalBatteryNotification();
 
-    // Do that only if we're not on AC and battery level is still critical
-    if (m_batteryController->acAdapterState() == BatteryController::Unplugged && currentChargePercent() <= m_globalSettings->batteryCriticalLevel()) {
-        triggerCriticalBatteryAction();
+        // Do that only if we're not on AC and battery level is still critical
+        if (m_batteryController->acAdapterState() == BatteryController::Unplugged && currentChargePercent() <= m_globalSettings->batteryCriticalLevel()) {
+            triggerCriticalBatteryAction();
+        }
+    } else {
+        updateBatteryNotifications(currentChargePercent());
     }
 }
 
