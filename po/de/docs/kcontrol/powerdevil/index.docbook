@@ -52,7 +52,9 @@
 >PowerDevil, ein Energieverwaltungsdienst</title>
 
 <para
->Dieses Modul erlaubt die Einrichtung der Energieverwaltung für &plasma;. Damit wird der PowerDevil-Dienst eingestellt.</para>
+>Dieses Modul erlaubt die Einrichtung der Energieverwaltung für &plasma;. Damit wird der PowerDevil-Dienst eingestellt, der im Modul <guilabel
+>Hintergrunddienste</guilabel
+> gestartet oder gestoppt werden kann. </para>
 
 <para
 >In diesem Modul kann das Verhalten des Rechners für verschiedene Situationen festgelegt werden, um möglichst viel Energie zu sparen.  </para>
@@ -179,7 +181,7 @@
 ></term>
 <listitem>
 <para
->Aktivieren Sie dies Einstellung um einzelne Aktionen für WLAN, Mobiles Breitband oder Bluetooth festzulegen. </para>
+>Aktivieren Sie dies Einstellung um einzelne Aktionen für Wi-Fi, Mobiles Breitband oder Bluetooth festzulegen. </para>
 </listitem>
 </varlistentry>
 
