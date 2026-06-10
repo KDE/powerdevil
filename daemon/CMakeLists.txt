@@ -20,7 +20,6 @@ set(powerdevilcore_SRCS
     powerdevilpowermanagement.cpp powerdevilpowermanagement.h
     powerdevilsettingsdefaults.cpp powerdevilsettingsdefaults.h
     brightnessosdwidget.cpp brightnessosdwidget.h
-    kwinkscreenhelpereffect.cpp kwinkscreenhelpereffect.h
     upowerdevice.cpp upowerdevice.h
     controllers/lidcontroller.cpp controllers/lidcontroller.h
     controllers/batterycontroller.cpp controllers/batterycontroller.h
@@ -104,15 +103,10 @@ target_link_libraries(powerdevilcore
     KF6::Notifications
     KF6::XmlGui
     KF6::KirigamiPlatform
-    XCB::DPMS
     powerdevil_log_static
     ${UDEV_LIBS}
     Qt::WaylandClient
 )
-
-if (XCB_FOUND) # kwin kscreen helper effect
-    target_link_libraries(powerdevilcore XCB::XCB Qt::GuiPrivate)
-endif ()
 
 if(DDCUTIL_FOUND)
     target_link_libraries(powerdevilcore ${LIBDDCUTIL_LIBRARY})
@@ -191,9 +185,6 @@ target_link_libraries(powerdevil
     PW::KWorkspace
     powerdevilcore
 )
-if (XCB_FOUND)
-    target_link_libraries(powerdevil Qt::GuiPrivate)
-endif ()
 
 target_link_libraries(powerdevil ${UDEV_LIBS})
 
@@ -202,9 +193,6 @@ install(TARGETS powerdevil DESTINATION ${KDE_INSTALL_FULL_LIBEXECDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
         DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-set(HAVE_XCB ${XCB_FOUND})
-configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 ecm_install_configured_files(INPUT plasma-powerdevil.service.in @ONLY DESTINATION
         ${KDE_INSTALL_SYSTEMDUSERUNITDIR})

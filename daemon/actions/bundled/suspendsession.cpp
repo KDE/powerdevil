@@ -12,8 +12,6 @@
 
 #include "suspendsessionadaptor.h"
 
-#include <kwinkscreenhelpereffect.h>
-
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
 #include <KIdleTime>
@@ -30,7 +28,6 @@ namespace PowerDevil::BundledActions
 {
 SuspendSession::SuspendSession(QObject *parent)
     : Action(parent)
-    , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
 {
     // DBus
     new SuspendSessionAdaptor(this);
@@ -47,33 +44,22 @@ SuspendSession::SuspendSession(QObject *parent)
 
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 
-        m_fadeEffect->stop();
-
         Q_EMIT resumingFromSuspend();
     });
 }
 
 SuspendSession::~SuspendSession() = default;
 
-void SuspendSession::onWakeupFromIdle()
-{
-    m_fadeEffect->stop();
-}
-
 void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
 {
+    Q_UNUSED(timeout);
     PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(PowerDevil::PolicyAgent::InterruptSession);
     if (unsatisfiablePolicies != PolicyAgent::None) {
         return;
     }
 
-    // we fade the screen to black 5 seconds prior to suspending to alert the user
-    if (timeout == m_idleTime - 5s) {
-        m_fadeEffect->start();
-    } else {
-        QVariantMap args{{QStringLiteral("Type"), qToUnderlying(m_autoSuspendAction)}};
-        triggerImpl(args);
-    }
+    QVariantMap args{{QStringLiteral("Type"), qToUnderlying(m_autoSuspendAction)}};
+    triggerImpl(args);
 }
 
 void SuspendSession::triggerImpl(const QVariantMap &args)
@@ -158,7 +144,6 @@ bool SuspendSession::loadAction(const PowerDevil::ProfileSettings &profileSettin
     // Add the idle timeout
     m_idleTime = std::chrono::seconds(profileSettings.autoSuspendIdleTimeoutSec());
     if (m_idleTime != 0s) {
-        registerIdleTimeout(m_idleTime - 5s);
         registerIdleTimeout(m_idleTime);
     }
     m_autoSuspendAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.autoSuspendAction());

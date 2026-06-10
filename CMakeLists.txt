@@ -57,8 +57,6 @@ find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)
 
-find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
-
 find_package(KF6DocTools ${KF6_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES
     DESCRIPTION "Tools to generate documentation"

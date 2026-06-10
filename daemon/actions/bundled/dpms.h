@@ -28,10 +28,6 @@ public:
     explicit DPMS(QObject *parent);
     ~DPMS() override;
 
-Q_SIGNALS:
-    void startFade();
-    void stopFade();
-
 protected:
     void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
@@ -43,7 +39,6 @@ public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 private Q_SLOTS:
-    void turnOffOnIdleTimeout();
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
     void onScreenLockerActiveChanged(bool active);
     void onAboutToSuspend();
