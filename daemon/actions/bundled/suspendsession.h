@@ -13,7 +13,6 @@
 
 namespace PowerDevil
 {
-class KWinKScreenHelperEffect;
 
 namespace BundledActions
 {
@@ -29,7 +28,6 @@ public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 protected:
-    void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void triggerImpl(const QVariantMap &args) override;
 
@@ -50,7 +48,6 @@ private:
     bool m_isAboutToSuspend = false;
     PowerDevil::PowerButtonAction m_autoSuspendAction;
     PowerDevil::SleepMode m_sleepMode = PowerDevil::SleepMode::SuspendToRam;
-    QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 };
 
 }

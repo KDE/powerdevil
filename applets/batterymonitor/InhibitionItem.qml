@@ -157,7 +157,7 @@ PlasmaComponents3.ItemDelegate {
 
                     Layout.fillWidth: true
 
-                    iconSource: icon || (KWindowSystem.KWindowSystem.isPlatformWayland ? "wayland" : "xorg")
+                    iconSource: icon || "wayland"
                     text: {
                         const why = reason ?? i18nc("An application's reason for inhibiting sleep and/or screen locking", "Unknown reason.");
 

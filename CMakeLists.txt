@@ -29,8 +29,6 @@ include(ECMQmlModule)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
 
-find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
-
 find_package(QCoro6 REQUIRED COMPONENTS Core DBus)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Auth
@@ -56,8 +54,6 @@ find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)
-
-find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
 find_package(KF6DocTools ${KF6_MIN_VERSION})
 set_package_properties(KF6DocTools PROPERTIES

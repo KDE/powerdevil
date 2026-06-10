@@ -9,7 +9,6 @@
 #include <KScreenDpms/Dpms>
 
 #include <PowerDevilProfileSettings.h>
-#include <kwinkscreenhelpereffect.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
 
@@ -19,7 +18,6 @@
 #include <QDBusPendingCall>
 #include <QGuiApplication>
 #include <QTimer>
-#include <private/qtx11extras_p.h>
 
 #include <KActionCollection>
 #include <KGlobalAccel>
@@ -47,17 +45,6 @@ DPMS::DPMS(QObject *parent)
     , m_dpms(new KScreen::Dpms)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
-
-    // On Wayland, KWin takes care of performing the effect properly
-    if (QX11Info::isPlatformX11()) {
-        auto fadeEffect = new PowerDevil::KWinKScreenHelperEffect(this);
-        connect(this, &DPMS::startFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::start);
-        connect(this, &DPMS::stopFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::stop);
-        connect(fadeEffect, &PowerDevil::KWinKScreenHelperEffect::fadedOut, this, &DPMS::turnOffOnIdleTimeout);
-    } else {
-        // short-cut without fadeEffect in between timeout and actual action (compositor handles fading)
-        connect(this, &DPMS::startFade, this, &DPMS::turnOffOnIdleTimeout);
-    }
 
     // Listen to the policy agent
     auto policyAgent = PowerDevil::PolicyAgent::instance();
@@ -106,7 +93,6 @@ void DPMS::onWakeupFromIdle()
         // Use the longer minimum timeout whenever we see user interaction, e.g. for allowing the user to type
         registerStandardIdleTimeout();
     }
-    Q_EMIT stopFade(); // only actively used in X11
 
     if (m_oldKeyboardBrightness > 0) {
         setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
@@ -118,24 +104,18 @@ void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
 {
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (!m_inhibitScreen && isSupported()) {
-        qCDebug(POWERDEVIL) << "DPMS: starting to fade out";
-        Q_EMIT startFade();
+        qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display and keyboard backlight";
+
+        const int keyboardBrightness = core()->keyboardBrightnessController()->brightness();
+        if (keyboardBrightness > 0) {
+            m_oldKeyboardBrightness = keyboardBrightness;
+            setKeyboardBrightnessHelper(0);
+        }
+        if (isSupported()) {
+            m_dpms->switchMode(KScreen::Dpms::Off);
+        }
     } else {
         qCDebug(POWERDEVIL) << "DPMS: inhibited (or unsupported), not turning off display";
-    }
-}
-
-void DPMS::turnOffOnIdleTimeout()
-{
-    qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display and keyboard backlight";
-
-    const int keyboardBrightness = core()->keyboardBrightnessController()->brightness();
-    if (keyboardBrightness > 0) {
-        m_oldKeyboardBrightness = keyboardBrightness;
-        setKeyboardBrightnessHelper(0);
-    }
-    if (isSupported()) {
-        m_dpms->switchMode(KScreen::Dpms::Off);
     }
 }
 
