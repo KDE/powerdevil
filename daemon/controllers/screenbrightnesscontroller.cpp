@@ -40,31 +40,19 @@ ScreenBrightnessController::ScreenBrightnessController()
           {
               .detector = new KWinDisplayDetector(this),
               .debugName = "kwin brightness control",
-              .displayIdPrefix = "kwin:",
           },
           {
               .detector = new BacklightDetector(this),
               .debugName = "internal display backlight",
-              .displayIdPrefix = "backlight:",
           },
           {
               .detector = new DDCutilDetector(this),
               .debugName = "libddcutil",
-              .displayIdPrefix = "ddc:",
           },
       })
     , m_externalBrightnessController(std::make_unique<ExternalBrightnessController>())
 {
     connect(m_externalBrightnessController.get(), &ExternalBrightnessController::activeChanged, this, &ScreenBrightnessController::onDetectorDisplaysChanged);
-
-    const auto op = new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoOptions, this);
-    connect(op, &KScreen::GetConfigOperation::finished, this, [this](KScreen::ConfigOperation *configOp) {
-        if (configOp->hasError()) {
-            return;
-        }
-        m_kscreenConfig = static_cast<KScreen::GetConfigOperation *>(configOp)->config();
-        KScreen::ConfigMonitor::instance()->addConfig(m_kscreenConfig);
-    });
 }
 
 ScreenBrightnessController::~ScreenBrightnessController()
@@ -135,7 +123,7 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     std::unordered_map<QString, DisplayInfo> newDisplayById;
     const QList<DisplayBrightness *> displays = m_detectors[0].detector->displays();
     for (DisplayBrightness *display : displays) {
-        const QString displayId = QString::fromLocal8Bit(m_detectors[0].displayIdPrefix) + display->id();
+        const QString displayId = display->id();
         auto &info = newDisplayById[displayId];
         info = DisplayInfo{
             .display = display,
@@ -504,31 +492,6 @@ double ScreenBrightnessController::dimmingRatioForDisplay(const QString &display
     return std::accumulate(m_dimmingLimits.begin(), m_dimmingLimits.end(), 1.0, [](double current, const auto &kv) {
         return std::min(current, kv.second.ratio);
     });
-}
-
-KScreen::OutputPtr ScreenBrightnessController::tryMatchKScreenOutput(const QString &displayId) const
-{
-    if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie && m_kscreenConfig) {
-        const DisplayMatch &displayMatch = it->second.match;
-        for (const KScreen::OutputPtr &output : m_kscreenConfig->outputs()) {
-            bool matched = DisplayFilter()
-                               .includeByDefault(false)
-                               .isInternalEquals(output->type() == KScreen::Output::Panel)
-                               .includeEdids(output->edid() ? QList<QByteArray>{output->edid()->rawData()} : QList<QByteArray>{})
-                               .includes(displayMatch);
-            if (matched) {
-                return output;
-            }
-        }
-    } else if (!m_kscreenConfig) {
-        qCWarning(POWERDEVIL) << "Match KScreen::Output failed: config not initialized";
-        return KScreen::OutputPtr{};
-    } else {
-        qCWarning(POWERDEVIL) << "Match KScreen::Output failed: no display with id" << displayId;
-        return KScreen::OutputPtr{};
-    }
-    // no match found (not an error)
-    return KScreen::OutputPtr{};
 }
 
 void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrightness *display, int value)
