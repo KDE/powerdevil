@@ -52,14 +52,6 @@ BacklightHelper::BacklightHelper(QObject *parent)
         }
     }
 
-    m_anim.setEasingCurve(QEasingCurve::InOutQuad);
-    connect(&m_anim, &QVariantAnimation::valueChanged, this, [this](const QVariant &value) {
-        // When animating to zero, it emits a value change to 0 before starting the animation...
-        if (m_anim.state() == QAbstractAnimation::Running) {
-            writeBrightness(value.toInt());
-        }
-    });
-
     m_isSupported = true;
 }
 
@@ -191,19 +183,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
     }
 
     const int brightness = args.value(QStringLiteral("brightness")).toInt();
-    const int animationDuration = args.value(QStringLiteral("animationDuration")).toInt();
-
-    m_anim.stop();
-
-    if (animationDuration <= 0) {
-        writeBrightness(brightness);
-        return ActionReply::SuccessReply();
-    }
-
-    m_anim.setDuration(animationDuration);
-    m_anim.setStartValue(readBrightness());
-    m_anim.setEndValue(brightness);
-    m_anim.start();
+    writeBrightness(brightness);
 
     return ActionReply::SuccessReply();
 }

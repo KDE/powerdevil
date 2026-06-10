@@ -45,7 +45,7 @@ public:
     int knownSafeMinBrightness() const override;
     int maxBrightness() const override;
     int brightness() const override;
-    void setBrightness(int brightness, bool allowAnimations) override;
+    void setBrightness(int brightness) override;
     bool isInternal() const override;
 
 private Q_SLOTS:
@@ -59,9 +59,6 @@ private:
 
 private:
     QString m_syspath; // device path within sysfs
-
-    const int m_brightnessAnimationThreshold = 100;
-    const int m_brightnessAnimationDurationMsec = 250;
 
     int m_observedBrightness;
     int m_requestedBrightness;

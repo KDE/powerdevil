@@ -49,6 +49,4 @@ private:
     QString m_sysctlDevice;
     QList<int> m_sysctlBrightnessLevels;
     QList<QPair<QString /*device path*/, int /*max brightness*/>> m_devices;
-
-    QVariantAnimation m_anim;
 };
