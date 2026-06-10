@@ -199,16 +199,12 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
     QDBusConnection::sessionBus().send(signal);
 
     if (hint == ScreenBrightnessController::ShowIndicator) {
-        // Try to match the controller's display to a KScreen display for optimized OSD presentation.
-        const KScreen::OutputPtr matchedOutput = m_controller->tryMatchKScreenOutput(displayId);
-
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
                                                           QStringLiteral("/org/kde/osdService"),
                                                           QStringLiteral("org.kde.osdService"),
                                                           QLatin1String("screenBrightnessChanged"));
-        msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << (matchedOutput ? matchedOutput->name() : displayId)
-            << m_controller->label(displayId) << static_cast<int>(m_controller->displayIds().indexOf(displayId))
-            << (matchedOutput && matchedOutput->isPositionable() ? matchedOutput->geometry() : QRect());
+        msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << displayId << m_controller->label(displayId)
+            << static_cast<int>(m_controller->displayIds().indexOf(displayId)) << QRect();
         QDBusConnection::sessionBus().asyncCall(msg);
     }
 }
