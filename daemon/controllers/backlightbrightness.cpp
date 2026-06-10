@@ -209,7 +209,7 @@ int BacklightBrightness::brightness() const
     return m_requestedBrightness;
 }
 
-void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
+void BacklightBrightness::setBrightness(int newBrightness)
 {
     if (!isSupported()) {
         qCWarning(POWERDEVIL) << "[BacklightBrightness]: Not supported, setBrightness() should not be called";
@@ -242,17 +242,12 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
         m_expectedMaxBrightness = qMax(m_observedBrightness, oldExecutedBrightness);
     }
 
-    // Make sure there are enough integer steps of difference to run a smooth animation
-    const int brightnessDiff = qAbs(m_observedBrightness - newBrightness);
-    const bool willAnimate = brightnessDiff >= m_brightnessAnimationThreshold && allowAnimations;
-
     KAuth::Action action(u"org.kde.powerdevil.backlighthelper.setbrightness"_s);
     action.setHelperId(HELPER_ID);
     action.addArgument(u"brightness"_s, newBrightness);
-    action.addArgument(u"animationDuration"_s, willAnimate ? m_brightnessAnimationDurationMsec : 0);
     auto *job = action.execute();
 
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job, willAnimate] {
+    connect(job, &KAuth::ExecuteJob::result, this, [this, job] {
         Q_ASSERT(m_isWaitingForKAuthJob);
         m_isWaitingForKAuthJob = false;
 
@@ -265,7 +260,7 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
         if (m_requestedBrightness != m_executedBrightness) {
             // We had another setBrightness() request come in in the meantime:
             // apply it now that m_isWaitingForKAuthJob is not blocking the call
-            setBrightness(m_requestedBrightness, willAnimate);
+            setBrightness(m_requestedBrightness);
         }
     });
     job->start();

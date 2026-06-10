@@ -47,7 +47,7 @@ public:
     int knownSafeMinBrightness() const override;
     int maxBrightness() const override;
     int brightness() const override;
-    void setBrightness(int value, bool allowAnimations) override;
+    void setBrightness(int value) override;
     bool supportsBrightness() const;
     std::optional<QByteArray> edidData() const override;
     bool usesDdcCi() const override;

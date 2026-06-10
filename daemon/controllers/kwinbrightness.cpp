@@ -164,7 +164,7 @@ int KWinDisplayBrightness::brightness() const
     return std::round(m_output->brightness() * 10'000);
 }
 
-void KWinDisplayBrightness::setBrightness(int brightness, bool allowAnimations)
+void KWinDisplayBrightness::setBrightness(int brightness)
 {
     m_desiredBrightness = brightness / 10'000.0;
     m_detector->scheduleSetConfig();
