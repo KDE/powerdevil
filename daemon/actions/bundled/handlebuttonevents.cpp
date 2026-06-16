@@ -163,9 +163,6 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
         if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
             core()->keyboardBrightnessController()->setBrightness(m_oldKeyboardBrightness.value());
         }
-
-        // In this case, let's send a wakeup event
-        KIdleTime::instance()->simulateUserActivity();
     }
 }
 
