@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-06 03:21+0000\n"
-"PO-Revision-Date: 2026-06-04 22:04+0200\n"
+"PO-Revision-Date: 2026-06-18 21:40+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -285,7 +285,7 @@ msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
 msgid "Cancel"
-msgstr "Mégsem"
+msgstr "Mégse"
 
 #: powerdevilcore.cpp:677
 #, kde-format
