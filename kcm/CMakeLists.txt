@@ -1,5 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilprofilesconfig\")
 
+# TODO Plasma 7: Change kcm_powerdevilprofilesconfig to kcm_powerdevil
 kcmutils_add_qml_kcm(kcm_powerdevilprofilesconfig)
 
 target_sources(kcm_powerdevilprofilesconfig PRIVATE

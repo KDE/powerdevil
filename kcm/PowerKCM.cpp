@@ -40,6 +40,7 @@
 #include <QQuickItem>
 #include <QQuickRenderControl>
 
+// TODO Plasma 7: Change kcm_powerdevilprofilesconfig to kcm_powerdevil
 K_PLUGIN_FACTORY_WITH_JSON(PowerDevilProfilesConfigFactory, "kcm_powerdevilprofilesconfig.json", {
     registerPlugin<PowerDevil::PowerKCM>();
     registerPlugin<PowerDevil::PowerConfigData>();
