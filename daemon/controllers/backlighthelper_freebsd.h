@@ -11,7 +11,6 @@
 #define BACKLIGHTHELPER_H
 
 #include <QObject>
-#include <QVariantAnimation>
 
 #include <KAuth/ActionReply>
 #include <KAuth/HelperSupport>

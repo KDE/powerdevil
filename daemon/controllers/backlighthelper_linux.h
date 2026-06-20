@@ -8,7 +8,6 @@
 #pragma once
 
 #include <QObject>
-#include <QVariantAnimation>
 
 #include <KAuth/ActionReply>
 #include <KAuth/HelperSupport>
