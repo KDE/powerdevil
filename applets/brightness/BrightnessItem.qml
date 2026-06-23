@@ -20,11 +20,16 @@ PlasmaComponents3.ItemDelegate {
     }
 
     property alias slider: control
-    property alias value: control.value
+    property real value
     property alias minimumValue: control.from
     property alias maximumValue: control.to
     property alias stepSize: control.stepSize
     required property /*BrightnessItem.Type*/ int type
+
+    Binding {
+        when: !control.pressed
+        control.value: root.value
+    }
 
     readonly property real percentage: Math.round(100 * value / maximumValue)
     readonly property string brightnessLevelOff: i18nc("Backlight on or off", "Off")
@@ -114,7 +119,10 @@ PlasmaComponents3.ItemDelegate {
                 Accessible.description: brightnessValue.text
                 Accessible.onPressAction: this.moved()
 
-                onMoved: root.moved()
+                onMoved: {
+                    root.value = value
+                    root.moved()
+                }
             }
         }
     }
