@@ -65,7 +65,7 @@ msgstr "Brillantor"
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Brillantor de la pantalla - %1"
+msgstr "Brillantor de la pantalla – %1"
 
 #: DarkModeItem.qml:71
 #, kde-format
