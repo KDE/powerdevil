@@ -199,12 +199,17 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
     QDBusConnection::sessionBus().send(signal);
 
     if (hint == ScreenBrightnessController::ShowIndicator) {
+        const bool multipleDisplays = m_controller->displayIds().size() > 1;
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
                                                           QStringLiteral("/org/kde/osdService"),
                                                           QStringLiteral("org.kde.osdService"),
-                                                          QLatin1String("screenBrightnessChanged"));
-        msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << displayId << m_controller->label(displayId)
-            << static_cast<int>(m_controller->displayIds().indexOf(displayId)) << QRect();
+                                                          multipleDisplays ? QLatin1String("screenBrightnessChanged") : QLatin1String("brightnessChanged"));
+        if (multipleDisplays) {
+            msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << displayId << m_controller->label(displayId)
+                << static_cast<int>(m_controller->displayIds().indexOf(displayId)) << QRect();
+        } else {
+            msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin);
+        }
         QDBusConnection::sessionBus().asyncCall(msg);
     }
 }
