@@ -2,21 +2,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-06 03:21+0000\n"
-"PO-Revision-Date: 2025-07-28 18:43+0200\n"
+"PO-Revision-Date: 2026-07-01 22:33+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -186,46 +186,39 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Dåligt enhetsbatteri (%1 % återstår)"
+msgstr "Enhetsbatteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:544
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"Batteriet i \"%1\" är dåligt, och enheten kan stängas av när som helst. "
-"Ladda eller ersätt batteriet så snart som möjligt."
+msgstr "Batteriet i \"%1\" börjar bli svagt. Ladda batteriet."
 
 #: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Batteriet i \"%1\" börjar bli svagt."
 
 #: powerdevilcore.cpp:552
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Dåligt musbatteri (%1 % återstår)"
+msgstr "Musbatteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:556
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Dåligt tangentbordsbatteri (%1 % återstår)"
+msgstr "Tangentbordsbatteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:566
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Dåligt musbatteri (%1 % återstår)"
+msgstr "Telefonbatteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Dåligt batteri för Blåtandsenhet (%1 % återstår)"
+msgstr "Blåtandsenhetens batteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -294,7 +287,7 @@ msgstr "Avbryt"
 #: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Dåligt batteri (%1 % återstår)"
+msgstr "Batteri svagt (%1 % återstår)"
 
 #: powerdevilcore.cpp:684
 #, kde-format
