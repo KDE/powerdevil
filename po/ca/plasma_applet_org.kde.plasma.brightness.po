@@ -293,15 +293,3 @@ msgstr "Llum de nit"
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light off"
-#~ msgstr "Llum de nit desactivada"
-
-#~ msgctxt "Night light status"
-#~ msgid "Off"
-#~ msgstr "Inactiva"
-
-#~ msgctxt "Status; placeholder is a temperature"
-#~ msgid "Night Light at %1K"
-#~ msgstr "Llum de nit a %1 K"
