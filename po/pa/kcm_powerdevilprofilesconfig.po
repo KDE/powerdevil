@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:45+0000\n"
+"POT-Creation-Date: 2026-07-04 00:46+0000\n"
 "PO-Revision-Date: 2026-01-24 08:24-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -59,7 +59,7 @@ msgstr "ਸਕਰੀਨ ਨੂੰ ਬੰਦ ਕਰੋ"
 msgid "Toggle screen on/off"
 msgstr "ਸਕਰੀਨ ਚਾਲ/ਬੰਦ ਨੂੰ ਬਦਲੋ"
 
-#: PowerKCM.cpp:460
+#: PowerKCM.cpp:461
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"

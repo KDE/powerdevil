@@ -595,7 +595,7 @@ msgstr ""
 #~ msgstr "Brilho"
 
 #~ msgid "Scroll to adjust screen brightness"
-#~ msgstr "Deslocar para ajustar o brilho do ecrã"
+#~ msgstr "Rodar para ajustar o brilho do ecrã"
 
 #~ msgid "Display Brightness"
 #~ msgstr "Brilho do Ecrã"
