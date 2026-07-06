@@ -1,10 +1,10 @@
-# SPDX-FileCopyrightText: 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2024-2026 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-18 00:45+0000\n"
-"PO-Revision-Date: 2025-03-08 20:38+0900\n"
+"PO-Revision-Date: 2026-07-04 12:28+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -68,7 +68,7 @@ msgstr "ディスプレイの明るさ - %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "ダークモード"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -79,7 +79,7 @@ msgstr "設定…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "%1 に切り替え"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -87,8 +87,7 @@ msgid "Follow accent color"
 msgstr "アクセントカラーに従う"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "明るさと色"
 
@@ -290,4 +289,4 @@ msgstr "Night Light"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "テーマ"
