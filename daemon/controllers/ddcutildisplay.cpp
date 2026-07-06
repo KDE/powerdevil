@@ -14,7 +14,11 @@
 
 using namespace std::chrono_literals;
 
-constexpr std::chrono::milliseconds s_setBrightnessDelay = 1s;
+// https://github.com/digitaltrails/vdu_controls/blob/master/README.md#does-adjusting-a-vdu-affect-its-lifespan-or-health
+// coalesce rapid slider movements into a single write, feels immediate on slider clicks/longer drags
+constexpr std::chrono::milliseconds s_initialWriteDelay = 50ms;
+// vdu_controls recommend half second delay
+constexpr std::chrono::milliseconds s_debounceInterval = 500ms;
 constexpr std::array<std::chrono::milliseconds, 3> s_backoffRetryIntervals = {1s, 2s, 3s};
 
 #ifdef WITH_DDCUTIL
@@ -52,8 +56,41 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayM
 
     ddca_free_display_info(displayInfo);
 
-    // Remaining parts in init(), which can be retried if supportsBrightness() is still false
+    // Part 2 in init(), which can be retried if supportsBrightness() is still false
     init();
+
+    //
+    // Part 3: timer & worker setup
+
+    m_timer->setSingleShot(true);
+    connect(m_timer, &QTimer::timeout, this, [this]() {
+        if (!m_supportsBrightness) {
+            init();
+            if (m_supportsBrightness) {
+                m_retryCounter = 0;
+                Q_EMIT supportsBrightnessChanged(true);
+                Q_EMIT retryInitFinished(true);
+            } else {
+                if (m_retryCounter < s_backoffRetryIntervals.size()) {
+                    m_timer->start(s_backoffRetryIntervals[m_retryCounter]);
+                    ++m_retryCounter;
+                    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "init retry in" << m_timer->interval() << "ms, attempt" << m_retryCounter;
+                } else {
+                    m_retryCounter = 0;
+                    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "failed to initialize DDC/CI brightness";
+                    Q_EMIT retryInitFinished(false);
+                }
+            }
+        } else {
+            onSetBrightnessTimeout();
+        }
+    });
+
+    m_brightnessWorker->moveToThread(&m_brightnessWorkerThread);
+    connect(&m_brightnessWorkerThread, &QThread::finished, m_brightnessWorker, &QObject::deleteLater);
+    connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
+    connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::ddcBrightnessChangeFinished);
+    m_brightnessWorkerThread.start();
 }
 
 void DDCutilDisplay::init()
@@ -87,25 +124,7 @@ void DDCutilDisplay::init()
         if (status = ddca_close_display(displayHandle); status != DDCRC_OK) {
             qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << status;
         }
-        if (status != DDCRC_OK || !m_supportsBrightness) {
-            return;
-        }
     }
-
-    //
-    // Part 3: timer & worker setup
-
-    m_timer->setSingleShot(true);
-    disconnect(m_timer, &QTimer::timeout, nullptr, nullptr);
-    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onSetBrightnessTimeout);
-
-    m_brightnessWorker->moveToThread(&m_brightnessWorkerThread);
-    connect(&m_brightnessWorkerThread, &QThread::finished, m_brightnessWorker, &QObject::deleteLater);
-    connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
-    connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::ddcBrightnessChangeFinished);
-    m_brightnessWorkerThread.start();
-
-    Q_EMIT supportsBrightnessChanged(true);
 }
 
 DDCA_IO_Path DDCutilDisplay::ioPath() const
@@ -161,51 +180,37 @@ int DDCutilDisplay::brightness() const
 
 void DDCutilDisplay::scheduleRetryInit()
 {
-    disconnect(m_timer, &QTimer::timeout, nullptr, nullptr);
-    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onInitRetryTimeout);
-
-    m_retryCounter = 0;
-    m_timer->setSingleShot(true);
-    m_timer->start(m_supportsBrightness ? 0ms : s_backoffRetryIntervals[m_retryCounter]);
-
-    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "retrying to initialize DDC/CI brightness in" << m_timer->interval()
-                          << "milliseconds - attempt no." << (m_retryCounter + 1);
-}
-
-void DDCutilDisplay::onInitRetryTimeout()
-{
 #ifdef WITH_DDCUTIL
-    if (!m_supportsBrightness) {
-        init();
+    if (m_supportsBrightness || m_timer->isActive()) {
+        return;
     }
-    if (!m_supportsBrightness) {
-        if (++m_retryCounter; m_retryCounter < s_backoffRetryIntervals.size()) {
-            m_timer->start(s_backoffRetryIntervals[m_retryCounter]);
-
-            qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "retrying to initialize DDC/CI brightness in" << m_timer->interval()
-                                  << "milliseconds - attempt no." << (m_retryCounter + 1);
-            return;
-        }
-    }
+    m_timer->start(s_backoffRetryIntervals[m_retryCounter]);
+    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "scheduling first init retry in" << m_timer->interval() << "ms";
 #endif
-    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << (m_supportsBrightness ? "succeeded" : "failed") << "to initialize DDC/CI brightness";
-    Q_EMIT retryInitFinished(m_supportsBrightness);
 }
 
 void DDCutilDisplay::setBrightness(int value)
 {
 #ifdef WITH_DDCUTIL
     if (m_supportsBrightness) {
-        m_retryCounter = 0;
-        m_timer->start(s_setBrightnessDelay);
         m_brightness = value;
-    }
+        m_pendingBrightness.reset();
+        m_retryCounter = 0;
+        m_timer->start(s_initialWriteDelay);
+    };
 #endif
 }
 
 void DDCutilDisplay::onSetBrightnessTimeout()
 {
-    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
+    if (m_pendingBrightness != m_brightness) {
+        m_pendingBrightness = m_brightness;
+        m_retryCounter = 0;
+    } else if (m_retryCounter == 0) {
+        m_pendingBrightness.reset();
+        return;
+    }
+    Q_EMIT ddcBrightnessChangeRequested(m_pendingBrightness.value(), this);
 }
 
 void DDCutilDisplay::ddcBrightnessChangeFinished(bool success)
@@ -219,11 +224,17 @@ void DDCutilDisplay::ddcBrightnessChangeFinished(bool success)
             return;
         }
         qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "failed to set DDC/CI brightness";
+        m_pendingBrightness.reset();
         m_supportsBrightness = false;
         Q_EMIT supportsBrightnessChanged(false);
-    } else if (m_retryCounter > 0) { // only yell if we also logged the "retrying" message
+        return;
+    }
+
+    if (m_retryCounter > 0) { // only yell if we also logged the "retrying" message
         qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "succeeded to set DDC/CI brightness";
     }
+    m_retryCounter = 0;
+    m_timer->start(s_debounceInterval);
 }
 
 void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)

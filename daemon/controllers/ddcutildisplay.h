@@ -58,7 +58,6 @@ Q_SIGNALS:
     void ddcBrightnessChangeRequested(int value, DDCutilDisplay *display);
 
 private Q_SLOTS:
-    void onInitRetryTimeout();
     void onSetBrightnessTimeout();
     void ddcBrightnessChangeFinished(bool success);
 
@@ -77,6 +76,7 @@ private:
     int m_brightness;
     int m_maxBrightness;
     bool m_supportsBrightness;
+    std::optional<int> m_pendingBrightness;
     QByteArray m_edidData;
 };
 
