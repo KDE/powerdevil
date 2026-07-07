@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:45+0000\n"
+"POT-Creation-Date: 2026-07-07 00:45+0000\n"
 "PO-Revision-Date: 2026-02-24 19:43+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -20,49 +20,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: BrightnessItem.qml:30
+#: BrightnessItem.qml:35
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Aus"
 
-#: BrightnessItem.qml:31
+#: BrightnessItem.qml:36
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Niedrig"
 
-#: BrightnessItem.qml:32
+#: BrightnessItem.qml:37
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Mittel"
 
-#: BrightnessItem.qml:33
+#: BrightnessItem.qml:38
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Hoch"
 
-#: BrightnessItem.qml:34
+#: BrightnessItem.qml:39
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "An"
 
-#: BrightnessItem.qml:46
+#: BrightnessItem.qml:51
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: BrightnessItem.qml:90
+#: BrightnessItem.qml:95
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Helligkeit"
 
-#: BrightnessItem.qml:113
+#: BrightnessItem.qml:118
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"

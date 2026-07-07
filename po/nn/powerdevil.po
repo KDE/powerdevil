@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:47+0000\n"
-"PO-Revision-Date: 2025-02-16 12:33+0100\n"
+"PO-Revision-Date: 2026-07-06 20:00+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 26.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -117,9 +117,7 @@ msgid ""
 msgstr "PowerDevil – ei avansert, modulbasert straumstyringsteneste"
 
 #: powerdevilapp.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "© 2015–2019 Kai Uwe Broulik"
@@ -191,22 +189,17 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til eining (%1 % att)"
 
 #: powerdevilcore.cpp:544
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
 msgstr ""
-"Batterinivået til musa «%1» er lågt, og ho kan derfor slutta å fungera når "
-"som helst. Du bør lada eller byta ut batteriet så snart som råd."
+"Batterinivået til «%1» er lågt. Du bør lada batteriet så snart som råd."
 
 #: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Batterinivået til «%1» er lågt."
 
 #: powerdevilcore.cpp:552
 #, kde-format
@@ -219,10 +212,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Lågt batterinivå til tastatur (%1 % att)"
 
 #: powerdevilcore.cpp:566
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Lågt batterinivå til mus (%1 % att)"
+msgstr "Lågt batterinivå til telefon (%1 % att)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
@@ -312,8 +304,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
 #: powerdevilcore.cpp:716
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Køyrer på nettstraum"
 
