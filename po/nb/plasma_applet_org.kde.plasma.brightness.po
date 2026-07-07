@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:45+0000\n"
+"POT-Creation-Date: 2026-07-07 02:40+0000\n"
 "PO-Revision-Date: 2025-03-29 09:33+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -18,49 +18,49 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: BrightnessItem.qml:30
+#: BrightnessItem.qml:35
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Av"
 
-#: BrightnessItem.qml:31
+#: BrightnessItem.qml:36
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Lav"
 
-#: BrightnessItem.qml:32
+#: BrightnessItem.qml:37
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Middels"
 
-#: BrightnessItem.qml:33
+#: BrightnessItem.qml:38
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Høy"
 
-#: BrightnessItem.qml:34
+#: BrightnessItem.qml:39
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "På"
 
-#: BrightnessItem.qml:46
+#: BrightnessItem.qml:51
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: BrightnessItem.qml:90
+#: BrightnessItem.qml:95
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Lysstyrke"
 
-#: BrightnessItem.qml:113
+#: BrightnessItem.qml:118
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
