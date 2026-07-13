@@ -4,20 +4,21 @@
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011, 2012.
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
+# SPDX-FileCopyrightText: 2026 Jan Papez (honyczek)
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-27 00:47+0000\n"
-"PO-Revision-Date: 2024-08-30 16:27+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-07-12 22:08+0200\n"
+"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
+"Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -104,7 +105,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Uspávání nebo uzamykání obrazovky po neaktivitě"
 
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -112,14 +113,10 @@ msgid "Power Management"
 msgstr "Správa napájení"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
-"Automatický spánek a zamčení obrazovky jsou vypnuty, znovu je povolíte "
-"kliknutím prostředním tlačítkem"
+msgstr "Automatický spánek a zamčení obrazovky jsou zablokovány."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -127,6 +124,8 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Uzamykání obrazovky je v současnosti blokováno. Uspávání je automatické po "
+"neaktivitě."
 
 #: InhibitionItem.qml:69
 #, kde-format
@@ -134,19 +133,20 @@ msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"Uspávání je v současnosti blokováno. Uzamykání obrazovky je automatické po "
+"neaktivitě."
 
 #: InhibitionItem.qml:71
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr ""
+msgstr "Uspávání a uzamykání obrazovky jsou automatické po neaktivitě."
 
 #: InhibitionItem.qml:95
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
+msgstr "Ručně zablokovat uspávání a uzamykání obrazovky"
 
 #: InhibitionItem.qml:118
 #, kde-format
@@ -163,7 +163,7 @@ msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazov
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
+msgstr "Toto povede k vyšší spotřebě energie."
 
 #: InhibitionItem.qml:136
 #, kde-format
@@ -174,6 +174,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
+"Ručně jste zablokovali automatické uspávání a uzamykání obrazovky. Toto "
+"povede k vyšší spotřebě energie."
 
 #: InhibitionItem.qml:143
 #, kde-format
@@ -189,16 +191,15 @@ msgstr ""
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr ""
+msgstr "Neznámý důvod."
 
 #: InhibitionItem.qml:169
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
+msgstr "%1 právě brání uspávání a uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:171
 #, kde-format
@@ -206,7 +207,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr ""
+msgstr "%1 chce bránit uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:173
 #, kde-format
@@ -214,16 +215,15 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 chce bránit uspávání. (%2)"
 
 #: InhibitionItem.qml:177
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
+msgstr "%1 také brání uspávání počítače a uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:179
 #, kde-format
@@ -231,7 +231,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 také brání uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:181
 #, kde-format
@@ -239,16 +239,15 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 také brání uspávání počítače. (%2)"
 
 #: InhibitionItem.qml:185
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
+msgstr "%1 brání uspávání počítače a uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:187
 #, kde-format
@@ -256,7 +255,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 brání uzamykání obrazovky. (%2)"
 
 #: InhibitionItem.qml:189
 #, kde-format
@@ -264,7 +263,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 brání uspávání počítače. (%2)"
 
 #: InhibitionItem.qml:197
 #, kde-format
@@ -280,23 +279,22 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Povolit"
 
 #: main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr ""
+msgstr "Applet baterie povolil potlačení uspávání a uzamykání obrazovky"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "Napájení a baterie"
 
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Baterie se nenachází v šachtě"
 
 #: main.qml:129
 #, kde-format
@@ -357,6 +355,8 @@ msgstr ""
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
+"Kliknutím středním tlačítkem myši zakážete automatické uspávání počítače a "
+"uzamykání obrazovky"
 
 #: main.qml:172
 #, kde-format
@@ -369,7 +369,7 @@ msgstr[2] "%1 aplikací vyžádalo aktivaci režimu Performance"
 #: main.qml:176
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr ""
+msgstr "Systém je v režimu Výkonu; pro změnu otočte kolečkem myši"
 
 #: main.qml:180
 #, kde-format
@@ -382,12 +382,13 @@ msgstr[2] "%1 aplikací vyžádalo aktivaci úsporného režimu"
 #: main.qml:184
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr ""
+msgstr "Systém je v režimu Úspory energie; pro změnu otočte kolečkem myši"
 
 #: main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
+"Systém je v režimu Vyvážené spotřeby energie; pro změnu otočte kolečkem myši"
 
 #: main.qml:301
 #, kde-format
@@ -428,7 +429,7 @@ msgstr "Profil napájení"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Automaticky"
 
 #: PowerProfileItem.qml:111
 #, kde-format
@@ -499,12 +500,12 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Služba TLP automaticky ovládá profily napájení"
 
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Profily napájení nejsou na vašem zařízení podporovány."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format
@@ -513,3 +514,6 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
+"Na vašem zařízení mohou být podporovány profily napájení.<nl/>Zkuste pomocí "
+"správce balíčků vaší distribuce nainstalovat balíček <command>power-profiles-"
+"daemon</command> a restartovat systém."
