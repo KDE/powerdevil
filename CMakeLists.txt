@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(PowerDevil)
-set(PROJECT_VERSION "6.7.2")
+set(PROJECT_VERSION "6.7.3")
 
 set(PROJECT_DEP_VERSION "6.7.0")
 set(QT_MIN_VERSION "6.10.0")
