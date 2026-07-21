@@ -13,4 +13,4 @@ Type=dbus
 BusName=org.kde.Solid.PowerManagement
 TimeoutStopSec=5sec
 Slice=background.slice
-Restart=on-failure
+Restart=always
