@@ -9,21 +9,21 @@
 # H. İbrahim Güngör <ibrahim@pardus.org.tr>, 2010.
 # Serdar SOYTETİR <tulliana@gmail.com>, 2010, 2012, 2013.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2015, 2017, 2021, 2022.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-27 00:47+0000\n"
-"PO-Revision-Date: 2026-01-18 16:18+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-07-24 20:30+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 "X-POOTLE-MTIME: 1413102233.000000\n"
 
 #: BatteryItem.qml:99
@@ -448,8 +448,8 @@ msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
-"Başarım kipi, ısı oluşturmasını engellemek amacıyla devre dışı bırakıldı; "
-"çünkü bilgisayarınızın kucağında olabileceğini algıladık."
+"Isı üretimin engellemek için başarım kipi devre dışı bırakıldı; çünkü "
+"bilgisayarınızın kucağında olabileceğini algıladık."
 
 #: PowerProfileItem.qml:230
 #, kde-format
@@ -468,8 +468,8 @@ msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
-"Isı oluşumunu engellemek amacıyla başarım düşürülebilir; çünkü "
-"bilgisayarınızın kucağınızda olabileceğini algıladık."
+"Isı üretimini engellemek için başarım düşürülebilir; çünkü bilgisayarınızın "
+"kucağınızda olabileceğini algıladık."
 
 #: PowerProfileItem.qml:250
 #, kde-format
