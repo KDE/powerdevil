@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-06 00:45+0000\n"
-"PO-Revision-Date: 2026-06-01 18:31-0400\n"
+"PO-Revision-Date: 2026-07-22 17:26-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -16,12 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: mobilepower.cpp:36
 #, kde-format
 msgid "30 sec"
-msgstr ""
+msgstr "30 سېكۇنت"
 
 #: mobilepower.cpp:37
 #, kde-format
@@ -31,7 +30,7 @@ msgstr "1 مىنۇت"
 #: mobilepower.cpp:38
 #, kde-format
 msgid "2 min"
-msgstr ""
+msgstr "2 مىنۇت"
 
 #: mobilepower.cpp:39
 #, kde-format
@@ -79,12 +78,12 @@ msgstr "ئۈنۈم"
 #: ui/BatteryPage.qml:23
 #, kde-format
 msgid "Battery Information"
-msgstr ""
+msgstr "توكدان ئۇچۇرى"
 
 #: ui/BatteryPage.qml:34
 #, kde-format
 msgid "Usage Graph"
-msgstr ""
+msgstr "ئىشلىتىش گىرافىكى"
 
 #: ui/BatteryPage.qml:77
 #, kde-format
@@ -94,7 +93,7 @@ msgstr "ئۇچۇر"
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr ""
+msgstr "توكلاشچان"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
@@ -139,7 +138,7 @@ msgstr "يوچۇن"
 #: ui/BatteryPage.qml:107
 #, kde-format
 msgid "Current Charge"
-msgstr ""
+msgstr "نۆۋەتتىكى توكلىنىشى"
 
 #: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
 #, kde-format
@@ -221,42 +220,42 @@ msgstr "ئۈسكۈنە"
 #: ui/main.qml:79
 #, kde-format
 msgid "Internal battery"
-msgstr ""
+msgstr "ئىچىدىكى توكدان"
 
 #: ui/main.qml:80
 #, kde-format
 msgid "UPS battery"
-msgstr ""
+msgstr "UPS توكدانى"
 
 #: ui/main.qml:81
 #, kde-format
 msgid "Monitor battery"
-msgstr ""
+msgstr "كۆزەتكۈچ توكدانى"
 
 #: ui/main.qml:82
 #, kde-format
 msgid "Mouse battery"
-msgstr ""
+msgstr "چاشقىنەك توكدانى"
 
 #: ui/main.qml:83
 #, kde-format
 msgid "Keyboard battery"
-msgstr ""
+msgstr "ھەرپتاختا توكدانى"
 
 #: ui/main.qml:84
 #, kde-format
 msgid "PDA battery"
-msgstr ""
+msgstr "PDA توكدانى"
 
 #: ui/main.qml:85
 #, kde-format
 msgid "Phone battery"
-msgstr ""
+msgstr "تېلېفون توكدانى"
 
 #: ui/main.qml:86
 #, kde-format
 msgid "Unknown battery"
-msgstr ""
+msgstr "نامەلۇم توكدان"
 
 #: ui/main.qml:89
 #, kde-format
@@ -268,7 +267,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "%1 is battery type, %2 is charge percent"
 msgid "%1 %2 (Charging)"
-msgstr ""
+msgstr "%1 %2 (توكلاۋاتىدۇ)"
 
 #: ui/main.qml:91
 #, kde-format
@@ -285,19 +284,19 @@ msgstr "ئېكران"
 #, kde-format
 msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
 msgid "Dim screen after"
-msgstr ""
+msgstr "ۋاقىتتىن كېيىن ئېكران غۇۋالاشتۇرىدۇ"
 
 #: ui/main.qml:131
 #, kde-format
 msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
 msgid "Turn off screen after"
-msgstr ""
+msgstr "ۋاقىتتىن كېيىن ئېكراننى تاقايدۇ"
 
 #: ui/main.qml:141
 #, kde-format
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
-msgstr ""
+msgstr "ۋاقىتتىن كېيىن ئۈسكۈنىنى توڭلىتىدۇ"
 
 #: ui/main.qml:149
 #, kde-format
@@ -308,4 +307,4 @@ msgstr "توك مەنبە سەپلىمە ھۆججەت"
 #, kde-format
 msgctxt "@label:combobox Power Save, Balanced or Performance profile"
 msgid "Power profile"
-msgstr ""
+msgstr "توك مەنبە سەپلىمە ھۆججەت"

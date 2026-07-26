@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:47+0000\n"
-"PO-Revision-Date: 2026-06-01 18:33-0400\n"
+"PO-Revision-Date: 2026-07-22 17:28-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -195,13 +195,13 @@ msgstr "ئۈسكۈنە توكدانىنىڭ توكى ئاز (%1% قالدى)"
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
+msgstr "«%1» دىكى توكدان توكى ئاز. توكداننى توكلاڭ."
 
 #: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "«%1» دىكى توكداننىڭ توكى ئاز."
 
 #: powerdevilcore.cpp:552
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "ھەرپتاختا توكدانىنىڭ توكى ئاز (%1% قالدى)
 #: powerdevilcore.cpp:566
 #, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "تېلېفون توكدانىنىڭ توكى ئاز (%1% قالدى)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
