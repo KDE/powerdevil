@@ -115,6 +115,7 @@ Comment[sr@latin]=Obaveštavanje i upravljanje baterijom i napajanjem ekrana i p
 Comment[sv]=Hantering och underrättelser om batteri, skärm och processorkraft
 Comment[ta]=மின்கலத்திற்கான, திரைக்கான, மற்றும் கணிப்பிக்கான ஆற்றல் மேலாண்மையும் அறிவிப்பும்
 Comment[tr]=Pil, Görüntü ve İşlemci güç yönetimi ve bildirimleri
+Comment[ug]=توكدان، كۆرسەتكۈچ ۋە CPU توك مەنبە باشقۇرۇش ۋە ئۇقتۇرۇش
 Comment[uk]=Керування та сповіщення про стан акумуляторів та живлення дисплея і процесора
 Comment[zh_CN]=电池、显示器和 CPU 电源管理及通知
 Comment[zh_TW]=電池、顯示與 CPU 電力管理與通知
