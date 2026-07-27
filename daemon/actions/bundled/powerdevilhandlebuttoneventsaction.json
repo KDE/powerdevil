@@ -43,6 +43,7 @@
         "Description[sv]": "Utför en åtgärd så fort en knapp trycks ner",
         "Description[ta]": "பட்டன் அழுத்தப்படும்போது ஓர் செயலை செய்யும்",
         "Description[tr]": "Bir düğmeye basıldığında bir işlem gerçekleştirir",
+        "Description[ug]": "بىر توپچا بېسىلغاندا بىر مەشغۇلاتنى جەزملەيدۇ",
         "Description[uk]": "Виконання дій у відповідь на натискання кнопки",
         "Description[zh_CN]": "按键时执行操作",
         "Description[zh_TW]": "按鍵被按下時執行動作",
@@ -99,6 +100,7 @@
         "Name[ta]": "பட்டன் நிகழ்வு கையாண்மை",
         "Name[tg]": "Коркарди рӯйдодҳои тугма",
         "Name[tr]": "Düğme İşlevleri",
+        "Name[ug]": "توپچە ھادىسىسىنى باشقۇرۇش",
         "Name[uk]": "Обробка натискань кнопок",
         "Name[zh_CN]": "按键事件处理",
         "Name[zh_TW]": "按鍵事件處理"

@@ -143,6 +143,7 @@
                 "Name[sv]": "Natalie Clarius",
                 "Name[ta]": "நாட்டலி கிளாரியசு",
                 "Name[tr]": "Natalie Clarius",
+                "Name[ug]": "Natalie Clarius",
                 "Name[uk]": "Natalie Clarius",
                 "Name[zh_CN]": "Natalie Clarius",
                 "Name[zh_TW]": "Natalie Clarius"
@@ -193,6 +194,7 @@
         "Description[sv]": "Styr ljusstyrka och färg på skärmar och tangentbord",
         "Description[ta]": "உங்கள் திரைகளின் மற்றும் விசைப்பலகைகளின் பிரகாசத்தை கட்டுப்படுத்த உதவும்",
         "Description[tr]": "Ekranların veya klavyelerin parlaklığını ve rengini denetleyin",
+        "Description[ug]": "ئېكران ۋە ھەرپتاختىنىڭ رەڭ ۋە يورۇقلۇقىنى تىزگىنلەيدۇ",
         "Description[uk]": "Керування яскравістю і кольором екранів та підсвічування клавіатури",
         "Description[zh_CN]": "控制屏幕和键盘的亮度和颜色",
         "Description[zh_TW]": "控制您的螢幕與鍵盤的亮度及顏色",
@@ -237,6 +239,7 @@
         "Name[sv]": "Ljusstyrka och färg",
         "Name[ta]": "நிறமும் பிரகாசமும்",
         "Name[tr]": "Parlaklık ve Renk",
+        "Name[ug]": "يورۇقلۇق ۋە رەڭ",
         "Name[uk]": "Яскравість і колір",
         "Name[zh_CN]": "亮度和色彩",
         "Name[zh_TW]": "亮度與顏色",

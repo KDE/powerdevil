@@ -44,6 +44,7 @@
         "Description[sv]": "Stoppar sessionen tillfälligt",
         "Description[ta]": "அமர்வை உறங்கசெய்யும்",
         "Description[tr]": "Geçerli oturumu askıya alır",
+        "Description[ug]": "جەريانچاقنى توڭلىتىدۇ",
         "Description[uk]": "Призупиняє сеанс",
         "Description[zh_CN]": "挂起会话",
         "Description[zh_TW]": "暫停工作階段",
@@ -102,6 +103,7 @@
         "Name[ta]": "அமர்வை உறங்கசெய்",
         "Name[tg]": "Таваққуф кардани ҷаласа",
         "Name[tr]": "Oturumu Askıya Al",
+        "Name[ug]": "جەريانچاق توڭلىتىش",
         "Name[uk]": "Призупинити сеанс",
         "Name[zh_CN]": "挂起会话",
         "Name[zh_TW]": "暫停工作階段"

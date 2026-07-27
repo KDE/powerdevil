@@ -44,6 +44,7 @@
         "Description[sv]": "Styr DPMS-inställningar",
         "Description[ta]": "DPMS அமைப்புகளை கட்டுப்படுத்தும்",
         "Description[tr]": "DPMS (Görüntü Güç Yönetimi Ayarları) ayarlarını denetler",
+        "Description[ug]": "DPMS تەڭشىكىنى تىزگىنلەيدۇ",
         "Description[uk]": "Керування параметрами DPMS",
         "Description[zh_CN]": "控制屏幕电源管理设置",
         "Description[zh_TW]": "控制 DPMS 設定",
@@ -100,6 +101,7 @@
         "Name[ta]": "திரை ஆற்றல் சேமிப்பு",
         "Name[tg]": "Сарфаи барқи экран",
         "Name[tr]": "Ekran Enerji Tasarrufu",
+        "Name[ug]": "ئېكران ئېنېرگىيە تېجەش",
         "Name[uk]": "Заощадження енергії екраном",
         "Name[zh_CN]": "屏幕省电",
         "Name[zh_TW]": "螢幕節能"

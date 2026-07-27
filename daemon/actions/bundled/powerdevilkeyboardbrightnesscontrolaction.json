@@ -43,6 +43,7 @@
         "Description[sv]": "Grundkontroller för ljusstyrka av tangentbordets bakgrundsbelysning",
         "Description[ta]": "விசைப்பலகைக்கு பின்னுள்ள விளக்கின் ஒளியளவை மாற்ற உதவும்",
         "Description[tr]": "Klavye arka ışığı parlaklığı için temel denetimler",
+        "Description[ug]": "ھەرپتاختا تەگلىك يورۇقلۇقنىڭ ئاساسىي تىزگىنى",
         "Description[uk]": "Базове керування яскравістю підсвічування клавіатури",
         "Description[zh_CN]": "键盘背光亮度基本控制",
         "Description[zh_TW]": "鍵盤背光亮度的基本控制",
@@ -99,6 +100,7 @@
         "Name[ta]": "விசைப்பலகையின் பின்விளக்கு",
         "Name[tg]": "Чароғкунии клавиатура",
         "Name[tr]": "Klavye Arka Işığı",
+        "Name[ug]": "ھەرپتاختا تەگلىك چىرىغى",
         "Name[uk]": "Підсвічування клавіатури",
         "Name[zh_CN]": "键盘背光",
         "Name[zh_TW]": "鍵盤背光"

@@ -43,6 +43,7 @@
         "Description[sv]": "Grundkontroller för ljusstyrka",
         "Description[ta]": "திரையின் பிரகாசத்திற்கான அடிப்படை இயக்கிகள்",
         "Description[tr]": "Parlaklık için temel denetimler",
+        "Description[ug]": "يورۇقلۇقنىڭ ئاساسىي تىزگىنى",
         "Description[uk]": "Базове керування яскравістю",
         "Description[zh_CN]": "亮度基本控制",
         "Description[zh_TW]": "基本亮度控制",
@@ -101,6 +102,7 @@
         "Name[ta]": "திரையின் பிரகாசம்",
         "Name[tg]": "Дурахшонии экран",
         "Name[tr]": "Ekran Parlaklığı",
+        "Name[ug]": "ئېكران يورۇقلۇقى",
         "Name[uk]": "Яскравість екрана",
         "Name[zh_CN]": "屏幕亮度",
         "Name[zh_TW]": "螢幕亮度"

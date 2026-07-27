@@ -44,6 +44,7 @@
         "Description[sv]": "Tillämpa en strömhanteringsprofil",
         "Description[ta]": "ஓர் ஆற்றல் மேலாண்மை பயன்முறையை செயல்படுத்தும்",
         "Description[tr]": "Bir güç yönetimi profili uygulayın",
+        "Description[ug]": "توك مەنبە باشقۇرۇش سەپلىمە ھۆججىتىنى قوللىنىدۇ",
         "Description[uk]": "Застосувати профіль керування живленням",
         "Description[zh_CN]": "应用电源管理方案",
         "Description[zh_TW]": "套用電源管理設定檔",
@@ -93,6 +94,7 @@
         "Name[sv]": "Strömhanteringsprofil",
         "Name[ta]": "ஆற்றல் மேலாண்மை பயன்முறை",
         "Name[tr]": "Güç Yönetimi Profili",
+        "Name[ug]": "توك مەنبە باشقۇرۇش سەپلىمە ھۆججىتى",
         "Name[uk]": "Профіль керування живленням",
         "Name[zh_CN]": "电源管理方案",
         "Name[zh_TW]": "電源管理設定檔"

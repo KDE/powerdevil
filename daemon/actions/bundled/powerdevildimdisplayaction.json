@@ -44,6 +44,7 @@
         "Description[sv]": "Dämpa bildskärmen gradvis baserat på tid",
         "Description[ta]": "நேரத்தின் அடிப்படையில் திரையை படிப்படியாக மங்கசெய்யும்",
         "Description[tr]": "Zamana bağlı olarak görüntüyü yavaşça karartır",
+        "Description[ug]": "مەلۇم ۋاقىتتا ئېكراننى تەدرىجىي غۇۋالاشتۇرىدۇ",
         "Description[uk]": "Поступове зменшення яскравості дисплея з часом",
         "Description[zh_CN]": "按照设置的时间逐渐降低屏幕亮度",
         "Description[zh_TW]": "依時間逐漸讓顯示變暗",
@@ -101,6 +102,7 @@
         "Name[ta]": "திரையை மங்கசெய்",
         "Name[tg]": "Камнуркунии экран",
         "Name[tr]": "Ekranı Karart",
+        "Name[ug]": "غۇۋا ئېكران",
         "Name[uk]": "Зменшення яскравості екрана",
         "Name[zh_CN]": "降低屏幕亮度",
         "Name[zh_TW]": "將螢幕變暗"
