@@ -1,5 +1,6 @@
 # Translation of kcm_powerdevilprofilesconfig to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2009, 2015, 2018, 2020, 2024, 2026.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010, 2011.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
