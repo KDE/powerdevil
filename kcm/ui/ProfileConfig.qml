@@ -845,6 +845,10 @@ Kirigami.FormLayout {
         durationPromptLabel: i18nc("@label:spinbox After X minutes", "Run command or script after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "RunScriptIdleTimeoutSec"
+        }
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
             return formatUnit == DurationPromptDialog.Unit.Minutes
                 ? translateMinutes(n / 60) : i18ncp("@option:combobox", "Run after %1 second", "Run after %1 seconds", n);
@@ -915,11 +919,6 @@ Kirigami.FormLayout {
         Connections {
             target: profileSettings
             function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
-        }
-        
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "RunScriptIdleTimeoutSec"
         }
     }
 }
