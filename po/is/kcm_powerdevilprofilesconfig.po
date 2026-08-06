@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 02:46+0000\n"
 "PO-Revision-Date: 2025-12-03 16:28+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -574,7 +574,7 @@ msgstr[0] "Eftir %1 mínútu"
 msgstr[1] "Eftir %1 mínútur"
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:865
+#: ui/ProfileConfig.qml:869
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
@@ -924,7 +924,7 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Keyra aftur skipun eða skriftu:"
 
-#: ui/ProfileConfig.qml:850
+#: ui/ProfileConfig.qml:854
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -932,7 +932,7 @@ msgid_plural "Run after %1 seconds"
 msgstr[0] "Keyra eftir %1 sekúndu"
 msgstr[1] "Keyra eftir %1 sekúndur"
 
-#: ui/ProfileConfig.qml:852
+#: ui/ProfileConfig.qml:856
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -940,7 +940,7 @@ msgid_plural "Run after %1 minutes"
 msgstr[0] "Keyra eftir %1 mínútu"
 msgstr[1] "Keyra eftir %1 mínútur"
 
-#: ui/ProfileConfig.qml:894
+#: ui/ProfileConfig.qml:898
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"

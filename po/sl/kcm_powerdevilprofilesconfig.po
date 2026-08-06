@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 02:46+0000\n"
 "PO-Revision-Date: 2025-11-19 07:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -598,7 +598,7 @@ msgstr[2] "Po %1 minutah"
 msgstr[3] "Po %1 minutah"
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:865
+#: ui/ProfileConfig.qml:869
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
@@ -962,7 +962,7 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Zaženi ukaz ali skript po:"
 
-#: ui/ProfileConfig.qml:850
+#: ui/ProfileConfig.qml:854
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -972,7 +972,7 @@ msgstr[1] "Zaženi po %1 sekundi"
 msgstr[2] "Zaženi po %1 sekundah"
 msgstr[3] "Zaženi po %1 sekundah"
 
-#: ui/ProfileConfig.qml:852
+#: ui/ProfileConfig.qml:856
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -982,7 +982,7 @@ msgstr[1] "Zaženi po %1 minuti"
 msgstr[2] "Zaženi po %1 minutah"
 msgstr[3] "Zaženi po %1 minutah"
 
-#: ui/ProfileConfig.qml:894
+#: ui/ProfileConfig.qml:898
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"

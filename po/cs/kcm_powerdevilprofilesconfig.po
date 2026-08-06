@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 02:46+0000\n"
 "PO-Revision-Date: 2026-07-12 21:23+0200\n"
 "Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
@@ -585,7 +585,7 @@ msgstr[1] "Po %1 minutách"
 msgstr[2] "Po %1 minutách"
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:865
+#: ui/ProfileConfig.qml:869
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
@@ -943,7 +943,7 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Spustit příkaz nebo skript po:"
 
-#: ui/ProfileConfig.qml:850
+#: ui/ProfileConfig.qml:854
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -952,7 +952,7 @@ msgstr[0] "Spustit po %1 sekundě"
 msgstr[1] "Spustit po %1 sekundách"
 msgstr[2] "Spustit po %1 sekundách"
 
-#: ui/ProfileConfig.qml:852
+#: ui/ProfileConfig.qml:856
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -961,7 +961,7 @@ msgstr[0] "Spustit po %1 minutě"
 msgstr[1] "Spustit po %1 minutách"
 msgstr[2] "Spustit po %1 minutách"
 
-#: ui/ProfileConfig.qml:894
+#: ui/ProfileConfig.qml:898
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"

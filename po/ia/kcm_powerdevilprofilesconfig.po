@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:45+0000\n"
+"POT-Creation-Date: 2026-08-06 02:46+0000\n"
 "PO-Revision-Date: 2026-01-09 09:19+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -579,7 +579,7 @@ msgstr[0] "Post %1 minuta"
 msgstr[1] "Post %1 minutas"
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:865
+#: ui/ProfileConfig.qml:869
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
@@ -937,7 +937,7 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Executa commando o script post:"
 
-#: ui/ProfileConfig.qml:850
+#: ui/ProfileConfig.qml:854
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -945,7 +945,7 @@ msgid_plural "Run after %1 seconds"
 msgstr[0] "Executa post %1  secunda"
 msgstr[1] "Executa post %1 secundas"
 
-#: ui/ProfileConfig.qml:852
+#: ui/ProfileConfig.qml:856
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -953,7 +953,7 @@ msgid_plural "Run after %1 minutes"
 msgstr[0] "Executa post %1 minuta"
 msgstr[1] "Executa post %1 minutas"
 
-#: ui/ProfileConfig.qml:894
+#: ui/ProfileConfig.qml:898
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
