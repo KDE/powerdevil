@@ -167,24 +167,26 @@ PlasmoidItem {
             parts.push(i18n("Middle-click to disable automatic sleep and screen locking"));
         }
 
-        if (powerProfilesControl.isInPerformanceProfile) {
-            if (powerProfilesControl.isHeldOnPowerProfile) {
-                parts.push(i18np("An application has requested activating Performance mode",
-                                 "%1 applications have requested activating Performance mode",
-                                 powerProfilesControl.profileHolds.length));
-            } else {
-                parts.push(i18n("System is in Performance mode; scroll to change"));
+        if (powerProfilesControl.isPowerProfileDaemonInstalled) {
+            if (powerProfilesControl.isInPerformanceProfile) {
+                if (powerProfilesControl.isHeldOnPowerProfile) {
+                    parts.push(i18np("An application has requested activating Performance mode",
+                                    "%1 applications have requested activating Performance mode",
+                                    powerProfilesControl.profileHolds.length));
+                } else {
+                    parts.push(i18n("System is in Performance mode; scroll to change"));
+                }
+            } else if (powerProfilesControl.isInPowersaveProfile) {
+                if (powerProfilesControl.isHeldOnPowerProfile) {
+                    parts.push(i18np("An application has requested activating Power Save mode",
+                                    "%1 applications have requested activating Power Save mode",
+                                    powerProfilesControl.profileHolds.length));
+                } else {
+                    parts.push(i18n("System is in Power Save mode; scroll to change"));
+                }
+            } else if (powerProfilesControl.isInBalancedProfile) {
+                parts.push(i18n("System is in Balanced Power mode; scroll to change"));
             }
-        } else if (powerProfilesControl.isInPowersaveProfile) {
-            if (powerProfilesControl.isHeldOnPowerProfile) {
-                parts.push(i18np("An application has requested activating Power Save mode",
-                                "%1 applications have requested activating Power Save mode",
-                                powerProfilesControl.profileHolds.length));
-            } else {
-                parts.push(i18n("System is in Power Save mode; scroll to change"));
-            }
-        } else if (powerProfilesControl.isInBalancedProfile) {
-            parts.push(i18n("System is in Balanced Power mode; scroll to change"));
         }
 
         return parts.join("\n");
