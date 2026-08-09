@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-19 16:35+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -360,7 +360,7 @@ msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Izslēdziet automātisko iesnaudināšanu un ekrāna slēgšanu ar peles vidējo pogu"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -368,12 +368,12 @@ msgstr[0] "%1 programma ir pieprasījusi aktivizēt veiktspējas režīmu"
 msgstr[1] "%1 programmas ir pieprasījušas aktivizēt veiktspējas režīmu"
 msgstr[2] "%1 programmu ir pieprasījušas aktivizēt veiktspējas režīmu"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistēma atrodas veiktspējas režīmā. Ritiniet, lai mainītu."
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -381,27 +381,27 @@ msgstr[0] "%1 programma ir pieprasījusi aktivizēt energotaupības režīmu"
 msgstr[1] "%1 programmas ir pieprasījušas aktivizēt energotaupības režīmu"
 msgstr[2] "%1 programmu ir pieprasījušas aktivizēt energotaupības režīmu"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistēma atrodas energotaupības režīmā. Ritiniet, lai mainītu"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistēma atrodas līdzsvara režīmā. Ritiniet, lai mainītu"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Rādīt energopatēriņa informāciju..."
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Rādīt baterijas atlikumu procentos uz ikonas, kad nav pilnībā uzlādēta"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfigurēt energokontroli..."

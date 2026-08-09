@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-03-04 22:28+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -358,46 +358,46 @@ msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Avtomatik yuxu və ekran kilidinə keçidi söndürmək üçün orta düyməyə vurun"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Tətbiq məhduldar rejimin aktiv edilməsini tələb edir"
 msgstr[1] "%1 tətbiq məhsuldar rejimin aktiv edilməsini tələb edir"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistem məhsuldar rejimdədir; dəyişmək üçün sürüşdürün"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Tətbiq enerjiyə nəzarət rejiminin ktiv edilməsini tələb edir"
 msgstr[1] "%1 tətbiq enerjiyə nəzarət rejiminin aktiv edilməsini tələb edir"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistem enerjiyə qənaət rejimindədir; dəyişdirmək üçün sürüşdürün"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistem tarazlaşmış güc rejimindədir; dəyişmək üçün sürüşdürün"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Enerji məlumatlarını göstərmək..."
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Tam dolmadıqda batareyanın faizi nişanda göstərilsin"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Enerjiyə qənaət rejimini tənzimləyin..."

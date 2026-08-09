@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 18:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع التعليق الآلي وقفل الشاشة"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -356,12 +356,12 @@ msgstr[3] "%1 تطبيقات طلبت تنشيط وضع الأداء"
 msgstr[4] "%1 تطبيقًا طلب تنشيط وضع الأداء"
 msgstr[5] "%1 تطبيق طلب تنشيط وضع الأداء"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "النظام في وضع الأداء؛ مرر لتغير الوضع"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -372,27 +372,27 @@ msgstr[3] "%1 تطبيقات طلبت تنشيط وضع حفظ الطاقة"
 msgstr[4] "%1 تطبيقًا طلب تنشيط وضع حفظ الطاقة"
 msgstr[5] "%1 تطبيق طلب تنشيط وضع حفظ الطاقة"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "النظام في وضع توفير الطاقة؛ مرر لتغير الوضع"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "النظام في وضع التوازن؛ مرر لتغير الوضع"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "أ&ظهر معلومات الطاقة…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "أظهر نسبة البطارية على الأيقونة إن لم يكن مشحون بالكامل"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "ا&ضبط إدارة الطّاقة…"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 15:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -358,7 +358,7 @@ msgstr ""
 "Клацніть середньою кнопкою миші, щоб вимкнути автоматичне присипляння і "
 "блокування екрана"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -371,12 +371,12 @@ msgstr[2] ""
 msgstr[3] ""
 "Програмою надіслано запит щодо активації режиму підвищеної швидкодії"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Система перебуває у режимі швидкодії; гортайте далі, щоб змінити режим"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -388,31 +388,31 @@ msgstr[2] ""
 "Запит щодо активації режиму енергозаощадження надіслано %1 програмами"
 msgstr[3] "Програмою надіслано запит щодо активації режиму енергозаощадження"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr ""
 "Система перебуває у режимі заощадження енергії; гортайте далі, щоб змінити "
 "режим"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "Система перебуває у режимі збалансованого споживання енергії; гортайте далі, "
 "щоб змінити режим"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Показати дані щодо енергоспоживання…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Показувати заряд у відсотках на піктограмі, якщо заряджено не повністю"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Налаштувати керування живленням…"

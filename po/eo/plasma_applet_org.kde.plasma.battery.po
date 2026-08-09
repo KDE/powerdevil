@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: eo <kde-i18n-doc@kde.org>\n"
@@ -380,46 +380,46 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "Mezklaku por bloki aŭtomatan dormon kaj ekranŝlosadon"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Unu aplikaĵo petis aktivigon de Rendimenta reĝimo"
 msgstr[1] "%1 aplikaĵoj petis aktivigon de Rendimenta reĝimo"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistemo estas en Komput-Efikeca reĝimo; rulumu por ŝanĝi"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Unu aplikaĵo petis aktivigon de Potencoŝpara reĝimo"
 msgstr[1] "%1 aplikaĵoj petis aktivigon de Potencoŝpara reĝimo"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistemo estas en Energi-Ŝpara reĝimo"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistemo estas en Energi-Ekvilibra reĝimo; rulumu por ŝanĝi"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Montri Energiinformon…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Montri Baterian Procenton sur Piktogramo Kiam Ne Plene Ŝarĝita"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Agordi Energimastrumadon…"

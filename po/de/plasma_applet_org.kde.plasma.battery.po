@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-02-24 19:43+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -369,19 +369,19 @@ msgstr ""
 "Mittelklick, um den automatischen Standby-Modus und die automatische "
 "Bildschirmsperre zu deaktivieren"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Eine Anwendung hat die Aktivierung des Leistungsmodus‘ angefragt"
 msgstr[1] "%1 Anwendungen haben die Aktivierung des Leistungsmodus‘ angefragt"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "System ist im Leistungsmodus; mit dem Mausrad anpassen"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -389,27 +389,27 @@ msgstr[0] "Eine Anwendung hat die Aktivierung des Energiesparmodus‘ angefragt"
 msgstr[1] ""
 "%1 Anwendungen haben die Aktivierung des Energiesparmodus‘ angefragt"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "System ist im Energiesparmodus; mit dem Mausrad anpassen"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "System ist im ausgeglichenen Modus; mit dem Mausrad anpassen"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Energie-&Informationen anzeigen …"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Prozentualen Ladestand auf Symbol anzeigen, wenn nicht voll geladen"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "Energieverwaltung einrichten …"

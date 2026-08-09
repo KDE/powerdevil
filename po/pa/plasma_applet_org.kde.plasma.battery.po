@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-24 08:18-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -346,46 +346,46 @@ msgstr "ਆਪਣੇ-ਆਪ ਸਲੀਪ ਅਤੇ ਸਕਰੀਨ ਲਾਕ ਕ
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "ਆਟੋਮੈਟਿਕ ਸਲੀਪ ਕਰਨ ਤੇ ਸਕਰੀਨ ਲਾਕ ਕਰਨ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨ ਲਈ ਮਿਡਲ-ਕਲਿੱਕ ਕਰੋ"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਕਾਰਗੁਜ਼ਾਰੀ ਮੋਡ ਚਾਲੂ ਕਰਨ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ"
 msgstr[1] "%1 ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੇ ਕਾਰਗੁਜ਼ਾਰੀ ਮੋਡ ਚਾਲੂ ਕਰਨ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "ਸਿਸਟਮ ਕਾਰਗੁਜ਼ਾਰੀ ਮੋਡ ਵਿੱਚ ਹੈ; ਬਦਲਣ ਲਈ ਸਕਰੋਲ ਕਰੋ"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਊਰਜਾ ਬੱਚਤ ਮੋਡ ਚਾਲੂ ਕਰਨ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ"
 msgstr[1] "%1 ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੇ ਊਰਜਾ ਬੱਚਤ ਮੋਡ ਚਾਲੂ ਕਰਨ ਦੀ ਮੰਗ ਕੀਤੀ ਹੈ"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "ਸਿਸਟਮ ਪਾਵਰ ਬੱਚਤ ਮੋਡ ਵਿੱਚ ਹੈ; ਬਦਲਣ ਲਈ ਸਕਰੋਲ ਕਰੋ"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "ਸਿਸਟਮ ਸੰਤੁਲਿਤ ਪਾਵਰ ਮੋਡ ਵਿੱਚ ਹੈ; ਬਦਲਣ ਲਈ ਸਕਰੋਲ ਕਰੋ"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "…ਊਰਜਾ ਜਾਣਕਾਰੀ ਵੇਖਾਓ(&S)"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "ਜਦੋਂ ਬੈਟਰੀ ਪੂਰੀ ਚਾਰਜ ਨਾ ਹੋਵੇ ਤਾਂ ਆਈਕਾਨ ਉੱਤੇ ਬੈਟਰੀ ਫ਼ੀਸਦੀ ਵੇਖਾਓ"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "…ਪਾਵਰ ਬੱਚਤ ਦਾ ਇੰਤਜ਼ਾਮ(&C)"

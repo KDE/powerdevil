@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2025-09-11 17:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -396,47 +396,47 @@ msgstr ""
 "keskinapsautuksella"
 
 # Käännös on väännetty mutkalle, jotta %2:n sijaksi saadaan nominatiivi
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Sovellus on pyytänyt ottamaan käyttöön suorituskykytilan"
 msgstr[1] "%1 sovellusta on pyytänyt ottamaan käyttöön suorituskykytilan"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Järjestelmä on suorituskykytilassa; muuta vierittämällä"
 
 # Käännös on väännetty mutkalle, jotta %2:n sijaksi saadaan nominatiivi
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Sovellus on pyytänyt ottamaan käyttöön virransäästötilan"
 msgstr[1] "%1 sovellusta on pyytänyt ottamaan käyttöön virransäästötilan"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Järjestelmä on virransäästötilassa; muuta vierittämällä"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Järjestelmä on tasapainoisessa tilassa; muuta vierittämällä"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Näytä &virrankulutustiedot…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Näytä kuvakkeessa akun varaus, ellei varaus ole täysi"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Virransäästön asetukset…"

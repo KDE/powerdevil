@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -365,46 +365,46 @@ msgstr "स्वचालितनिद्रा, स्क्रीन-लॉ
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "स्वचालितनिद्रा, स्क्रीन-लॉकिंग् च निष्क्रियं कर्तुं मध्य-क्लिक् कुर्वन्तु"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "एकेन अनुप्रयोगेन Performance mode सक्रियीकरणस्य अनुरोधः कृतः अस्ति"
 msgstr[1] "%1 अनुप्रयोगैः Performance mode सक्रियीकरणस्य अनुरोधः कृतः"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "प्रणाली Performance mode इत्यत्र अस्ति; परिवर्तनार्थं स्क्रॉल कुर्वन्तु"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "एकेन अनुप्रयोगेन Power Save मोड् सक्रियीकरणस्य अनुरोधः कृतः अस्ति"
 msgstr[1] "%1 अनुप्रयोगाः Power Save मोड् सक्रियीकरणस्य अनुरोधं कृतवन्तः"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "प्रणाली Power Save मोड् मध्ये अस्ति; परिवर्तनार्थं स्क्रॉल कुर्वन्तु"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "प्रणाली संतुलितशक्तिविधाने अस्ति; परिवर्तनार्थं स्क्रॉल कुर्वन्तु"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&ऊर्जा सूचनां दर्शयतु..."
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "पूर्णतया चार्ज न भवति चेत् चिह्ने बैटरी प्रतिशतं दर्शयन्तु"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&शक्ति प्रबन्धन विन्यस्तं कुर्वन्तु..."

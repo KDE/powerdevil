@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-02-11 12:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -360,7 +360,7 @@ msgstr ""
 "Faceți clic mijlociu pentru a dezactiva adormirea și blocarea ecranului "
 "automate"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -368,12 +368,12 @@ msgstr[0] "O aplicație a cerut activarea regimului de performanță"
 msgstr[1] "%1 aplicații au cerut activarea regimului de performanță"
 msgstr[2] "%1 de aplicații au cerut activarea regimului de performanță"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistemul e în regim de performanță; derulați pentru a schimba"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -381,29 +381,29 @@ msgstr[0] "O aplicație a cerut activarea regimului de economisire"
 msgstr[1] "%1 aplicații au cerut activarea regimului de economisire"
 msgstr[2] "%1 de aplicații au cerut activarea regimului de economisire"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistemul e în regim de economisire; derulați pentru a schimba"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "Sistemul e în regim de alimentare echilibrat; derulați pentru a schimba"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Arată informații de&spre energie…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Arată procentajul acumulatorului pe pictogramă când nu e încărcat complet"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configurează gestiunea alimentării…"

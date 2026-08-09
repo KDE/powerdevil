@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-31 20:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -347,46 +347,46 @@ msgstr "தானியங்கி தூக்கம் மற்றும் 
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "தானியக்க தூக்கத்தையும் திரைபூட்டலையும் தடுக்க நடு-கிளிக் செய்யவும்"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "ஒரு செயலி அதிவேக பயன்முறையை இயக்குமாறு கோரியுள்ளது"
 msgstr[1] "%1 செயலிகள் அதிவேக பயன்முறையை இயக்குமாறு கோரியுள்ளன"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "கணினி அதிவேக பயன்முறையில் உள்ளது; மாற்ற உருளவும்"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "ஒரு செயலி ஆற்றல் சேமிப்பு பயன்முறையை இயக்குமாறு கோரியுள்ளது"
 msgstr[1] "%1 செயலிகள் ஆற்றல் சேமிப்பு பயன்முறையை இயக்குமாறு கோரியுள்ளன"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "கணினி ஆற்றல் சேமிப்பு பயன்முறையில் உள்ளது; மாற்ற உருளவும்"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "கணினி நடுநிலையான ஆற்றல் பயன்முறையில் உள்ளது; மாற்ற உருளவும்"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "ஆற்றல் விவரங்களை காட்டு…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "ஆற்றல் நிறைந்திராத பட்சத்தில் சின்னத்தில் மின்கல சதவீதத்தைக் காட்டு"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&ஆற்றல் மேலாண்மையை அமை…"

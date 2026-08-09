@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-06-04 22:02+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -360,46 +360,46 @@ msgstr ""
 "Kattintson középső gombbal az automatikus alvó állapot és képernyőzárolás "
 "kikapcsolásához"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Egy alkalmazás a Teljesítmény mód aktiválását kérte"
 msgstr[1] "%1 alkalmazás a Teljesítmény mód aktiválását kérte"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "A rendszer Teljesítmény módban van; görgessen a módosításhoz"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Egy alkalmazás az Energiatakarékos mód aktiválását kérte"
 msgstr[1] "%1 alkalmazás az Energiatakarékos mód aktiválását kérte"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "A rendszer Energiatakarékos módban van; görgessen a módosításhoz"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "A rendszer Kiegyensúlyozott módban van; görgessen a módosításhoz"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Energiakezelési jellemzők megjelenítése…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Százalékos érték megjelenítése az ikonon, ha nincs teljesen feltöltve"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Energiakezelési beállítások…"

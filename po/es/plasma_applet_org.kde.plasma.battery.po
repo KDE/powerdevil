@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 12:38+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -374,7 +374,7 @@ msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Clic central para desactivar el reposo automático y el bloqueo de pantalla"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -382,12 +382,12 @@ msgstr[0] "Una aplicación ha solicitado la activación del modo de rendimiento"
 msgstr[1] ""
 "%1 aplicaciones han solicitado la activación del modo de rendimiento"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "El sistema está en modo de rendimiento. Desplace para cambiarlo."
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -396,31 +396,31 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 aplicaciones han solicitado la activación del modo de ahorro de energía"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "El sistema está en modo de ahorro de energía. Desplace para cambiarlo."
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "El sistema está en modo equilibrado de uso de energía. Desplace para "
 "cambiarlo."
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&strar información sobre la energía…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostrar el porcentaje de la batería en el icono cuando no está completamente "
 "cargada"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configurar la gestión de energía…"

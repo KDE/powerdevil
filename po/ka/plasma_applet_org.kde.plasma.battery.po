@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 02:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -350,47 +350,47 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "შუა წკაპი ავტომატური ძილისა და ეკრანის დაბლოკვის გასათიშად"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "აპლიკაცია წარმადობის რეჟიმის ჩართვას მოითხოვს"
 msgstr[1] "%1 აპლიკაცია წარმადობის რეჟიმის ჩართვას მოითხოვს"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "სისტემა წარმადობის რეჟიმშია. შესაცვლელად გადაახვიეთ"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "აპლიკაცია ელემენტის შენახვის რეჟიმს მოითხოვს"
 msgstr[1] "%1 აპლიკაცია ელემენტის შენახვის რეჟიმს მოითხოვს"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "სისტემა ენერგიის დაზოგვის რეჟიმშია. შესაცვლელად გადაახვიეთ"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "სისტემა დაბალანსებული კვების რეჟიმშია. შესაცვლელად გადაახვიეთ"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&კვების ინფორმაციის ჩვენება…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "ხატულაზე ელემენტის პროცენტულობის ჩვენება, როცა ელემენტი ბოლომდე არაა დატენილი"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&ენერგიის მართვის მორგება…"

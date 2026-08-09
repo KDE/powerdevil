@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 14:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -354,46 +354,46 @@ msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Midden-klik om automatisch slapen en vergrendelen van scherm uit te schakelen"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Een toepassing heeft activering gevraagd van modus Prestatie"
 msgstr[1] "%1 toepassingen hebben activering gevraagd van modus Prestatie"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Systeem is in modus prestatie; schuif om te wijzigen"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Een toepassing heeft activering gevraagd van modus Energie sparen"
 msgstr[1] "%1 toepassingen hebben activering gevraagd van modus Energie sparen"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Systeem is in modus energie besparen; schuif om te wijzigen"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Systeem is in modus gebalanceerde energie; schuif om te wijzigen"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Energie-informatie &tonen…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Percentage batterij tonen op pictogram indien niet volledig geladen"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "Energiebeheer &configureren…"

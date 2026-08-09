@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 02:42+0000\n"
+"POT-Creation-Date: 2026-08-09 02:42+0000\n"
 "PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -368,19 +368,19 @@ msgstr ""
 "Clic del mig per a desactivar automàticament la suspensió i el bloqueig de "
 "pantalla"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Una aplicació ha sol·licitat l'activació del mode rendiment"
 msgstr[1] "%1 aplicacions han sol·licitat l'activació del mode rendiment"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "El sistema està en mode de rendiment; desplaceu per a canviar-ho"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -389,31 +389,31 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 aplicacions han sol·licitat l'activació del mode d'estalvi d'energia"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr ""
 "El sistema està en mode d'estalvi d'energia; desplaceu per a canviar-ho"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "El sistema està en mode d'energia equilibrat; desplaceu per a canviar-ho"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&stra la informació de l'energia…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostra el percentatge de la bateria a la icona quan no estigui completament "
 "carregada"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configura la gestió d'energia…"
