@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-09 00:47+0000\n"
 "PO-Revision-Date: 2024-10-14 17:21+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -373,46 +373,46 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "Klik tengah untuk menonfungsikan otomatis tidur dan penguncian layar"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Sebuah aplikasi telah meminta pengaktifan mode Performa"
 msgstr[1] "%1 aplikasi telah meminta pengaktifan mode Performa"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistem dalam mode Performa; gulir untuk mengubah"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Sebuah aplikasi telah meminta pengaktifan mode Hemat Daya"
 msgstr[1] "%1 aplikasi telah meminta pengaktifan mode Hemat Daya"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistem dalam mode Hemat Daya; gulir untuk mengubah"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistem dalam mode Daya Seimbang; gulir untuk mengubah"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Tampilkan Informasi Energi..."
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Tampilkan Persentase Baterai pada Ikon Ketika Belum Terisi Penuh"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfigurasi Pengelolaan Daya..."

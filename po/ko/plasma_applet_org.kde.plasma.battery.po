@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-09 00:47+0000\n"
 "PO-Revision-Date: 2026-02-03 22:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -349,44 +349,44 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "가운데 단추로 클릭하여 자동 절전과 화면 잠금 비활성화"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "앱 %1개에서 성능 모드를 활성화하기를 요청함"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "시스템이 고성능 모드임. 스크롤해서 변경"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "앱 %1개에서 절전 모드를 활성화하기를 요청함"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "시스템이 절전 모드임. 스크롤해서 변경"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "시스템이 균형 조정 모드임. 스크롤해서 변경"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "에너지 정보 표시(&S)…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "완전히 충전되지 않았을 때 아이콘에 배터리 백분율 표시"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "전원 관리 설정(&C)…"

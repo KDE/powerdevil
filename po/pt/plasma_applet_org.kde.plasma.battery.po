@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-09 00:47+0000\n"
 "PO-Revision-Date: 2026-01-28 17:34+0000\n"
 "Last-Translator: André Barata <andretiagob@protonmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -355,20 +355,20 @@ msgstr ""
 "Clique no botão do meio do rato para desativar a suspensão e o bloqueio do "
 "ecrã"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Uma aplicação solicitou a ativação do modo Melhor Desempenho"
 msgstr[1] "%1 aplicações solicitaram a ativação do modo Melhor Desempenho"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr ""
 "O sistema está no modo Melhor Desempenho; deslize a roda do rato para alterar"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -377,31 +377,31 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 aplicações solicitaram a ativação do modo Melhor Eficiência Energética"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr ""
 "O sistema está no modo Melhor Eficiência Energética; deslize a roda do rato "
 "para alterar"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "O sistema está no modo Equilibrado; deslize a roda do rato para alterar"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Mostrar a informação de energia…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostrar percentagem da Bateria no ícone quando não carregada completamente"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configurar a Gestão de Energia..."

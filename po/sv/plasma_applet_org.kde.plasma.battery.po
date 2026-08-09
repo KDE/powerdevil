@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-09 00:47+0000\n"
 "PO-Revision-Date: 2026-01-23 20:36+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -354,46 +354,46 @@ msgstr ""
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "Mittenklicka för att inaktivera automatiskt viloläge och skärmlåsning"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Ett program har begärt att aktivera prestandaläge"
 msgstr[1] "%1 program har begärt att aktivera prestandaläge"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Systemet är i prestandaläge. Rulla för att ändra."
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Ett program har begärt att aktivera strömsparläge"
 msgstr[1] "%1 program har begärt att aktivera strömsparläge"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Systemet är i strömsparläge. Rulla för att ändra."
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Systemet är i balanserat strömläge. Rulla för att ändra."
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Vi&sa information om energi…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Visa batteriets procentvärde på ikon om inte fulladdat"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "Anpassa strömspar&hantering…"

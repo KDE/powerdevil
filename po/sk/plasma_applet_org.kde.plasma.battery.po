@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-09 00:47+0000\n"
 "PO-Revision-Date: 2023-12-02 19:47+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -355,7 +355,7 @@ msgstr ""
 "Kliknutím prostredným tlačidlom myši vypnete automatický režim spánku a "
 "uzamknutie obrazovky"
 
-#: main.qml:172
+#: main.qml:173
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -363,12 +363,12 @@ msgstr[0] "An application has requested activating Performance mode"
 msgstr[1] "%1 aplikácie požiadali o aktiváciu režimu Vysokého výkonu"
 msgstr[2] "%1 aplikácií požiadalo o aktiváciu režimu Vysokého výkonu"
 
-#: main.qml:176
+#: main.qml:177
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "System je v režime Vysokého výkonu; kolieskom myši zmeníte"
 
-#: main.qml:180
+#: main.qml:181
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -376,27 +376,27 @@ msgstr[0] "Aplikácia požiadala o aktiváciu Úsporného režimu"
 msgstr[1] "%1 aplikácie požiadali o aktiváciu Úsporného režimu"
 msgstr[2] "%1 aplikácií požiadalo o aktiváciu Úsporného režimu"
 
-#: main.qml:184
+#: main.qml:185
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "System je v režime Šetrenia energie; kolieskom myši zmeníte"
 
-#: main.qml:187
+#: main.qml:188
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "System je v režime Vyvážený; kolieskom myši zmeníte"
 
-#: main.qml:301
+#: main.qml:303
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Zo&braziť informácie o energii…"
 
-#: main.qml:307
+#: main.qml:309
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Zobrazenie percenta batérie na ikone, keď nie je úplne nabitá"
 
-#: main.qml:320
+#: main.qml:322
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "Nastaviť správu napájania..."
