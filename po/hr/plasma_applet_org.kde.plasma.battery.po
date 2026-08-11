@@ -119,8 +119,7 @@ msgid "Sleep and Screen Locking after Inactivity"
 msgstr ""
 
 #: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
-#, fuzzy, kde-format
-#| msgid "Power Management"
+#, kde-format
 msgid "Power Management"
 msgstr "Upravljanje potrošnjom energije"
 
@@ -437,10 +436,9 @@ msgid "Performance"
 msgstr ""
 
 #: PowerProfileItem.qml:66
-#, fuzzy, kde-format
-#| msgid "Power Profile:"
+#, kde-format
 msgid "Power Profile"
-msgstr "Energetski profil:"
+msgstr "Energetski profil"
 
 #: PowerProfileItem.qml:110
 #, kde-format
