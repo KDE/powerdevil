@@ -81,6 +81,7 @@ Comment[fi]=Akun, näytön ja suorittimen virranhallinta sekä ilmoitukset
 Comment[fr]=Gestion et notifications de l'énergie pour les batteries, l'affichage et la consommation du processeur
 Comment[gl]=Xestión e notificacións da xestión enerxética da batería, da pantalla e do procesador.
 Comment[he]=ניהול צריכת חשמל והודעות על סוללה, תצוגה ומעבד
+Comment[hr]=Upravljanje potrošnjom energije baterije, ekrana i CPU-a i pripadajućim obavijestima.
 Comment[hu]=Akkumulátor-, kijelző- és processzorkezelés és értesítés
 Comment[ia]=Batteria, monstrator, gestion de energia de CPU e notification 
 Comment[id]=Baterai, Penampil dan pengelolaan daya CPU dan notifikasi
