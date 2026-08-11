@@ -52,7 +52,7 @@ PlasmaComponents3.ItemDelegate {
 
         ColumnLayout {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignTop
+            Layout.alignment: Qt.AlignVCenter
             spacing: Kirigami.Units.smallSpacing
 
             RowLayout {
@@ -146,7 +146,7 @@ PlasmaComponents3.ItemDelegate {
                     icon.name: "configure"
                     text: root.nightLightControl.enabled ? i18n("Configure…") : i18n("Enable and Configure…")
 
-                    Layout.alignment: Qt.AlignRight
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
                     KeyNavigation.up: root.KeyNavigation.up
                     KeyNavigation.backtab: inhibitionSwitch.visible ? inhibitionSwitch : root

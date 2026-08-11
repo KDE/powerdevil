@@ -20,12 +20,14 @@ RowLayout {
         id: iconItem
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
+        Layout.alignment: Qt.AlignVCenter
         visible: valid
     }
 
     PlasmaComponents3.Label {
         id: label
         Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
         font: Kirigami.Theme.smallFont
         textFormat: Text.PlainText
         wrapMode: Text.WordWrap

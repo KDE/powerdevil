@@ -85,7 +85,7 @@ PlasmaComponents3.ItemDelegate {
 
         ColumnLayout {
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignTop
+            Layout.alignment: Qt.AlignVCenter
             spacing: Kirigami.Units.smallSpacing
 
             // UI to undo manually inhibit sleep and screen locking
