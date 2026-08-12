@@ -160,7 +160,7 @@ PolicyInactive=yes
 
 [org.kde.powerdevil.chargethresholdhelper.setthreshold]
 Name=Set battery charge limit
-Name[ar]=ضع حداً لشحن البطارية
+Name[ar]=ضع حدًا لشحن البطارية
 Name[az]=Batareyanın dolması limitini təyin etmək
 Name[be]=Вызначыць ліміт узроўню зараду батарэі
 Name[bg]=Задаване на текущия лимит на зареждане на батерията
