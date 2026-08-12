@@ -211,7 +211,7 @@ msgstr[0] "شهر"
 msgstr[1] "شهر واحد"
 msgstr[2] "شهرين"
 msgstr[3] "أشهر"
-msgstr[4] "شهراً"
+msgstr[4] "شهرًا"
 msgstr[5] "شهر"
 
 #: ui/DurationPromptDialog.qml:144
@@ -773,7 +773,7 @@ msgstr "البتة"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr "لن تكون الشاشة خافتة لأنها ضبطت لإيقاف التشغيل حالاً."
+msgstr "لن تكون الشاشة خافتة لأنها ضبطت لإيقاف التشغيل حالًا."
 
 #: ui/ProfileConfig.qml:465
 #, kde-format
@@ -848,7 +848,7 @@ msgstr[5] "بعد القفل: %1 دقيقة"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] "عند القفل: حالاً"
+msgstr[0] "عند القفل: حالًا"
 msgstr[1] "عند القفل: دقيقة واحدة"
 msgstr[2] "عند القفل: دقيقتين"
 msgstr[3] "عند القفل: %1 دقائق"
@@ -867,7 +867,7 @@ msgstr "عند القفل وفك القفل"
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr "عند القفل: حالاً"
+msgstr "عند القفل: حالًا"
 
 #: ui/ProfileConfig.qml:590
 #, kde-format
