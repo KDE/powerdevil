@@ -25,6 +25,7 @@
 #include "controllers/screenbrightnesscontroller.h"
 #include "controllers/suspendcontroller.h"
 #include "powerdevilcore_export.h"
+#include "tabletmodewatcher.h"
 
 namespace KActivities
 {
@@ -82,6 +83,7 @@ public:
     LidController *lidController();
     KeyboardBrightnessController *keyboardBrightnessController();
     ScreenBrightnessController *screenBrightnessController();
+    TabletModeWatcher *tabletModeWatcher();
 
     Action *action(const QString actionId);
 
@@ -162,6 +164,7 @@ private:
     std::unique_ptr<LidController> m_lidController;
     std::unique_ptr<KeyboardBrightnessController> m_keyboardBrightnessController;
     std::unique_ptr<ScreenBrightnessController> m_screenBrightnessController;
+    std::unique_ptr<TabletModeWatcher> m_tabletModeWatcher;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;

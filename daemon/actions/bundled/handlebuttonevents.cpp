@@ -24,7 +24,6 @@
 #include <KScreen/Output>
 
 #include <KGlobalAccel>
-#include <Kirigami/Platform/TabletModeWatcher>
 
 using namespace Qt::StringLiterals;
 using namespace std::chrono_literals;
@@ -66,9 +65,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
             KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
         }
     };
-    auto interface = Kirigami::Platform::TabletModeWatcher::self();
-    connect(interface, &Kirigami::Platform::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
-    powerButtonMode(interface->isTabletMode());
+    auto tabletModeWatcher = core()->tabletModeWatcher();
+    connect(tabletModeWatcher, &PowerDevil::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
+    powerButtonMode(tabletModeWatcher->isTabletMode());
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
 
     globalAction = actionCollection->addAction(u"PowerDown"_s);

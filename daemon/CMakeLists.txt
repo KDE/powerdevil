@@ -20,6 +20,7 @@ set(powerdevilcore_SRCS
     powerdevilpowermanagement.cpp powerdevilpowermanagement.h
     powerdevilsettingsdefaults.cpp powerdevilsettingsdefaults.h
     brightnessosdwidget.cpp brightnessosdwidget.h
+    tabletmodewatcher.cpp tabletmodewatcher.h
     upowerdevice.cpp upowerdevice.h
     controllers/lidcontroller.cpp controllers/lidcontroller.h
     controllers/batterycontroller.cpp controllers/batterycontroller.h
@@ -102,7 +103,6 @@ target_link_libraries(powerdevilcore
     KF6::Service
     KF6::Notifications
     KF6::XmlGui
-    KF6::KirigamiPlatform
     powerdevil_log_static
     ${UDEV_LIBS}
     Qt::WaylandClient

@@ -40,7 +40,6 @@
 
 #include <QDebug>
 
-#include <Kirigami/Platform/TabletModeWatcher>
 #include <algorithm>
 #include <knotification.h>
 
@@ -85,6 +84,10 @@ Core::~Core()
 
 void Core::loadCore()
 {
+    // Asked for first, so that the answer, which comes back over D-Bus, is in by the time the
+    // controllers are ready and the profile that suits the form factor is picked.
+    m_tabletModeWatcher = std::make_unique<TabletModeWatcher>();
+
     m_suspendController = std::make_unique<SuspendController>();
     m_batteryController = std::make_unique<BatteryController>();
     m_lidController = std::make_unique<LidController>();
@@ -100,7 +103,7 @@ void Core::onControllersReady()
 {
     qCDebug(POWERDEVIL) << "Controllers ready, KDE Power Management system initialized";
 
-    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
+    const bool isMobile = m_tabletModeWatcher->isTabletMode();
     const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
     const bool canSuspend = m_suspendController->canSuspend();
     const bool canHibernate = m_suspendController->canHibernate();
@@ -1074,7 +1077,7 @@ Action *Core::action(const QString actionId)
 void Core::loadAllInactiveActions(const QString &previousProfile, const QString &newProfile)
 {
     // Load settings for the current profile
-    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
+    const bool isMobile = m_tabletModeWatcher->isTabletMode();
     const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
     bool canSuspend = m_suspendController->canSuspend();
 
@@ -1275,6 +1278,11 @@ KeyboardBrightnessController *Core::keyboardBrightnessController()
 ScreenBrightnessController *Core::screenBrightnessController()
 {
     return m_screenBrightnessController.get();
+}
+
+TabletModeWatcher *Core::tabletModeWatcher()
+{
+    return m_tabletModeWatcher.get();
 }
 }
 
