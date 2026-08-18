@@ -206,11 +206,6 @@ void KWinDisplayBrightness::setConfigOperationDone()
     }
 }
 
-bool KWinDisplayBrightness::supportsDimmingMultiplier() const
-{
-    return true;
-}
-
 void KWinDisplayBrightness::setDimmingMultiplier(double multiplier)
 {
     if (m_desiredDimming == multiplier) {

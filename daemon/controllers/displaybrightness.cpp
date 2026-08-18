@@ -31,11 +31,6 @@ bool DisplayBrightness::usesDdcCi() const
     return false;
 }
 
-bool DisplayBrightness::supportsDimmingMultiplier() const
-{
-    return false;
-}
-
 void DisplayBrightness::setDimmingMultiplier(double)
 {
 }

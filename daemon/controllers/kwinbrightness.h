@@ -28,7 +28,6 @@ public:
     void setBrightness(int brightness) override;
     bool isInternal() const override;
     std::optional<QByteArray> edidData() const override;
-    bool supportsDimmingMultiplier() const override;
     void setDimmingMultiplier(double multiplier) override;
 
     void applyPendingBrightness();

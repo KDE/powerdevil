@@ -220,13 +220,6 @@ private:
     int m_finishedDetectingCount = 0;
     std::unique_ptr<ExternalBrightnessController> m_externalBrightnessController;
 
-    struct RememberedDisplayState {
-        int brightness;
-        int minBrightness = 0;
-        std::optional<double> latestActiveDimmingRatio;
-    };
-    std::map<DisplayMatch, RememberedDisplayState> m_rememberedDisplayState;
-
     struct DimmingLimit {
         double ratio = 1.0;
     };
