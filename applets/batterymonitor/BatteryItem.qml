@@ -20,6 +20,8 @@ PlasmaComponents3.ItemDelegate {
 
     property int batteryPercent: 0
 
+    readonly property bool batteryPercentKnown: root.batteryPercent >= 0
+
     property int batteryCapacity: 0
 
     property real batteryEnergy: 0.0
@@ -70,8 +72,8 @@ PlasmaComponents3.ItemDelegate {
             Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 
             batteryType: root.batteryType
-            percent: root.batteryPercent
-            hasBattery: root.batteryPluggedIn
+            percent: Math.max(0, root.batteryPercent)
+            hasBattery: root.batteryPluggedIn && root.batteryPercentKnown
             pluggedIn: root.pluggedIn && root.batteryIsPowerSupply
         }
 
@@ -92,6 +94,7 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: isPowerSupplyLabel
+                    objectName: "statusLabel"
                     text: {
                         if (root.batteryPluggedIn) {
                             switch (root.batteryChargeState) {
@@ -108,22 +111,30 @@ PlasmaComponents3.ItemDelegate {
                         return i18nc("Battery is currently not present in the bay", "Not present");
                     }
                     textFormat: Text.PlainText
-                    // For non-power supply batteries only show label for known-good states
-                    visible: root.batteryIsPowerSupply || root.batteryChargeState !== BatteryControlModel.NoCharge
+                    // For non-power supply batteries only show a state when it adds
+                    // useful information. An unknown percentage with a discharging
+                    // state commonly means that a wireless component is unavailable.
+                    visible: root.batteryIsPowerSupply
+                        || root.batteryChargeState === BatteryControlModel.Charging
+                        || (root.batteryPercentKnown && root.batteryChargeState !== BatteryControlModel.NoCharge)
                     opacity: 0.75
                 }
 
                 PlasmaComponents3.Label {
                     id: percentLabel
+                    objectName: "percentageLabel"
                     horizontalAlignment: Text.AlignRight
                     visible: root.batteryPluggedIn
-                    text: i18nc("Placeholder is battery percentage", "%1%", root.batteryPercent)
+                    text: root.batteryPercentKnown
+                        ? i18nc("Placeholder is battery percentage", "%1%", root.batteryPercent)
+                        : i18nc("@info Battery percentage is unknown", "Unknown")
                     textFormat: Text.PlainText
                 }
             }
 
             PlasmaComponents3.ProgressBar {
                 id: chargeBar
+                objectName: "chargeBar"
 
                 Layout.fillWidth: true
                 Layout.topMargin: root.extraMargin
@@ -131,7 +142,7 @@ PlasmaComponents3.ItemDelegate {
 
                 from: 0
                 to: 100
-                visible: root.batteryPluggedIn
+                visible: root.batteryPluggedIn && root.batteryPercentKnown
                 value: root.batteryPercent
             }
 

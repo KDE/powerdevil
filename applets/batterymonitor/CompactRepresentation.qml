@@ -100,7 +100,7 @@ MouseArea {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
 
-            visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
+            visible: Plasmoid.configuration.showPercentage && root.batteryPercent >= 0 && !root.isSomehowFullyCharged
 
             text: i18nc("battery percentage below battery icon", "%1%", root.batteryPercent)
 
@@ -141,6 +141,8 @@ MouseArea {
         delegate: Item {
             id: batteryContainer
 
+            readonly property bool batteryPercentKnown: Percent >= 0
+
             width: view.cellWidth
             height: view.cellHeight
 
@@ -151,8 +153,8 @@ MouseArea {
                 anchors.fill: parent
 
                 active: root.containsMouse
-                hasBattery: PluggedIn
-                percent: Percent
+                hasBattery: PluggedIn && batteryContainer.batteryPercentKnown
+                percent: Math.max(0, Percent)
                 pluggedIn: ChargeState === BatteryControlModel.Charging
             }
 
@@ -160,7 +162,7 @@ MouseArea {
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
 
-                visible: Plasmoid.configuration.showPercentage && !root.isSomehowFullyCharged
+                visible: Plasmoid.configuration.showPercentage && batteryContainer.batteryPercentKnown && !root.isSomehowFullyCharged
 
                 text: i18nc("battery percentage below battery icon", "%1%", Percent)
                 icon: batteryIcon

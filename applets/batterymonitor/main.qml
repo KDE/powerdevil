@@ -123,6 +123,10 @@ PlasmoidItem {
         }
 
         const percent = batteryControl.percent;
+        if (percent < 0) {
+            return i18nc("@info:status", "Battery level unknown");
+        }
+
         if (batteryControl.pluggedIn) {
             const state = batteryControl.state;
             if (state === BatteryControlModel.NoCharge) {
