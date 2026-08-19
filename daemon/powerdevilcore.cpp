@@ -521,9 +521,9 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
             return false;
         }
 
-        // if you leave the device out of reach or it has not been initialized yet
-        // it won't be "there" and report 0%, don't show anything in this case
-        if (!b->isPresent() || b->chargePercent() == 0) {
+        // If you leave the device out of reach or it has not been initialized yet,
+        // it won't be "there" and can report an empty or unknown percentage.
+        if (!b->isPresent() || b->chargePercent() <= 0) {
             return false;
         }
 
