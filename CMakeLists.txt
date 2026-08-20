@@ -27,12 +27,7 @@ include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
 
-find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
-
-if(BUILD_TESTING)
-    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS QuickTest)
-endif()
-
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus QuickTest)
 find_package(QCoro6 REQUIRED COMPONENTS Core DBus)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Auth
