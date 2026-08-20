@@ -53,7 +53,8 @@ PlasmaComponents3.ItemDelegate {
     highlighted: activeFocus
     hoverEnabled: false
 
-    Accessible.ignored: true
+    Accessible.name: root.text
+    Accessible.description: root.labelText
     Keys.forwardTo: [slider]
 
     contentItem: RowLayout {
@@ -114,6 +115,7 @@ PlasmaComponents3.ItemDelegate {
 
                 Accessible.name: root.type === BrightnessItem.Type.Screen ? i18nc("Placeholder is display name", "Display Brightness - %1", root.text) : root.text
                 Accessible.description: brightnessValue.text
+                Accessible.ignored: true
                 Accessible.onPressAction: this.moved(value)
 
                 // while pressed, don't update in response to outside changes, as it can cause
