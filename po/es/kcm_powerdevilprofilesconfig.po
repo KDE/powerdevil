@@ -1,15 +1,15 @@
 # Spanish translations for kcm_powerdevilprofilesconfig.po package.
-# Copyright (C) 2014-2025 This file is copyright:
+# Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
 #
-# SPDX-FileCopyrightText: 2014, 2020, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014, 2020, 2023-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-06 02:46+0000\n"
-"PO-Revision-Date: 2025-11-21 02:13+0100\n"
+"PO-Revision-Date: 2026-08-20 02:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -253,7 +253,7 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr "10 %"
+msgstr "10 %"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
@@ -410,7 +410,7 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
-"La carga habitual de la batería cerca del 100 %, o su carga completa, puede "
+"La carga habitual de la batería cerca del 100 %, o su carga completa, puede "
 "acelerar el deterioro del estado de salud de la batería. Si limita la carga "
 "máxima de la batería, podrá extender su vida."
 
@@ -532,7 +532,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr "10 %"
+msgstr "10 %"
 
 #: ui/ProfileConfig.qml:43
 #, kde-format
