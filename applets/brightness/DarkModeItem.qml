@@ -22,7 +22,10 @@ PlasmaComponents3.ItemDelegate {
     hoverEnabled: false
 
     Accessible.description: status.text
-    KeyNavigation.tab: darkModeSwitch
+    Accessible.onPressAction: darkModeSwitch.click()
+    Keys.onSpacePressed: darkModeSwitch.click()
+    KeyNavigation.tab: kcmButton
+    KeyNavigation.right: kcmButton
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.gridUnit
@@ -68,9 +71,11 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Switch {
                     id: darkModeSwitch
                     Layout.fillWidth: true
+                    activeFocusOnTab: false
+                    focusPolicy: Qt.NoFocus
                     text: i18nc("@action:button", "Dark Mode")
                     checked: DarkModeControl.darkMode
-                    onToggled: DarkModeControl.darkMode = checked
+                    onClicked: DarkModeControl.darkMode = checked
                 }
 
                 PlasmaComponents3.Button {
@@ -83,8 +88,6 @@ PlasmaComponents3.ItemDelegate {
                     Layout.alignment: Qt.AlignRight
 
                     KeyNavigation.up: root.KeyNavigation.up
-                    KeyNavigation.backtab: darkModeSwitch
-                    KeyNavigation.left: darkModeSwitch
 
                     Keys.onPressed: (event) => {
                         if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {

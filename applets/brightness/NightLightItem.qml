@@ -27,7 +27,10 @@ PlasmaComponents3.ItemDelegate {
     hoverEnabled: false
 
     Accessible.description: status.text
-    KeyNavigation.tab: inhibitionSwitch.visible ? inhibitionSwitch : kcmButton
+    Accessible.onPressAction: inhibitionSwitch.visible ?  inhibitionSwitch.clicked() : {}
+    KeyNavigation.tab: kcmButton
+    KeyNavigation.right: kcmButton
+    Keys.onSpacePressed: inhibitionSwitch.visible ?  inhibitionSwitch.clicked() : {}
 
     component NightLightControl: DBus.Properties {
         busType: DBus.BusType.Session
@@ -160,17 +163,9 @@ PlasmaComponents3.ItemDelegate {
 
                     Accessible.onPressAction: clicked()
 
-                    KeyNavigation.up: root.KeyNavigation.up
-                    KeyNavigation.tab: kcmButton
-                    KeyNavigation.right: kcmButton
-                    KeyNavigation.backtab: root
+                    activeFocusOnTab: false
+                    focusPolicy: Qt.NoFocus
 
-                    Keys.onPressed: (event) => {
-                        if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
-                            clicked()
-                            event.accepted = true
-                        }
-                    }
                     onClicked: NightLightInhibitor.toggleInhibition()
                 }
 
@@ -184,8 +179,6 @@ PlasmaComponents3.ItemDelegate {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
                     KeyNavigation.up: root.KeyNavigation.up
-                    KeyNavigation.backtab: inhibitionSwitch.visible ? inhibitionSwitch : root
-                    KeyNavigation.left: inhibitionSwitch
 
                     Keys.onPressed: (event) => {
                         if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
