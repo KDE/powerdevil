@@ -103,7 +103,9 @@ endif()
 
 add_subdirectory(runners)
 
-add_subdirectory(autotests)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
 
 ecm_qt_install_logging_categories(
         EXPORT POWERDEVIL
