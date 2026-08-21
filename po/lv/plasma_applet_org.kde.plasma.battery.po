@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-19 16:35+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -23,39 +23,47 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
-#: BatteryItem.qml:99
+#: BatteryItem.qml:102
 #, kde-format
 msgid "Charging"
 msgstr "Uzlādējas"
 
-#: BatteryItem.qml:101
+#: BatteryItem.qml:104
 #, kde-format
 msgid "Discharging"
 msgstr "Izlādējas"
 
-#: BatteryItem.qml:103 main.qml:122
+#: BatteryItem.qml:106 main.qml:122
 #, kde-format
 msgid "Fully Charged"
 msgstr "Pilnībā uzlādēta"
 
-#: BatteryItem.qml:105
+#: BatteryItem.qml:108
 #, kde-format
 msgid "Not Charging"
 msgstr "Nelādē"
 
-#: BatteryItem.qml:108
+#: BatteryItem.qml:111
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "Nav"
 
-#: BatteryItem.qml:120
+#: BatteryItem.qml:129
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: BatteryItem.qml:184
+#: BatteryItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+#| msgid "Unknown reason."
+msgctxt "@info Battery percentage is unknown"
+msgid "Unknown"
+msgstr "Nezināms iemesls."
+
+#: BatteryItem.qml:195
 #, kde-format
 msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
@@ -64,39 +72,39 @@ msgstr ""
 "Baterijas veselība ir vairs tikai %1 %, tāpēc to vajadzētu nomainīt. "
 "Sazinieties ar ražotāju."
 
-#: BatteryItem.qml:203
+#: BatteryItem.qml:214
 #, kde-format
 msgid "Time To Full:"
 msgstr "Laiks līdz pilnai:"
 
-#: BatteryItem.qml:204
+#: BatteryItem.qml:215
 #, kde-format
 msgid "Remaining Time:"
 msgstr "Atlikušais laiks:"
 
-#: BatteryItem.qml:210
+#: BatteryItem.qml:221
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
 msgstr "Aprēķina..."
 
-#: BatteryItem.qml:220
+#: BatteryItem.qml:231
 #, kde-format
 msgid "Battery Health:"
 msgstr "Baterijas veselība:"
 
-#: BatteryItem.qml:226
+#: BatteryItem.qml:237
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: BatteryItem.qml:238
+#: BatteryItem.qml:249
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "Baterija ir konfigurēta uzlādēties līdz aptuveni %1%."
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:165
+#: CompactRepresentation.qml:105 CompactRepresentation.qml:167
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -298,55 +306,61 @@ msgstr "Energokontrole un baterija"
 msgid "Battery is not present in the bay"
 msgstr "Baterijas ligzdā nav baterijas"
 
-#: main.qml:129
+#: main.qml:127
+#, kde-format
+msgctxt "@info:status"
+msgid "Battery level unknown"
+msgstr ""
+
+#: main.qml:133
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "Baterijas līmenis ir %1 %, nelādē"
 
-#: main.qml:131
+#: main.qml:135
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr ""
 "Baterijas līmenis ir %1 %, pievienota elektrotīklam, bet joprojām izlādējas"
 
-#: main.qml:133
+#: main.qml:137
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "Baterijas līmenis ir %1 %, lādē"
 
-#: main.qml:136
+#: main.qml:140
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Baterijas līmenis ir %1 %"
 
-#: main.qml:144
+#: main.qml:148
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Barošanas avots nav gana jaudīgs, lai lādētu bateriju"
 
-#: main.qml:148
+#: main.qml:152
 #, kde-format
 msgid "No Batteries Available"
 msgstr "Baterijas nav pieejamas"
 
-#: main.qml:155
+#: main.qml:159
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 līdz pilnai uzlādei"
 
-#: main.qml:157
+#: main.qml:161
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "%1 atlicis"
 
-#: main.qml:160
+#: main.qml:164
 #, kde-format
 msgid "Not charging"
 msgstr "Nelādē"
 
-#: main.qml:165
+#: main.qml:169
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
@@ -354,13 +368,13 @@ msgstr ""
 "Automātiskā ekrāna slēgšana un iesnaudināšana ir izslēgta. Ieslēdziet ar "
 "peles vidējo pogu."
 
-#: main.qml:167
+#: main.qml:171
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Izslēdziet automātisko iesnaudināšanu un ekrāna slēgšanu ar peles vidējo pogu"
 
-#: main.qml:173
+#: main.qml:177
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -368,12 +382,12 @@ msgstr[0] "%1 programma ir pieprasījusi aktivizēt veiktspējas režīmu"
 msgstr[1] "%1 programmas ir pieprasījušas aktivizēt veiktspējas režīmu"
 msgstr[2] "%1 programmu ir pieprasījušas aktivizēt veiktspējas režīmu"
 
-#: main.qml:177
+#: main.qml:181
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistēma atrodas veiktspējas režīmā. Ritiniet, lai mainītu."
 
-#: main.qml:181
+#: main.qml:185
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -381,27 +395,27 @@ msgstr[0] "%1 programma ir pieprasījusi aktivizēt energotaupības režīmu"
 msgstr[1] "%1 programmas ir pieprasījušas aktivizēt energotaupības režīmu"
 msgstr[2] "%1 programmu ir pieprasījušas aktivizēt energotaupības režīmu"
 
-#: main.qml:185
+#: main.qml:189
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistēma atrodas energotaupības režīmā. Ritiniet, lai mainītu"
 
-#: main.qml:188
+#: main.qml:192
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistēma atrodas līdzsvara režīmā. Ritiniet, lai mainītu"
 
-#: main.qml:303
+#: main.qml:307
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Rādīt energopatēriņa informāciju..."
 
-#: main.qml:309
+#: main.qml:313
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Rādīt baterijas atlikumu procentos uz ikonas, kad nav pilnībā uzlādēta"
 
-#: main.qml:322
+#: main.qml:326
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfigurēt energokontroli..."

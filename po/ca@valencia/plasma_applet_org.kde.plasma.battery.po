@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:47+0000\n"
+"POT-Creation-Date: 2026-08-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -22,39 +22,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
-#: BatteryItem.qml:99
+#: BatteryItem.qml:102
 #, kde-format
 msgid "Charging"
 msgstr "Està carregant"
 
-#: BatteryItem.qml:101
+#: BatteryItem.qml:104
 #, kde-format
 msgid "Discharging"
 msgstr "Descarregant"
 
-#: BatteryItem.qml:103 main.qml:122
+#: BatteryItem.qml:106 main.qml:122
 #, kde-format
 msgid "Fully Charged"
 msgstr "Totalment carregada"
 
-#: BatteryItem.qml:105
+#: BatteryItem.qml:108
 #, kde-format
 msgid "Not Charging"
 msgstr "No està carregant"
 
-#: BatteryItem.qml:108
+#: BatteryItem.qml:111
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "No hi és"
 
-#: BatteryItem.qml:120
+#: BatteryItem.qml:129
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BatteryItem.qml:184
+#: BatteryItem.qml:130
+#, fuzzy, kde-format
+#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
+#| msgid "Unknown reason."
+msgctxt "@info Battery percentage is unknown"
+msgid "Unknown"
+msgstr "Motiu desconegut."
+
+#: BatteryItem.qml:195
 #, kde-format
 msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
@@ -63,40 +71,40 @@ msgstr ""
 "L'estat d'esta bateria és de %1% i s'hauria de substituir. Contacteu amb el "
 "fabricant."
 
-#: BatteryItem.qml:203
+#: BatteryItem.qml:214
 #, kde-format
 msgid "Time To Full:"
 msgstr "Temps fins a omplir:"
 
-#: BatteryItem.qml:204
+#: BatteryItem.qml:215
 #, kde-format
 msgid "Remaining Time:"
 msgstr "Temps restant:"
 
-#: BatteryItem.qml:210
+#: BatteryItem.qml:221
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
 msgstr "S'està estimant…"
 
-#: BatteryItem.qml:220
+#: BatteryItem.qml:231
 #, kde-format
 msgid "Battery Health:"
 msgstr "Estat de la bateria:"
 
-#: BatteryItem.qml:226
+#: BatteryItem.qml:237
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BatteryItem.qml:238
+#: BatteryItem.qml:249
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 "La bateria està configurada per a carregar només fins al %1% aproximadament."
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:165
+#: CompactRepresentation.qml:105 CompactRepresentation.qml:167
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -307,55 +315,61 @@ msgstr "Energia i bateria"
 msgid "Battery is not present in the bay"
 msgstr "La bateria no està en el compartiment"
 
-#: main.qml:129
+#: main.qml:127
+#, kde-format
+msgctxt "@info:status"
+msgid "Battery level unknown"
+msgstr ""
+
+#: main.qml:133
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "Bateria al %1%, no està carregant"
 
-#: main.qml:131
+#: main.qml:135
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "Bateria al %1%, connectada però encara està descarregant"
 
-#: main.qml:133
+#: main.qml:137
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "Bateria al %1%, s'està carregant"
 
-#: main.qml:136
+#: main.qml:140
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Bateria al %1%"
 
-#: main.qml:144
+#: main.qml:148
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr ""
 "El subministrament elèctric no és prou potent per a carregar la bateria"
 
-#: main.qml:148
+#: main.qml:152
 #, kde-format
 msgid "No Batteries Available"
 msgstr "No hi ha cap bateria disponible"
 
-#: main.qml:155
+#: main.qml:159
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 fins a completar la càrrega"
 
-#: main.qml:157
+#: main.qml:161
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "Resta %1"
 
-#: main.qml:160
+#: main.qml:164
 #, kde-format
 msgid "Not charging"
 msgstr "No està carregant"
 
-#: main.qml:165
+#: main.qml:169
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
@@ -363,26 +377,26 @@ msgstr ""
 "La suspensió automàtica i el bloqueig de la pantalla estan desactivats. Clic "
 "del mig per a tornar-ho a activar"
 
-#: main.qml:167
+#: main.qml:171
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Clic del mig per a desactivar automàticament la suspensió i el bloqueig de "
 "la pantalla"
 
-#: main.qml:173
+#: main.qml:177
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Una aplicació ha sol·licitat l'activació del mode rendiment"
 msgstr[1] "%1 aplicacions han sol·licitat l'activació del mode rendiment"
 
-#: main.qml:177
+#: main.qml:181
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "El sistema està en mode de rendiment. Desplaceu per a canviar-ho"
 
-#: main.qml:181
+#: main.qml:185
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -391,31 +405,31 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 aplicacions han sol·licitat l'activació del mode d'estalvi d'energia"
 
-#: main.qml:185
+#: main.qml:189
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr ""
 "El sistema està en mode d'estalvi d'energia. Desplaceu per a canviar-ho"
 
-#: main.qml:188
+#: main.qml:192
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "El sistema està en mode d'energia equilibrat. Desplaceu per a canviar-ho"
 
-#: main.qml:303
+#: main.qml:307
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&stra la informació de l'energia…"
 
-#: main.qml:309
+#: main.qml:313
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostra el percentatge de la bateria en la icona quan no estiga completament "
 "carregada"
 
-#: main.qml:322
+#: main.qml:326
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configura la gestió de l'energia…"
