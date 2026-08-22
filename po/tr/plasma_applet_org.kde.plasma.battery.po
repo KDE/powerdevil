@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2026-07-24 20:30+0300\n"
+"PO-Revision-Date: 2026-08-21 19:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -59,12 +59,10 @@ msgid "%1%"
 msgstr "%​%1"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "Bilinmeyen neden."
+msgstr "Bilinmiyor"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -312,7 +310,7 @@ msgstr "Yuvada pil yok"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "Pil düzeyi bilinmiyor"
 
 #: main.qml:133
 #, kde-format

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2026-08-20 01:56+0100\n"
+"PO-Revision-Date: 2026-08-21 23:33+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -55,12 +55,10 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "Motivo desconocido."
+msgstr "Desconocido"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -324,7 +322,7 @@ msgstr "La batería no está presente en el compartimento"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "Nivel de batería desconocido"
 
 #: main.qml:133
 #, kde-format
