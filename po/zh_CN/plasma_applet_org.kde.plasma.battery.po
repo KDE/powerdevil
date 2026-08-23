@@ -54,7 +54,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -292,7 +292,7 @@ msgstr "电池不在电池仓中"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "电池电量未知"
 
 #: main.qml:133
 #, kde-format
