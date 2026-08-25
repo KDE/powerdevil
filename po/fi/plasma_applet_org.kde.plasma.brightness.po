@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-07 02:40+0000\n"
-"PO-Revision-Date: 2025-02-14 19:57+0200\n"
+"PO-Revision-Date: 2026-02-25 19:10+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: BrightnessItem.qml:35
 #, kde-format
@@ -70,7 +70,7 @@ msgstr "Näytön kirkkaus – %1"
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
-msgstr ""
+msgstr "Tumma tila"
 
 #: DarkModeItem.qml:81 NightLightItem.qml:147
 #, kde-format
@@ -81,7 +81,7 @@ msgstr "Asetukset…"
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
-msgstr ""
+msgstr "Vaihda tilaksi: %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -89,8 +89,7 @@ msgid "Follow accent color"
 msgstr "Seuraa korostusväriä"
 
 #: main.qml:95
-#, fuzzy, kde-format
-#| msgid "Brightness and Color"
+#, kde-format
 msgid "Brightness & Color"
 msgstr "Kirkkaus ja väri"
 
@@ -292,7 +291,7 @@ msgstr "Yövalo"
 #: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "Teema"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
