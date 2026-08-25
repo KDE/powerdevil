@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-06 00:47+0000\n"
-"PO-Revision-Date: 2026-01-05 18:08+0200\n"
+"PO-Revision-Date: 2026-02-24 19:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -432,7 +432,7 @@ msgstr "Me&diatoisto:"
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr "Keskeytä mediasoittimet valmiustilaan siirryttäessä"
+msgstr "keskeytä mediatoisto valmiustilaan siirryttäessä"
 
 #: ui/GlobalConfig.qml:366
 #, kde-format
@@ -444,12 +444,12 @@ msgstr "Asiaan liittyvät sivut:"
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Ilmoitukset: Virranhallinta"
+msgstr "Virranhallinnan ilmoitukset"
 
 #: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Avaa ”Ilmoitusten” asetussivun ”Virranhallinta”-osio"
+msgstr "Avaa ilmoitusten asetussivun virranhallinnan osio"
 
 #: ui/GlobalConfig.qml:394
 #, kde-format
@@ -543,8 +543,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"Järjestelmä ei enää tue toimintoa, joka aiemmin on asetettu joutoaikaa "
-"varten. Valitse toinen."
+"Järjestelmä ei enää tue joutoaikaa varten aiemmin asettua toimintoa. Valitse "
+"toinen."
 
 #: ui/ProfileConfig.qml:65
 #, kde-format
@@ -565,16 +565,16 @@ msgstr "Järjestelmän joutoaikana suoritettava toiminto"
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "%1 s kuluttua"
-msgstr[1] "%1 s kuluttua"
+msgstr[0] "%1 s jälkeen"
+msgstr[1] "%1 s jälkeen"
 
 #: ui/ProfileConfig.qml:107
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "%1 min kuluttua"
-msgstr[1] "%1 min kuluttua"
+msgstr[0] "%1 min jälkeen"
+msgstr[1] "%1 min jälkeen"
 
 #: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
 #: ui/ProfileConfig.qml:869

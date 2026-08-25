@@ -4,7 +4,7 @@
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007, 2008.
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2008.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2008.
-# SPDX-FileCopyrightText: 2009, 2010, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2009, 2010, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2024 Lasse Liehu <lasse.liehu@gmail.com>
 # SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
 #
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2025-09-11 17:38+0300\n"
+"PO-Revision-Date: 2026-02-25 19:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -125,14 +125,10 @@ msgid "Power Management"
 msgstr "Virranhallinta"
 
 #: InhibitionItem.qml:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "Automatic sleep and screen locking are disabled; middle-click to re-enable"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
-"Automaattinen valmiustila ja näytönlukitus on poistettu käytöstä; ota "
-"uudelleen käyttöön keskinapsautuksella"
+msgstr "Automaattinen valmiustila ja näytönlukitus on paraikaa estetty."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -140,30 +136,31 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Näytönlukitus on paraikaa estetty. Valmiustilaan siirrytään joutoajan "
+"jälkeen automaattisesti."
 
 #: InhibitionItem.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
-msgstr "Valmiustila ja näytönlukitus joutoaikana"
+msgstr ""
+"Valmiustila on paraikaa estetty. Näyttö lukitaan joutoajan jälkeen "
+"automaattisesti."
 
 #: InhibitionItem.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Sleep and Screen Locking after Inactivity"
+#, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr "Valmiustila ja näytönlukitus joutoaikana"
+msgstr ""
+"Valmiustilaan siirrytään ja näyttö lukitaan joutoajan jälkeen "
+"automaattisesti."
 
 #: InhibitionItem.qml:95
-#, fuzzy, kde-format
-#| msgid "Failed to block automatic sleep and screen locking"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Automaattisen valmiustilan ja näytönlukituksen estäminen epäonnistui"
+msgstr "Estä valmiustila ja näytönlukitus"
 
 #: InhibitionItem.qml:118
 #, kde-format
@@ -177,28 +174,14 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Automaattisen valmiustilan ja näytönlukituksen estäminen epäonnistui"
 
 #: InhibitionItem.qml:135
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr ""
-"Olet itse estänyt valmiustilan ja näytönlukituksen. Tämä johtaa suurempaan "
-"virrankulutukseen."
+msgstr "Tämä johtaa suurempaan virrankulutukseen."
 
 #: InhibitionItem.qml:136
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Minimize the length of this string as much as possible but the sentence "
-#| "about higher energy consumption must be included (EU regulations)"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
@@ -206,8 +189,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"Olet itse estänyt valmiustilan ja näytönlukituksen. Tämä johtaa suurempaan "
-"virrankulutukseen."
+"Olet itse estänyt automaattisen valmiustilan ja näytönlukituksen. Tämä "
+"johtaa suurempaan virrankulutukseen."
 
 #: InhibitionItem.qml:143
 #, kde-format
@@ -220,30 +203,26 @@ msgstr ""
 "näyttö on kytketty."
 
 #: InhibitionItem.qml:162
-#, fuzzy, kde-format
-#| msgctxt "Application name: reason for preventing sleep and screen locking"
-#| msgid "%1: unknown reason"
+#, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr "%1: tuntematon syy"
+msgstr "Tuntematon syy"
 
 #: InhibitionItem.qml:169
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 haluaa estää valmiustilan ja näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:171
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 haluaa estää näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:173
 #, kde-format
@@ -251,61 +230,55 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 haluaa estää valmiustilan. (%2)"
 
 #: InhibitionItem.qml:177
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää myös valmiustilan ja näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:179
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää myös näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:181
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää myös valmiustilan. (%2)"
 
 #: InhibitionItem.qml:185
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää valmiustilan ja näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:187
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää näytönlukituksen. (%2)"
 
 #: InhibitionItem.qml:189
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr "%1 estää lukituksen ja valmiustilan (%2)"
+msgstr "%1 estää valmiustilan. (%2)"
 
 #: InhibitionItem.qml:197
 #, kde-format
@@ -321,7 +294,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Salli"
 
 #: main.qml:76
 #, kde-format
@@ -331,8 +304,7 @@ msgstr ""
 "eston"
 
 #: main.qml:97
-#, fuzzy, kde-format
-#| msgid "Power and Battery"
+#, kde-format
 msgid "Power & Battery"
 msgstr "Virranhallinta"
 
