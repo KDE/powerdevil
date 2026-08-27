@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-06 00:47+0000\n"
-"PO-Revision-Date: 2026-07-12 21:23+0200\n"
-"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
+"PO-Revision-Date: 2026-08-26 23:22+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -505,7 +505,7 @@ msgstr "Otevřít nastavení \"Aktivity\""
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "Konfigurovat pokročilá na&stavení..."
+msgstr "Konfigurovat pokročilá na&stavení…"
 
 #: ui/main.qml:44
 #, kde-format
@@ -558,7 +558,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr "Pokud neakt&ivní"
+msgstr "Pokud neakt&ivní:"
 
 #: ui/ProfileConfig.qml:74
 #, kde-format
@@ -917,7 +917,7 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "Při op&uštění stavu \"%1\""
+msgstr "Při op&uštění stavu \"%1\":"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
