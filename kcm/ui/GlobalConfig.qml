@@ -253,14 +253,39 @@ Kirigami.ScrollablePage {
                 if (kcm.isChargeStopThresholdSupported) {
                     externalSettings.chargeStopThreshold = value;
                 }
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                value = Qt.binding(() => externalSettings.chargeStopThreshold);
+            }
+
+            onActiveFocusChanged: {
+                if (!activeFocus) {
+                    // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                    value = Qt.binding(() => externalSettings.chargeStopThreshold);
+                }
             }
 
             editable: true
             validator: percentageValidator
             textFromValue: formatPercent
-            valueFromText: extractPercent
+            // HACK: work around qqc2-desktop-style's auto-update behavior, which awkwarkdly
+            // resets the while you're editing it and applies the range constraints. Instead
+            // manually recreate the upstream behavior: only update on Return and focus loss
+            valueFromText: (text, locale) => activeFocus
+                ? chargeStopThresholdSpin.value
+                : root.extractPercent(text, locale)
+
+            Keys.priority: Keys.BeforeItem
+            Keys.onUpPressed: event => {
+                value = Number(root.extractPercent(displayText, locale))
+                event.accepted = false // pass to SpinBox key handler
+            }
+            Keys.onDownPressed: event => {
+                value = Number(root.extractPercent(displayText, locale))
+                event.accepted = false // pass to SpinBox key handler
+            }
+            Keys.onReturnPressed: {
+                value = Number(root.extractPercent(displayText, locale))
+                valueModified();
+            }
+            Keys.onEnterPressed: event => Keys.returnPressed(event)
         }
 
         QQC2.SpinBox {
@@ -280,11 +305,16 @@ Kirigami.ScrollablePage {
                 if (kcm.isChargeStartThresholdSupported) {
                     externalSettings.chargeStartThreshold = value < to ? value : 0;
                 }
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input.
-                // We do too, in onToChanged. Restore it again.
-                value = Qt.binding(() => externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to);
             }
             property int lockstepUpperBound: -1 // tracks externalSettings and manual user changes, not range limit changes
+
+            onActiveFocusChanged: {
+                if (!activeFocus) {
+                    // In Qt 6.6, SpinBox breaks the value binding on keyboard input.
+                    // We do too, in onToChanged. Restore it again.
+                    value = Qt.binding(() => externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to);
+                }
+            }
 
             onValueModified: {
                 setChargeStartThreshold();
@@ -315,7 +345,23 @@ Kirigami.ScrollablePage {
             editable: true
             validator: percentageValidator
             textFromValue: formatPercent
-            valueFromText: extractPercent
+            valueFromText: (text, locale) => activeFocus
+                ? value
+                : root.extractPercent(text, locale)
+            Keys.priority: Keys.BeforeItem
+            Keys.onReturnPressed: {
+                value = Number(root.extractPercent(displayText, locale))
+                valueModified();
+            }
+            Keys.onUpPressed: event => {
+                value = Number(root.extractPercent(displayText, locale))
+                event.accepted = false // pass to SpinBox key handler
+            }
+            Keys.onDownPressed: event => {
+                value = Number(root.extractPercent(displayText, locale))
+                event.accepted = false // pass to SpinBox key handler
+            }
+            Keys.onEnterPressed: event => Keys.returnPressed(event)
         }
 
         Kirigami.InlineMessage {
