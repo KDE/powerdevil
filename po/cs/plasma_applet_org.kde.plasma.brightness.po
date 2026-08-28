@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-07 00:45+0000\n"
-"PO-Revision-Date: 2026-08-26 23:24+0200\n"
+"PO-Revision-Date: 2026-08-27 10:07+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -126,37 +126,37 @@ msgstr "Noční světlo bylo pozastaveno"
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
-msgstr ""
+msgstr "Noční světlo s denní teplotou barev"
 
 #: main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
-msgstr ""
+msgstr "Noční světlo s noční teplotou barev"
 
 #: main.qml:161
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
-msgstr ""
+msgstr "Noční světlo při ranním přechodu (dokončeno z %1)"
 
 #: main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
-msgstr ""
+msgstr "Noční světlo při večerním přechodu (dokončeno z %1)"
 
 #: main.qml:181
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
-msgstr ""
+msgstr "Večerní přechod na noční světla naplánován na %1"
 
 #: main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
-msgstr ""
+msgstr "Ranní přechod z nočního světla naplánován na %1"
 
 #: main.qml:187
 #, kde-format
@@ -166,7 +166,7 @@ msgstr "Rolujte pro upravení jasu obrazovky"
 #: main.qml:190
 #, kde-format
 msgid "Middle-click to suspend Night Light"
-msgstr ""
+msgstr "Kliknutím prostředním tlačítkem myši pozastavíte funkci Noční světlo"
 
 #: main.qml:273
 #, kde-format
@@ -254,25 +254,25 @@ msgstr "Povolit a nastavit…"
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day complete by:"
-msgstr ""
+msgstr "Přechod na denní režim dokončen z:"
 
 #: NightLightItem.qml:177
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night scheduled for:"
-msgstr ""
+msgstr "Přechod na noční režim je naplánován na:"
 
 #: NightLightItem.qml:179
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night complete by:"
-msgstr ""
+msgstr "Přechod na noční režim dokončen z:"
 
 #: NightLightItem.qml:181
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
-msgstr ""
+msgstr "Přechod na denní režim je naplánován na:"
 
 #: PopupDialog.qml:124
 #, kde-format
