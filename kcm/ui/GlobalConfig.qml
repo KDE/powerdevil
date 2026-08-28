@@ -24,12 +24,14 @@ Kirigami.ScrollablePage {
             // Make all the non-number, non-whitespace optional.
             .replace(/[^\d\s]/g, function(matched) { return matched + "?"; })
             // Replace the concrete number from percentageTemplate with a number expression.
-            .replace(/\s*\d+\s*/, "\\s*(\\d+)\\s*")
+            // Replace the concrete number from percentageTemplate with a number expression:
+            // 100 or zero to two digits
+            .replace(/\s*\d+\s*/, "\\s*(100|\\d{0,2})\\s*")
     )
 
     RegularExpressionValidator {
         id: percentageValidator
-        regularExpression: percentageExtractor
+        regularExpression: root.percentageExtractor
     }
 
     function formatPercent(value, locale) {
