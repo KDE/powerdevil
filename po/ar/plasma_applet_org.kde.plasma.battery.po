@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-18 18:48+0400\n"
+"PO-Revision-Date: 2026-08-29 12:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: BatteryItem.qml:102
 #, kde-format
@@ -52,12 +52,10 @@ msgid "%1%"
 msgstr "%1٪"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "سبب مجهول."
+msgstr "غير معروف"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -298,7 +296,7 @@ msgstr "البطارية غير موجودة في مخزن البطاريات"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "مستوى البطارية غير معروف"
 
 #: main.qml:133
 #, kde-format

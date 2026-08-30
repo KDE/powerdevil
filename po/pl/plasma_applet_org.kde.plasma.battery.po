@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-21 00:47+0000\n"
-"PO-Revision-Date: 2026-02-21 08:45+0100\n"
+"PO-Revision-Date: 2026-08-29 21:33+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: BatteryItem.qml:102
 #, kde-format
@@ -51,12 +51,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "Nieznana przyczyna."
+msgstr "Nieznany"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -304,7 +302,7 @@ msgstr "Bateria nie jest dostępna w gnieździe"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "Nieznany poziom baterii"
 
 #: main.qml:133
 #, kde-format
