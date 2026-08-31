@@ -26,12 +26,7 @@ PlasmaComponents3.ItemDelegate {
     property alias stepSize: control.stepSize
     required property /*BrightnessItem.Type*/ int type
 
-    Binding {
-        when: !control.pressed
-        control.value: root.value
-    }
-
-    readonly property real percentage: Math.round(100 * value / maximumValue)
+    readonly property real percentage: Math.round(100 * control.value / maximumValue)
     readonly property string brightnessLevelOff: i18nc("Backlight on or off", "Off")
     readonly property string brightnessLevelLow: i18nc("Brightness level", "Low")
     readonly property string brightnessLevelMedium: i18nc("Brightness level", "Medium")
@@ -40,19 +35,19 @@ PlasmaComponents3.ItemDelegate {
     readonly property string labelText: {
         if (maximumValue == 1) {
             const levels = [brightnessLevelOff, brightnessLevelOn];
-            return levels[value];
+            return levels[control.value];
         } else if (maximumValue == 2) {
             const levels = [brightnessLevelOff, brightnessLevelLow, brightnessLevelHigh];
-            return levels[value];
+            return levels[control.value];
         } else if (maximumValue == 3) {
             const levels = [brightnessLevelOff, brightnessLevelLow, brightnessLevelMedium, brightnessLevelHigh];
-            return levels[value];
+            return levels[control.value];
         } else {
             return i18nc("Placeholder is brightness percentage", "%1%", percentage);
         }
     }
 
-    signal moved()
+    signal moved(real value)
 
     background.visible: highlighted
     highlighted: activeFocus
@@ -115,14 +110,18 @@ PlasmaComponents3.ItemDelegate {
                 activeFocusOnTab: false
                 from: 0
                 stepSize: 1
+                value: root.value
 
                 Accessible.name: root.type === BrightnessItem.Type.Screen ? i18nc("Placeholder is display name", "Display Brightness - %1", root.text) : root.text
                 Accessible.description: brightnessValue.text
-                Accessible.onPressAction: this.moved()
+                Accessible.onPressAction: this.moved(value)
+
+                // while pressed, don't update in response to outside changes, as it can cause
+                // problems if the backend is reporting intermediate values while changing
+                onPressedChanged: value = pressed ? value : Qt.binding(() => root.value)
 
                 onMoved: {
-                    root.value = value
-                    root.moved()
+                    root.moved(value)
                 }
             }
         }
