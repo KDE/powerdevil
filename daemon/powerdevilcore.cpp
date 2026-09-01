@@ -761,6 +761,8 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
             // Only refresh status if a notification has actually been emitted
             loadProfile();
         }
+    } else if (currentPercent > previousPercent) {
+        updateBatteryNotifications(currentPercent);
     }
 }
 
