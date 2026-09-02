@@ -139,6 +139,7 @@ PlasmaComponents3.ItemDelegate {
                     id: currentTemp
                     visible: root.nightLightControl.available && root.nightLightControl.enabled && root.nightLightControl.running
                     text: i18nc("Placeholder is screen color temperature", "%1K", root.nightLightControl.currentTemperature)
+                    font.features: { "tnum": 1 }
                     textFormat: Text.PlainText
 
                     horizontalAlignment: Text.AlignRight
