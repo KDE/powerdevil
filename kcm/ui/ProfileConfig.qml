@@ -80,18 +80,18 @@ Kirigami.FormLayout {
             textRole: "name"
             valueRole: "value"
 
-            readonly property bool isConfiguredValueSupported: currentValue === profileSettings.autoSuspendAction
+            readonly property bool isConfiguredValueSupported: currentValue === root.profileSettings.autoSuspendAction
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "AutoSuspendAction"
             }
             Component.onCompleted: {
                 // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-                currentIndex = Qt.binding(() => indexOfValue(profileSettings.autoSuspendAction));
+                currentIndex = Qt.binding(() => indexOfValue(root.profileSettings.autoSuspendAction));
             }
             onActivated: {
-                profileSettings.autoSuspendAction = currentValue;
+                root.profileSettings.autoSuspendAction = currentValue;
             }
         }
 
@@ -120,14 +120,14 @@ Kirigami.FormLayout {
                 { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
             ]
             customRequesterValue: -1
-            configuredValue: profileSettings.autoSuspendIdleTimeoutSec
+            configuredValue: root.profileSettings.autoSuspendIdleTimeoutSec
             configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
             onRegularValueActivated: {
-                profileSettings.autoSuspendIdleTimeoutSec = currentValue;
+                root.profileSettings.autoSuspendIdleTimeoutSec = currentValue;
             }
             onCustomDurationAccepted: {
-                profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
+                root.profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
             }
 
@@ -145,7 +145,7 @@ Kirigami.FormLayout {
             }
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "AutoSuspendIdleTimeoutSec"
                 extraEnabledConditions: autoSuspendActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
             }
@@ -162,9 +162,9 @@ Kirigami.FormLayout {
         visible: text !== ""
 
         function showIfNeeded() {
-            if (profileSettings.autoSuspendAction === PD.PowerDevil.PowerButtonAction.NoAction) {
+            if (root.profileSettings.autoSuspendAction === PD.PowerDevil.PowerButtonAction.NoAction) {
                 text = i18nc("@info:status", "Disabling automatic suspend will result in higher energy consumption.");
-            } else if (profileSettings.autoSuspendIdleTimeoutSec > 20 * 60) {
+            } else if (root.profileSettings.autoSuspendIdleTimeoutSec > 20 * 60) {
                 text = i18nc("@info:status A long duration until suspend/shutdown", "A long duration will result in higher energy consumption.");
             } else {
                 text = "";
@@ -196,18 +196,18 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
-        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.powerButtonAction
+        readonly property bool isConfiguredValueSupported: currentValue === root.profileSettings.powerButtonAction
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "PowerButtonAction"
         }
         Component.onCompleted: {
             // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerButtonAction));
+            currentIndex = Qt.binding(() => indexOfValue(root.profileSettings.powerButtonAction));
         }
         onActivated: {
-            profileSettings.powerButtonAction = currentValue;
+            root.profileSettings.powerButtonAction = currentValue;
         }
     }
 
@@ -235,18 +235,18 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
-        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.lidAction
+        readonly property bool isConfiguredValueSupported: currentValue === root.profileSettings.lidAction
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "LidAction"
         }
         Component.onCompleted: {
             // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.lidAction));
+            currentIndex = Qt.binding(() => indexOfValue(root.profileSettings.lidAction));
         }
         onActivated: {
-            profileSettings.lidAction = currentValue;
+            root.profileSettings.lidAction = currentValue;
         }
     }
 
@@ -261,12 +261,12 @@ Kirigami.FormLayout {
         visible: lidActionCombo.visible
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "InhibitLidActionWhenExternalMonitorPresent"
             extraEnabledConditions: lidActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
         }
-        checked: !profileSettings.inhibitLidActionWhenExternalMonitorPresent
-        onToggled: { profileSettings.inhibitLidActionWhenExternalMonitorPresent = !checked; }
+        checked: !root.profileSettings.inhibitLidActionWhenExternalMonitorPresent
+        onToggled: { root.profileSettings.inhibitLidActionWhenExternalMonitorPresent = !checked; }
     }
 
     Kirigami.InlineMessage {
@@ -307,10 +307,10 @@ Kirigami.FormLayout {
             highlighted: index === sleepModeCombo.currentIndex
         }
 
-        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.sleepMode
+        readonly property bool isConfiguredValueSupported: currentValue === root.profileSettings.sleepMode
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "SleepMode"
             extraEnabledConditions: (
                 autoSuspendActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
@@ -320,10 +320,10 @@ Kirigami.FormLayout {
         }
         Component.onCompleted: {
             // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.sleepMode));
+            currentIndex = Qt.binding(() => indexOfValue(root.profileSettings.sleepMode));
         }
         onActivated: {
-            profileSettings.sleepMode = currentValue;
+            root.profileSettings.sleepMode = currentValue;
         }
     }
 
@@ -353,11 +353,11 @@ Kirigami.FormLayout {
             id: displayBrightnessCheck
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "UseProfileSpecificDisplayBrightness"
             }
-            checked: profileSettings.useProfileSpecificDisplayBrightness
-            onToggled: { profileSettings.useProfileSpecificDisplayBrightness = checked; }
+            checked: root.profileSettings.useProfileSpecificDisplayBrightness
+            onToggled: { root.profileSettings.useProfileSpecificDisplayBrightness = checked; }
         }
         QQC2.Slider {
             id: displayBrightnessSlider
@@ -367,21 +367,21 @@ Kirigami.FormLayout {
             stepSize: 1
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "DisplayBrightness"
                 extraEnabledConditions: displayBrightnessCheck.checked
             }
-            value: profileSettings.displayBrightness
-            onMoved: { profileSettings.displayBrightness = value; }
+            value: root.profileSettings.displayBrightness
+            onMoved: { root.profileSettings.displayBrightness = value; }
         }
         QQC2.Label {
             enabled: displayBrightnessCheck.checked
-            text: formatPercentageText(displayBrightnessSlider.value)
+            text: root.formatPercentageText(displayBrightnessSlider.value)
             Layout.preferredWidth: displayBrightnessPercentageMetrics.width
         }
         TextMetrics {
             id: displayBrightnessPercentageMetrics
-            text: formatPercentageText(100)
+            text: root.formatPercentageText(100)
         }
     }
 
@@ -415,17 +415,17 @@ Kirigami.FormLayout {
             { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
         ]
         customRequesterValue: -2
-        configuredValue: profileSettings.dimDisplayWhenIdle ? profileSettings.dimDisplayIdleTimeoutSec : -1
+        configuredValue: root.profileSettings.dimDisplayWhenIdle ? root.profileSettings.dimDisplayIdleTimeoutSec : -1
         configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
         onRegularValueActivated: {
-            profileSettings.dimDisplayIdleTimeoutSec = currentValue;
-            profileSettings.dimDisplayWhenIdle = currentValue > 0;
+            root.profileSettings.dimDisplayIdleTimeoutSec = currentValue;
+            root.profileSettings.dimDisplayWhenIdle = currentValue > 0;
         }
         onCustomDurationAccepted: {
-            profileSettings.dimDisplayIdleTimeoutSec = valueToUnit(
+            root.profileSettings.dimDisplayIdleTimeoutSec = valueToUnit(
                 customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-            profileSettings.dimDisplayWhenIdle = customDuration.value > 0;
+            root.profileSettings.dimDisplayWhenIdle = customDuration.value > 0;
         }
 
         onConfiguredValueOptionMissing: {
@@ -442,7 +442,7 @@ Kirigami.FormLayout {
         }
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "DimDisplayIdleTimeoutSec"
         }
     }
@@ -451,9 +451,9 @@ Kirigami.FormLayout {
         Kirigami.FormData.isSection: true
         visible: (
             dimDisplayIdleTimeoutCombo.visible
-            && profileSettings.dimDisplayWhenIdle && profileSettings.turnOffDisplayWhenIdle
-            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutSec
-            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+            && root.profileSettings.dimDisplayWhenIdle && root.profileSettings.turnOffDisplayWhenIdle
+            && root.profileSettings.dimDisplayIdleTimeoutSec >= root.profileSettings.turnOffDisplayIdleTimeoutSec
+            && root.profileSettings.dimDisplayIdleTimeoutSec >= root.profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
         )
         Layout.fillWidth: true
         type: Kirigami.MessageType.Warning
@@ -497,17 +497,17 @@ Kirigami.FormLayout {
                 { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values (caution: watch for string length)", "Custom…") },
             ]
             customRequesterValue: -2
-            configuredValue: profileSettings.turnOffDisplayWhenIdle ? profileSettings.turnOffDisplayIdleTimeoutSec : -1
+            configuredValue: root.profileSettings.turnOffDisplayWhenIdle ? root.profileSettings.turnOffDisplayIdleTimeoutSec : -1
             configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
             onRegularValueActivated: {
-                profileSettings.turnOffDisplayIdleTimeoutSec = currentValue;
-                profileSettings.turnOffDisplayWhenIdle = currentValue > 0;
+                root.profileSettings.turnOffDisplayIdleTimeoutSec = currentValue;
+                root.profileSettings.turnOffDisplayWhenIdle = currentValue > 0;
             }
             onCustomDurationAccepted: {
-                profileSettings.turnOffDisplayIdleTimeoutSec = valueToUnit(
+                root.profileSettings.turnOffDisplayIdleTimeoutSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-                profileSettings.turnOffDisplayWhenIdle = customDuration.value > 0;
+                root.profileSettings.turnOffDisplayWhenIdle = customDuration.value > 0;
             }
 
             onConfiguredValueOptionMissing: {
@@ -524,7 +524,7 @@ Kirigami.FormLayout {
             }
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "TurnOffDisplayIdleTimeoutSec"
             }
         }
@@ -556,12 +556,12 @@ Kirigami.FormLayout {
                 { seconds: -3, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
             ]
             customRequesterValue: -3
-            configuredValue: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+            configuredValue: root.profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
             configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Seconds
 
-            onRegularValueActivated: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = currentValue; }
+            onRegularValueActivated: { root.profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = currentValue; }
             onCustomDurationAccepted: {
-                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = valueToUnit(
+                root.profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
             }
 
@@ -579,9 +579,9 @@ Kirigami.FormLayout {
             }
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "TurnOffDisplayIdleTimeoutWhenLockedSec"
-                extraEnabledConditions: profileSettings.turnOffDisplayWhenIdle
+                extraEnabledConditions: root.profileSettings.turnOffDisplayWhenIdle
             }
         }
     }
@@ -598,11 +598,11 @@ Kirigami.FormLayout {
             id: keyboardBrightnessCheck
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "UseProfileSpecificKeyboardBrightness"
             }
-            checked: profileSettings.useProfileSpecificKeyboardBrightness
-            onToggled: { profileSettings.useProfileSpecificKeyboardBrightness = checked; }
+            checked: root.profileSettings.useProfileSpecificKeyboardBrightness
+            onToggled: { root.profileSettings.useProfileSpecificKeyboardBrightness = checked; }
         }
         QQC2.Slider {
             id: keyboardBrightnessSlider
@@ -612,21 +612,21 @@ Kirigami.FormLayout {
             stepSize: 1
 
             KCM.SettingStateBinding {
-                configObject: profileSettings
+                configObject: root.profileSettings
                 settingName: "KeyboardBrightness"
                 extraEnabledConditions: keyboardBrightnessCheck.checked
             }
-            value: profileSettings.keyboardBrightness
-            onMoved: { profileSettings.keyboardBrightness = value; }
+            value: root.profileSettings.keyboardBrightness
+            onMoved: { root.profileSettings.keyboardBrightness = value; }
         }
         QQC2.Label {
             enabled: keyboardBrightnessCheck.checked
-            text: formatPercentageText(keyboardBrightnessSlider.value)
+            text: root.formatPercentageText(keyboardBrightnessSlider.value)
             Layout.preferredWidth: keyboardBrightnessPercentageMetrics.width
         }
         TextMetrics {
             id: keyboardBrightnessPercentageMetrics
-            text: formatPercentageText(100)
+            text: root.formatPercentageText(100)
         }
     }
 
@@ -659,16 +659,16 @@ Kirigami.FormLayout {
         valueRole: "value"
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "PowerProfile"
         }
         Component.onCompleted: {
             // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
             // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
-            currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
+            currentIndex = Qt.binding(() => count ? indexOfValue(root.profileSettings.powerProfile) : -1);
         }
         onActivated: {
-            profileSettings.powerProfile = currentValue;
+            root.profileSettings.powerProfile = currentValue;
         }
     }
 
@@ -710,13 +710,13 @@ Kirigami.FormLayout {
                 )
                 checkable: true
                 Component.onCompleted: {
-                    profileLoadCommandEditAction.checked = profileSettings.profileLoadCommand !== "";
+                    profileLoadCommandEditAction.checked = root.profileSettings.profileLoadCommand !== "";
                 }
                 onToggled: {
                     if (checked) {
                         profileLoadCommandEdit.forceActiveFocus();
                     } else {
-                        profileSettings.profileLoadCommand = "";
+                        root.profileSettings.profileLoadCommand = "";
                     }
                 }
             }
@@ -728,13 +728,13 @@ Kirigami.FormLayout {
                 )
                 checkable: true
                 Component.onCompleted: {
-                    profileUnloadCommandEditAction.checked = profileSettings.profileUnloadCommand !== "";
+                    profileUnloadCommandEditAction.checked = root.profileSettings.profileUnloadCommand !== "";
                 }
                 onToggled: {
                     if (checked) {
                         profileUnloadCommandEdit.forceActiveFocus();
                     } else {
-                        profileSettings.profileUnloadCommand = "";
+                        root.profileSettings.profileUnloadCommand = "";
                     }
                 }
             }
@@ -746,7 +746,7 @@ Kirigami.FormLayout {
                 )
                 checkable: true
                 Component.onCompleted: {
-                    idleTimeoutCommandEditAction.checked = (profileSettings.idleTimeoutCommand !== ""
+                    idleTimeoutCommandEditAction.checked = (root.profileSettings.idleTimeoutCommand !== ""
                         // Always show field, regardless of addScriptCommandButton.visible.
                         || (kcm.supportedActions["RunScript"] === true && !kcm.supportsBatteryProfiles));
                 }
@@ -754,7 +754,7 @@ Kirigami.FormLayout {
                     if (checked) {
                         idleTimeoutCommandEdit.forceActiveFocus();
                     } else {
-                        profileSettings.idleTimeoutCommand = "";
+                        root.profileSettings.idleTimeoutCommand = "";
                     }
                 }
             }
@@ -775,23 +775,23 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "ProfileLoadCommand"
         }
-        command: profileSettings.profileLoadCommand
+        command: root.profileSettings.profileLoadCommand
         onCommandChanged: {
-            profileSettings.profileLoadCommand = command;
+            root.profileSettings.profileLoadCommand = command;
         }
         function resetToProfileSettings() {
-            command = profileSettings.profileLoadCommand;
-            profileLoadCommandEditAction.checked |= profileSettings.profileLoadCommand !== "";
+            command = root.profileSettings.profileLoadCommand;
+            profileLoadCommandEditAction.checked |= root.profileSettings.profileLoadCommand !== "";
         }
         Connections {
             target: root
             function onProfileSettingsChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
         }
         Connections {
-            target: profileSettings
+            target: root.profileSettings
             function onProfileLoadCommandChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
         }
     }
@@ -810,23 +810,23 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "ProfileUnloadCommand"
         }
-        command: profileSettings.profileUnloadCommand
+        command: root.profileSettings.profileUnloadCommand
         onCommandChanged: {
-            profileSettings.profileUnloadCommand = command;
+            root.profileSettings.profileUnloadCommand = command;
         }
         function resetToProfileSettings() {
-            command = profileSettings.profileUnloadCommand;
-            profileUnloadCommandEditAction.checked |= profileSettings.profileUnloadCommand !== "";
+            command = root.profileSettings.profileUnloadCommand;
+            profileUnloadCommandEditAction.checked |= root.profileSettings.profileUnloadCommand !== "";
         }
         Connections {
             target: root
             function onProfileSettingsChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
         }
         Connections {
-            target: profileSettings
+            target: root.profileSettings
             function onProfileUnloadCommandChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
         }
     }
@@ -846,7 +846,7 @@ Kirigami.FormLayout {
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "RunScriptIdleTimeoutSec"
         }
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
@@ -869,12 +869,12 @@ Kirigami.FormLayout {
                 { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
         ]
         customRequesterValue: -1
-        configuredValue: profileSettings.runScriptIdleTimeoutSec
+        configuredValue: root.profileSettings.runScriptIdleTimeoutSec
         configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
-        onRegularValueActivated: { profileSettings.runScriptIdleTimeoutSec = currentValue; }
+        onRegularValueActivated: { root.profileSettings.runScriptIdleTimeoutSec = currentValue; }
         onCustomDurationAccepted: {
-            profileSettings.runScriptIdleTimeoutSec = valueToUnit(
+            root.profileSettings.runScriptIdleTimeoutSec = valueToUnit(
                 customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
         }
 
@@ -901,23 +901,23 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
 
         KCM.SettingStateBinding {
-            configObject: profileSettings
+            configObject: root.profileSettings
             settingName: "IdleTimeoutCommand"
         }
-        command: profileSettings.idleTimeoutCommand
+        command: root.profileSettings.idleTimeoutCommand
         onCommandChanged: {
-            profileSettings.idleTimeoutCommand = command;
+            root.profileSettings.idleTimeoutCommand = command;
         }
         function resetToProfileSettings() {
-            command = profileSettings.idleTimeoutCommand;
-            idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
+            command = root.profileSettings.idleTimeoutCommand;
+            idleTimeoutCommandEditAction.checked |= root.profileSettings.idleTimeoutCommand !== "";
         }
         Connections {
             target: root
             function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
         }
         Connections {
-            target: profileSettings
+            target: root.profileSettings
             function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
         }
     }

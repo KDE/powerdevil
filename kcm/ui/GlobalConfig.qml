@@ -74,25 +74,25 @@ Kirigami.ScrollablePage {
                 id: batteryLowSpin
                 Accessible.name: i18nc("@accessible:name:spinbox", "Low battery level")
                 Accessible.description: batteryLowContextualHelp.toolTipText
-                Layout.preferredWidth: maxImplicitWidthOfSpinBoxes
+                Layout.preferredWidth: root.maxImplicitWidthOfSpinBoxes
                 from: 0
                 to: 100
 
                 KCM.SettingStateBinding {
-                    configObject: globalSettings
+                    configObject: root.globalSettings
                     settingName: "BatteryLowLevel"
                 }
-                value: globalSettings.batteryLowLevel
+                value: root.globalSettings.batteryLowLevel
                 onValueModified: {
-                    globalSettings.batteryLowLevel = value;
+                    root.globalSettings.batteryLowLevel = value;
                     // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                    value = Qt.binding(() => globalSettings.batteryLowLevel);
+                    value = Qt.binding(() => root.globalSettings.batteryLowLevel);
                 }
 
                 editable: true
                 validator: percentageValidator
-                textFromValue: formatPercent
-                valueFromText: extractPercent
+                textFromValue: root.formatPercent
+                valueFromText: root.extractPercent
             }
 
             Kirigami.ContextualHelpButton {
@@ -114,25 +114,25 @@ Kirigami.ScrollablePage {
                 id: batteryCriticalSpin
                 Accessible.name: i18nc("@accessible:name:spinbox", "Critical battery level")
                 Accessible.description: batteryCriticalContextualHelp.toolTipText
-                Layout.preferredWidth: maxImplicitWidthOfSpinBoxes
+                Layout.preferredWidth: root.maxImplicitWidthOfSpinBoxes
                 from: 0
                 to: batteryLowSpin.value
 
                 KCM.SettingStateBinding {
-                    configObject: globalSettings
+                    configObject: root.globalSettings
                     settingName: "BatteryCriticalLevel"
                 }
-                value: globalSettings.batteryCriticalLevel
+                value: root.globalSettings.batteryCriticalLevel
                 onValueModified: {
-                    globalSettings.batteryCriticalLevel = value;
+                    root.globalSettings.batteryCriticalLevel = value;
                     // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                    value = Qt.binding(() => globalSettings.batteryCriticalLevel);
+                    value = Qt.binding(() => root.globalSettings.batteryCriticalLevel);
                 }
 
                 editable: true
                 validator: percentageValidator
-                textFromValue: formatPercent
-                valueFromText: extractPercent
+                textFromValue: root.formatPercent
+                valueFromText: root.extractPercent
             }
 
             Kirigami.ContextualHelpButton {
@@ -162,18 +162,18 @@ Kirigami.ScrollablePage {
             textRole: "name"
             valueRole: "value"
 
-            readonly property bool isConfiguredValueSupported: currentValue === globalSettings.batteryCriticalAction
+            readonly property bool isConfiguredValueSupported: currentValue === root.globalSettings.batteryCriticalAction
 
             KCM.SettingStateBinding {
-                configObject: globalSettings
+                configObject: root.globalSettings
                 settingName: "BatteryCriticalAction"
             }
             Component.onCompleted: {
                 // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-                currentIndex = Qt.binding(() => indexOfValue(globalSettings.batteryCriticalAction));
+                currentIndex = Qt.binding(() => indexOfValue(root.globalSettings.batteryCriticalAction));
             }
             onActivated: {
-                globalSettings.batteryCriticalAction = currentValue;
+                root.globalSettings.batteryCriticalAction = currentValue;
             }
         }
 
@@ -190,25 +190,25 @@ Kirigami.ScrollablePage {
                 id: peripheralBatteryLowSpin
                 Accessible.name: i18nc("@accessible:name:spinbox", "Low battery level for peripheral devices")
                 Accessible.description: peripheralBatteryLowContextualHelp.toolTipText
-                Layout.preferredWidth: maxImplicitWidthOfSpinBoxes
+                Layout.preferredWidth: root.maxImplicitWidthOfSpinBoxes
                 from: 0
                 to: 100
 
                 KCM.SettingStateBinding {
-                    configObject: globalSettings
+                    configObject: root.globalSettings
                     settingName: "PeripheralBatteryLowLevel"
                 }
-                value: globalSettings.peripheralBatteryLowLevel
+                value: root.globalSettings.peripheralBatteryLowLevel
                 onValueModified: {
-                    globalSettings.peripheralBatteryLowLevel = value;
+                    root.globalSettings.peripheralBatteryLowLevel = value;
                     // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                    value = Qt.binding(() => globalSettings.peripheralBatteryLowLevel);
+                    value = Qt.binding(() => root.globalSettings.peripheralBatteryLowLevel);
                 }
 
                 editable: true
                 validator: percentageValidator
-                textFromValue: formatPercent
-                valueFromText: extractPercent
+                textFromValue: root.formatPercent
+                valueFromText: root.extractPercent
             }
 
             Kirigami.ContextualHelpButton {
@@ -229,8 +229,8 @@ Kirigami.ScrollablePage {
         QQC2.CheckBox {
             id: batteryConservationModeCheck
             visible: kcm.isBatteryConservationModeSupported
-            checked: externalSettings.batteryConservationMode
-            onToggled: externalSettings.batteryConservationMode = checked
+            checked: root.externalSettings.batteryConservationMode
+            onToggled: root.externalSettings.batteryConservationMode = checked
 
             Kirigami.FormData.label: i18nc("@label:checkbox", "&Battery protection:")
             text: i18nc("@text:checkbox", "Limit the maximum battery charge")
@@ -243,28 +243,28 @@ Kirigami.ScrollablePage {
                 "@label:spinbox Battery will stop charging when this charge percentage is reached",
                 "&Stop charging at:"
             )
-            Layout.preferredWidth: maxImplicitWidthOfSpinBoxes
+            Layout.preferredWidth: root.maxImplicitWidthOfSpinBoxes
             visible: kcm.isChargeStopThresholdSupported
             from: 50
             to: 100
 
-            value: externalSettings.chargeStopThreshold
+            value: root.externalSettings.chargeStopThreshold
             onValueModified: {
                 if (kcm.isChargeStopThresholdSupported) {
-                    externalSettings.chargeStopThreshold = value;
+                    root.externalSettings.chargeStopThreshold = value;
                 }
             }
 
             onActiveFocusChanged: {
                 if (!activeFocus) {
                     // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                    value = Qt.binding(() => externalSettings.chargeStopThreshold);
+                    value = Qt.binding(() => root.externalSettings.chargeStopThreshold);
                 }
             }
 
             editable: true
             validator: percentageValidator
-            textFromValue: formatPercent
+            textFromValue: root.formatPercent
             // HACK: work around qqc2-desktop-style's auto-update behavior, which awkwarkdly
             // resets the while you're editing it and applies the range constraints. Instead
             // manually recreate the upstream behavior: only update on Return and focus loss
@@ -294,16 +294,16 @@ Kirigami.ScrollablePage {
                 "@label:spinbox Battery will start charging again when this charge percentage is reached, after having hit the stop-charging threshold earlier",
                 "Start charging once &below:"
             )
-            Layout.preferredWidth: maxImplicitWidthOfSpinBoxes
+            Layout.preferredWidth: root.maxImplicitWidthOfSpinBoxes
             visible: kcm.isChargeStartThresholdSupported
             from: 1
             to: chargeStopThresholdSpin.value // max value == "always charge right up to charge limit"
 
-            value: externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to;
+            value: root.externalSettings.chargeStartThreshold > 0 ? root.externalSettings.chargeStartThreshold : to;
 
             function setChargeStartThreshold() {
                 if (kcm.isChargeStartThresholdSupported) {
-                    externalSettings.chargeStartThreshold = value < to ? value : 0;
+                    root.externalSettings.chargeStartThreshold = value < to ? value : 0;
                 }
             }
             property int lockstepUpperBound: -1 // tracks externalSettings and manual user changes, not range limit changes
@@ -312,7 +312,7 @@ Kirigami.ScrollablePage {
                 if (!activeFocus) {
                     // In Qt 6.6, SpinBox breaks the value binding on keyboard input.
                     // We do too, in onToChanged. Restore it again.
-                    value = Qt.binding(() => externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to);
+                    value = Qt.binding(() => root.externalSettings.chargeStartThreshold > 0 ? root.externalSettings.chargeStartThreshold : to);
                 }
             }
 
@@ -322,18 +322,18 @@ Kirigami.ScrollablePage {
             }
             onToChanged: {
                 // Follow the stop threshold back up until the value we started from.
-                if (externalSettings.chargeStartThreshold > 0 && to == value) {
+                if (root.externalSettings.chargeStartThreshold > 0 && to == value) {
                     lockstepUpperBound = value;
                 }
-                else if (externalSettings.chargeStartThreshold == 0 && to <= lockstepUpperBound) {
+                else if (root.externalSettings.chargeStartThreshold == 0 && to <= lockstepUpperBound) {
                     value = to;
                 }
                 setChargeStartThreshold();
             }
             Connections {
-                target: externalSettings
+                target: root.externalSettings
                 function onChargeStartThresholdChanged() {
-                    if (externalSettings.chargeStartThreshold == 0) {
+                    if (root.externalSettings.chargeStartThreshold == 0) {
                         chargeStartThresholdSpin.lockstepUpperBound = chargeStartThresholdSpin.to;
                     }
                 }
@@ -344,7 +344,7 @@ Kirigami.ScrollablePage {
 
             editable: true
             validator: percentageValidator
-            textFromValue: formatPercent
+            textFromValue: root.formatPercent
             valueFromText: (text, locale) => activeFocus
                 ? value
                 : root.extractPercent(text, locale)
@@ -402,11 +402,11 @@ Kirigami.ScrollablePage {
             Accessible.name: text
 
             KCM.SettingStateBinding {
-                configObject: globalSettings
+                configObject: root.globalSettings
                 settingName: "PausePlayersOnSuspend"
             }
-            checked: globalSettings.pausePlayersOnSuspend
-            onToggled: { globalSettings.pausePlayersOnSuspend = checked; }
+            checked: root.globalSettings.pausePlayersOnSuspend
+            onToggled: { root.globalSettings.pausePlayersOnSuspend = checked; }
         }
 
         ColumnLayout {

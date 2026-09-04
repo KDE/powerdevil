@@ -25,7 +25,7 @@ QQC2.ComboBox {
         required property string iconName
 
         text: name
-        highlighted: index === currentIndex
+        highlighted: index === comboBox.currentIndex
         icon.name: iconName
     }
 }

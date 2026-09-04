@@ -104,11 +104,11 @@ PlasmaComponents3.ItemDelegate {
         PlasmaComponents3.Label {
             id: activeProfileLabel
             Layout.alignment: Qt.AlignRight
-            text: (root.profilesAvailable && activeProfileData)
-                ? activeProfileData.label 
+            text: (root.profilesAvailable && root.activeProfileData)
+                ? root.activeProfileData.label
                 : root.isTlpInstalled 
-                ? i18nc("Power profile", "Automatic") 
-                : i18nc("Power profile", "Not available") 
+                    ? i18nc("Power profile", "Automatic")
+                    : i18nc("Power profile", "Not available")
             textFormat: Text.PlainText
             enabled: root.profilesAvailable
         }

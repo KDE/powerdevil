@@ -12,6 +12,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 
 QQC2.Button {
+    id: button
     // We're using custom properties rather than plain old icon.name: and text:
     // because this would cause the icon and text to be rendered twice with
     // qqc2-desktop-style since it does all its rendering in the background item
@@ -34,7 +35,7 @@ QQC2.Button {
     Accessible.name: label.text
 
     contentItem: RowLayout {
-        spacing: parent.spacing
+        spacing: button.spacing
 
         Kirigami.Icon {
             id: iconItem

@@ -100,9 +100,7 @@ PlasmaComponents3.ItemDelegate {
                     }
                 }
 
-                onToggled: {
-                    inhibitionChangeRequested(!root.isManuallyInhibited);
-                }
+                onToggled: root.inhibitionChangeRequested(!root.isManuallyInhibited);
 
                 Connections {
                     target: root
@@ -147,6 +145,7 @@ PlasmaComponents3.ItemDelegate {
                 model: root.requestedInhibitions
 
                 InhibitionHint {
+                    id: inhibitionHint
                     required property string icon
                     required property string appName
                     required property string prettyName
@@ -193,18 +192,18 @@ PlasmaComponents3.ItemDelegate {
 
                     PlasmaComponents3.Button {
                         id: suppressInhibitionMenuButton
-                        visible: allowed
+                        visible: inhibitionHint.allowed
                         text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock")
                         icon.name: "edit-delete-remove"
-                        onClicked: pmControl.setInhibitionAllowed(appName, reason, false)
+                        onClicked: pmControl.setInhibitionAllowed(inhibitionHint.appName, inhibitionHint.reason, false)
                     }
 
                     PlasmaComponents3.Button {
                         id: allowInhibitionMenuButton
-                        visible: !allowed
+                        visible: !inhibitionHint.allowed
                         text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Allow")
                         icon.name: "dialog-ok"
-                        onClicked: pmControl.setInhibitionAllowed(appName, reason, true)
+                        onClicked: pmControl.setInhibitionAllowed(inhibitionHint.appName, inhibitionHint.reason, true)
                     }
                 }
             }

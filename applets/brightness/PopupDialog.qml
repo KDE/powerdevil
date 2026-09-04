@@ -74,7 +74,7 @@ PlasmaExtras.Representation {
                     maximumValue: maxBrightness
 
                     KeyNavigation.up: previousSlider ?? dialog.KeyNavigation.up
-                    KeyNavigation.down: nextSlider ?? firstItemAfterScreenBrightnessRepeater
+                    KeyNavigation.down: nextSlider ?? dialog.firstItemAfterScreenBrightnessRepeater
                     KeyNavigation.backtab: previousSlider ?? dialog.KeyNavigation.backtab
                     KeyNavigation.tab: KeyNavigation.down
 

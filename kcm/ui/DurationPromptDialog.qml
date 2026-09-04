@@ -147,20 +147,20 @@ Kirigami.Dialog {
             }
 
             QQC2.Label {
-                visible: acceptsUnits.length == 1
-                text: parent.unitSuffixForValue(value, acceptsUnits[0])
+                visible: root.acceptsUnits.length == 1
+                text: parent.unitSuffixForValue(root.value, root.acceptsUnits[0])
 
                 Layout.preferredWidth: Math.max(implicitWidth, pluralUnitLabelMetrics.advanceWidth + leftPadding + rightPadding)
                 TextMetrics {
                     id: pluralUnitLabelMetrics
-                    text: unitSelectionRadios.labelForUnit(acceptsUnits[0])
+                    text: unitSelectionRadios.labelForUnit(root.acceptsUnits[0])
                 }
             }
 
             ColumnLayout {
                 id: unitSelectionRadios
                 spacing: Kirigami.Units.smallSpacing
-                visible: acceptsUnits.length > 1
+                visible: root.acceptsUnits.length > 1
 
                 function labelForUnit(unit) {
                     switch (unit) {
@@ -186,16 +186,16 @@ Kirigami.Dialog {
 
                 Repeater {
                     id: repeater
-                    model: acceptsUnits
+                    model: root.acceptsUnits
 
                     QQC2.RadioButton {
                         required property int index
                         required property int modelData
 
-                        text: parent.labelForUnit(modelData)
-                        checked: unit === modelData
+                        text: unitSelectionRadios.labelForUnit(modelData)
+                        checked: root.unit === modelData
                         onClicked: {
-                            unit = modelData;
+                            root.unit = modelData;
                         }
 
                         Keys.onReturnPressed: event => root.accept()
