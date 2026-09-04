@@ -18,6 +18,7 @@
 #include <QtQml/qqmlregistration.h>
 
 #include <memory>
+#include <qqmlintegration.h>
 
 struct PolicyAgentInhibition {
     enum Flag {
@@ -38,6 +39,7 @@ class QDBusServiceWatcher;
 class RequestedInhibition
 {
     Q_GADGET
+    QML_VALUE_TYPE(requestedInhibition)
 
     Q_PROPERTY(QString appName MEMBER appName CONSTANT FINAL)
     Q_PROPERTY(QString prettyName MEMBER prettyName CONSTANT FINAL)
