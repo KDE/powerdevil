@@ -15,7 +15,7 @@ QQC2.ComboBox {
 
     required model
 
-    Kirigami.StyleHints.iconName: model.index(currentIndex, 0).data(model.KItemModels.KRoleNames.role("iconName")) ?? ""
+    Kirigami.StyleHints.iconName: model.index(currentIndex, 0).data((model as QtObject).KItemModels.KRoleNames.role("iconName")) ?? ""
 
     delegate: QQC2.ItemDelegate {
         required property string index

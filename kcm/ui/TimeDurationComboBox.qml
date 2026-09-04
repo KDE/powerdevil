@@ -108,11 +108,12 @@ ComboBoxWithCustomValue {
         // Pass the configured value to the dialog so it can be pre-filled in the input field.
         // Anything 0 or below is not a reasonable timeout and should be reserved for special values.
         customDurationPromptDialogLoader.sourceComponent = durationPromptDialogComponent;
-        customDurationPromptDialogLoader.item.unit = configuredDisplayUnit;
-        customDurationPromptDialogLoader.item.value = // `from` and `to` will clamp this value
+        const promptDialog = customDurationPromptDialogLoader.item as DurationPromptDialog;
+        promptDialog.unit = configuredDisplayUnit;
+        promptDialog.value = // `from` and `to` will clamp this value
             valueToUnit(configuredValue, unitOfValueRole, configuredDisplayUnit)
-        customDurationPromptDialogLoader.item.open();
-        customDurationPromptDialogLoader.item.forceActiveFocus();
+        promptDialog.open();
+        promptDialog.forceActiveFocus();
     }
 
     /// Dialog handled by a Loader to avoid loading it until it is needed.

@@ -32,10 +32,11 @@ PlasmaExtras.Representation {
                 return;
             }
             const rect = brightnessList.mapFromItem(item, 0, 0, item.width, item.height);
-            if (rect.y < scrollView.contentItem.contentY) {
-                scrollView.contentItem.contentY = rect.y;
-            } else if (rect.y + rect.height > scrollView.contentItem.contentY + scrollView.height) {
-                scrollView.contentItem.contentY = rect.y + rect.height - scrollView.height;
+            const flickable = scrollView.contentItem as Flickable
+            if (rect.y < flickable.contentY) {
+                flickable.contentY = rect.y;
+            } else if (rect.y + rect.height > flickable.contentY + scrollView.height) {
+                flickable.contentY = rect.y + rect.height - scrollView.height;
             }
         }
 
