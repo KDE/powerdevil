@@ -6,6 +6,7 @@
 
     Originating from kcm_screenlocker. Upstream any changes there until it goes into Kirigami (Addons).
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts

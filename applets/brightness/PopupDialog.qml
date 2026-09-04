@@ -14,6 +14,8 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.plasma.private.brightnesscontrolplugin
 
+pragma ComponentBehavior: Bound
+
 PlasmaExtras.Representation {
     id: dialog
 
