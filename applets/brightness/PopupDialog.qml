@@ -12,7 +12,6 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami as Kirigami
 
-import org.kde.plasma.workspace.dbus as DBus
 import org.kde.plasma.private.brightnesscontrolplugin
 
 PlasmaExtras.Representation {
@@ -20,7 +19,7 @@ PlasmaExtras.Representation {
 
     required property ScreenBrightnessControl screenBrightnessControl
     required property KeyboardBrightnessControl keyboardBrightnessControl
-    required property DBus.Properties nightLightControl
+    required property NightLightItem.NightLightControl nightLightControl
 
     readonly property Item firstItemAfterScreenBrightnessRepeater: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.down
     KeyNavigation.down: screenBrightnessRepeater.firstSlider ?? firstItemAfterScreenBrightnessRepeater
