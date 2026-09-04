@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2025-11-19 08:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -272,26 +272,26 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/GlobalConfig.qml:57
+#: ui/GlobalConfig.qml:59
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
 msgstr "רמות סוללות"
 
-#: ui/GlobalConfig.qml:65
+#: ui/GlobalConfig.qml:67
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
 msgstr "רמה &נמוכה:"
 
-#: ui/GlobalConfig.qml:73
+#: ui/GlobalConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "רמת סוללה חלשה"
 
-#: ui/GlobalConfig.qml:98
+#: ui/GlobalConfig.qml:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -301,7 +301,7 @@ msgstr ""
 "טעינת הסוללה תיחשב נמוכה כשהיא יורדת מתחת לרמה הזאת. ההגדרות לסוללה חלשה "
 "תהיינה תקפות במקום הגדרות הסוללה הרגילות."
 
-#: ui/GlobalConfig.qml:105
+#: ui/GlobalConfig.qml:107
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -309,13 +309,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "רמה מ&שמעותית:"
 
-#: ui/GlobalConfig.qml:113
+#: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "רמת סוללה משמעותית"
 
-#: ui/GlobalConfig.qml:138
+#: ui/GlobalConfig.qml:140
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -326,7 +326,7 @@ msgstr ""
 "עוצמת טעינת הסוללה תיחשב נמוכה משמעותית כשהיא צונחת לרמה הזאת. לאחר אזהרה "
 "זריזה, המערכת תושהה או תיכבה בהתאם לפעולה שנקבעה למצב זה."
 
-#: ui/GlobalConfig.qml:147
+#: ui/GlobalConfig.qml:149
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -336,7 +336,7 @@ msgstr ""
 "הפעולה שהגדרת בעבר למצב בו הסוללה הגיעה למצב מכריע אינה נתמכת עוד במערכת "
 "שלך. נא לבחור בפעולה אחרת."
 
-#: ui/GlobalConfig.qml:154
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -344,25 +344,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "ברמה מ&שמעותית:"
 
-#: ui/GlobalConfig.qml:156
+#: ui/GlobalConfig.qml:158
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "פעולות שמתבצעות כשעוצמת הסוללה נמוכה באופן משמעותי"
 
-#: ui/GlobalConfig.qml:181
+#: ui/GlobalConfig.qml:183
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "עוצמת סוללה נמוכה של התקנים הי&קפיים:"
 
-#: ui/GlobalConfig.qml:189
+#: ui/GlobalConfig.qml:191
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "עוצמת סוללה נמוכה להתקנים היקפיים"
 
-#: ui/GlobalConfig.qml:214
+#: ui/GlobalConfig.qml:216
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -370,25 +370,25 @@ msgid ""
 "reaches this level."
 msgstr "עוצמת הסוללה של ההתקנים ההיקפיים תיחשב נמוכה כשהיא מגיעה לרמה הזאת."
 
-#: ui/GlobalConfig.qml:222
+#: ui/GlobalConfig.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "מגבלת טעינה"
 
-#: ui/GlobalConfig.qml:233
+#: ui/GlobalConfig.qml:235
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
 msgstr "הגנה על ה&סוללה:"
 
-#: ui/GlobalConfig.qml:234
+#: ui/GlobalConfig.qml:236
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
 msgstr "הגדרת הטעינה המרבית של הסוללה"
 
-#: ui/GlobalConfig.qml:242
+#: ui/GlobalConfig.qml:244
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -396,7 +396,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&להפסיק לטעון ב־:"
 
-#: ui/GlobalConfig.qml:268
+#: ui/GlobalConfig.qml:295
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -404,7 +404,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "להתחיל לטעון רק מ&תחת ל־:"
 
-#: ui/GlobalConfig.qml:325
+#: ui/GlobalConfig.qml:373
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -414,7 +414,7 @@ msgstr ""
 "יכול להיות שצריך לנתק ולחבר את מקור החשמל מחדש כדי להתחיל לטעון שוב את "
 "הסוללה."
 
-#: ui/GlobalConfig.qml:336
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -426,7 +426,7 @@ msgstr ""
 "בריאות הסוללה. הגבלת טעינת הסוללה לערך מרבי, אפשר לסייע בהארכת משך חיי "
 "הסוללה."
 
-#: ui/GlobalConfig.qml:344
+#: ui/GlobalConfig.qml:392
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -434,75 +434,75 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "הגדרות אחרות"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:400
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&נגינת מדיה:"
 
-#: ui/GlobalConfig.qml:353
+#: ui/GlobalConfig.qml:401
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "להשהות ניגון מדיה בכניסה למצב השהיה"
 
-#: ui/GlobalConfig.qml:366
+#: ui/GlobalConfig.qml:414
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "עמודים קשורים:"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:431
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "התראות: ניהול צריכת חשמל"
 
-#: ui/GlobalConfig.qml:385
+#: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "יש לפתוח את עמוד ההגדרות „התראות”, סעיף „ניהול צריכת חשמל”"
 
-#: ui/GlobalConfig.qml:394
+#: ui/GlobalConfig.qml:442
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "קיצורי דרך: ניהול צריכת חשמל"
 
-#: ui/GlobalConfig.qml:396
+#: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr "יש לפתוח את עמוד ההגדרות „קיצורי דרך”, סעיף „ניהול צריכת חשמל”"
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:451
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
 msgstr "נעילת מסך"
 
-#: ui/GlobalConfig.qml:404
+#: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
 msgstr "יש לפתוח את עמוד ההגדרות „נעילת מסך”"
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:459
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "הפעלת שולחן עבודה"
 
-#: ui/GlobalConfig.qml:412
+#: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "יש לפתוח את עמוד ההגדרות „הפעלת שולחן עבודה”"
 
-#: ui/GlobalConfig.qml:419
+#: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "פעילויות"
 
-#: ui/GlobalConfig.qml:420
+#: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "פתיחת עמוד ההגדרות „פעילויות”"

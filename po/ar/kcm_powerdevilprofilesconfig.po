@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2025-11-19 20:30+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -288,26 +288,26 @@ msgctxt ""
 msgid "10%"
 msgstr "10٪"
 
-#: ui/GlobalConfig.qml:57
+#: ui/GlobalConfig.qml:59
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
 msgstr "مستويات البطارية"
 
-#: ui/GlobalConfig.qml:65
+#: ui/GlobalConfig.qml:67
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
 msgstr "ال&مستوى المنخفض:"
 
-#: ui/GlobalConfig.qml:73
+#: ui/GlobalConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "مستوى البطارية منخفض"
 
-#: ui/GlobalConfig.qml:98
+#: ui/GlobalConfig.qml:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -317,7 +317,7 @@ msgstr ""
 "سيُعتبر شحن البطارية منخفضا عندما ينخفض إلى هذا المستوى. ستُستخدم إعدادات "
 "البطارية المنخفضة بدلا من إعدادات البطارية العادية."
 
-#: ui/GlobalConfig.qml:105
+#: ui/GlobalConfig.qml:107
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -325,13 +325,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "المستوى ال&حَرِج:"
 
-#: ui/GlobalConfig.qml:113
+#: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "مستوى البطارية في مستوى حرج"
 
-#: ui/GlobalConfig.qml:138
+#: ui/GlobalConfig.qml:140
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -342,7 +342,7 @@ msgstr ""
 "سيعتبر شحن البطارية حرجا عندما ينخفض إلى هذا المستوى. بعد تحذير قصير، سيُعلّق "
 "النظام أو يوقف تشغيله آليّا، وفقا لإجراء مستوى البطارية الحرج الذي ضُبط."
 
-#: ui/GlobalConfig.qml:147
+#: ui/GlobalConfig.qml:149
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -352,7 +352,7 @@ msgstr ""
 "الإجراء الذي ضبطتَه مسبقا للوصول إلى البطارية الحرجة المستوى الآن غير مدعوم "
 "على نظامك. يرجى تحديد واحد مختلف."
 
-#: ui/GlobalConfig.qml:154
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -360,25 +360,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "&عند المستوى الحرج:"
 
-#: ui/GlobalConfig.qml:156
+#: ui/GlobalConfig.qml:158
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "الإجراء المنجز على مستوى البطارية الحرج"
 
-#: ui/GlobalConfig.qml:181
+#: ui/GlobalConfig.qml:183
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "المستوى المنخفض للأجهزة ال&طرفية:"
 
-#: ui/GlobalConfig.qml:189
+#: ui/GlobalConfig.qml:191
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "انخفاض مستوى البطارية للأجهزة الطرفية"
 
-#: ui/GlobalConfig.qml:214
+#: ui/GlobalConfig.qml:216
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -386,25 +386,25 @@ msgid ""
 "reaches this level."
 msgstr "سيعتبر شحن البطارية للأجهزة الطرفية منخفضا عندما يصل إلى هذا المستوى."
 
-#: ui/GlobalConfig.qml:222
+#: ui/GlobalConfig.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "حد الشحن"
 
-#: ui/GlobalConfig.qml:233
+#: ui/GlobalConfig.qml:235
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
 msgstr "&حماية البطارية:"
 
-#: ui/GlobalConfig.qml:234
+#: ui/GlobalConfig.qml:236
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
 msgstr "الحد الأقصى لشحن البطارية"
 
-#: ui/GlobalConfig.qml:242
+#: ui/GlobalConfig.qml:244
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -412,7 +412,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "أوقف ال&شحن عند:"
 
-#: ui/GlobalConfig.qml:268
+#: ui/GlobalConfig.qml:295
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -420,7 +420,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "ابدأ الشحن مرة وا&حدة أدناه:"
 
-#: ui/GlobalConfig.qml:325
+#: ui/GlobalConfig.qml:373
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -428,7 +428,7 @@ msgid ""
 "charging the battery again."
 msgstr "قد تضطر إلى فصل مصدر الطاقة وإعادة توصيله لبدء شحن البطارية مرة أخرى."
 
-#: ui/GlobalConfig.qml:336
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -440,7 +440,7 @@ msgstr ""
 "تسريع تدهور صحة البطارية. عن طريق الحد الأقصى لشحن البطارية، يمكنك المساعدة "
 "في إطالة عمر البطارية."
 
-#: ui/GlobalConfig.qml:344
+#: ui/GlobalConfig.qml:392
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -448,75 +448,75 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "إعدادات أخرى"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:400
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&تشغيل الوسائط:"
 
-#: ui/GlobalConfig.qml:353
+#: ui/GlobalConfig.qml:401
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "ألبث مشغّلات الوسائط عند تعليق"
 
-#: ui/GlobalConfig.qml:366
+#: ui/GlobalConfig.qml:414
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "صفحات ذات صلة:"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:431
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "الإشعارات: إدارة الطاقة"
 
-#: ui/GlobalConfig.qml:385
+#: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "افتح صفحة إعدادات \"الإشعارات\"، قسم \"إدارة الطاقة\""
 
-#: ui/GlobalConfig.qml:394
+#: ui/GlobalConfig.qml:442
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "اختصارات: إدارة الطاقة"
 
-#: ui/GlobalConfig.qml:396
+#: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr "افتح صفحة إعدادات \"الاختصارات\"، قسم \"إدارة الطاقة\""
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:451
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
 msgstr "قفل الشاشة"
 
-#: ui/GlobalConfig.qml:404
+#: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
 msgstr "افتح صفحة إعدادات \"قفل الشاشة\""
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:459
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "جلسة سطح المكتب"
 
-#: ui/GlobalConfig.qml:412
+#: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "افتح صفحة إعدادات \"جلسة سطح المكتب\""
 
-#: ui/GlobalConfig.qml:419
+#: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "الأنشطة"
 
-#: ui/GlobalConfig.qml:420
+#: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "افتح صفحة إعدادات \"الأنشطة\""

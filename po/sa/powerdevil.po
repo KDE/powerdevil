@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -331,12 +331,12 @@ msgstr "बैटरी शक्तिना चालनम्"
 msgid "The power cord has been unplugged."
 msgstr "विद्युत्तारं विमोचितम् अस्ति।"
 
-#: powerdevilcore.cpp:796
+#: powerdevilcore.cpp:798
 #, kde-format
 msgid "Charging Complete"
 msgstr "चार्जिंग सम्पूर्ण"
 
-#: powerdevilcore.cpp:796
+#: powerdevilcore.cpp:798
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "बैटरी इदानीं पूर्णतया चार्जिता अस्ति।"

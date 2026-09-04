@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2025-11-20 20:47+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -247,26 +247,26 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/GlobalConfig.qml:57
+#: ui/GlobalConfig.qml:59
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
 msgstr "電量閥值"
 
-#: ui/GlobalConfig.qml:65
+#: ui/GlobalConfig.qml:67
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
 msgstr "低電量(&L)："
 
-#: ui/GlobalConfig.qml:73
+#: ui/GlobalConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "低電量"
 
-#: ui/GlobalConfig.qml:98
+#: ui/GlobalConfig.qml:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -276,7 +276,7 @@ msgstr ""
 "電量下降至此數值時會被視為低電量。低電量時會開始使用低電量設定而非正常電量設"
 "定。"
 
-#: ui/GlobalConfig.qml:105
+#: ui/GlobalConfig.qml:107
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -284,13 +284,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "嚴重不足電量(&I)："
 
-#: ui/GlobalConfig.qml:113
+#: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "嚴重不足電池電量"
 
-#: ui/GlobalConfig.qml:138
+#: ui/GlobalConfig.qml:140
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -301,7 +301,7 @@ msgstr ""
 "電量下降至此數值時會被視為嚴重不足。電量嚴重不足時會先警告，不久之後會自動依"
 "設定進行暫停或關機。"
 
-#: ui/GlobalConfig.qml:147
+#: ui/GlobalConfig.qml:149
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -310,7 +310,7 @@ msgid ""
 msgstr ""
 "您先前設定電量嚴重不足時要進行的動作已不再被您的系統支援。請選擇別的動作。"
 
-#: ui/GlobalConfig.qml:154
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -318,25 +318,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "電量嚴重不足時(&T)："
 
-#: ui/GlobalConfig.qml:156
+#: ui/GlobalConfig.qml:158
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "電量嚴重不足時進行的動作"
 
-#: ui/GlobalConfig.qml:181
+#: ui/GlobalConfig.qml:183
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "週邊裝置低電量(&E)："
 
-#: ui/GlobalConfig.qml:189
+#: ui/GlobalConfig.qml:191
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "週邊裝置低電量"
 
-#: ui/GlobalConfig.qml:214
+#: ui/GlobalConfig.qml:216
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -344,25 +344,25 @@ msgid ""
 "reaches this level."
 msgstr "週邊裝置電量抵達此數值時會被視為低電量。"
 
-#: ui/GlobalConfig.qml:222
+#: ui/GlobalConfig.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "充電限制"
 
-#: ui/GlobalConfig.qml:233
+#: ui/GlobalConfig.qml:235
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
 msgstr "電池保護(&B)："
 
-#: ui/GlobalConfig.qml:234
+#: ui/GlobalConfig.qml:236
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
 msgstr "限制最大電池充電量"
 
-#: ui/GlobalConfig.qml:242
+#: ui/GlobalConfig.qml:244
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -370,7 +370,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "超過此電量後停止充電(&S)："
 
-#: ui/GlobalConfig.qml:268
+#: ui/GlobalConfig.qml:295
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -378,7 +378,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "低於此電量時開始充電(&B)："
 
-#: ui/GlobalConfig.qml:325
+#: ui/GlobalConfig.qml:373
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -386,7 +386,7 @@ msgid ""
 "charging the battery again."
 msgstr "您可能需要拔出再重新插入電源來重新開始為電池充電。"
 
-#: ui/GlobalConfig.qml:336
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -397,7 +397,7 @@ msgstr ""
 "時常將電池充到接近 100% 或完全用盡電量可能會加速電池健康狀態的惡化。您可以藉"
 "由限制最高充電電量來延長電池壽命。"
 
-#: ui/GlobalConfig.qml:344
+#: ui/GlobalConfig.qml:392
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -405,75 +405,75 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "其他設定"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:400
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "媒體播放(&M)："
 
-#: ui/GlobalConfig.qml:353
+#: ui/GlobalConfig.qml:401
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "暫停時也暫停媒體播放器"
 
-#: ui/GlobalConfig.qml:366
+#: ui/GlobalConfig.qml:414
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "相關頁面："
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:431
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "通知：電源管理"
 
-#: ui/GlobalConfig.qml:385
+#: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "開啟「通知」設定頁面中的「電源管理」區塊"
 
-#: ui/GlobalConfig.qml:394
+#: ui/GlobalConfig.qml:442
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "快捷鍵：電源管理"
 
-#: ui/GlobalConfig.qml:396
+#: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr "開啟「快捷鍵」設定頁面中的「電源管理」區塊"
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:451
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
 msgstr "螢幕鎖定"
 
-#: ui/GlobalConfig.qml:404
+#: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
 msgstr "開啟「螢幕鎖定」設定頁面"
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:459
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "桌面工作階段"
 
-#: ui/GlobalConfig.qml:412
+#: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "開啟「桌面工作階段」設定頁面"
 
-#: ui/GlobalConfig.qml:419
+#: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "活動"
 
-#: ui/GlobalConfig.qml:420
+#: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "開啟「活動」設定頁面"

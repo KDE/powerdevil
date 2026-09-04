@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2025-09-24 16:43+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -334,12 +334,12 @@ msgstr "Darbojas no baterijas"
 msgid "The power cord has been unplugged."
 msgstr "Strāvas vads ir atvienots."
 
-#: powerdevilcore.cpp:796
+#: powerdevilcore.cpp:798
 #, kde-format
 msgid "Charging Complete"
 msgstr "Uzlāde ir pabeigta"
 
-#: powerdevilcore.cpp:796
+#: powerdevilcore.cpp:798
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterija ir pilnībā uzlādēta."

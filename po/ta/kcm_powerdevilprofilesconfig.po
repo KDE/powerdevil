@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:47+0000\n"
+"POT-Creation-Date: 2026-09-04 00:47+0000\n"
 "PO-Revision-Date: 2025-11-30 11:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -253,26 +253,26 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/GlobalConfig.qml:57
+#: ui/GlobalConfig.qml:59
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
 msgstr "மின்கல நிலைகள்"
 
-#: ui/GlobalConfig.qml:65
+#: ui/GlobalConfig.qml:67
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
 msgstr "&குறைவான நிலை:"
 
-#: ui/GlobalConfig.qml:73
+#: ui/GlobalConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "மின்கலம் குறைவாயுள்ளதாய் கருதப்படும் நிலை"
 
-#: ui/GlobalConfig.qml:98
+#: ui/GlobalConfig.qml:100
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -282,7 +282,7 @@ msgstr ""
 "இதற்கு கீழ் மின்கல ஆற்றல் குறையும்போது அது குறைவாயுள்ளதாய் கருதப்படும். சாதாரண மின்கல "
 "அமைப்புகளுக்கு பதிலாக, குறைவான நிலைக்கான அமைப்புகள் பயன்படுத்தப்படும்."
 
-#: ui/GlobalConfig.qml:105
+#: ui/GlobalConfig.qml:107
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -290,13 +290,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "&நெருக்கடியான நிலை:"
 
-#: ui/GlobalConfig.qml:113
+#: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "மின்கலம் நெருக்கடியாயுள்ளதாய் கருதப்படும் நிலை"
 
-#: ui/GlobalConfig.qml:138
+#: ui/GlobalConfig.qml:140
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -307,7 +307,7 @@ msgstr ""
 "இதற்கு கீழ் மின்கலத்தின் ஆற்றல் குறையும்போது நெருக்கடியாக கருதப்படும். எச்சரித்தபின், ஆற்றல் "
 "அமைப்புகளுக்கேற்ப கணினி தானாக உறங்கும் அல்லது நிற்கும்."
 
-#: ui/GlobalConfig.qml:147
+#: ui/GlobalConfig.qml:149
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -317,7 +317,7 @@ msgstr ""
 "நெருக்கடியான மின்கல நிலைக்கு நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது உங்கள் கணினியால் "
 "அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
-#: ui/GlobalConfig.qml:154
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -325,25 +325,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "நெ&ருக்கடியான நிலையில்:"
 
-#: ui/GlobalConfig.qml:156
+#: ui/GlobalConfig.qml:158
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "மின்கலம் நெருக்கடியாயுள்ளபோது செய்யவேண்டியது"
 
-#: ui/GlobalConfig.qml:181
+#: ui/GlobalConfig.qml:183
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "&இணைக்கப்பட்ட சாதனங்களுக்கான குறைவான நிலை:"
 
-#: ui/GlobalConfig.qml:189
+#: ui/GlobalConfig.qml:191
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "இணைக்கப்பட்டுள்ள சாதனங்களுக்கான குறைவான மின்கல நிலை"
 
-#: ui/GlobalConfig.qml:214
+#: ui/GlobalConfig.qml:216
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -353,25 +353,25 @@ msgstr ""
 "இணைக்கப்பட்டுள்ள சாதனங்களின் மின்கல ஆற்றல் இந்த அளவுக்கு கீழ் இருந்தால் குறைவாயுள்ளதாக "
 "கருதப்படும்."
 
-#: ui/GlobalConfig.qml:222
+#: ui/GlobalConfig.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "மின்னேற்ற வரம்பு"
 
-#: ui/GlobalConfig.qml:233
+#: ui/GlobalConfig.qml:235
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
 msgstr "&மின்கல பாதுகாப்பு:"
 
-#: ui/GlobalConfig.qml:234
+#: ui/GlobalConfig.qml:236
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
 msgstr "மின்கலத்தின் அதிகப்படி ஆற்றலளவை வரம்புப்படுத்து"
 
-#: ui/GlobalConfig.qml:242
+#: ui/GlobalConfig.qml:244
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -379,7 +379,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&மின்னேறுவதை இந்நிலையில் நிறுத்து:"
 
-#: ui/GlobalConfig.qml:268
+#: ui/GlobalConfig.qml:295
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -387,7 +387,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "இ&தற்கு கீழ் மட்டும் மின்னேறுவதை துவக்கு:"
 
-#: ui/GlobalConfig.qml:325
+#: ui/GlobalConfig.qml:373
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -397,7 +397,7 @@ msgstr ""
 "மின்கலத்தில் மறுபடியும் மின்னேறுமாறு செய்ய, மின்னூற்றை கழற்றி திரும்ப மாட்ட "
 "வேண்டியிருக்கலாம்."
 
-#: ui/GlobalConfig.qml:336
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -408,7 +408,7 @@ msgstr ""
 "நீண்ட காலத்திற்கு மின்கலத்தை 100%-த்தில் வைப்பது, அதனை சேதப்படுத்தலாம். மின்கலத்தின் "
 "அதிகப்படி ஆற்றலை வரம்புப்படுத்துவதன் மூலம், அதன் ஆயுளை நீங்கள் நீட்டிக்கலாம்."
 
-#: ui/GlobalConfig.qml:344
+#: ui/GlobalConfig.qml:392
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -416,76 +416,76 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "மற்ற அமைப்புகள்"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:400
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&ஊடக இயக்கம்:"
 
-#: ui/GlobalConfig.qml:353
+#: ui/GlobalConfig.qml:401
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "கணினி உறங்குவதற்கு முன் ஊடக இயக்கிகளை இடைநிறுத்து"
 
-#: ui/GlobalConfig.qml:366
+#: ui/GlobalConfig.qml:414
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "தொடர்புடைய பக்கங்கள்"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:431
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "அறிவிப்புகள்: ஆற்றல் மேலாண்மை"
 
-#: ui/GlobalConfig.qml:385
+#: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"அறிவிப்புகள்\" அமைப்புகளுக்கான பக்கத்தில், \"ஆற்றல் மேலாண்மை\" பக்கத்தைத் திறக்கும்"
 
-#: ui/GlobalConfig.qml:394
+#: ui/GlobalConfig.qml:442
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "சுருக்குவழிகள்: ஆற்றல் மேலாண்மை"
 
-#: ui/GlobalConfig.qml:396
+#: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
 "\"சுருக்குவழிகள்\" அமைப்புகளுக்கான பக்கத்தில், \"ஆற்றல் மேலாண்மை\" பகுதியைத் திறக்கும்"
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:451
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
 msgstr "திரையை பூட்டவது"
 
-#: ui/GlobalConfig.qml:404
+#: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
 msgstr "\"திரையை பூட்டுவது\" எனும் அமைப்புப்பக்கத்தைத் திறக்கும்"
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:459
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "பணிமேடை அமர்வு"
 
-#: ui/GlobalConfig.qml:412
+#: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"பணிமேடை அமர்வு\" அமைப்புகளுக்கான பக்கத்தைத் திறக்கும்"
 
-#: ui/GlobalConfig.qml:419
+#: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "செயல்பாடுகள்"
 
-#: ui/GlobalConfig.qml:420
+#: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "\"செயல்பாடுகள்\" அமைப்புகளுக்கான பக்கத்தைத் திறக்கும்"
