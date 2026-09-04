@@ -51,6 +51,7 @@ PlasmaExtras.Representation {
     required property var profileHolds
 
     signal inhibitionChangeRequested(bool inhibit)
+    signal inhibitionAllowedRequested(string appName, string reason, bool allowed)
     signal activateProfileRequested(string profile)
 
     collapseMarginsHint: true
@@ -165,9 +166,8 @@ PlasmaExtras.Representation {
                 inhibitsLidAction: dialog.inhibitsLidAction
                 pluggedIn: dialog.pluggedIn
 
-                onInhibitionChangeRequested: inhibit => {
-                    batterymonitor.inhibitionChangeRequested(inhibit);
-                }
+                onInhibitionChangeRequested: inhibit => dialog.inhibitionChangeRequested(inhibit)
+                onInhibitionAllowedRequested: (name, reason, allowed) => dialog.inhibitionAllowedRequested(name, reason, allowed)
 
                 onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
             }

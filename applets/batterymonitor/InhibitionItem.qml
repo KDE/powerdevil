@@ -23,6 +23,7 @@ PlasmaComponents3.ItemDelegate {
     property bool pluggedIn
 
     signal inhibitionChangeRequested(bool inhibit)
+    signal inhibitionAllowedRequested(string name, string reason, bool allowed)
 
     property bool isManuallyInhibited
     property bool isManuallyInhibitedError
@@ -195,7 +196,7 @@ PlasmaComponents3.ItemDelegate {
                         visible: inhibitionHint.allowed
                         text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock")
                         icon.name: "edit-delete-remove"
-                        onClicked: pmControl.setInhibitionAllowed(inhibitionHint.appName, inhibitionHint.reason, false)
+                        onClicked: root.inhibitionAllowedRequested(inhibitionHint.appName, inhibitionHint.reason, false)
                     }
 
                     PlasmaComponents3.Button {
@@ -203,7 +204,7 @@ PlasmaComponents3.ItemDelegate {
                         visible: !inhibitionHint.allowed
                         text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Allow")
                         icon.name: "dialog-ok"
-                        onClicked: pmControl.setInhibitionAllowed(inhibitionHint.appName, inhibitionHint.reason, true)
+                        onClicked: root.inhibitionAllowedRequested(inhibitionHint.appName, inhibitionHint.reason, true)
                     }
                 }
             }
