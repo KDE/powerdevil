@@ -7,7 +7,6 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQuick.Layouts
 
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
@@ -153,8 +152,6 @@ PlasmaExtras.Representation {
             }
 
             footer: InhibitionItem {
-                readonly property var inhibitionControl: dialog.inhibitionControl
-
                 width: scrollView.availableWidth
 
                 KeyNavigation.up: batteryRepeater.itemAtIndex(batteryRepeater.count - 1)

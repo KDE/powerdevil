@@ -9,7 +9,6 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import org.kde.kirigami as Kirigami
 
 /**
  * A specialized ComboBox that displays a list of preset options plus a "Custom" option,

@@ -9,13 +9,9 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 
 import org.kde.notification
-import org.kde.kwindowsystem as KWindowSystem
 import org.kde.plasma.components as PlasmaComponents3
-import org.kde.plasma.extras as PlasmaExtras
-import org.kde.ksvg as KSvg
 import org.kde.kirigami as Kirigami
 
 PlasmaComponents3.ItemDelegate {
