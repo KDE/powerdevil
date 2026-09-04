@@ -47,7 +47,7 @@ PlasmaExtras.Representation {
 
     property string inhibitionReason
     property string degradationReason
-    // type: [{ Name: string, Icon: string, Profile: string, Reason: string }]
+    // type: [{ name: string, icon: string, profile: string, reason: string }]
     required property var profileHolds
 
     signal inhibitionChangeRequested(bool inhibit)

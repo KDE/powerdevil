@@ -413,10 +413,10 @@ void PowerProfilesControl::updatePowerProfileHolds(QList<QVariantMap> holds)
         m_data.populateApplicationData(hold[QStringLiteral("ApplicationId")].toString(), &prettyName, &icon);
 
         return QVariantMap{
-            {QStringLiteral("Name"), prettyName},
-            {QStringLiteral("Icon"), icon},
-            {QStringLiteral("Reason"), hold[QStringLiteral("Reason")]},
-            {QStringLiteral("Profile"), hold[QStringLiteral("Profile")]},
+            {QStringLiteral("name"), prettyName},
+            {QStringLiteral("icon"), icon},
+            {QStringLiteral("reason"), hold[QStringLiteral("Reason")]},
+            {QStringLiteral("profile"), hold[QStringLiteral("Profile")]},
         };
     });
     m_profileHolds = std::move(out);
