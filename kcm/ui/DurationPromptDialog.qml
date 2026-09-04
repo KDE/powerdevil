@@ -101,11 +101,11 @@ Kirigami.Dialog {
 
         QQC2.Label {
             id: labelItem
-            visible: (root.label?.length ?? 0) > 0
+            visible: root.label.length > 0
 
             Kirigami.MnemonicData.enabled: visible && durationValueSpinBox.enabled
             Kirigami.MnemonicData.controlType: Kirigami.MnemonicData.FormLabel
-            Kirigami.MnemonicData.label: root.label ?? ""
+            Kirigami.MnemonicData.label: root.label
             text: Kirigami.MnemonicData.richTextLabel
         }
 
