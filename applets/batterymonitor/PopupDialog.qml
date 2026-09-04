@@ -113,16 +113,19 @@ PlasmaExtras.Representation {
             }
 
             delegate: BatteryItem {
+                required property var model // can't use individual required properties as the names are upper case
+                required property int index
+
                 width: scrollView.availableWidth
 
-                batteryPercent: Percent
-                batteryCapacity: Capacity
-                batteryEnergy: Energy
-                batteryPluggedIn: PluggedIn
-                batteryIsPowerSupply: IsPowerSupply
-                batteryChargeState: ChargeState
-                batteryPrettyName: PrettyName
-                batteryType: Type
+                batteryPercent: model.Percent
+                batteryCapacity: model.Capacity
+                batteryEnergy: model.Energy
+                batteryPluggedIn: model.PluggedIn
+                batteryIsPowerSupply: model.IsPowerSupply
+                batteryChargeState: model.ChargeState
+                batteryPrettyName: model.PrettyName
+                batteryType: model.Type
                 remainingTime: dialog.remainingTime
 
                 KeyNavigation.up: index === 0 ? null : batteryRepeater.itemAtIndex(index - 1)

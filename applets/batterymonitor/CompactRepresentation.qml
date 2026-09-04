@@ -141,7 +141,8 @@ MouseArea {
         delegate: Item {
             id: batteryContainer
 
-            readonly property bool batteryPercentKnown: Percent >= 0
+            required property var model // can't use individual required properties as the names are upper case
+            readonly property bool batteryPercentKnown: model.Percent >= 0
 
             width: view.cellWidth
             height: view.cellHeight
@@ -153,9 +154,9 @@ MouseArea {
                 anchors.fill: parent
 
                 active: root.containsMouse
-                hasBattery: PluggedIn && batteryContainer.batteryPercentKnown
-                percent: Math.max(0, Percent)
-                pluggedIn: ChargeState === BatteryControlModel.Charging
+                hasBattery: batteryContainer.model.PluggedIn && batteryContainer.batteryPercentKnown
+                percent: Math.max(0, batteryContainer.model.Percent)
+                pluggedIn: batteryContainer.model.ChargeState === BatteryControlModel.Charging
             }
 
             WorkspaceComponents.BadgeOverlay {
@@ -164,7 +165,7 @@ MouseArea {
 
                 visible: Plasmoid.configuration.showPercentage && batteryContainer.batteryPercentKnown && !root.isSomehowFullyCharged
 
-                text: i18nc("battery percentage below battery icon", "%1%", Percent)
+                text: i18nc("battery percentage below battery icon", "%1%", batteryContainer.model.Percent)
                 icon: batteryIcon
             }
         }
