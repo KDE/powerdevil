@@ -43,7 +43,6 @@ MouseArea {
     hoverEnabled: true
 
     Accessible.name: Plasmoid.title
-    Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
     Accessible.role: Accessible.Button
 
     property string activeProfileIconSrc: isInPowersaveProfile   ? "battery-profile-powersave-symbolic"

@@ -22,7 +22,6 @@ MouseArea {
     hoverEnabled: true
 
     Accessible.name: Plasmoid.title
-    Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
     Accessible.role: Accessible.Button
 
     Kirigami.Icon {

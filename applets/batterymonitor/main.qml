@@ -212,6 +212,7 @@ PlasmoidItem {
     }
 
     compactRepresentation: CompactRepresentation {
+        Accessible.description: `${batterymonitor.toolTipMainText}; ${batterymonitor.toolTipSubText}`
         batteryPercent: batteryControl.percent
         batteryPluggedIn: batteryControl.pluggedIn
         hasBatteries: batteryControl.hasBatteries

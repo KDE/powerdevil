@@ -238,6 +238,7 @@ PlasmoidItem {
 
         acceptedButtons: Qt.LeftButton | Qt.MiddleButton
         property bool wasExpanded: false
+        Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
         onPressed: wasExpanded = brightnessAndColorControl.expanded
         onClicked: mouse => {
             if (mouse.button == Qt.MiddleButton) {
