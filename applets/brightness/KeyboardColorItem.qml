@@ -57,8 +57,8 @@ PlasmaComponents3.ItemDelegate {
                 Rectangle {
                     id: colorIndicator
 
-                    width: Math.round(Kirigami.Units.gridUnit * 1.25)
-                    height: Math.round(Kirigami.Units.gridUnit * 1.25)
+                    implicitWidth: Math.round(Kirigami.Units.gridUnit * 1.25)
+                    implicitHeight: Math.round(Kirigami.Units.gridUnit * 1.25)
                     radius: 180
 
                     color: keyboardColorControl.enabled ? Kirigami.Theme.highlightColor : "transparent"
