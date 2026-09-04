@@ -16,8 +16,6 @@ import org.kde.notification
 PlasmaComponents3.ItemDelegate {
     id: root
 
-    property alias slider: slider
-
     property bool isTlpInstalled
 
     property bool profilesInstalled

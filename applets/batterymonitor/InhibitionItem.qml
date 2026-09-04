@@ -74,7 +74,7 @@ PlasmaComponents3.ItemDelegate {
         spacing: Kirigami.Units.gridUnit
 
         Kirigami.Icon {
-            id: icon
+            id: inhibitionIcon
             source: (root.isManuallyInhibited || root.numActiveIdleOrSleepInhibitions > 0) ? "system-suspend-inhibited" : "system-suspend-uninhibited"
             Layout.alignment: Qt.AlignTop
             Layout.preferredWidth: Kirigami.Units.iconSizes.medium
