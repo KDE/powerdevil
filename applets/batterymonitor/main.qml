@@ -96,7 +96,7 @@ PlasmoidItem {
 
     Plasmoid.title: batteryControl.hasBatteries ? i18n("Power & Battery") : i18n("Power Management")
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     Plasmoid.status: {

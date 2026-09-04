@@ -94,7 +94,7 @@ PlasmoidItem {
 
     Plasmoid.title: i18n("Brightness & Color")
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection == Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection == Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     Plasmoid.status: {
