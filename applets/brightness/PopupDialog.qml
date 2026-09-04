@@ -13,10 +13,13 @@ import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami as Kirigami
 
 import org.kde.plasma.workspace.dbus as DBus
+import org.kde.plasma.private.brightnesscontrolplugin
 
 PlasmaExtras.Representation {
     id: dialog
 
+    required property ScreenBrightnessControl screenBrightnessControl
+    required property KeyboardBrightnessControl keyboardBrightnessControl
     required property DBus.Properties nightLightControl
 
     readonly property Item firstItemAfterScreenBrightnessRepeater: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.down
@@ -47,7 +50,7 @@ PlasmaExtras.Representation {
 
             Repeater {
                 id: screenBrightnessRepeater
-                model: screenBrightnessControl.displays
+                model: dialog.screenBrightnessControl.displays
 
                 property Item firstSlider: screenBrightnessRepeater.itemAt(0)
                 property Item lastSlider: screenBrightnessRepeater.itemAt(count - 1)
@@ -80,7 +83,7 @@ PlasmaExtras.Representation {
 
                     stepSize: maxBrightness/100
 
-                    onMoved: screenBrightnessControl.setBrightness(displayName, value)
+                    onMoved: dialog.screenBrightnessControl.setBrightness(displayName, value)
                     onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
 
@@ -124,23 +127,23 @@ PlasmaExtras.Representation {
                 icon.name: "input-keyboard-brightness"
                 text: i18n("Keyboard Backlight")
                 type: BrightnessItem.Type.Keyboard
-                value: keyboardBrightnessControl.brightness
-                maximumValue: keyboardBrightnessControl.brightnessMax
-                visible: keyboardBrightnessControl.isBrightnessAvailable
+                value: dialog.keyboardBrightnessControl.brightness
+                maximumValue: dialog.keyboardBrightnessControl.brightnessMax
+                visible: dialog.keyboardBrightnessControl.isBrightnessAvailable
 
                 KeyNavigation.up: screenBrightnessRepeater.lastSlider ?? dialog.KeyNavigation.up
                 KeyNavigation.down: keyboardColorItem.visible ? keyboardColorItem : keyboardColorItem.KeyNavigation.down
                 KeyNavigation.backtab: KeyNavigation.up
                 KeyNavigation.tab: KeyNavigation.down
 
-                onMoved: keyboardBrightnessControl.brightness = value
+                onMoved: dialog.keyboardBrightnessControl.brightness = value
                 onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
 
                 // Manually dragging the slider around breaks the binding
                 Connections {
-                    target: keyboardBrightnessControl
+                    target: dialog.keyboardBrightnessControl
                     function onBrightnessChanged() {
-                        keyboardBrightnessSlider.value = keyboardBrightnessControl.brightness;
+                        keyboardBrightnessSlider.value = dialog.keyboardBrightnessControl.brightness;
                     }
                 }
             }

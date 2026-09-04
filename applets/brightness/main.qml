@@ -254,6 +254,8 @@ PlasmoidItem {
         id: dialogItem
 
         readonly property var appletInterface: brightnessAndColorControl
+        screenBrightnessControl: screenBrightnessControl
+        keyboardBrightnessControl: keyboardBrightnessControl
         nightLightControl: nightLightControl
 
         Layout.minimumWidth: (brightnessAndColorControl.inPanel && !brightnessAndColorControl.compactInPanel) ? -1 : Kirigami.Units.gridUnit * 10
