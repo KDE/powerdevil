@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:47+0000\n"
+"POT-Creation-Date: 2026-09-06 00:48+0000\n"
 "PO-Revision-Date: 2026-06-27 11:19+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -102,31 +102,31 @@ msgstr "%1 %"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "Batteriet er sett opp til berre å ladast opp til %1 %."
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:167
+#: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1 %"
 
-#: InhibitionItem.qml:53
+#: InhibitionItem.qml:51
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Skjermlåsing og kvilemodus etter periode utan aktivitet"
 
-#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:75
 #, kde-format
 msgid "Power Management"
 msgstr "Straumstyring"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:65
+#: InhibitionItem.qml:63
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr "Automatisk skjermlåsing og kvilemodus er blokkert."
 
-#: InhibitionItem.qml:67
+#: InhibitionItem.qml:65
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
@@ -134,7 +134,7 @@ msgid ""
 msgstr ""
 "Skjermlåsing er blokkert. Automatisk kvilemodus etter periode utan aktivitet."
 
-#: InhibitionItem.qml:69
+#: InhibitionItem.qml:67
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
@@ -142,39 +142,39 @@ msgid ""
 msgstr ""
 "Kvilemodus er blokkert. Automatisk skjermlåsing etter periode utan aktivitet."
 
-#: InhibitionItem.qml:71
+#: InhibitionItem.qml:69
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr "Automatisk skjermlåsing og kvilemodus etter periode utan aktivitet."
 
 # Teksten på engelsk er litt rar (korfor ha med «manually»?). Poenget er at når ein kryssar av for dette, vil ikkje maskina automatisk låsa skjermen eller gå i kvilemodus viss ein er inaktiv for lenge. Prøver ei omsetting som gjer dette klarare. Er òg meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:93
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Blokker automatisk skjermlåsing og kvilemodus"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:118
+#: InhibitionItem.qml:114
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Klarte ikkje slå på automatisk skjermlåsing og kvilemodus"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:121
+#: InhibitionItem.qml:117
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Klarte ikkje blokkera automatisk skjermlåsing og kvilemodus"
 
-#: InhibitionItem.qml:135
+#: InhibitionItem.qml:131
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Dette fører til høgare energiforbruk."
 
-#: InhibitionItem.qml:136
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -186,7 +186,7 @@ msgstr ""
 "Du har blokkert automatisk skjermlåsing og kvilemodus. Dette fører til "
 "høgare energiforbruk."
 
-#: InhibitionItem.qml:143
+#: InhibitionItem.qml:139
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -196,14 +196,14 @@ msgstr ""
 "Maskina di er sett opp til å ikkje gå i kvile-/dvalemodus når du lukkar att "
 "lokket og ein ekstern skjerm er kopla til."
 
-#: InhibitionItem.qml:162
+#: InhibitionItem.qml:159
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Ukjend grunn."
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:169
+#: InhibitionItem.qml:166
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -211,7 +211,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 ønskjer å blokkera skjermlåsing og kvilemodus. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:168
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -219,7 +219,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 ønskjer å blokkera skjermlåsing. (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:170
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -228,7 +228,7 @@ msgid "%1 wants to block sleep. (%2)"
 msgstr "%1 ønskjer å blokkera kvilemodus. (%2)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:177
+#: InhibitionItem.qml:174
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -237,7 +237,7 @@ msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 hindrar òg skjermlåsing og kvilemodus. (%2)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:176
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -245,7 +245,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 hindrar òg skjermlåsing. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:178
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -254,7 +254,7 @@ msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 hindrar òg kvilemodus. (%2)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:185
+#: InhibitionItem.qml:182
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -263,7 +263,7 @@ msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 blokkerer skjermlåsing og kvilemodus. (%2)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:187
+#: InhibitionItem.qml:184
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -271,7 +271,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 blokkerer skjermlåsing. (%2)"
 
-#: InhibitionItem.qml:189
+#: InhibitionItem.qml:186
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -279,7 +279,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 blokkerer kvilemodus. (%2)"
 
-#: InhibitionItem.qml:197
+#: InhibitionItem.qml:194
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -287,7 +287,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Avblokker"
 
-#: InhibitionItem.qml:205
+#: InhibitionItem.qml:202
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -407,59 +407,59 @@ msgstr "Systemet er i straumsparemodus – rull for å byta"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Systemet er i balansert straumsparemodus – rull for å byta"
 
-#: main.qml:307
+#: main.qml:310
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Vis energiinformasjon …"
 
-#: main.qml:313
+#: main.qml:316
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Vis batteriprosent på ikonet viss ikkje fullada"
 
-#: main.qml:326
+#: main.qml:327
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Set opp straumstyring …"
 
-#: PowerProfileItem.qml:41
+#: PowerProfileItem.qml:40
 #, kde-format
 msgid "Power Save"
 msgstr "Straumsparing"
 
-#: PowerProfileItem.qml:45
+#: PowerProfileItem.qml:44
 #, kde-format
 msgid "Balanced"
 msgstr "Balansert"
 
-#: PowerProfileItem.qml:49
+#: PowerProfileItem.qml:48
 #, kde-format
 msgid "Performance"
 msgstr "Yting"
 
-#: PowerProfileItem.qml:66
+#: PowerProfileItem.qml:65
 #, kde-format
 msgid "Power Profile"
 msgstr "Straumprofil"
 
-#: PowerProfileItem.qml:110
+#: PowerProfileItem.qml:109
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Automatisk"
 
-#: PowerProfileItem.qml:111
+#: PowerProfileItem.qml:110
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Ikkje tilgjengeleg"
 
-#: PowerProfileItem.qml:151
+#: PowerProfileItem.qml:150
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Klarte ikkje å aktivera %1-modus"
 
-#: PowerProfileItem.qml:228
+#: PowerProfileItem.qml:227
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -468,18 +468,18 @@ msgstr ""
 "Ytingsmodusen vart slått av for å redusera varme­utviklinga, då maskina har "
 "funne ut at du truleg har ho plassert i fanget."
 
-#: PowerProfileItem.qml:230
+#: PowerProfileItem.qml:229
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Utyingsmodusen er utilgjengeleg grunna overoppheting av datamaskina."
 
-#: PowerProfileItem.qml:232
+#: PowerProfileItem.qml:231
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Utyingsmodusen er utilgjengeleg."
 
-#: PowerProfileItem.qml:248
+#: PowerProfileItem.qml:247
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -488,24 +488,24 @@ msgstr ""
 "Ytinga kan verta redusert for å redusera varme­utviklinga, då maskina har "
 "funne ut at du truleg har ho plassert i fanget."
 
-#: PowerProfileItem.qml:250
+#: PowerProfileItem.qml:249
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Ytinga kan verta redusert grunna overoppheting av datamaskina."
 
-#: PowerProfileItem.qml:252
+#: PowerProfileItem.qml:251
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Ytinga kan verta redusert."
 
-#: PowerProfileItem.qml:265
+#: PowerProfileItem.qml:264
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Eitt program har bedt om aktivering av %2:"
 msgstr[1] "%1 program har bedt om aktivering av %2:"
 
-#: PowerProfileItem.qml:284
+#: PowerProfileItem.qml:287
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -513,17 +513,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: PowerProfileItem.qml:302
+#: PowerProfileItem.qml:305
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "TLP-tenesta styrer automatisk straumprofilar"
 
-#: PowerProfileItem.qml:304
+#: PowerProfileItem.qml:307
 #, kde-format
 msgid "Power profiles are not supported on your device."
 msgstr "Straumprofilar er ikkje støtta på eininga di."
 
-#: PowerProfileItem.qml:305
+#: PowerProfileItem.qml:308
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

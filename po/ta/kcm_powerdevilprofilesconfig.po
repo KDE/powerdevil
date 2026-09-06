@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-06 00:48+0000\n"
 "PO-Revision-Date: 2025-11-30 11:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -127,7 +127,7 @@ msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr "உறங்கி, கொஞ்சம் நேரம் கழித்து ஆழுறங்கும்"
 
-#: ui/DurationPromptDialog.qml:130
+#: ui/DurationPromptDialog.qml:131
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "millisecond"
@@ -135,7 +135,7 @@ msgid_plural "milliseconds"
 msgstr[0] "மில்லிநொடி"
 msgstr[1] "மில்லிநொடி"
 
-#: ui/DurationPromptDialog.qml:132
+#: ui/DurationPromptDialog.qml:133
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
@@ -143,7 +143,7 @@ msgid_plural "seconds"
 msgstr[0] "நொடி"
 msgstr[1] "நொடி"
 
-#: ui/DurationPromptDialog.qml:134
+#: ui/DurationPromptDialog.qml:135
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
@@ -151,7 +151,7 @@ msgid_plural "minutes"
 msgstr[0] "நிமிடம்"
 msgstr[1] "நிமிடம்"
 
-#: ui/DurationPromptDialog.qml:136
+#: ui/DurationPromptDialog.qml:137
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
@@ -159,7 +159,7 @@ msgid_plural "hours"
 msgstr[0] "மணிநேரம்"
 msgstr[1] "மணிநேரம்"
 
-#: ui/DurationPromptDialog.qml:138
+#: ui/DurationPromptDialog.qml:139
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
@@ -167,7 +167,7 @@ msgid_plural "days"
 msgstr[0] "நாள்"
 msgstr[1] "நாட்கள்"
 
-#: ui/DurationPromptDialog.qml:140
+#: ui/DurationPromptDialog.qml:141
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
@@ -175,7 +175,7 @@ msgid_plural "weeks"
 msgstr[0] "வாரம்"
 msgstr[1] "வாரங்கள்"
 
-#: ui/DurationPromptDialog.qml:142
+#: ui/DurationPromptDialog.qml:143
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
@@ -183,7 +183,7 @@ msgid_plural "months"
 msgstr[0] "மாதம்"
 msgstr[1] "மாதங்கள்"
 
-#: ui/DurationPromptDialog.qml:144
+#: ui/DurationPromptDialog.qml:145
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
@@ -191,49 +191,49 @@ msgid_plural "years"
 msgstr[0] "ஆண்டு"
 msgstr[1] "ஆண்டுகள்"
 
-#: ui/DurationPromptDialog.qml:168
+#: ui/DurationPromptDialog.qml:169
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
 msgstr "மில்லிநொடி"
 
-#: ui/DurationPromptDialog.qml:170
+#: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
 msgstr "நொடி"
 
-#: ui/DurationPromptDialog.qml:172
+#: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
 msgstr "நிமிடம்"
 
-#: ui/DurationPromptDialog.qml:174
+#: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
 msgstr "மணிநேரம்"
 
-#: ui/DurationPromptDialog.qml:176
+#: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
 msgstr "நாட்கள்"
 
-#: ui/DurationPromptDialog.qml:178
+#: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
 msgstr "வாரங்கள்"
 
-#: ui/DurationPromptDialog.qml:180
+#: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
 msgstr "மாதங்கள்"
 
-#: ui/DurationPromptDialog.qml:182
+#: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
@@ -517,7 +517,7 @@ msgstr "மின்கல ஆற்றலில் இயங்கும்ப�
 msgid "On Low Battery"
 msgstr "மின்கல ஆற்றல் குறைவாயுள்ளபோது"
 
-#: ui/ProfileConfig.qml:24
+#: ui/ProfileConfig.qml:25
 #, kde-format
 msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
@@ -525,13 +525,13 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/ProfileConfig.qml:43
+#: ui/ProfileConfig.qml:44
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr "அமர்வை உறங்கசெய்"
 
-#: ui/ProfileConfig.qml:58
+#: ui/ProfileConfig.qml:59
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -541,7 +541,7 @@ msgstr ""
 "மடிக்கணினி பயனிலில்லாதபோது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது "
 "உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
-#: ui/ProfileConfig.qml:65
+#: ui/ProfileConfig.qml:66
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -549,13 +549,13 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "&பயனிலில்லாதபோது:"
 
-#: ui/ProfileConfig.qml:74
+#: ui/ProfileConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "கணினியை குறிப்பிட்ட இடைவெளிக்கு பயன்படுத்தாதபோது செய்யவேண்டியது"
 
-#: ui/ProfileConfig.qml:105
+#: ui/ProfileConfig.qml:106
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -563,7 +563,7 @@ msgid_plural "After %1 seconds"
 msgstr[0] "%1 நொடிக்கு பின்"
 msgstr[1] "%1 நொடிக்கு பின்"
 
-#: ui/ProfileConfig.qml:107
+#: ui/ProfileConfig.qml:108
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -571,27 +571,27 @@ msgid_plural "After %1 minutes"
 msgstr[0] "%1 நிமிடத்திற்கு பின்"
 msgstr[1] "%1 நிமிடத்திற்கு பின்"
 
-#: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:869
+#: ui/ProfileConfig.qml:121 ui/ProfileConfig.qml:416 ui/ProfileConfig.qml:557
+#: ui/ProfileConfig.qml:870
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "விருப்பமானது…"
 
-#: ui/ProfileConfig.qml:166
+#: ui/ProfileConfig.qml:167
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr "தானியக்க உறக்கத்தை முடக்குவது ஆற்றல் பயன்பாட்டை அதிகரிக்கலாம்."
 
-#: ui/ProfileConfig.qml:168
+#: ui/ProfileConfig.qml:169
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
 msgstr "இந்த இடைவெளி அதிகமாக இருந்தால், அதிக ஆற்றல் வீணாகும்"
 
-#: ui/ProfileConfig.qml:180
+#: ui/ProfileConfig.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -601,7 +601,7 @@ msgstr ""
 "ஆற்றல் பட்டனை அழுத்தும்போது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது உங்கள் "
 "கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
-#: ui/ProfileConfig.qml:187
+#: ui/ProfileConfig.qml:188
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -609,13 +609,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "&ஆற்றல் பட்டன் அழுத்தப்படும்போது:"
 
-#: ui/ProfileConfig.qml:189
+#: ui/ProfileConfig.qml:190
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "ஆற்றல் பட்டன் அழுத்தப்படும்போது செய்யவேண்டியது"
 
-#: ui/ProfileConfig.qml:219
+#: ui/ProfileConfig.qml:220
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -625,7 +625,7 @@ msgstr ""
 "மடிக்கணினியின் மூடியை மூடும்போது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், "
 "தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:227
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -633,13 +633,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "&மடிக்கணினியின் மூடி மூடப்படும்போது:"
 
-#: ui/ProfileConfig.qml:228
+#: ui/ProfileConfig.qml:229
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "மடிக்கணினியின் மூடியை மூடும்போது செய்யவேண்டியது"
 
-#: ui/ProfileConfig.qml:257
+#: ui/ProfileConfig.qml:258
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -647,14 +647,14 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "வெளி காட்சிக் கருவி இணைக்கப்பட்டிருக்கும்போதும்"
 
-#: ui/ProfileConfig.qml:259
+#: ui/ProfileConfig.qml:260
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "வெளி காட்சிக் கருவி இணைக்கப்பட்டிருக்கும்போதும் மடிக்கணினியின் மூடி மூடப்பட்டால் "
 "செய்யவேண்டிய செயலை செய்"
 
-#: ui/ProfileConfig.qml:277
+#: ui/ProfileConfig.qml:278
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -664,44 +664,44 @@ msgstr ""
 "நீங்கள் முன்பு அமைத்திருந்த உறக்க முறை, தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. "
 "வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
-#: ui/ProfileConfig.qml:284
+#: ui/ProfileConfig.qml:285
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "உறங்கும்போது இதை செய்:"
 
-#: ui/ProfileConfig.qml:286
+#: ui/ProfileConfig.qml:287
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "கணினி உறக்கத்திற்கு இந்த பயன்முறையைப் பயன்படுத்து"
 
-#: ui/ProfileConfig.qml:335
+#: ui/ProfileConfig.qml:336
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "திரையும் பிரகாசமும்"
 
-#: ui/ProfileConfig.qml:345
+#: ui/ProfileConfig.qml:346
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "&திரையின் பிரகாசத்தை மாற்று:"
 
-#: ui/ProfileConfig.qml:392
+#: ui/ProfileConfig.qml:393
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "தானாக &மங்கசெய்:"
 
-#: ui/ProfileConfig.qml:394
+#: ui/ProfileConfig.qml:395
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "இதற்கு பின் தானாக &மங்கசெய்:"
 
-#: ui/ProfileConfig.qml:399
+#: ui/ProfileConfig.qml:400
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
@@ -709,7 +709,7 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 நொடி"
 msgstr[1] "%1 நொடி"
 
-#: ui/ProfileConfig.qml:401
+#: ui/ProfileConfig.qml:402
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
@@ -717,32 +717,32 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 நிமிடம்"
 msgstr[1] "%1 நிமிடம்"
 
-#: ui/ProfileConfig.qml:408
+#: ui/ProfileConfig.qml:409
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "வேண்டாம்"
 
-#: ui/ProfileConfig.qml:460
+#: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "மங்கச்செய்யும் நேரத்தைவிட முடக்கும் நேரம் குறைவாக உள்ளதால் திரை மங்காது."
 
-#: ui/ProfileConfig.qml:465
+#: ui/ProfileConfig.qml:466
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "திரையை மு&டக்கு:"
 
-#: ui/ProfileConfig.qml:477
+#: ui/ProfileConfig.qml:478
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "இதற்கு பின் திரையை மு&டக்கு:"
 
-#: ui/ProfileConfig.qml:481
+#: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
@@ -750,7 +750,7 @@ msgid_plural "%1 seconds"
 msgstr[0] "%1 நொடி"
 msgstr[1] "%1 நொடி"
 
-#: ui/ProfileConfig.qml:483
+#: ui/ProfileConfig.qml:484
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
@@ -758,13 +758,13 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 நிமிடம்"
 msgstr[1] "%1 நிமிடம்"
 
-#: ui/ProfileConfig.qml:490
+#: ui/ProfileConfig.qml:491
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "வேண்டாம்"
 
-#: ui/ProfileConfig.qml:497
+#: ui/ProfileConfig.qml:498
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -772,13 +772,13 @@ msgctxt ""
 msgid "Custom…"
 msgstr "விருப்பமானது…"
 
-#: ui/ProfileConfig.qml:536
+#: ui/ProfileConfig.qml:537
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "பூட்டப்பட்டிருக்கும்போது திரையை இதற்கு பின் முடக்கு:"
 
-#: ui/ProfileConfig.qml:540
+#: ui/ProfileConfig.qml:541
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
@@ -786,7 +786,7 @@ msgid_plural "When locked: %1 seconds"
 msgstr[0] "பூட்டப்பட்டிருக்கும்போது: %1 நொடி"
 msgstr[1] "பூட்டப்பட்டிருக்கும்போது: %1 நொடி"
 
-#: ui/ProfileConfig.qml:542
+#: ui/ProfileConfig.qml:543
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
@@ -794,7 +794,7 @@ msgid_plural "When locked: %1 minutes"
 msgstr[0] "பூட்டப்பட்டிருக்கும்போது: %1 நிமிடம்"
 msgstr[1] "பூட்டப்பட்டிருக்கும்போது: %1 நிமிடம்"
 
-#: ui/ProfileConfig.qml:549
+#: ui/ProfileConfig.qml:550
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -802,25 +802,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "பூட்டுநிலையை பொருட்படுத்தாதே"
 
-#: ui/ProfileConfig.qml:551
+#: ui/ProfileConfig.qml:552
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "பூட்டப்பட்டிருக்கும்போது: உடனே"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:591
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "&விசைப்பலகையின் பிரகாசத்தை மாற்று:"
 
-#: ui/ProfileConfig.qml:638
+#: ui/ProfileConfig.qml:639
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "மற்ற அமைப்புகள்"
 
-#: ui/ProfileConfig.qml:646
+#: ui/ProfileConfig.qml:647
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -828,7 +828,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "&ஆற்றல் பயன்முறைக்கு மாறு:"
 
-#: ui/ProfileConfig.qml:650
+#: ui/ProfileConfig.qml:651
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -836,13 +836,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "ஆற்றல் பயன்முறைக்கு மாறு"
 
-#: ui/ProfileConfig.qml:677
+#: ui/ProfileConfig.qml:678
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "சிறுநிரலையோ செயலியையோ இயக்கு:"
 
-#: ui/ProfileConfig.qml:687
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -850,13 +850,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "இயக்க நிபந்தனைகளை அமை"
 
-#: ui/ProfileConfig.qml:689
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "சிறுநிரல் இயங்குவதற்கான நிபந்தனைகளைத் அமைக்க விடும்"
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:710
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -864,7 +864,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "\"%1\" நிலையில் நுழையம்போது"
 
-#: ui/ProfileConfig.qml:727
+#: ui/ProfileConfig.qml:728
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -872,13 +872,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "\"%1\" நிலையிலிருந்து வெளியேறும்போது"
 
-#: ui/ProfileConfig.qml:745
+#: ui/ProfileConfig.qml:746
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "பயனிலில்லாதபோது"
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:769
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -886,13 +886,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "\"%1\" &நிலையில் நுழையம்போது:"
 
-#: ui/ProfileConfig.qml:772
+#: ui/ProfileConfig.qml:773
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "\"%1\" நிலையில் நுழையும்போது இயக்க வேண்டிய கட்டளையோ சிறுநிரலோ"
 
-#: ui/ProfileConfig.qml:803
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -900,31 +900,31 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "\"%1\" நி&லையிலிருந்து வெளியேறும்போது:"
 
-#: ui/ProfileConfig.qml:807
+#: ui/ProfileConfig.qml:808
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "\"%1\" நிலையிலிருந்து வெளியேறும்போது இயக்க வேண்டிய கட்டளையோ சிறுநிரலோ"
 
-#: ui/ProfileConfig.qml:836
+#: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "எவ்வளவு நேரம் ஒன்றும் செய்யாமல் இருந்தால் சிறுநிரலை இயக்க வேண்டும்"
 
-#: ui/ProfileConfig.qml:842
+#: ui/ProfileConfig.qml:843
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "&பயனிலில்லாதபோது:"
 
-#: ui/ProfileConfig.qml:845
+#: ui/ProfileConfig.qml:846
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "இதற்கு விருப்ப சிறுநிரலை இயக்குவது:"
 
-#: ui/ProfileConfig.qml:854
+#: ui/ProfileConfig.qml:855
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -932,7 +932,7 @@ msgid_plural "Run after %1 seconds"
 msgstr[0] "%1 நொடிக்கு பின்"
 msgstr[1] "%1 நொடிக்கு பின்"
 
-#: ui/ProfileConfig.qml:856
+#: ui/ProfileConfig.qml:857
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -940,43 +940,43 @@ msgid_plural "Run after %1 minutes"
 msgstr[0] "%1 நிமிடத்திற்கு பின்"
 msgstr[1] "%1 நிமிடத்திற்கு பின்"
 
-#: ui/ProfileConfig.qml:898
+#: ui/ProfileConfig.qml:899
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
 msgstr "செயலிலில்லாதபோது சிறுநிரலோ கட்டளையோ"
 
-#: ui/RunScriptEdit.qml:34
+#: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "கட்டளையையோ சிறுநிரலுக்கான பாதையையோ உள்ளிடவும்"
 
-#: ui/RunScriptEdit.qml:35
+#: ui/RunScriptEdit.qml:36
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "கட்டளையையோ சிறுநிரலுக்கான பாதையையோ உள்ளிடவும்"
 
-#: ui/RunScriptEdit.qml:53
+#: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
 msgstr "தேர்ந்தெடு…"
 
-#: ui/RunScriptEdit.qml:54
+#: ui/RunScriptEdit.qml:55
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
 msgstr "சிறுநிரல் கோப்பைத் தேர்ந்தெடு"
 
-#: ui/RunScriptEdit.qml:67
+#: ui/RunScriptEdit.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
 msgstr "சிறுநிரல் கோப்பைத் தேர்ந்தெடுப்பது"
 
-#: ui/TimeDurationComboBox.qml:21
+#: ui/TimeDurationComboBox.qml:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"

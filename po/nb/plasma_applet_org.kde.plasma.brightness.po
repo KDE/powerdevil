@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:45+0000\n"
+"POT-Creation-Date: 2026-09-06 00:48+0000\n"
 "PO-Revision-Date: 2025-03-29 09:33+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -61,7 +61,7 @@ msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Lysstyrke"
 
-#: BrightnessItem.qml:118
+#: BrightnessItem.qml:119
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
@@ -73,7 +73,7 @@ msgctxt "@action:button"
 msgid "Dark Mode"
 msgstr ""
 
-#: DarkModeItem.qml:81 NightLightItem.qml:147
+#: DarkModeItem.qml:81 NightLightItem.qml:182
 #, kde-format
 msgid "Configure…"
 msgstr "Sett opp …"
@@ -89,208 +89,208 @@ msgstr ""
 msgid "Follow accent color"
 msgstr "Bruk kontrastfargen"
 
-#: main.qml:95
+#: main.qml:63
 #, fuzzy, kde-format
 #| msgid "Brightness and Color"
 msgid "Brightness & Color"
 msgstr "Lysstyrke og farger"
 
-#: main.qml:135
+#: main.qml:103
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "Skjermlysstyrken er %1 %"
 
-#: main.qml:136
+#: main.qml:104
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "Lysstyrken til %1 er på %2 %"
 
-#: main.qml:141
+#: main.qml:109
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "Tastaturlysstyrken er på %1 %"
 
-#: main.qml:147
+#: main.qml:115
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "Kveldsfarger på pause – midtklikk for å slå på"
 
-#: main.qml:149
+#: main.qml:117
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "Kveldsfarger på pause"
 
-#: main.qml:154
+#: main.qml:122
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Kveldsfarger: bruker nå dagfarger"
 
-#: main.qml:156
+#: main.qml:124
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Kveldsfarger: bruker nå kveldsfarger"
 
-#: main.qml:161
+#: main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "Overgang til morgen (ferdig %1)"
 
-#: main.qml:163
+#: main.qml:131
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "Overgang til kveld (ferdig %1)"
 
-#: main.qml:181
+#: main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "Overgang til kveld tar til kl. %1"
 
-#: main.qml:183
+#: main.qml:151
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "Overgang til morgen tar til kl. %1"
 
-#: main.qml:187
+#: main.qml:155
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "Rull for å justere skjermlysstyrken"
 
-#: main.qml:190
+#: main.qml:158
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "Midtklikk for å slå av kveldsfarger"
 
-#: main.qml:273
+#: main.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Sett opp kveldsfarger …"
 
-#: main.qml:279
+#: main.qml:250
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Sett opp strømstyring …"
 
-#: NightLightItem.qml:75
+#: NightLightItem.qml:109
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "På pause"
 
-#: NightLightItem.qml:78
+#: NightLightItem.qml:112
 #, kde-format
 msgctxt "Night light status"
 msgid "Unavailable"
 msgstr "Ikke tilgjengelig"
 
-#: NightLightItem.qml:81
+#: NightLightItem.qml:115
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
 msgstr "Ikke slått på"
 
-#: NightLightItem.qml:84
+#: NightLightItem.qml:118
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
 msgstr "Kjører ikke"
 
-#: NightLightItem.qml:87
+#: NightLightItem.qml:121
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "På"
 
-#: NightLightItem.qml:90
+#: NightLightItem.qml:124
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Morgenovergang"
 
-#: NightLightItem.qml:92
+#: NightLightItem.qml:126
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
 msgstr "Dag"
 
-#: NightLightItem.qml:94
+#: NightLightItem.qml:128
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Kveldsovergang"
 
-#: NightLightItem.qml:96
+#: NightLightItem.qml:130
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Kveld"
 
-#: NightLightItem.qml:107
+#: NightLightItem.qml:141
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1 K"
 
-#: NightLightItem.qml:122
+#: NightLightItem.qml:157
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Satt på pause"
 
-#: NightLightItem.qml:147
+#: NightLightItem.qml:182
 #, kde-format
 msgid "Enable and Configure…"
 msgstr "Slå på og sett opp …"
 
-#: NightLightItem.qml:175
+#: NightLightItem.qml:210
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day complete by:"
 msgstr "Overgang til dagfarger ferdig:"
 
-#: NightLightItem.qml:177
+#: NightLightItem.qml:212
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night scheduled for:"
 msgstr "Overgang til kveldsfarger tar til:"
 
-#: NightLightItem.qml:179
+#: NightLightItem.qml:214
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night complete by:"
 msgstr "Overgang til kveldsfarger ferdig:"
 
-#: NightLightItem.qml:181
+#: NightLightItem.qml:216
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Overgang til dagfarger tar til:"
 
-#: PopupDialog.qml:124
+#: PopupDialog.qml:129
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Tastaturbaklys"
 
-#: PopupDialog.qml:157
+#: PopupDialog.qml:162
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Tastaturfarge"
 
-#: PopupDialog.qml:170
+#: PopupDialog.qml:175
 #, kde-format
 msgid "Night Light"
 msgstr "Kveldsfarger"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:183
 #, kde-format
 msgid "Theme"
 msgstr ""

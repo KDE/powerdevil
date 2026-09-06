@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:47+0000\n"
+"POT-Creation-Date: 2026-09-06 00:48+0000\n"
 "PO-Revision-Date: 2026-08-21 08:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -99,30 +99,30 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "Акумулятор налаштовано на зарядження до рівня приблизно %1%."
 
-#: CompactRepresentation.qml:105 CompactRepresentation.qml:167
+#: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:53
+#: InhibitionItem.qml:51
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Присипляння і блокування екрана у результаті бездіяльності"
 
-#: InhibitionItem.qml:60 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:75
 #, kde-format
 msgid "Power Management"
 msgstr "Керування живленням"
 
-#: InhibitionItem.qml:65
+#: InhibitionItem.qml:63
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr "Автоматичне присипляння та блокування екрана вимкнено."
 
-#: InhibitionItem.qml:67
+#: InhibitionItem.qml:65
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
@@ -131,7 +131,7 @@ msgstr ""
 "Зараз блокування екрана вимкнено. Присипляння буде автоматичним у результаті "
 "бездіяльності."
 
-#: InhibitionItem.qml:69
+#: InhibitionItem.qml:67
 #, kde-format
 msgctxt "accessible-only status text"
 msgid ""
@@ -140,37 +140,37 @@ msgstr ""
 "Зараз присипляння заблоковано. Автоматичне блокування екрана у результаті "
 "бездіяльності"
 
-#: InhibitionItem.qml:71
+#: InhibitionItem.qml:69
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
 "Автоматичне присипляння і блокування екрана у результаті бездіяльності."
 
-#: InhibitionItem.qml:95
+#: InhibitionItem.qml:93
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Блокування вручну присипляння і блокування екрана"
 
-#: InhibitionItem.qml:118
+#: InhibitionItem.qml:114
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Не вдалося розблокувати автоматичне присипляння і блокування екрана"
 
-#: InhibitionItem.qml:121
+#: InhibitionItem.qml:117
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Не вдалося заблокувати автоматичне присипляння і блокування екрана"
 
-#: InhibitionItem.qml:135
+#: InhibitionItem.qml:131
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Це призведе до підвищеного споживання енергії."
 
-#: InhibitionItem.qml:136
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -182,7 +182,7 @@ msgstr ""
 "Ви вручну заблокували автоматичне присипляння і блокування екрана. Це "
 "призведе до підвищеного споживання енергії."
 
-#: InhibitionItem.qml:143
+#: InhibitionItem.qml:139
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -192,13 +192,13 @@ msgstr ""
 "Ваш ноутбук налаштовано на блокування присипляння після закриття ноутбука, "
 "якщо з ним з’єднано зовнішній монітор."
 
-#: InhibitionItem.qml:162
+#: InhibitionItem.qml:159
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Невідома причина."
 
-#: InhibitionItem.qml:169
+#: InhibitionItem.qml:166
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -206,7 +206,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 бажає вимкнути присипляння і блокування екрана. (%2)"
 
-#: InhibitionItem.qml:171
+#: InhibitionItem.qml:168
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -214,7 +214,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 бажає вимкнути блокування екрана. (%2)"
 
-#: InhibitionItem.qml:173
+#: InhibitionItem.qml:170
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -222,7 +222,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1 бажає заблокувати присипляння. (%2)"
 
-#: InhibitionItem.qml:177
+#: InhibitionItem.qml:174
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -230,7 +230,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 також блокує присипляння і блокування екрана (%2)"
 
-#: InhibitionItem.qml:179
+#: InhibitionItem.qml:176
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -238,7 +238,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 також вимикає блокування екрана. (%2)"
 
-#: InhibitionItem.qml:181
+#: InhibitionItem.qml:178
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -246,7 +246,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 також вимикає присипляння. (%2)"
 
-#: InhibitionItem.qml:185
+#: InhibitionItem.qml:182
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -254,7 +254,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 блокує присипляння і блокування екрана (%2)"
 
-#: InhibitionItem.qml:187
+#: InhibitionItem.qml:184
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -262,7 +262,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 вимикає блокування екрана. (%2)"
 
-#: InhibitionItem.qml:189
+#: InhibitionItem.qml:186
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -270,7 +270,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 вимикає присипляння. (%2)"
 
-#: InhibitionItem.qml:197
+#: InhibitionItem.qml:194
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -278,7 +278,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Розблокувати"
 
-#: InhibitionItem.qml:205
+#: InhibitionItem.qml:202
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -414,59 +414,59 @@ msgstr ""
 "Система перебуває у режимі збалансованого споживання енергії; гортайте далі, "
 "щоб змінити режим"
 
-#: main.qml:307
+#: main.qml:310
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Показати дані щодо енергоспоживання…"
 
-#: main.qml:313
+#: main.qml:316
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Показувати заряд у відсотках на піктограмі, якщо заряджено не повністю"
 
-#: main.qml:326
+#: main.qml:327
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Налаштувати керування живленням…"
 
-#: PowerProfileItem.qml:41
+#: PowerProfileItem.qml:40
 #, kde-format
 msgid "Power Save"
 msgstr "Заощадження енергії"
 
-#: PowerProfileItem.qml:45
+#: PowerProfileItem.qml:44
 #, kde-format
 msgid "Balanced"
 msgstr "Збалансований"
 
-#: PowerProfileItem.qml:49
+#: PowerProfileItem.qml:48
 #, kde-format
 msgid "Performance"
 msgstr "Швидкодія"
 
-#: PowerProfileItem.qml:66
+#: PowerProfileItem.qml:65
 #, kde-format
 msgid "Power Profile"
 msgstr "Профіль живлення"
 
-#: PowerProfileItem.qml:110
+#: PowerProfileItem.qml:109
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Автоматичний"
 
-#: PowerProfileItem.qml:111
+#: PowerProfileItem.qml:110
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Немає доступу"
 
-#: PowerProfileItem.qml:151
+#: PowerProfileItem.qml:150
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Не вдалося задіяти режим %1"
 
-#: PowerProfileItem.qml:228
+#: PowerProfileItem.qml:227
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -475,7 +475,7 @@ msgstr ""
 "Режим підвищеної швидкодії вимкнено для зменшення виділення тепла через те, "
 "що виявлено, що ви, можливо, тримаєте комп'ютер на стегнах."
 
-#: PowerProfileItem.qml:230
+#: PowerProfileItem.qml:229
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
@@ -483,12 +483,12 @@ msgstr ""
 "Режим підвищеної швидкодії є недоступним через надто високу температуру "
 "компонентів комп'ютера."
 
-#: PowerProfileItem.qml:232
+#: PowerProfileItem.qml:231
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Режим підвищеної швидкодії є недоступним."
 
-#: PowerProfileItem.qml:248
+#: PowerProfileItem.qml:247
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -497,19 +497,19 @@ msgstr ""
 "Режим підвищеної швидкодії може бути обмежено для зменшення виділення тепла "
 "через те, що виявлено, що ви, можливо, тримаєте комп'ютер на стегнах."
 
-#: PowerProfileItem.qml:250
+#: PowerProfileItem.qml:249
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
 "Режим підвищеної швидкодії може бути обмежено через надто високу температуру "
 "компонентів комп'ютера."
 
-#: PowerProfileItem.qml:252
+#: PowerProfileItem.qml:251
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Швидкодію може бути обмежено."
 
-#: PowerProfileItem.qml:265
+#: PowerProfileItem.qml:264
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
@@ -518,7 +518,7 @@ msgstr[1] "Запит щодо активації %2 надіслано %1 пр�
 msgstr[2] "Запит щодо активації %2 надіслано %1 програмами:"
 msgstr[3] "Запит щодо активації %2 надіслано однією програмою:"
 
-#: PowerProfileItem.qml:284
+#: PowerProfileItem.qml:287
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -526,17 +526,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: PowerProfileItem.qml:302
+#: PowerProfileItem.qml:305
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "Служба TLP автоматично керує профілями живлення"
 
-#: PowerProfileItem.qml:304
+#: PowerProfileItem.qml:307
 #, kde-format
 msgid "Power profiles are not supported on your device."
 msgstr "Для вашого пристрою не передбачено підтримки профілів живлення."
 
-#: PowerProfileItem.qml:305
+#: PowerProfileItem.qml:308
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

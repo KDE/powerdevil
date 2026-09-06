@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-06 00:48+0000\n"
 "PO-Revision-Date: 2026-08-26 23:22+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
@@ -131,7 +131,7 @@ msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr "Po době nečinnosti přepnout na hibernaci"
 
-#: ui/DurationPromptDialog.qml:130
+#: ui/DurationPromptDialog.qml:131
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "millisecond"
@@ -140,7 +140,7 @@ msgstr[0] "milisekunda"
 msgstr[1] "milisekundy"
 msgstr[2] "milisekund"
 
-#: ui/DurationPromptDialog.qml:132
+#: ui/DurationPromptDialog.qml:133
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
@@ -149,7 +149,7 @@ msgstr[0] "sekunda"
 msgstr[1] "sekundy"
 msgstr[2] "sekund"
 
-#: ui/DurationPromptDialog.qml:134
+#: ui/DurationPromptDialog.qml:135
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
@@ -158,7 +158,7 @@ msgstr[0] "minuta"
 msgstr[1] "minuty"
 msgstr[2] "minut"
 
-#: ui/DurationPromptDialog.qml:136
+#: ui/DurationPromptDialog.qml:137
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
@@ -167,7 +167,7 @@ msgstr[0] "hodina"
 msgstr[1] "hodiny"
 msgstr[2] "hodin"
 
-#: ui/DurationPromptDialog.qml:138
+#: ui/DurationPromptDialog.qml:139
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
@@ -176,7 +176,7 @@ msgstr[0] "den"
 msgstr[1] "dny"
 msgstr[2] "dnů"
 
-#: ui/DurationPromptDialog.qml:140
+#: ui/DurationPromptDialog.qml:141
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
@@ -185,7 +185,7 @@ msgstr[0] "týden"
 msgstr[1] "týdny"
 msgstr[2] "týdnů"
 
-#: ui/DurationPromptDialog.qml:142
+#: ui/DurationPromptDialog.qml:143
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
@@ -194,7 +194,7 @@ msgstr[0] "měsíc"
 msgstr[1] "měsíce"
 msgstr[2] "měsíců"
 
-#: ui/DurationPromptDialog.qml:144
+#: ui/DurationPromptDialog.qml:145
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
@@ -203,49 +203,49 @@ msgstr[0] "rok"
 msgstr[1] "roky"
 msgstr[2] "let"
 
-#: ui/DurationPromptDialog.qml:168
+#: ui/DurationPromptDialog.qml:169
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
 msgstr "milisekund"
 
-#: ui/DurationPromptDialog.qml:170
+#: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
 msgstr "sekund"
 
-#: ui/DurationPromptDialog.qml:172
+#: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
 msgstr "minut"
 
-#: ui/DurationPromptDialog.qml:174
+#: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
 msgstr "hodin"
 
-#: ui/DurationPromptDialog.qml:176
+#: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
 msgstr "dnů"
 
-#: ui/DurationPromptDialog.qml:178
+#: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
 msgstr "týdnů"
 
-#: ui/DurationPromptDialog.qml:180
+#: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
 msgstr "měsíců"
 
-#: ui/DurationPromptDialog.qml:182
+#: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
@@ -528,7 +528,7 @@ msgstr "Na baterii"
 msgid "On Low Battery"
 msgstr "Při nízké úrovní baterie"
 
-#: ui/ProfileConfig.qml:24
+#: ui/ProfileConfig.qml:25
 #, kde-format
 msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
@@ -536,13 +536,13 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/ProfileConfig.qml:43
+#: ui/ProfileConfig.qml:44
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr "Pozastavit sezení"
 
-#: ui/ProfileConfig.qml:58
+#: ui/ProfileConfig.qml:59
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -552,7 +552,7 @@ msgstr ""
 "Akce, kterou jste dříve nastavili pro případ nečinnosti, už není ve vašem "
 "systému podporována. Vyberte prosím jinou."
 
-#: ui/ProfileConfig.qml:65
+#: ui/ProfileConfig.qml:66
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -560,13 +560,13 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "Pokud neakt&ivní:"
 
-#: ui/ProfileConfig.qml:74
+#: ui/ProfileConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Akce k provedení při nečinnosti systému"
 
-#: ui/ProfileConfig.qml:105
+#: ui/ProfileConfig.qml:106
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -575,7 +575,7 @@ msgstr[0] "Po %1 sekundě"
 msgstr[1] "Po %1 sekundách"
 msgstr[2] "Po %1 sekundách"
 
-#: ui/ProfileConfig.qml:107
+#: ui/ProfileConfig.qml:108
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -584,27 +584,27 @@ msgstr[0] "Po %1 minutě"
 msgstr[1] "Po %1 minutách"
 msgstr[2] "Po %1 minutách"
 
-#: ui/ProfileConfig.qml:120 ui/ProfileConfig.qml:415 ui/ProfileConfig.qml:556
-#: ui/ProfileConfig.qml:869
+#: ui/ProfileConfig.qml:121 ui/ProfileConfig.qml:416 ui/ProfileConfig.qml:557
+#: ui/ProfileConfig.qml:870
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "Vlastní…"
 
-#: ui/ProfileConfig.qml:166
+#: ui/ProfileConfig.qml:167
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr "Zakázání automatického uspání povede k vyšší spotřebě energie."
 
-#: ui/ProfileConfig.qml:168
+#: ui/ProfileConfig.qml:169
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
 msgstr "Dlouhá doba povede k vyšší spotřebě energie."
 
-#: ui/ProfileConfig.qml:180
+#: ui/ProfileConfig.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -614,7 +614,7 @@ msgstr ""
 "Akce, kterou jste dříve nastavili pro případ, kdy je stisknuto tlačítko "
 "napájení, už není ve vašem systému podporována. Vyberte prosím jinou."
 
-#: ui/ProfileConfig.qml:187
+#: ui/ProfileConfig.qml:188
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -622,13 +622,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Pokud je stisknut &spínač:"
 
-#: ui/ProfileConfig.qml:189
+#: ui/ProfileConfig.qml:190
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Akce k provedení při stisknutí tlačítka napájení"
 
-#: ui/ProfileConfig.qml:219
+#: ui/ProfileConfig.qml:220
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -638,7 +638,7 @@ msgstr ""
 "Akce, kterou jste dříve nastavili pro případ, kdy je zavřeno víko, už není "
 "ve vašem systému podporována. Vyberte prosím jinou."
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:227
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -646,13 +646,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Když je &laptop zavřen:"
 
-#: ui/ProfileConfig.qml:228
+#: ui/ProfileConfig.qml:229
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Akce k provedení při zavření víka notebooku"
 
-#: ui/ProfileConfig.qml:257
+#: ui/ProfileConfig.qml:258
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -660,14 +660,14 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "I když je připojen externí monitor"
 
-#: ui/ProfileConfig.qml:259
+#: ui/ProfileConfig.qml:260
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Provést akci při zavření víka notebooku i tehdy, když je připojený externí "
 "monitor"
 
-#: ui/ProfileConfig.qml:277
+#: ui/ProfileConfig.qml:278
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -677,44 +677,44 @@ msgstr ""
 "Režim spánku, který jste dříve nastavili, už není ve vašem systému "
 "podporován. Vyberte prosím jinou."
 
-#: ui/ProfileConfig.qml:284
+#: ui/ProfileConfig.qml:285
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Když probíhá uspávání, přejít:"
 
-#: ui/ProfileConfig.qml:286
+#: ui/ProfileConfig.qml:287
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Když probíhá uspávání, přejít do tohoto režimu úspory napájení"
 
-#: ui/ProfileConfig.qml:335
+#: ui/ProfileConfig.qml:336
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Obrazovka a jas"
 
-#: ui/ProfileConfig.qml:345
+#: ui/ProfileConfig.qml:346
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Změnit jas obrazov&ky:"
 
-#: ui/ProfileConfig.qml:392
+#: ui/ProfileConfig.qml:393
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Auto&maticky ztmavit:"
 
-#: ui/ProfileConfig.qml:394
+#: ui/ProfileConfig.qml:395
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "Auto&maticky ztmavit po:"
 
-#: ui/ProfileConfig.qml:399
+#: ui/ProfileConfig.qml:400
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
@@ -723,7 +723,7 @@ msgstr[0] "%1 sekunda"
 msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekund"
 
-#: ui/ProfileConfig.qml:401
+#: ui/ProfileConfig.qml:402
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
@@ -732,32 +732,32 @@ msgstr[0] "%1 minuta"
 msgstr[1] "%1 minuty"
 msgstr[2] "%1 minut"
 
-#: ui/ProfileConfig.qml:408
+#: ui/ProfileConfig.qml:409
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "Nikdy"
 
-#: ui/ProfileConfig.qml:460
+#: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "Jas obrazovky bude ztlumen protože je nastaven aby byl dříve vypnut."
 
-#: ui/ProfileConfig.qml:465
+#: ui/ProfileConfig.qml:466
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Vypnou&t monitor:"
 
-#: ui/ProfileConfig.qml:477
+#: ui/ProfileConfig.qml:478
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "Vypnout monitor po:"
 
-#: ui/ProfileConfig.qml:481
+#: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
@@ -766,7 +766,7 @@ msgstr[0] "%1 sekunda"
 msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekund"
 
-#: ui/ProfileConfig.qml:483
+#: ui/ProfileConfig.qml:484
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
@@ -775,13 +775,13 @@ msgstr[0] "%1 minuta"
 msgstr[1] "%1 minuty"
 msgstr[2] "%1 minut"
 
-#: ui/ProfileConfig.qml:490
+#: ui/ProfileConfig.qml:491
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "Nikdy"
 
-#: ui/ProfileConfig.qml:497
+#: ui/ProfileConfig.qml:498
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -789,13 +789,13 @@ msgctxt ""
 msgid "Custom…"
 msgstr "Vlastní…"
 
-#: ui/ProfileConfig.qml:536
+#: ui/ProfileConfig.qml:537
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "Pokud uzamčeno, vypni obrazovku po:"
 
-#: ui/ProfileConfig.qml:540
+#: ui/ProfileConfig.qml:541
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
@@ -804,7 +804,7 @@ msgstr[0] "Pokud zamčeno: %1 sekundu"
 msgstr[1] "Pokud zamčeno: %1 sekundy"
 msgstr[2] "Pokud zamčeno: %1 sekund"
 
-#: ui/ProfileConfig.qml:542
+#: ui/ProfileConfig.qml:543
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
@@ -813,7 +813,7 @@ msgstr[0] "Pokud zamčeno: %1 minutu"
 msgstr[1] "Pokud zamčeno: %1 minuty"
 msgstr[2] "Pokud zamčeno: %1 minut"
 
-#: ui/ProfileConfig.qml:549
+#: ui/ProfileConfig.qml:550
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -821,25 +821,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "Pokud zamčeno a odemčeno"
 
-#: ui/ProfileConfig.qml:551
+#: ui/ProfileConfig.qml:552
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "Pokud zamčeno: Okamžitě"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:591
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Z&měnit jas klávesnice:"
 
-#: ui/ProfileConfig.qml:638
+#: ui/ProfileConfig.qml:639
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Další nastavení"
 
-#: ui/ProfileConfig.qml:646
+#: ui/ProfileConfig.qml:647
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -847,7 +847,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Přepnout na pro&fil napájení:"
 
-#: ui/ProfileConfig.qml:650
+#: ui/ProfileConfig.qml:651
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -855,13 +855,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Přepnout na profil napájení"
 
-#: ui/ProfileConfig.qml:677
+#: ui/ProfileConfig.qml:678
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "Spustit příkaz nebo skript:"
 
-#: ui/ProfileConfig.qml:687
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -869,13 +869,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "Zvolte podmínky spuštění"
 
-#: ui/ProfileConfig.qml:689
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "Vyberte podmínky spuštění pro příkaz nebo skript"
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:710
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -883,7 +883,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "Při přechodu do stavu \"%1\""
 
-#: ui/ProfileConfig.qml:727
+#: ui/ProfileConfig.qml:728
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -891,13 +891,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "Při opuštění stavu \"%1\""
 
-#: ui/ProfileConfig.qml:745
+#: ui/ProfileConfig.qml:746
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "Pokud neaktivní"
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:769
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -905,13 +905,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "Při přec&hodu do stavu \"%1\":"
 
-#: ui/ProfileConfig.qml:772
+#: ui/ProfileConfig.qml:773
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "Příkaz nebo skript při přechodu do stavu „%1“"
 
-#: ui/ProfileConfig.qml:803
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -919,31 +919,31 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "Při op&uštění stavu \"%1\":"
 
-#: ui/ProfileConfig.qml:807
+#: ui/ProfileConfig.qml:808
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "Příkaz nebo skript při opouštění stavu „%1“"
 
-#: ui/ProfileConfig.qml:836
+#: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "Doba neaktivity před spuštěním příkazu nebo skriptu"
 
-#: ui/ProfileConfig.qml:842
+#: ui/ProfileConfig.qml:843
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "Pokud neakt&ivní:"
 
-#: ui/ProfileConfig.qml:845
+#: ui/ProfileConfig.qml:846
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Spustit příkaz nebo skript po:"
 
-#: ui/ProfileConfig.qml:854
+#: ui/ProfileConfig.qml:855
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -952,7 +952,7 @@ msgstr[0] "Spustit po %1 sekundě"
 msgstr[1] "Spustit po %1 sekundách"
 msgstr[2] "Spustit po %1 sekundách"
 
-#: ui/ProfileConfig.qml:856
+#: ui/ProfileConfig.qml:857
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -961,43 +961,43 @@ msgstr[0] "Spustit po %1 minutě"
 msgstr[1] "Spustit po %1 minutách"
 msgstr[2] "Spustit po %1 minutách"
 
-#: ui/ProfileConfig.qml:898
+#: ui/ProfileConfig.qml:899
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
 msgstr "Příkaz nebo skript při neaktivitě"
 
-#: ui/RunScriptEdit.qml:34
+#: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "Zadejte příkaz nebo soubor se skriptem"
 
-#: ui/RunScriptEdit.qml:35
+#: ui/RunScriptEdit.qml:36
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "Zadejte příkaz nebo vyberte soubor skriptu"
 
-#: ui/RunScriptEdit.qml:53
+#: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
 msgstr "Vybrat…"
 
-#: ui/RunScriptEdit.qml:54
+#: ui/RunScriptEdit.qml:55
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
 msgstr "Vyberte soubor skriptu"
 
-#: ui/RunScriptEdit.qml:67
+#: ui/RunScriptEdit.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
 msgstr "Vyberte soubor skriptu"
 
-#: ui/TimeDurationComboBox.qml:21
+#: ui/TimeDurationComboBox.qml:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
