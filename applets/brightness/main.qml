@@ -109,27 +109,19 @@ PlasmoidItem {
             parts.push(i18n("Keyboard brightness at %1%", keyboardBrightnessPercent));
         }
 
-        if (nightLightControl.enabled) {
-            if (!nightLightControl.running) {
-                if (nightLightControl.inhibitedFromApplet) {
-                    parts.push(i18nc("Status", "Night Light suspended; middle-click to resume"));
+        if (nightLightControl.currentTemperature != 6500) {
+            if (nightLightControl.currentTemperature == nightLightControl.targetTemperature) {
+                if (nightLightControl.daylight) {
+                    parts.push(i18nc("Status", "Night Light at day color temperature"));
                 } else {
-                    parts.push(i18nc("Status", "Night Light suspended"));
+                    parts.push(i18nc("Status", "Night Light at night color temperature"));
                 }
-            } else if (nightLightControl.currentTemperature != 6500) {
-                if (nightLightControl.currentTemperature == nightLightControl.targetTemperature) {
-                    if (nightLightControl.daylight) {
-                        parts.push(i18nc("Status", "Night Light at day color temperature"));
-                    } else {
-                        parts.push(i18nc("Status", "Night Light at night color temperature"));
-                    }
+            } else if (!nightLightControl.activatedUntil && !nightLightControl.deactivatedUntil) {
+                const endTime = new Date(nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                if (nightLightControl.daylight) {
+                    parts.push(i18nc("Status; placeholder is a time", "Night Light in morning transition (complete by %1)", endTime));
                 } else {
-                    const endTime = new Date(nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                    if (nightLightControl.daylight) {
-                        parts.push(i18nc("Status; placeholder is a time", "Night Light in morning transition (complete by %1)", endTime));
-                    } else {
-                        parts.push(i18nc("Status; placeholder is a time", "Night Light in evening transition (complete by %1)", endTime));
-                    }
+                    parts.push(i18nc("Status; placeholder is a time", "Night Light in evening transition (complete by %1)", endTime));
                 }
             }
         }
@@ -154,17 +146,14 @@ PlasmoidItem {
         if (screenBrightnessControl.isBrightnessAvailable) {
             parts.push(i18n("Scroll to adjust screen brightness"));
         }
-        if (nightLightControl.enabled && nightLightControl.running) {
-            parts.push(i18n("Middle-click to suspend Night Light"));
-        }
         return parts.join("\n");
     }
 
     Plasmoid.icon: {
         let iconName = "brightness-high";
 
-        if (nightLightControl.enabled) {
-            if (!nightLightControl.running) {
+        if (nightLightControl.enabled || nightLightControl.activatedUntil || nightLightControl.deactivatedUntil) {
+            if (nightLightControl.inhibited) {
                 iconName = "redshift-status-off";
             } else if (nightLightControl.currentTemperature != 6500) {
                 if (nightLightControl.daylight) {
@@ -204,18 +193,12 @@ PlasmoidItem {
             }
         }
 
-        acceptedButtons: Qt.LeftButton | Qt.MiddleButton
+        acceptedButtons: Qt.LeftButton
         property bool wasExpanded: false
         Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
         onPressed: wasExpanded = brightnessAndColorControl.expanded
         onClicked: mouse => {
-            if (mouse.button == Qt.MiddleButton) {
-                if (nightLightControl.enabled) {
-                    NightLightInhibitor.toggleInhibition();
-                }
-            } else {
-                brightnessAndColorControl.expanded = !wasExpanded;
-            }
+            brightnessAndColorControl.expanded = !wasExpanded;
         }
     }
 
