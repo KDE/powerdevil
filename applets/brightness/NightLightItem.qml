@@ -59,7 +59,7 @@ PlasmaComponents3.ItemDelegate {
         readonly property double scheduledTransitionStartTime: Number(properties.scheduledTransitionDateTime) * 1000
 
         readonly property bool transitioning: currentTemperature != targetTemperature
-        readonly property bool hasSwitchingTimes: mode != 3
+        readonly property bool hasSwitchingTimes: mode != 0
         readonly property bool togglable: !inhibited || inhibitedFromApplet
     }
 
