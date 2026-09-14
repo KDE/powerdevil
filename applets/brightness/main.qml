@@ -109,27 +109,19 @@ PlasmoidItem {
             parts.push(i18n("Keyboard brightness at %1%", keyboardBrightnessPercent));
         }
 
-        if (nightLightControl.enabled) {
-            if (!nightLightControl.running) {
-                if (nightLightControl.inhibitedFromApplet) {
-                    parts.push(i18nc("Status", "Night Light suspended; middle-click to resume"));
+        if (nightLightControl.currentTemperature != 6500) {
+            if (nightLightControl.currentTemperature == nightLightControl.targetTemperature) {
+                if (nightLightControl.daylight) {
+                    parts.push(i18nc("Status", "Night Light at day color temperature"));
                 } else {
-                    parts.push(i18nc("Status", "Night Light suspended"));
+                    parts.push(i18nc("Status", "Night Light at night color temperature"));
                 }
-            } else if (nightLightControl.currentTemperature != 6500) {
-                if (nightLightControl.currentTemperature == nightLightControl.targetTemperature) {
-                    if (nightLightControl.daylight) {
-                        parts.push(i18nc("Status", "Night Light at day color temperature"));
-                    } else {
-                        parts.push(i18nc("Status", "Night Light at night color temperature"));
-                    }
+            } else if (!nightLightControl.activatedUntil && !nightLightControl.deactivatedUntil) {
+                const endTime = new Date(nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                if (nightLightControl.daylight) {
+                    parts.push(i18nc("Status; placeholder is a time", "Night Light in morning transition (complete by %1)", endTime));
                 } else {
-                    const endTime = new Date(nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                    if (nightLightControl.daylight) {
-                        parts.push(i18nc("Status; placeholder is a time", "Night Light in morning transition (complete by %1)", endTime));
-                    } else {
-                        parts.push(i18nc("Status; placeholder is a time", "Night Light in evening transition (complete by %1)", endTime));
-                    }
+                    parts.push(i18nc("Status; placeholder is a time", "Night Light in evening transition (complete by %1)", endTime));
                 }
             }
         }
@@ -142,7 +134,11 @@ PlasmoidItem {
 
     toolTipSubText: {
         const parts = [];
-        if (nightLightControl.enabled)
+        if (nightLightControl.activatedUntil) {
+            parts.push(i18nc("Status; placeholder is a time", "Night Light is temporarily active until %1", new Date(nightLightControl.activatedUntil).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })));
+        } else if (nightLightControl.deactivatedUntil) {
+            parts.push(i18nc("Status; placeholder is a time", "Night Light is temporarily inactive until %1", new Date(nightLightControl.deactivatedUntil).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })));
+        } else if (nightLightControl.enabled)
             if (nightLightControl.currentTemperature == nightLightControl.targetTemperature) {
                 const startTime = new Date(nightLightControl.scheduledTransitionStartTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
                 if (nightLightControl.daylight) {
@@ -154,8 +150,24 @@ PlasmoidItem {
         if (screenBrightnessControl.isBrightnessAvailable) {
             parts.push(i18n("Scroll to adjust screen brightness"));
         }
-        if (nightLightControl.enabled && nightLightControl.running) {
-            parts.push(i18n("Middle-click to suspend Night Light"));
+        if (nightLightControl.activatedUntil) {
+            if (nightLightControl.enabled) {
+                parts.push(i18n("Middle-click to resume normal Night Light operation"));
+            } else {
+                parts.push(i18n("Middle-click to deactivate Night Light"));
+            }
+        } else if (nightLightControl.deactivatedUntil) {
+            if (nightLightControl.enabled) {
+                parts.push(i18n("Middle-click to resume normal Night Light operation"));
+            } else {
+                parts.push(i18n("Middle-click to activate Night Light"));
+            }
+        } else {
+            if (nightLightControl.daylight) {
+                parts.push(i18n("Middle-click to temporarily activate Night Light"));
+            } else {
+                parts.push(i18n("Middle-click to temporarily deactivate Night Light"));
+            }
         }
         return parts.join("\n");
     }
@@ -163,8 +175,8 @@ PlasmoidItem {
     Plasmoid.icon: {
         let iconName = "brightness-high";
 
-        if (nightLightControl.enabled) {
-            if (!nightLightControl.running) {
+        if (nightLightControl.enabled || nightLightControl.activatedUntil || nightLightControl.deactivatedUntil) {
+            if (nightLightControl.inhibited) {
                 iconName = "redshift-status-off";
             } else if (nightLightControl.currentTemperature != 6500) {
                 if (nightLightControl.daylight) {
@@ -210,9 +222,7 @@ PlasmoidItem {
         onPressed: wasExpanded = brightnessAndColorControl.expanded
         onClicked: mouse => {
             if (mouse.button == Qt.MiddleButton) {
-                if (nightLightControl.enabled) {
-                    NightLightInhibitor.toggleInhibition();
-                }
+                nightLightControl.activateOrDeactivate();
             } else {
                 brightnessAndColorControl.expanded = !wasExpanded;
             }

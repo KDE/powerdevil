@@ -27,7 +27,13 @@ PlasmaComponents3.ItemDelegate {
     hoverEnabled: false
 
     Accessible.description: status.text
-    KeyNavigation.tab: inhibitionSwitch.visible ? inhibitionSwitch : kcmButton
+    KeyNavigation.tab: quickToggle
+
+    DarkLightTransitionProgress {
+        id: currentTransitionProgress
+        startDateTime: new Date(root.nightLightControl.previousOrCurrentTransitionStartTime)
+        endDateTime: new Date(root.nightLightControl.previousOrCurrentTransitionEndTime)
+    }
 
     component NightLightControl: DBus.Properties {
         busType: DBus.BusType.Session
@@ -43,8 +49,6 @@ PlasmaComponents3.ItemDelegate {
         readonly property bool running: Boolean(properties.running)
         // This property holds a value to indicate whether night light is currently inhibited.
         readonly property bool inhibited: Boolean(properties.inhibited)
-        // This property holds a value to indicate whether night light is currently inhibited from the applet can be uninhibited through it.
-        readonly property bool inhibitedFromApplet: NightLightInhibitor.inhibited
         // This property holds a value to indicate which mode is set for transitions (0 - automatic location, 1 - manual location, 2 - manual timings, 3 - constant)
         readonly property int mode: Number(properties.mode)
         // This property holds a value to indicate if Night Light is on day mode.
@@ -53,14 +57,71 @@ PlasmaComponents3.ItemDelegate {
         readonly property int currentTemperature: Number(properties.currentTemperature)
         // This property holds a value to indicate currently applied color temperature.
         readonly property int targetTemperature: Number(properties.targetTemperature)
-        // This property holds a value to indicate the end time of the previous color transition in msec since epoch.
-        readonly property double currentTransitionEndTime: Number(properties.previousTransitionDateTime) * 1000 + Number(properties.previousTransitionDuration)
+        // This property holds a value to indicate the start time of the previous or current color transition in msec since epoch.
+        readonly property double previousOrCurrentTransitionStartTime: Number(properties.previousTransitionDateTime)
+        // This property holds a value to indicate the end time of the previous or current color transition in msec since epoch.
+        readonly property double previousOrCurrentTransitionEndTime: Number(properties.previousTransitionDateTime) * 1000 + Number(properties.previousTransitionDuration)
         // This property holds a value to indicate the start time of the next color transition in msec since epoch.
         readonly property double scheduledTransitionStartTime: Number(properties.scheduledTransitionDateTime) * 1000
+        // This property holds a value to indicate the date and time until which Night Light is temporarily activated.
+        readonly property double activatedUntil: Number(properties.activatedUntil) * 1000
+        // This property holds a value to indicate the date and time until which Night Light is temporarily deactivated.
+        readonly property double deactivatedUntil: Number(properties.deactivatedUntil) * 1000
 
         readonly property bool transitioning: currentTemperature != targetTemperature
         readonly property bool hasSwitchingTimes: mode != 0
-        readonly property bool togglable: !inhibited || inhibitedFromApplet
+
+        function activateUntil(date) {
+            const timestamp = date ? date.getTime() / 1000 : 0;
+
+            DBus.SessionBus.asyncCall({
+                service: "org.kde.KWin.NightLight",
+                path: "/org/kde/KWin/NightLight",
+                iface: "org.kde.KWin.NightLight",
+                member: "activateUntil",
+                arguments: [timestamp],
+                signature: "(t)",
+            });
+        }
+
+        function deactivateUntil(date) {
+            const timestamp = date ? date.getTime() / 1000 : 0;
+
+            DBus.SessionBus.asyncCall({
+                service: "org.kde.KWin.NightLight",
+                path: "/org/kde/KWin/NightLight",
+                iface: "org.kde.KWin.NightLight",
+                member: "deactivateUntil",
+                arguments: [timestamp],
+                signature: "(t)",
+            });
+        }
+
+        function activateUntilNextTransition() {
+            DarkLightScheduleProvider.poll(schedule => activateUntil(schedule.nextTransition(new Date())));
+        }
+
+        function deactivateUntilNextTransition() {
+            DarkLightScheduleProvider.poll(schedule => deactivateUntil(schedule.nextTransition(new Date())));
+        }
+
+        function activateOrDeactivate() {
+            if (activatedUntil) {
+                activateUntil(null);
+                return;
+            }
+
+            if (deactivatedUntil) {
+                deactivateUntil(null);
+                return;
+            }
+
+            if (daylight) {
+                activateUntilNextTransition();
+            } else {
+                deactivateUntilNextTransition();
+            }
+        }
     }
 
     contentItem: RowLayout {
@@ -111,6 +172,12 @@ PlasmaComponents3.ItemDelegate {
                         if (!root.nightLightControl.available) {
                             return i18nc("Night light status", "Unavailable");
                         }
+                        if (root.nightLightControl.activatedUntil) {
+                            return i18nc("Night light status", "On");
+                        }
+                        if (root.nightLightControl.deactivatedUntil) {
+                            return i18nc("Night light status", "Paused");
+                        }
                         if (!root.nightLightControl.enabled) {
                             return i18nc("Night light status", "Not enabled");
                         }
@@ -120,12 +187,15 @@ PlasmaComponents3.ItemDelegate {
                         if (!root.nightLightControl.hasSwitchingTimes) {
                             return i18nc("Night light status", "On");
                         }
-                        if (root.nightLightControl.daylight && root.nightLightControl.transitioning) {
-                            return i18nc("Night light phase", "Morning Transition");
-                        } else if (root.nightLightControl.daylight) {
+                        if (currentTransitionProgress.active) {
+                            if (root.nightLightControl.daylight) {
+                                return i18nc("Night light phase", "Morning Transition");
+                            } else {
+                                return i18nc("Night light phase", "Evening Transition");
+                            }
+                        }
+                        if (root.nightLightControl.daylight) {
                             return i18nc("Night light phase", "Day");
-                        } else if (root.nightLightControl.transitioning) {
-                            return i18nc("Night light phase", "Evening Transition");
                         } else {
                             return i18nc("Night light phase", "Night");
                         }
@@ -150,11 +220,10 @@ PlasmaComponents3.ItemDelegate {
                 spacing: Kirigami.Units.smallSpacing
 
                 PlasmaComponents3.Switch {
-                    id: inhibitionSwitch
-                    visible: root.nightLightControl.enabled
-                    enabled: root.nightLightControl.togglable
-                    checked: root.nightLightControl.inhibited
-                    text: i18nc("@action:button Night Light", "Suspend")
+                    id: quickToggle
+                    enabled: !root.nightLightControl.inhibited
+                    checked: !root.nightLightControl.daylight
+                    text: i18nc("@action:button Night Light", "Toggle")
 
                     Layout.fillWidth: true
 
@@ -171,7 +240,7 @@ PlasmaComponents3.ItemDelegate {
                             event.accepted = true
                         }
                     }
-                    onClicked: NightLightInhibitor.toggleInhibition()
+                    onClicked: root.nightLightControl.activateOrDeactivate()
                 }
 
                 PlasmaComponents3.Button {
@@ -179,13 +248,13 @@ PlasmaComponents3.ItemDelegate {
                     visible: KConfig.KAuthorized.authorizeControlModule("kcm_nightlight")
 
                     icon.name: "configure"
-                    text: root.nightLightControl.enabled ? i18n("Configure…") : i18n("Enable and Configure…")
+                    text: i18n("Configure…")
 
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
                     KeyNavigation.up: root.KeyNavigation.up
-                    KeyNavigation.backtab: inhibitionSwitch.visible ? inhibitionSwitch : root
-                    KeyNavigation.left: inhibitionSwitch
+                    KeyNavigation.backtab: quickToggle
+                    KeyNavigation.left: quickToggle
 
                     Keys.onPressed: (event) => {
                         if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
@@ -197,49 +266,28 @@ PlasmaComponents3.ItemDelegate {
                 }
             }
 
-            RowLayout {
-                visible: root.nightLightControl.running && root.nightLightControl.hasSwitchingTimes
-
-                spacing: Kirigami.Units.smallSpacing
-
-                PlasmaComponents3.Label {
-                    id: transitionLabel
-                    text: {
-                        if (root.nightLightControl.daylight) {
-                            if (root.nightLightControl.transitioning) {
-                                return i18nc("Label for a time", "Transition to day complete by:");
-                            }
-                            return i18nc("Label for a time", "Transition to night scheduled for:");
-                        } else if (root.nightLightControl.transitioning) {
-                            return i18nc("Label for a time", "Transition to night complete by:");
-                        } else {
-                            return i18nc("Label for a time", "Transition to day scheduled for:");
-                        }
+            PlasmaComponents3.Label {
+                text: {
+                    if (root.nightLightControl.activatedUntil) {
+                        const dateTime = new Date(root.nightLightControl.activatedUntil);
+                        return i18nc("Label for a time", "Activated until %1", dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+                    } else if (root.nightLightControl.deactivatedUntil) {
+                        const dateTime = new Date(root.nightLightControl.deactivatedUntil);
+                        return i18nc("Label for a time", "Deactivated until %1", dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
                     }
-                    textFormat: Text.PlainText
 
-                    opacity: 0.75
-                    font: Kirigami.Theme.smallFont
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                }
-
-                PlasmaComponents3.Label {
-                    id: transitionTime
-                    text: {
-                        if (root.nightLightControl.transitioning) {
-                            return new Date(root.nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                        } else {
-                            return new Date(root.nightLightControl.scheduledTransitionStartTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-                        }
+                    if (root.nightLightControl.daylight) {
+                        return i18n("Activate until the next evening");
+                    } else {
+                        return i18n("Deactivate until the next morning");
                     }
-                    textFormat: Text.PlainText
-
-                    opacity: 0.75
-                    font: Kirigami.Theme.smallFont
-                    wrapMode: Text.WordWrap
-                    horizontalAlignment: Text.AlignRight
                 }
+                textFormat: Text.PlainText
+
+                opacity: 0.75
+                font: Kirigami.Theme.smallFont
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
             }
         }
     }

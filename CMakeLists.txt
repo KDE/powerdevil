@@ -56,6 +56,7 @@ find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
+find_package(KNightTime ${PROJECT_DEP_VERSION} CONFIG REQUIRED)
 
 find_package(UDev REQUIRED)
 
