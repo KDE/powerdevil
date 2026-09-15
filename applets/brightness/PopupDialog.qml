@@ -7,6 +7,7 @@
 */
 
 import QtQuick
+import QtQuick.Layouts
 
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
@@ -28,6 +29,7 @@ PlasmaExtras.Representation {
 
     contentItem: PlasmaComponents3.ScrollView {
         id: scrollView
+        PlasmaComponents3.ScrollBar.horizontal.visible: false
 
         focus: false
 
@@ -44,9 +46,10 @@ PlasmaExtras.Representation {
             }
         }
 
-        Column {
+        ColumnLayout {
             id: brightnessList
 
+            width: scrollView.width
             spacing: Kirigami.Units.smallSpacing * 2
 
             Repeater {
@@ -68,7 +71,7 @@ PlasmaExtras.Representation {
                     property Item previousSlider: screenBrightnessRepeater.itemAt(index - 1)
                     property Item nextSlider: screenBrightnessRepeater.itemAt(index + 1)
 
-                    width: scrollView.availableWidth
+                    Layout.fillWidth: true
 
                     icon.name: "video-display-brightness"
                     text: label
@@ -123,7 +126,7 @@ PlasmaExtras.Representation {
             BrightnessItem {
                 id: keyboardBrightnessSlider
 
-                width: scrollView.availableWidth
+                Layout.fillWidth: true
 
                 icon.name: "input-keyboard-brightness"
                 text: i18n("Keyboard Backlight")
@@ -152,7 +155,7 @@ PlasmaExtras.Representation {
             KeyboardColorItem {
                 id: keyboardColorItem
 
-                width: scrollView.availableWidth
+                Layout.fillWidth: true
 
                 KeyNavigation.up: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.up
                 KeyNavigation.down: nightLightItem
@@ -165,7 +168,7 @@ PlasmaExtras.Representation {
             NightLightItem {
                 id: nightLightItem
 
-                width: scrollView.availableWidth
+                Layout.fillWidth: true
 
                 KeyNavigation.up: keyboardColorItem.visible ? keyboardColorItem : keyboardColorItem.KeyNavigation.up
                 KeyNavigation.down: darkModeItem
@@ -179,7 +182,7 @@ PlasmaExtras.Representation {
             DarkModeItem {
                 id: darkModeItem
 
-                width: scrollView.availableWidth
+                Layout.fillWidth: true
                 text: i18n("Theme")
             }
 
