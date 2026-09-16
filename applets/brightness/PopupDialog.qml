@@ -87,7 +87,7 @@ PlasmaExtras.Representation {
 
                     stepSize: maxBrightness/100
 
-                    onMoved: dialog.screenBrightnessControl.setBrightness(displayName, value)
+                    onMoved: value => dialog.screenBrightnessControl.setBrightness(displayName, value)
                     onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
 
@@ -140,16 +140,8 @@ PlasmaExtras.Representation {
                 KeyNavigation.backtab: KeyNavigation.up
                 KeyNavigation.tab: KeyNavigation.down
 
-                onMoved: dialog.keyboardBrightnessControl.brightness = value
+                onMoved: value => dialog.keyboardBrightnessControl.brightness = value
                 onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
-
-                // Manually dragging the slider around breaks the binding
-                Connections {
-                    target: dialog.keyboardBrightnessControl
-                    function onBrightnessChanged() {
-                        keyboardBrightnessSlider.value = dialog.keyboardBrightnessControl.brightness;
-                    }
-                }
             }
 
             KeyboardColorItem {
