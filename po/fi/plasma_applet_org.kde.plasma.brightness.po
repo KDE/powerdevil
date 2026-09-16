@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2026-02-25 19:10+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -273,22 +273,22 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Siirtymä päivään ajastettu:"
 
-#: PopupDialog.qml:129
+#: PopupDialog.qml:132
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Näppäimistön taustavalo"
 
-#: PopupDialog.qml:162
+#: PopupDialog.qml:165
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Näppäimistön väri"
 
-#: PopupDialog.qml:175
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Night Light"
 msgstr "Yövalo"
 
-#: PopupDialog.qml:183
+#: PopupDialog.qml:186
 #, kde-format
 msgid "Theme"
 msgstr "Teema"

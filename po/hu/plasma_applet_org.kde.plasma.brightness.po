@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2026-05-30 21:37+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -272,22 +272,22 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Nappali átmenet ütemezése:"
 
-#: PopupDialog.qml:129
+#: PopupDialog.qml:132
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Billentyűzet háttérvilágítás"
 
-#: PopupDialog.qml:162
+#: PopupDialog.qml:165
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Billentyűzet színe"
 
-#: PopupDialog.qml:175
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Night Light"
 msgstr "Éjszakai fény"
 
-#: PopupDialog.qml:183
+#: PopupDialog.qml:186
 #, kde-format
 msgid "Theme"
 msgstr "Téma"
