@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 02:45+0000\n"
 "PO-Revision-Date: 2024-03-16 22:34+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -277,24 +277,24 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr ""
 
-#: PopupDialog.qml:129
+#: PopupDialog.qml:132
 #, fuzzy, kde-format
 #| msgid "Keyboard Brightness"
 msgid "Keyboard Backlight"
 msgstr "Brillu del tecláu"
 
-#: PopupDialog.qml:162
+#: PopupDialog.qml:165
 #, fuzzy, kde-format
 #| msgid "Keyboard Brightness"
 msgid "Keyboard Color"
 msgstr "Brillu del tecláu"
 
-#: PopupDialog.qml:175
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Night Light"
 msgstr "Lluz nocherniega"
 
-#: PopupDialog.qml:183
+#: PopupDialog.qml:186
 #, kde-format
 msgid "Theme"
 msgstr ""

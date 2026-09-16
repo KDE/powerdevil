@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 02:45+0000\n"
 "PO-Revision-Date: 2026-01-24 08:10-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -272,22 +272,22 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "ਦਿਨ ਦੇ ਸਮੇਂ ਲਈ ਤਬਦੀਲੀ:"
 
-#: PopupDialog.qml:129
+#: PopupDialog.qml:132
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "ਕੀਬੋਰਡ ਦੀ ਬੈਕਲਾਈਟ"
 
-#: PopupDialog.qml:162
+#: PopupDialog.qml:165
 #, kde-format
 msgid "Keyboard Color"
 msgstr "ਕੀਬੋਰਡ ਦੀ ਰੰਗ"
 
-#: PopupDialog.qml:175
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Night Light"
 msgstr "ਰਾਤ ਦੇ ਰੰਗ"
 
-#: PopupDialog.qml:183
+#: PopupDialog.qml:186
 #, kde-format
 msgid "Theme"
 msgstr "ਥੀਮ"
