@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:48+0000\n"
+"POT-Creation-Date: 2026-09-17 00:46+0000\n"
 "PO-Revision-Date: 2026-01-19 22:50+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -17,49 +17,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.03.70\n"
 
-#: BrightnessItem.qml:35
+#: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Изкл."
 
-#: BrightnessItem.qml:36
+#: BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Ниска"
 
-#: BrightnessItem.qml:37
+#: BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Средна"
 
-#: BrightnessItem.qml:38
+#: BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Висока"
 
-#: BrightnessItem.qml:39
+#: BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Вкл."
 
-#: BrightnessItem.qml:51
+#: BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BrightnessItem.qml:95
+#: BrightnessItem.qml:90
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Яркост на екрана"
 
-#: BrightnessItem.qml:119
+#: BrightnessItem.qml:115
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
@@ -278,17 +278,17 @@ msgstr "Преминаване към дневен режим планувано
 msgid "Keyboard Backlight"
 msgstr "Яркост на клавиатурата"
 
-#: PopupDialog.qml:165
+#: PopupDialog.qml:157
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Цвят на клавиатурата"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "Вечерни цветове"
 
-#: PopupDialog.qml:186
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
 msgstr "Тема"

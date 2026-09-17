@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:48+0000\n"
+"POT-Creation-Date: 2026-09-17 00:46+0000\n"
 "PO-Revision-Date: 2026-02-26 10:14+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -18,49 +18,49 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: BrightnessItem.qml:35
+#: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Slökkt"
 
-#: BrightnessItem.qml:36
+#: BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Lítil"
 
-#: BrightnessItem.qml:37
+#: BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Miðlungs"
 
-#: BrightnessItem.qml:38
+#: BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Mikil"
 
-#: BrightnessItem.qml:39
+#: BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Kveikt"
 
-#: BrightnessItem.qml:51
+#: BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BrightnessItem.qml:95
+#: BrightnessItem.qml:90
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Birtustig"
 
-#: BrightnessItem.qml:119
+#: BrightnessItem.qml:115
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
@@ -278,17 +278,17 @@ msgstr "Breyting í dagsstillingu hefst:"
 msgid "Keyboard Backlight"
 msgstr "Baklýsing lyklaborðs"
 
-#: PopupDialog.qml:165
+#: PopupDialog.qml:157
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Litur lyklaborðs"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "Næturlitir"
 
-#: PopupDialog.qml:186
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
 msgstr "Þema"

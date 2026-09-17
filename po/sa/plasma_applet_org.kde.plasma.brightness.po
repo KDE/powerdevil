@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:48+0000\n"
+"POT-Creation-Date: 2026-09-17 00:46+0000\n"
 "PO-Revision-Date: 2024-12-20 12:26+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,49 +19,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: BrightnessItem.qml:35
+#: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "दूरे"
 
-#: BrightnessItem.qml:36
+#: BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "न्यूनम्‌"
 
-#: BrightnessItem.qml:37
+#: BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "मध्यम"
 
-#: BrightnessItem.qml:38
+#: BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "उच्चैः"
 
-#: BrightnessItem.qml:39
+#: BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "इत्युपरि"
 
-#: BrightnessItem.qml:51
+#: BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BrightnessItem.qml:95
+#: BrightnessItem.qml:90
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "कान्तिः"
 
-#: BrightnessItem.qml:119
+#: BrightnessItem.qml:115
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
@@ -280,17 +280,17 @@ msgstr "दिने संक्रमणं निर्धारितम् 
 msgid "Keyboard Backlight"
 msgstr "कीबोर्ड बैकलाइट"
 
-#: PopupDialog.qml:165
+#: PopupDialog.qml:157
 #, kde-format
 msgid "Keyboard Color"
 msgstr "कीबोर्ड रंग"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "रात्रिप्रकाशः"
 
-#: PopupDialog.qml:186
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
 msgstr ""

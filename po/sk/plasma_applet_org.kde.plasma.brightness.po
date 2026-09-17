@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:48+0000\n"
+"POT-Creation-Date: 2026-09-17 00:46+0000\n"
 "PO-Revision-Date: 2023-12-09 09:39+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -15,49 +15,49 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: BrightnessItem.qml:35
+#: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Vypnuté"
 
-#: BrightnessItem.qml:36
+#: BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Nízky"
 
-#: BrightnessItem.qml:37
+#: BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Stredný"
 
-#: BrightnessItem.qml:38
+#: BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Vysoký"
 
-#: BrightnessItem.qml:39
+#: BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Zapnuté"
 
-#: BrightnessItem.qml:51
+#: BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BrightnessItem.qml:95
+#: BrightnessItem.qml:90
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Jas"
 
-#: BrightnessItem.qml:119
+#: BrightnessItem.qml:115
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
@@ -275,17 +275,17 @@ msgstr "Prechod na denný režim začne:"
 msgid "Keyboard Backlight"
 msgstr "Podsvietenie klávesnice"
 
-#: PopupDialog.qml:165
+#: PopupDialog.qml:157
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Farba klávesnice"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
 msgstr "Nočná farba"
 
-#: PopupDialog.qml:186
+#: PopupDialog.qml:178
 #, kde-format
 msgid "Theme"
 msgstr "Téma"
