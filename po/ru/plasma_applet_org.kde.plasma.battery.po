@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-09-06 15:15+0200\n"
+"PO-Revision-Date: 2026-09-19 20:07+0300\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -122,7 +122,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr "Блокировка экрана и переход в ждущий режим"
+msgstr "Переход в спящий режим и блокировка экрана при бездействии"
 
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:75
 #, kde-format
@@ -227,7 +227,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "Приложение «%1» запрашивает отключение  блокирования экрана. (%2)"
+msgstr "Приложение «%1» запрашивает отключение блокирования экрана. (%2)"
 
 #: InhibitionItem.qml:170
 #, kde-format
