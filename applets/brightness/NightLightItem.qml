@@ -223,8 +223,20 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Switch {
                     id: quickToggle
                     enabled: !root.nightLightControl.inhibited
-                    checked: !root.nightLightControl.daylight
-                    text: i18nc("@action:button Night Light", "Toggle")
+                    checked: root.nightLightControl.activatedUntil || root.nightLightControl.deactivatedUntil
+                    text: {
+                        if (root.nightLightControl.deactivatedUntil) {
+                            return i18nc("@action:button Night Light", "Suspend");
+                        } else if (root.nightLightControl.activatedUntil) {
+                            return i18nc("@action:button Night Light", "Activate");
+                        }
+
+                        if (root.nightLightControl.daylight) {
+                            return i18nc("@action:button Night Light", "Activate");
+                        } else {
+                            return i18nc("@action:button Night Light", "Suspend");
+                        }
+                    }
 
                     Layout.fillWidth: true
 
@@ -268,6 +280,7 @@ PlasmaComponents3.ItemDelegate {
             }
 
             PlasmaComponents3.Label {
+                visible: root.nightLightControl.activatedUntil || root.nightLightControl.deactivatedUntil
                 text: {
                     if (root.nightLightControl.activatedUntil) {
                         const dateTime = new Date(root.nightLightControl.activatedUntil);
@@ -277,11 +290,7 @@ PlasmaComponents3.ItemDelegate {
                         return i18nc("Label for a time", "Deactivated until: %1", KCoreAddons.Format.formatRelativeDateTime(dateTime, Locale.ShortFormat));
                     }
 
-                    if (root.nightLightControl.daylight) {
-                        return i18n("Activate until the next transition");
-                    } else {
-                        return i18n("Deactivate until the next transition");
-                    }
+                    return "";
                 }
                 textFormat: Text.PlainText
 
