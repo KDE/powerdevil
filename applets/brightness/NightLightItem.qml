@@ -13,6 +13,7 @@ import org.kde.kcmutils // KCMLauncher
 import org.kde.config as KConfig  // KAuthorized.authorizeControlModule
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
+import org.kde.coreaddons as KCoreAddons
 
 import org.kde.plasma.private.brightnesscontrolplugin
 import org.kde.plasma.workspace.dbus as DBus
@@ -270,16 +271,16 @@ PlasmaComponents3.ItemDelegate {
                 text: {
                     if (root.nightLightControl.activatedUntil) {
                         const dateTime = new Date(root.nightLightControl.activatedUntil);
-                        return i18nc("Label for a time", "Activated until %1", dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+                        return i18nc("Label for a time", "Activated until: %1", KCoreAddons.Format.formatRelativeDateTime(dateTime, Locale.ShortFormat));
                     } else if (root.nightLightControl.deactivatedUntil) {
                         const dateTime = new Date(root.nightLightControl.deactivatedUntil);
-                        return i18nc("Label for a time", "Deactivated until %1", dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+                        return i18nc("Label for a time", "Deactivated until: %1", KCoreAddons.Format.formatRelativeDateTime(dateTime, Locale.ShortFormat));
                     }
 
                     if (root.nightLightControl.daylight) {
-                        return i18n("Activate until the next evening");
+                        return i18n("Activate until the next transition");
                     } else {
-                        return i18n("Deactivate until the next morning");
+                        return i18n("Deactivate until the next transition");
                     }
                 }
                 textFormat: Text.PlainText
