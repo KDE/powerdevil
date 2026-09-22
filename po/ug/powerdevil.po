@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-04 00:47+0000\n"
-"PO-Revision-Date: 2026-07-22 17:28-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "ئىچكى ئېكران"
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: powerdevilapp.cpp:102
 #, kde-format
@@ -120,13 +120,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "© 2015–2019 Kai Uwe Broulik"
+msgstr ""
 
 #: powerdevilapp.cpp:107
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr "Kai Uwe Broulik"
+msgstr ""
 
 #: powerdevilapp.cpp:107
 #, kde-format
@@ -138,7 +138,7 @@ msgstr "ئاسرىغۇچى"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
-msgstr "Dario Freddi"
+msgstr ""
 
 #: powerdevilapp.cpp:108
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "سىستېما ئەمدى ئۇيقۇ ھالىتىگە كىرمەيدۇ."
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: powerdevilcore.cpp:541
 #, kde-format
@@ -195,7 +195,7 @@ msgstr "ئۈسكۈنە توكدانىنىڭ توكى ئاز (%1% قالدى)"
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr "«%1» دىكى توكدان توكى ئاز. توكداننى توكلاڭ."
+msgstr "«%1» دىكى توكداننىڭ توكى ئاز. Please recharge the battery."
 
 #: powerdevilcore.cpp:546
 #, kde-format
