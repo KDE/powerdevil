@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2024-02-18 13:23+0300\n"
+"PO-Revision-Date: 2026-09-24 08:35+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -29,7 +29,7 @@ msgstr ""
 #, kde-format
 msgctxt "Note this is a KRunner keyword; 'power' as in 'power saving mode'"
 msgid "power"
-msgstr "режим;питание;"
+msgstr "питание"
 
 # shutdown-method
 #: PowerDevilRunner.cpp:32
@@ -50,14 +50,14 @@ msgstr "в ОЗУ"
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "sleep"
-msgstr "сон"
+msgstr "спящий режим"
 
 # shutdown-method
 #: PowerDevilRunner.cpp:35
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hibernate"
-msgstr "спящий режим"
+msgstr "гибернация"
 
 # shutdown-method
 #: PowerDevilRunner.cpp:36
@@ -70,7 +70,7 @@ msgstr "на диск"
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid sleep"
-msgstr "гибридный сон"
+msgstr "гибридный спящий режим"
 
 #: PowerDevilRunner.cpp:38
 #, kde-format
@@ -91,8 +91,8 @@ msgid ""
 "Lists system suspend (e.g. sleep, hibernate) options and allows them to be "
 "activated"
 msgstr ""
-"Показать варианты приостановки работы (сон, гибернация), с возможностью их "
-"выполнения"
+"Показать варианты приостановки работы (спящий режим, гибернация) с "
+"возможностью их выполнения"
 
 # shutdown-method
 #: PowerDevilRunner.cpp:54
@@ -125,9 +125,8 @@ msgid ""
 "search term; e.g. screen brightness 50 would dim the screen to 50% maximum "
 "brightness"
 msgstr ""
-"Показать режимы яркости экрана и позволяет установить яркость экрана с "
-"использованием ключевого слова. Например, «яркость экрана 50» затемнит экран "
-"до 50% от максимальной яркости экрана"
+"Показать варианты яркости экрана или установить яркость, заданную в запросе. "
+"Например, «яркость экрана 50» уменьшит яркость экрана до 50% от максимальной"
 
 #: PowerDevilRunner.cpp:89
 #, kde-format
