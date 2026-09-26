@@ -675,6 +675,7 @@ Comment[sl]=Baterija je dosegla kritično raven napolnjenosti. To obvestilo spro
 Comment[sv]=Batteriet har nått kritisk nivå. Den här underrättelsen startar en nedräkning innan den inställda åtgärden utförs, därför rekommenderas det starkt att låta den vara på.
 Comment[ta]=மின்கலம் நெருக்கடியான நிலையில் உள்ளது. அமைக்கப்பட்ட செயலை செய்வதற்கு முன்னான இறங்குமுறை கணிப்பை இவ்வறிவிப்பு காட்டுவதால், இதை விலக்காமல் இருப்பது நல்லது.
 Comment[tr]=Pil kritik düzeye indi. Bu bildirim yapılandırılmış bir işlemi gerçekleştirecek bir sayacı tetikler; bu nedenle olduğu gibi bırakmanız önerilir.
+Comment[ug]=توكدان توكى ئىنتايىن تۆۋەن سەۋىيەگە چۈشتى. سىستېما ئۇقتۇرۇشى بىر قېتىم ئاگاھلاندۇرغاندىن كېيىن سەپلىگەن مەشغۇلاتنى ئىجرا قىلىدۇ. بۇ تەڭشەكنى ئوچۇق قويۇش كۈچلۈك تەۋسىيە قىلىنىدۇ.
 Comment[uk]=Заряд акумулятора комп’ютера досяг критичного рівня. За цим сповіщенням буде почато відлік часу до виконання відповідної налаштованої дії, отже, ми наполегливо рекомендуємо вам не вимикати цей пункт.
 Comment[zh_CN]=电池电量即将耗尽。系统会在显示本通知的同时开始倒计时，倒计时结束后将执行您在电源选项中配置的操作，强烈建议您保留此设定为开启。
 Comment[zh_TW]=電量已到嚴重警告區。這個通知發出後將會開始倒數計時，時間到後就會進行設定好的動作。建議您保持此項開啟。
