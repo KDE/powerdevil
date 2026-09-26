@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-17 00:46+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-09-24 20:24-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.9\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -34,7 +34,7 @@ msgstr "تۆۋەن"
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
-msgstr "ئوتتۇراھال"
+msgstr "ئوتتۇرا ھال"
 
 #: BrightnessItem.qml:33
 #, kde-format
@@ -52,7 +52,7 @@ msgstr "ئوچۇق"
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: BrightnessItem.qml:90
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "توك مەنبە باشقۇرغۇچنى سەپلە(&C)…"
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
-msgstr "ئېسىپ قويۇلدى"
+msgstr "ۋاقىتلىق توختىتىلدى"
 
 #: NightLightItem.qml:112
 #, kde-format
@@ -219,7 +219,7 @@ msgstr "سەھەر ئۆزگىرىشى"
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
-msgstr "كۈن"
+msgstr "كۈندۈز"
 
 #: NightLightItem.qml:128
 #, kde-format
@@ -237,7 +237,7 @@ msgstr "كېچە"
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
-msgstr ""
+msgstr "%1K"
 
 #: NightLightItem.qml:157
 #, kde-format
@@ -287,7 +287,7 @@ msgstr "ھەرپتاختا رەڭگى"
 #: PopupDialog.qml:170
 #, kde-format
 msgid "Night Light"
-msgstr "كېچە چىرىغى"
+msgstr "كېچە يورۇقلۇقى"
 
 #: PopupDialog.qml:178
 #, kde-format

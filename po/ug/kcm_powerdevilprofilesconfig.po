@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-09-24 20:22-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -244,7 +244,7 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:59
 #, kde-format
@@ -272,6 +272,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"توكدان توكى بۇ سەۋىيەدىن تۆۋەنلەپ كەتسە توكدان توكى تۆۋەن سەۋىيەدە دەپ "
+"قارايدۇ. سىستېما ئادەتتىكى توكدان تەڭشىكىنى ئىشلەتمەي توكدان توكى تۆۋەن "
+"ھالەتتىكى تەڭشىكىنى ئىشلىتىدۇ."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -295,6 +298,10 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"توكدان توكى بۇ سەۋىيەدىن تۆۋەنلەپ كەتسە توكدان توكى بەك تۆۋەن سەۋىيەدە دەپ "
+"قارايدۇ. سىستېما قىسقا ئاگاھلاندۇرۇش چىقارغاندىن كېيىن، سىستېما توكدان توكى "
+"بەك تۆۋەن سەۋىيەدە بولغاندا سەپلەنگەن مەشغۇلاتقا ئاساسەن ئۆزلۈكىدىن "
+"توڭلىتىدۇ ياكى توكتىن ئۈزىدۇ."
 
 #: ui/GlobalConfig.qml:149
 #, kde-format
@@ -303,6 +310,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"ئىلگىرى سەپلىگەن توكدان توكى بەك تۆۋەن سەۋىيەدە بولسا ئىجرا قىلىدىغان "
+"مەشغۇلاتنى بۇ سىستېما قوللىمايدۇ. باشقا مەشغۇلاتنى تاللاڭ."
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
@@ -391,6 +400,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"دائىم 100% توك لىقلىغان ياكى توكنى تولۇق سەرپ قىلىۋەتكەندە توكداننىڭ "
+"قېرىشىنى تېزلىتىۋېتىدۇ. توكلىغاندىكى پىرسەنتىنى چەكلەش توكدان ئۆمرىنى "
+"ئۇزارتىشقا ياردەم بېرىدۇ."
 
 #: ui/GlobalConfig.qml:392
 #, kde-format
@@ -506,7 +518,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:44
 #, kde-format
@@ -521,6 +533,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"ئىلگىرى سەپلىگەن بىكار ھالىتىدە تۇرغاندا ئىجرا قىلىدىغان مەشغۇلاتنى سىستېما "
+"قوللىمايدۇ. باشقا مەشغۇلاتنى تاللاڭ."
 
 #: ui/ProfileConfig.qml:66
 #, kde-format
@@ -581,6 +595,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"ئىلگىرى سەپلىگەن توك مەنبە توپچىسىنى باسقاندا ئىجرا قىلىدىغان مەشغۇلاتنى "
+"ھازىر بۇ سىستېما قوللىمايدۇ. باشقا مەشغۇلاتنى تاللاڭ."
 
 #: ui/ProfileConfig.qml:188
 #, kde-format
@@ -603,6 +619,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"ئىلگىرى سەپلىگەن يان كومپيۇتېر قاپقىقى يېپىلغاندا ئىجرا قىلىدىغان مەشغۇلاتنى "
+"ھازىر بۇ سىستېما قوللىمايدۇ. باشقا مەشغۇلاتنى تاللاڭ."
 
 #: ui/ProfileConfig.qml:227
 #, kde-format
@@ -640,6 +658,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"ئىلگىرى سەپلىگەن ئۇيقۇ ھالىتىدە تۇرغاندا ئىجرا قىلىدىغان مەشغۇلاتنى سىستېما "
+"قوللىمايدۇ. باشقا مەشغۇلاتنى تاللاڭ."
 
 #: ui/ProfileConfig.qml:285
 #, kde-format

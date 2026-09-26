@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-09-24 20:24-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -48,7 +48,7 @@ msgstr "ھازىر ئەمەس"
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: BatteryItem.qml:130
 #, kde-format
@@ -62,6 +62,7 @@ msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
+"بۇ توكداننىڭ ساغلاملىقى %1%، ئالماشتۇرۇش كېرەك. زاۋۇت بىلەن ئالاقىلىشىڭ."
 
 #: BatteryItem.qml:214
 #, kde-format
@@ -88,7 +89,7 @@ msgstr "توكدان ساغلاملىق ئەھۋالى:"
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: BatteryItem.qml:249
 #, kde-format
@@ -99,7 +100,7 @@ msgstr "توكدان تەخمىنەن %1% توكلاشقا سەپلەنگەن."
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: InhibitionItem.qml:51
 #, kde-format
@@ -124,6 +125,8 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"نۆۋەتتە ئېكران قۇلۇپلاش توسۇلغان. بىكار تۇرغاندىن كېيىن ئۆزلۈكىدىن ئۇيقۇ "
+"ھالىتىگە كىرىدۇ."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -131,6 +134,8 @@ msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"نۆۋەتتە ئۇيقۇ ھالىتى توسۇلغان. بىكار تۇرغاندىن كېيىن ئۆزلۈكىدىن ئېكراننى "
+"قۇلۇپلايدۇ."
 
 #: InhibitionItem.qml:69
 #, kde-format
@@ -171,8 +176,8 @@ msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
 msgstr ""
-"You have manually blocked automatic sleep and screen locking. بۇ مەشغۇلات "
-"ئېنېرگىيە سەرپىياتىنى ئۆرلىتىۋېتىدۇ."
+"ئۆزلۈكىدىن ئۇيقۇ ھالىتىگە كىرىش ۋە ئېكران قۇلۇپلاشنى قولدا توستىڭىز، بۇ "
+"مەشغۇلات ئېنېرگىيە سەرپىياتىنى ئۆرلىتىۋېتىدۇ."
 
 #: InhibitionItem.qml:139
 #, kde-format
@@ -196,7 +201,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1ئۇيقۇ ھالىتىگە كېرىش ۋە ئېكران قۇلۇپلاشنى توسماقچى. (%2)"
 
 #: InhibitionItem.qml:168
 #, kde-format
@@ -204,7 +209,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr ""
+msgstr "%1 ئېكران قۇلۇپلاشنى توسماقچى. (%2)"
 
 #: InhibitionItem.qml:170
 #, kde-format
@@ -212,7 +217,7 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 ئۇيقۇ ھالىتىگە كېرىشنى توسماقچى. (%2)"
 
 #: InhibitionItem.qml:174
 #, kde-format
@@ -220,7 +225,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1 ئۇيقۇ ھالىتىگە كېرىش ۋە ئېكران قۇلۇپلاشنىمۇ توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:176
 #, kde-format
@@ -228,7 +233,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 ئېكران قۇلۇپلاشنىمۇ توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:178
 #, kde-format
@@ -236,7 +241,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 ئۇيقۇ ھالىتىگە كېرىشنىمۇ توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:182
 #, kde-format
@@ -244,7 +249,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr ""
+msgstr "%1 ئۇيقۇ ھالىتىگە كېرىش ۋە ئېكران قۇلۇپلاشنى توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:184
 #, kde-format
@@ -252,7 +257,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr ""
+msgstr "%1 ئېكران قۇلۇپلاشنى توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:186
 #, kde-format
@@ -260,7 +265,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 ئۇيقۇ ھالىتىگە كېرىشنى توسۇۋاتىدۇ. (%2)"
 
 #: InhibitionItem.qml:194
 #, kde-format
@@ -299,7 +304,7 @@ msgstr "توكدان ئوقۇرىدا ئەمەس"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "توكدان مىقدارى نامەلۇم"
 
 #: main.qml:133
 #, kde-format
@@ -493,7 +498,7 @@ msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
 "activating performance mode"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: PowerProfileItem.qml:305
 #, kde-format
