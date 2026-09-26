@@ -707,6 +707,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
         m_powerCordPluggedInNotification = new KNotification(QStringLiteral("pluggedin"));
         m_powerCordPluggedInNotification->setComponentName(QStringLiteral("powerdevil"));
         m_powerCordPluggedInNotification->setUrgency(KNotification::LowUrgency);
+        m_powerCordPluggedInNotification->setHint(QStringLiteral("x-kde-user-action-feedback"), true);
 
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
@@ -729,6 +730,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
         m_powerCordUnpluggedNotification = new KNotification(QStringLiteral("unplugged"));
         m_powerCordUnpluggedNotification->setComponentName(QStringLiteral("powerdevil"));
         m_powerCordUnpluggedNotification->setUrgency(KNotification::LowUrgency);
+        m_powerCordUnpluggedNotification->setHint(QStringLiteral("x-kde-user-action-feedback"), true);
         m_powerCordUnpluggedNotification->setTitle(i18n("Running on Battery Power"));
         m_powerCordUnpluggedNotification->setText(i18n("The power cord has been unplugged."));
 
