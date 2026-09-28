@@ -1,13 +1,13 @@
 # Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2026 Kheyyam Gojayev <xxmn77@gmail.com>
+# SPDX-FileCopyrightText: 2020-2021, 2026 Kheyyam Gojayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-04 00:47+0000\n"
-"PO-Revision-Date: 2026-03-04 22:41+0400\n"
+"PO-Revision-Date: 2026-09-26 18:24+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -189,22 +189,16 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Ciahz batareyası zəifdir (%1% qalır)"
 
 #: powerdevilcore.cpp:544
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in \"%1\" is running low, and the device may turn off at any "
-#| "time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low. Please recharge the battery."
-msgstr ""
-"\"%1\" cihazındakı batareya boşalmaq üzrədir və cihazınız istənilən vaxt "
-"sönə bilər. Batareyanı yenidən yükləyin və ya yenisi ilə əvəzləyin."
+msgstr "\"%1\" cihazındakı batareya boşalmaq üzrədir. Batareyanı doldurun."
 
 #: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "\"%1\" cihazındakı batareya boşalır."
 
 #: powerdevilcore.cpp:552
 #, kde-format
@@ -217,10 +211,9 @@ msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Klaviatura batareyası zəifdir (%1% qalır)"
 
 #: powerdevilcore.cpp:566
-#, fuzzy, kde-format
-#| msgid "Mouse Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Siçan batareyası zəifdir (%1% qalır)"
+msgstr "Telefon batareyası zəifdir (%1% qalır)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
