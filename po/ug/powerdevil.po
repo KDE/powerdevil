@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2026-09-24 20:25-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -297,42 +297,42 @@ msgstr "توكدانىنىڭ توكى ئاز (%1% قالدى)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "توكدانىنىڭ توكى بەك ئاز (%1% قالدى)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "توك مەنبەسى چېتىلدى"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "كومپيۇتېر ئەمدى ئۇيقۇ ھالىتىگە كىرمەيدۇ."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Running on AC Power"
 msgstr "ئۆزگىرىشچان توك مەنبەسى ئىشلىتىۋاتىدۇ"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى چېتىلدى."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "توكدان ئىشلىتىۋاتىدۇ"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى ئاجرىتىۋېتىلدى."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "توكلاش تامام"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ھازىر توكدان لىق توكلاندى."

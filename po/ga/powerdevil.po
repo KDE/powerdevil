@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2026-05-01 17:24+0100\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -295,42 +295,42 @@ msgstr "Cadhnra Íseal (%1% Fágtha)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Cadhnra Criticiúil (%1% Fágtha)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Corda Cumhachta Plugáilte Isteach"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Ní stadfaidh an ríomhaire a thuilleadh."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Ar Chumhacht SA"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Tá an corda cumhachta plugáilte isteach."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Ar Chumhacht Chadhnra Ag Rith"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Bhí an cuibheoir cumhachta díphlugáilte."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Luchtú Críochnaithe"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Tá an cadhnra luchtaithe go hiomlán anois."

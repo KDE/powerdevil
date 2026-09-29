@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2026-05-02 19:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -291,42 +291,42 @@ msgstr "Pil Düşük (%​%1 Kaldı)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Pil Kritik (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Güç Kablosu Takılı"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Bilgisayar artık uyku kipine geçmeyecek."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Fişe Takılı Olarak Çalışıyor"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Güç kablosu takıldı."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Pille Çalışıyor"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Güç kablosu çıkarıldı."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Şarj Tamamlandı"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Piliniz tümüyle şarj edildi."

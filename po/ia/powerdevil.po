@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2026-04-28 16:31+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -292,42 +292,42 @@ msgstr "Batteria basse (Remanente %1%)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteria critic (Remanente %1%)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Corda de alimentation connectite"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Le computator jammais essera suspendite in dormir."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Executante con le energia AC"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Le corda de alimentation ha essite inserite."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Executante con le sol energia del batteria"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Le corda de alimentation ha essite de-inserite. "
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Cargamento complete"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteria nunc completemente cargate."

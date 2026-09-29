@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2025-08-14 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -305,42 +305,42 @@ msgstr "Akku vähissä (%1 % jäljellä)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Akku kriittisen vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Virtajohto kytketty"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tietokone ei enää siirry keskeytystilaan."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, kde-format
 msgid "Running on AC Power"
 msgstr "Verkkovirta käytössä"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Virtajohto on kytketty."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Akku käytössä"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Virtajohto on irrotettu."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Lataus valmis"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Akku on nyt ladattu täyteen."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -330,47 +330,47 @@ msgstr "Baterija pri kraju (ostalo %1%)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterija kritična (ostalo %1%)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, fuzzy, kde-format
 #| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "Strujni adapter utaknut"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "Na zidnom napajanju"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "Strujni adapter je utaknut."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Na baterijskom napajanju"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "Strujni adapter je izvučen."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "Punjenje dovršeno"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."

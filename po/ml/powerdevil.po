@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -297,42 +297,42 @@ msgstr ""
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, fuzzy, kde-format
 msgid "Power Cord Plugged In"
 msgstr "എസി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുമ്പോള്‍"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, fuzzy, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, fuzzy, kde-format
 msgid "Running on AC Power"
 msgstr "ബാറ്ററി വൈദ്യുതിയിലായിരിയ്ക്കുമ്പോള്‍"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, fuzzy, kde-format
 msgid "The power cord has been plugged in."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുന്നു."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, fuzzy, kde-format
 msgid "Running on Battery Power"
 msgstr "ബാറ്ററി വൈദ്യുതിയിലായിരിയ്ക്കുമ്പോള്‍"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, fuzzy, kde-format
 msgid "The power cord has been unplugged."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ നീക്കം ചെയ്തിരിയ്ക്കുന്നു."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""

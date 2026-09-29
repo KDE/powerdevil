@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2014-10-28 10:28+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -333,47 +333,47 @@ msgstr "बॅटरी कमी (%1% शिल्लक)"
 msgid "Battery Critical (%1% Remaining)"
 msgstr "बॅटरी संकटात (%1% शिल्लक)"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, fuzzy, kde-format
 #| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "AC एडॅप्टर जोडलेला आहे"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "AC वीजेवर चालू आहे"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "पॉवर एडॅप्टर जोडला गेलेला आहे."
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "बॅटरी वीजेवर चालू आहे"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "पॉवर एडॅप्टर काढून टाकण्यात आलेला आहे."
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "चार्ज पूर्ण"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."

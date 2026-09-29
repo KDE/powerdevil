@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:47+0000\n"
+"POT-Creation-Date: 2026-09-29 00:47+0000\n"
 "PO-Revision-Date: 2008-12-30 15:12+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bengali INDIA <fedora-trans-bn_IN@redhat.com>\n"
@@ -323,13 +323,13 @@ msgstr ""
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:714
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "Power Cord Plugged In"
 msgstr "AC অ্যাডাপ্টার সংযুক্ত করা হলে"
 
-#: powerdevilcore.cpp:714
+#: powerdevilcore.cpp:715
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -338,36 +338,36 @@ msgid "The computer will no longer go to sleep."
 msgstr ""
 "%1 সেকেন্ডের মধ্যে কম্পিউটার বন্ধ করা হবে। এই কাজ বন্ধ করার জন্য এইখানে ক্লিক করুন।"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:717
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on AC Power"
 msgstr "ব্যাটারি দ্বারা চালিত হলে"
 
-#: powerdevilcore.cpp:717
+#: powerdevilcore.cpp:718
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
 msgid "The power cord has been plugged in."
 msgstr "বিদ্যুৎ সংযোগের অ্যাডাপ্টার সংযুক্ত করা হয়েছে"
 
-#: powerdevilcore.cpp:732
+#: powerdevilcore.cpp:734
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on Battery Power"
 msgstr "ব্যাটারি দ্বারা চালিত হলে"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
 msgid "The power cord has been unplugged."
 msgstr "বিদ্যুৎ সংযোগের অ্যাডাপ্টার বিচ্ছিন্ন করা হয়েছে"
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:798
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
