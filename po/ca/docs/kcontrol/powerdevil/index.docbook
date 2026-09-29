@@ -112,7 +112,7 @@
 ></term>
 <listitem>
 <para
->Desa la sessió actual de l'escriptori a la memòria. Aquest mode de son tradicional entra a dormir ràpidament i es desperta ràpidament. Els sistemes amb bateria sovint estan dissenyats per a durar entre un dia i 1-2 setmanes en aquest estat. També conegut com «Suspensió a RAM».</para>
+>Desa la sessió actual de l'escriptori a la memòria. Aquest mode de son tradicional entra a dormir ràpidament i es desperta ràpidament. Els sistemes amb bateria sovint estan dissenyats per a durar entre un dia i 1-2 setmanes en aquest estat. També conegut com a «Suspensió a RAM».</para>
 </listitem>
 </varlistentry>
 <varlistentry
