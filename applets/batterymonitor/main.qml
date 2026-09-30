@@ -149,7 +149,7 @@ PlasmoidItem {
         }
 
         if (!batteryControl.hasBatteries) {
-            parts.push(i18n("No Batteries Available"));
+            parts.push(i18n("No batteries available"));
         } else if (batteryControl.hasInternalBatteries) {
             if (batteryControl.remainingTime > 0) {
                 const remainingTimeString = KCoreAddons.Format.formatDuration(batteryControl.remainingTime, KCoreAddons.FormatTypes.HideSeconds);
