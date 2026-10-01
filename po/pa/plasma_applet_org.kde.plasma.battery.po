@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2026-01-24 08:18-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -328,8 +328,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "ਪਾਵਰ ਸਪਲਾਈ ਬੈਟਰੀ ਨੂੰ ਚਾਰਜ ਕਰਨ ਲਈ ਕਾਫ਼ੀ ਨਹੀਂ ਹੈ"
 
 #: main.qml:152
-#, kde-format
-msgid "No Batteries Available"
+#, fuzzy, kde-format
+#| msgid "No Batteries Available"
+msgid "No batteries available"
 msgstr "ਕੋਈ ਬੈਟਰੀ ਮੌਜੂਦ ਨਹੀਂ"
 
 #: main.qml:159

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2026-09-02 15:56+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -331,8 +331,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Le alimentator non es  assatis potente per cargar le batteria"
 
 #: main.qml:152
-#, kde-format
-msgid "No Batteries Available"
+#, fuzzy, kde-format
+#| msgid "No Batteries Available"
+msgid "No batteries available"
 msgstr "Necun batterias disponibile"
 
 #: main.qml:159

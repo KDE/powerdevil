@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2008-12-06 16:33+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <kde-i18n-doc@kde.org>\n"
@@ -343,9 +343,10 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "બેટરીનાં ચાર્જ થયેલ ટકા બતાવો (&c)"
 
 #: main.qml:152
-#, kde-format
-msgid "No Batteries Available"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "availableProfiles"
+msgid "No batteries available"
+msgstr "પ્રાપ્તપ્રોફાઇલો"
 
 #: main.qml:159
 #, fuzzy, kde-format

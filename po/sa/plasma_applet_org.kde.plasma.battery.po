@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -347,8 +347,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "विद्युत् आपूर्तिः बैटरी चार्जं कर्तुं पर्याप्तं शक्तिशाली नास्ति"
 
 #: main.qml:152
-#, kde-format
-msgid "No Batteries Available"
+#, fuzzy, kde-format
+#| msgid "No Batteries Available"
+msgid "No batteries available"
 msgstr "बैटरी उपलब्धा नास्ति"
 
 #: main.qml:159

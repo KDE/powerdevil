@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2026-01-31 20:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -329,8 +329,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "மின்கலத்தில் ஆற்றல் ஏற்றும் அளவுக்கு மின்னளிப்பு ஆற்றல்வாய்ந்ததல்ல"
 
 #: main.qml:152
-#, kde-format
-msgid "No Batteries Available"
+#, fuzzy, kde-format
+#| msgid "No Batteries Available"
+msgid "No batteries available"
 msgstr "மின்கலங்கள் ஏதுமில்லை"
 
 #: main.qml:159

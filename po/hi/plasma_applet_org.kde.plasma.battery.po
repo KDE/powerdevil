@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-01 00:47+0000\n"
 "PO-Revision-Date: 2021-08-13 02:10+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -362,7 +362,7 @@ msgstr "बिजली की आपूर्ति बैटरी को च�
 
 #: main.qml:152
 #, kde-format
-msgid "No Batteries Available"
+msgid "No batteries available"
 msgstr ""
 
 #: main.qml:159
