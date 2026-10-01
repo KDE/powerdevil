@@ -33,7 +33,7 @@ KeyboardBrightnessController::KeyboardBrightnessController()
 
     QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
     rep.waitForFinished();
-    if (rep.isValid()) {
+    if (rep.isValid() && rep.value() > 0) {
         m_maxBrightness = rep.value();
         m_isSupported = true;
         m_cachedBrightness = brightness();
@@ -44,7 +44,7 @@ KeyboardBrightnessController::KeyboardBrightnessController()
                 &KeyboardBrightnessController::onBrightnessChanged);
     } else {
         // Don't warn when no keyboard backlight is available, only for other errors
-        if (rep.error().type() != QDBusError::UnknownMethod) {
+        if (rep.isError() && rep.error().type() != QDBusError::UnknownMethod) {
             qCWarning(POWERDEVIL) << "Could not query keyboard backlight brightness" << rep.error().message();
         }
     }
