@@ -1,13 +1,14 @@
 # Translation of plasma_applet_org.kde.plasma.battery.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2017-02-19 13:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-09-30 12:00+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -23,32 +24,32 @@ msgstr ""
 #: BatteryItem.qml:102
 #, kde-format
 msgid "Charging"
-msgstr "пуни се"
+msgstr "Пуни се"
 
 # >> @item:intext
 #: BatteryItem.qml:104
 #, kde-format
 msgid "Discharging"
-msgstr "празни се"
+msgstr "Празни се"
 
 # >> @item:intext
 #: BatteryItem.qml:106 main.qml:122
 #, kde-format
 msgid "Fully Charged"
-msgstr "скроз пуна"
+msgstr "Скроз пуна"
 
 # >> @item:intext
 #: BatteryItem.qml:108
 #, kde-format
 msgid "Not Charging"
-msgstr "не пуни се"
+msgstr "Не пуни се"
 
 # >> @item:intext
 #: BatteryItem.qml:111
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
-msgstr "нема је"
+msgstr "Нема је"
 
 #: BatteryItem.qml:129
 #, kde-format
@@ -60,46 +61,42 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Непознато"
 
 # rewrite-msgid: /hardware vendor/manufacturer/
 #: BatteryItem.qml:195
-#, fuzzy, kde-format
-#| msgid ""
-#| "The capacity of this battery is %1%. This means it is broken and needs a "
-#| "replacement. Please contact your hardware vendor for more details."
+#, kde-format
 msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
-"Капацитет ове батерије је %1%. То значи да је покварена и да је треба "
-"заменити. Обратите се произвођачу за више детаља."
+"Здравље ове батерије је само %1% и треба је заменити. Обратите се "
+"произвођачу."
 
 #: BatteryItem.qml:214
 #, kde-format
 msgid "Time To Full:"
-msgstr "Време пуњења:"
+msgstr "Пуна за:"
 
+# >> @info:tooltip
 #: BatteryItem.qml:215
 #, kde-format
 msgid "Remaining Time:"
-msgstr ""
+msgstr "Преостало време:"
 
 #: BatteryItem.qml:221
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
-msgstr ""
+msgstr "Процењујем…"
 
 #: BatteryItem.qml:231
 #, kde-format
 msgid "Battery Health:"
-msgstr ""
+msgstr "Здравље батерије:"
 
 #: BatteryItem.qml:237
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is battery percentage"
-#| msgid "%1%"
+#, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1%"
@@ -107,7 +104,7 @@ msgstr "%1%"
 #: BatteryItem.qml:249
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr ""
+msgstr "Батерија је подешена да се пуни до приближно %1%."
 
 #: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
@@ -119,18 +116,19 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Спавање и закључавање екрана после неактивности"
 
+# >> @option:check
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:75
 #, kde-format
 msgid "Power Management"
-msgstr ""
+msgstr "Управљање напајањем"
 
 #: InhibitionItem.qml:63
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
-msgstr ""
+msgstr "Аутоматско спавање и закључавање екрана тренутно су блокирани."
 
 #: InhibitionItem.qml:65
 #, kde-format
@@ -138,6 +136,8 @@ msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Закључавање екрана је тренутно блокирано. Спавање је аутоматско после "
+"неактивности."
 
 #: InhibitionItem.qml:67
 #, kde-format
@@ -145,85 +145,81 @@ msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"Спавање је тренутно блокирано. Закључавање екрана је аутоматско после "
+"неактивности."
 
 #: InhibitionItem.qml:69
 #, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
-msgstr ""
+msgstr "Спавање и закључавање екрана су аутоматски после неактивности."
 
 #: InhibitionItem.qml:93
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "Ручно блокирај спавање и закључавање екрана"
 
 #: InhibitionItem.qml:114
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr ""
+msgstr "Не могу да одблокирам аутоматско спавање и закључавање екрана"
 
 #: InhibitionItem.qml:117
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr ""
+msgstr "Не могу да блокирам аутоматско спавање и закључавање екрана"
 
 #: InhibitionItem.qml:131
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "То ће довести до веће потрошње енергије."
 
 #: InhibitionItem.qml:132
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
 "included (EU regulations)"
 msgid ""
 "You have manually blocked automatic sleep and screen locking. This will "
 "result in higher energy consumption."
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr ""
+"Ручно сте блокирали аутоматско спавање и закључавање екрана. То ће довести "
+"до веће потрошње енергије."
 
 #: InhibitionItem.qml:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your notebook is configured not to suspend when closing the lid while an "
-#| "external monitor is connected."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"Лаптоп је подешен да се не суспендује при спуштању поклопца док је прикључен "
-"спољашњи монитор."
+"Лаптоп је подешен да не оде на спавање при спуштању поклопца док је "
+"прикључен спољашњи монитор."
 
 #: InhibitionItem.qml:159
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr ""
+msgstr "Непознат разлог."
 
 #: InhibitionItem.qml:166
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 жели да блокира спавање и закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:168
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 жели да блокира закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:170
 #, kde-format
@@ -231,25 +227,23 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "%1 жели да блокира спавање. (%2)"
 
 #: InhibitionItem.qml:174
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 такође блокира спавање и закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:176
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 такође блокира закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:178
 #, kde-format
@@ -257,25 +251,23 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 такође блокира спавање. (%2)"
 
 #: InhibitionItem.qml:182
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 блокира спавање и закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:184
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "%1 блокира закључавање екрана. (%2)"
 
 #: InhibitionItem.qml:186
 #, kde-format
@@ -283,7 +275,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "%1 блокира спавање. (%2)"
 
 #: InhibitionItem.qml:194
 #, kde-format
@@ -291,7 +283,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Одблокирај"
 
 #: InhibitionItem.qml:202
 #, kde-format
@@ -299,186 +291,182 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Дозволи"
 
 #: main.qml:76
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "Аплет батерије је активирао забрану широм система"
+msgstr "Аплет батерије је укључио спречавање спавања и закључавања екрана"
 
 #: main.qml:97
 #, kde-format
 msgid "Power & Battery"
-msgstr ""
+msgstr "Напајање и батерија"
 
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Батерија није у лежишту"
 
 #: main.qml:127
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "Ниво батерије непознат"
 
 # >> @info:tooltip
 #: main.qml:133
-#, fuzzy, kde-format
-#| msgid "%1%. Plugged in, not Charging"
+#, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "%1%, утакнут, не пуни се."
+msgstr "Батерија на %1%, не пуни се"
 
 # >> @info:tooltip
 #: main.qml:135
-#, fuzzy, kde-format
-#| msgid "%1%. Plugged in, not Charging"
+#, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
-msgstr "%1%, утакнут, не пуни се."
+msgstr "Батерија на %1%, утакнута, али се и даље празни"
 
 # >> @info:tooltip
 #: main.qml:137
-#, fuzzy, kde-format
-#| msgid "%1%. Charging"
+#, kde-format
 msgid "Battery at %1%, Charging"
-msgstr "%1%, пуни се."
+msgstr "Батерија на %1%, пуни се"
 
 #: main.qml:140
 #, kde-format
 msgid "Battery at %1%"
-msgstr ""
+msgstr "Батерија на %1%"
 
 #: main.qml:148
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr ""
+msgstr "Напајање није довољно снажно да пуни батерију"
 
+# >> @info:tooltip
 #: main.qml:152
 #, kde-format
 msgid "No Batteries Available"
-msgstr ""
+msgstr "Нема батерија"
 
 # >> @item:intext
 #: main.qml:159
-#, fuzzy, kde-format
-#| msgid "Fully Charged"
+#, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
-msgstr "скроз пуна"
+msgstr "Пуна за %1"
 
 # >> @info:tooltip
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgctxt "%1 is remaining time, %2 is percentage"
-#| msgid "%1 Remaining (%2%)"
+#, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
-msgstr "%1 преостало (%2%)."
+msgstr "Преостало %1"
 
 # >> @item:intext
 #: main.qml:164
-#, fuzzy, kde-format
-#| msgid "Not Charging"
+#, kde-format
 msgid "Not charging"
-msgstr "не пуни се"
+msgstr "Не пуни се"
 
 #: main.qml:169
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
+"Аутоматско спавање и закључавање екрана су искључени; средњи клик их поново "
+"укључује"
 
 #: main.qml:171
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr ""
+msgstr "Средњи клик искључује аутоматско спавање и закључавање екрана"
 
 #: main.qml:177
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 програм је затражио активирање режима перформанси"
+msgstr[1] "%1 програма су затражила активирање режима перформанси"
+msgstr[2] "%1 програма је затражило активирање режима перформанси"
+msgstr[3] "Један програм је затражио активирање режима перформанси"
 
 #: main.qml:181
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr ""
+msgstr "Систем је у режиму перформанси; клизните за промену"
 
 #: main.qml:185
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 програм је затражио активирање режима штедње енергије"
+msgstr[1] "%1 програма су затражила активирање режима штедње енергије"
+msgstr[2] "%1 програма је затражило активирање режима штедње енергије"
+msgstr[3] "Један програм је затражио активирање режима штедње енергије"
 
 #: main.qml:189
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr ""
+msgstr "Систем је у режиму штедње енергије; клизните за промену"
 
 #: main.qml:192
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
-msgstr ""
+msgstr "Систем је у уравнотеженом режиму напајања; клизните за промену"
 
 #: main.qml:310
 #, kde-format
 msgid "&Show Energy Information…"
-msgstr ""
+msgstr "&Прикажи податке о енергији…"
 
 #: main.qml:316
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
-msgstr ""
+msgstr "Прикажи проценат батерије на иконици када није скроз пуна"
 
+# >> @option:check
 #: main.qml:327
-#, fuzzy, kde-format
-#| msgid "&Configure Power Saving..."
+#, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Подеси штедњу енергије..."
+msgstr "&Подеси управљање напајањем…"
 
 #: PowerProfileItem.qml:40
 #, kde-format
 msgid "Power Save"
-msgstr ""
+msgstr "Штедња енергије"
 
 #: PowerProfileItem.qml:44
 #, kde-format
 msgid "Balanced"
-msgstr ""
+msgstr "Уравнотежено"
 
 #: PowerProfileItem.qml:48
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "Перформансе"
 
 #: PowerProfileItem.qml:65
 #, kde-format
 msgid "Power Profile"
-msgstr ""
+msgstr "Профил напајања"
 
 #: PowerProfileItem.qml:109
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Аутоматски"
 
+# >> @info:tooltip
 #: PowerProfileItem.qml:110
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
-msgstr ""
+msgstr "Недоступно"
 
 #: PowerProfileItem.qml:150
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr ""
+msgstr "Не могу да активирам режим %1"
 
 #: PowerProfileItem.qml:227
 #, kde-format
@@ -486,17 +474,20 @@ msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
+"Режим перформанси је искључен ради мањег загревања, јер је рачунар открио да "
+"је можда у вашем крилу."
 
 #: PowerProfileItem.qml:229
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
-msgstr ""
+msgstr "Режим перформанси није доступан јер је рачунар превише загрејан."
 
+# >> @info:tooltip
 #: PowerProfileItem.qml:231
 #, kde-format
 msgid "Performance mode is unavailable."
-msgstr ""
+msgstr "Режим перформанси није доступан."
 
 #: PowerProfileItem.qml:247
 #, kde-format
@@ -504,25 +495,27 @@ msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
+"Перформансе могу бити смањене ради мањег загревања, јер је рачунар открио да "
+"је можда у вашем крилу."
 
 #: PowerProfileItem.qml:249
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
-msgstr ""
+msgstr "Перформансе могу бити смањене јер је рачунар превише загрејан."
 
 #: PowerProfileItem.qml:251
 #, kde-format
 msgid "Performance may be reduced."
-msgstr ""
+msgstr "Перформансе могу бити смањене."
 
 #: PowerProfileItem.qml:264
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 програм је затражио профил „%2“:"
+msgstr[1] "%1 програма су затражила профил „%2“:"
+msgstr[2] "%1 програма је затражило профил „%2“:"
+msgstr[3] "Један програм је затражио профил „%2“:"
 
 #: PowerProfileItem.qml:287
 #, kde-format
@@ -530,17 +523,17 @@ msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
 "activating performance mode"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: PowerProfileItem.qml:305
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Сервис TLP аутоматски управља профилима напајања"
 
 #: PowerProfileItem.qml:307
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Профили напајања нису подржани на вашем уређају."
 
 #: PowerProfileItem.qml:308
 #, kde-kuit-format
@@ -549,45 +542,6 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-
-#, fuzzy
-#~| msgctxt "Placeholder is battery percentage"
-#~| msgid "%1%"
-#~ msgctxt "Placeholder is brightness percentage"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#, fuzzy
-#~| msgid "Keyboard Brightness"
-#~ msgid "Battery and Brightness"
-#~ msgstr "Осветљај тастатуре"
-
-#, fuzzy
-#~| msgid "Display Brightness"
-#~ msgid "Brightness"
-#~ msgstr "Осветљај екрана"
-
-#~ msgid "Display Brightness"
-#~ msgstr "Осветљај екрана"
-
-#~ msgid "Keyboard Brightness"
-#~ msgstr "Осветљај тастатуре"
-
-#~ msgid "General"
-#~ msgstr "Опште"
-
-#, fuzzy
-#~| msgctxt "short symbol to signal there is no battery curently available"
-#~| msgid "-"
-#~ msgctxt "short symbol to signal there is no battery currently available"
-#~ msgid "-"
-#~ msgstr "–"
-
-#~ msgid "Show percentage"
-#~ msgstr "Прикажи проценат"
-
-#~ msgid "Time To Empty:"
-#~ msgstr "Време пражњења:"
-
-#~ msgid "Configure Power Saving..."
-#~ msgstr "Подеси штедњу енергије..."
+"Профили напајања можда су подржани на вашем уређају.<nl/>Покушајте да "
+"инсталирате пакет <command>power-profiles-daemon</command> помоћу менаџера "
+"пакета ваше дистрибуције, па поново покрените систем."
