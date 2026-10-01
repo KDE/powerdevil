@@ -73,6 +73,7 @@ PlasmaExtras.Representation {
 
                     Layout.fillWidth: true
 
+                    activeFocusOnTab: true
                     icon.name: "video-display-brightness"
                     text: label
                     type: BrightnessItem.Type.Screen
