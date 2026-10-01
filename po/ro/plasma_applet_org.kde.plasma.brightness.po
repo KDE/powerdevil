@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:46+0000\n"
+"POT-Creation-Date: 2026-10-01 17:44+0000\n"
 "PO-Revision-Date: 2026-01-29 01:55+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -54,36 +54,36 @@ msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: BrightnessItem.qml:90
+#: BrightnessItem.qml:91
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Luminozitate"
 
-#: BrightnessItem.qml:115
+#: BrightnessItem.qml:116
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
 msgstr "Luminozitate ecran - %1"
 
-#: DarkModeItem.qml:71
+#: DarkModeItem.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Dark Mode"
 msgstr "Regim întunecat"
 
-#: DarkModeItem.qml:81 NightLightItem.qml:182
+#: DarkModeItem.qml:86 NightLightItem.qml:177
 #, kde-format
 msgid "Configure…"
 msgstr "Configurează…"
 
-#: DarkModeItem.qml:101
+#: DarkModeItem.qml:104
 #, kde-format
 msgctxt "Describes what theme dark mode toggle would switch to"
 msgid "Switch to %1"
 msgstr "Schimbă la %1"
 
-#: KeyboardColorItem.qml:73
+#: KeyboardColorItem.qml:76
 #, kde-format
 msgid "Follow accent color"
 msgstr "Urmează culoarea de accent"
@@ -178,117 +178,117 @@ msgstr "Configurează lumina nocturnă…"
 msgid "&Configure Power Management…"
 msgstr "&Configurează gestiunea alimentării…"
 
-#: NightLightItem.qml:109
+#: NightLightItem.qml:112
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "Suspendată"
 
-#: NightLightItem.qml:112
+#: NightLightItem.qml:115
 #, kde-format
 msgctxt "Night light status"
 msgid "Unavailable"
 msgstr "Indisponibilă"
 
-#: NightLightItem.qml:115
+#: NightLightItem.qml:118
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
 msgstr "Neactivată"
 
-#: NightLightItem.qml:118
+#: NightLightItem.qml:121
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
 msgstr "Nu rulează"
 
-#: NightLightItem.qml:121
+#: NightLightItem.qml:124
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "Activă"
 
-#: NightLightItem.qml:124
+#: NightLightItem.qml:127
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Tranziție la dimineață"
 
-#: NightLightItem.qml:126
+#: NightLightItem.qml:129
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
 msgstr "Zi"
 
-#: NightLightItem.qml:128
+#: NightLightItem.qml:131
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Tranziție la seară"
 
-#: NightLightItem.qml:130
+#: NightLightItem.qml:133
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Noapte"
 
-#: NightLightItem.qml:141
+#: NightLightItem.qml:144
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1K"
 
-#: NightLightItem.qml:157
+#: NightLightItem.qml:160
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Suspendă"
 
-#: NightLightItem.qml:182
+#: NightLightItem.qml:177
 #, kde-format
 msgid "Enable and Configure…"
 msgstr "Activează și configurează…"
 
-#: NightLightItem.qml:210
+#: NightLightItem.qml:203
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day complete by:"
 msgstr "Tranziția la zi se încheie până la:"
 
-#: NightLightItem.qml:212
+#: NightLightItem.qml:205
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night scheduled for:"
 msgstr "Tranziția la noapte programată pentru:"
 
-#: NightLightItem.qml:214
+#: NightLightItem.qml:207
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night complete by:"
 msgstr "Tranziția la noapte se încheie până la:"
 
-#: NightLightItem.qml:216
+#: NightLightItem.qml:209
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Tranziția la zi programată pentru:"
 
-#: PopupDialog.qml:132
+#: PopupDialog.qml:133
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Iluminarea tastaturii"
 
-#: PopupDialog.qml:157
+#: PopupDialog.qml:158
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Culoare tastatură"
 
-#: PopupDialog.qml:170
+#: PopupDialog.qml:171
 #, kde-format
 msgid "Night Light"
 msgstr "Lumină nocturnă"
 
-#: PopupDialog.qml:178
+#: PopupDialog.qml:179
 #, kde-format
 msgid "Theme"
 msgstr "Tematică"

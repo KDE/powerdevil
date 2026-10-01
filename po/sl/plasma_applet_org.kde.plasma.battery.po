@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:47+0000\n"
-"PO-Revision-Date: 2026-08-21 08:20+0200\n"
+"PO-Revision-Date: 2026-10-01 07:33+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -339,10 +339,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Napajalnik ni dovolj zmogljiv, da bi polnil baterijo"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
-msgstr "Baterija ni na voljo"
+msgstr "Baterij ni na voljo"
 
 #: main.qml:159
 #, kde-format
