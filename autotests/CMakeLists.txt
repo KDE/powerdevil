@@ -11,3 +11,4 @@ add_test(
 set_tests_properties(batteryitemtest PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
 
 add_subdirectory(migrateconfig)
+add_subdirectory(logindidlehint)

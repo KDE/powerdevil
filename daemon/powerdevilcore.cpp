@@ -283,6 +283,11 @@ void Core::refreshStatus()
     loadProfile(true);
 }
 
+GlobalSettings *Core::globalSettings() const
+{
+    return m_globalSettings;
+}
+
 void Core::reparseConfiguration()
 {
     m_globalSettings->load();
