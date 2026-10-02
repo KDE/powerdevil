@@ -854,14 +854,15 @@ void PolicyAgent::setupSystemdInhibition()
     if (!m_managerIface)
         return;
 
-    // inhibit systemd/ConsoleKit2 handling of power/sleep/lid buttons
+    // inhibit systemd/ConsoleKit2 handling of power/sleep/lid buttons, and its idle action,
+    // since PowerDevil acts on idleness itself
     // https://www.freedesktop.org/wiki/Software/systemd/inhibit
     // https://consolekit2.github.io/ConsoleKit2/#Manager.Inhibit
     qCDebug(POWERDEVIL) << "fd passing available:"
                         << bool(m_managerIface.data()->connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
 
     QVariantList args;
-    args << QStringLiteral("handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"); // what
+    args << QStringLiteral("handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch:idle"); // what
     args << QStringLiteral("PowerDevil"); // who
     args << QStringLiteral("KDE handles power events"); // why
     args << QStringLiteral("block"); // mode
