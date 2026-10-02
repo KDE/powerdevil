@@ -30,6 +30,28 @@ KeyboardBrightnessController::KeyboardBrightnessController()
 {
     m_kbdBacklight =
         new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, u"/org/freedesktop/UPower/KbdBacklight"_s, QDBusConnection::systemBus(), this);
+    connect(m_kbdBacklight, &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource, this, &KeyboardBrightnessController::onBrightnessChanged);
+
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE,
+                                         u"/org/freedesktop/UPower"_s,
+                                         u"org.freedesktop.UPower"_s,
+                                         u"DeviceAdded"_s,
+                                         this,
+                                         SLOT(onUPowerDeviceChanged(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE,
+                                         u"/org/freedesktop/UPower"_s,
+                                         u"org.freedesktop.UPower"_s,
+                                         u"DeviceRemoved"_s,
+                                         this,
+                                         SLOT(onUPowerDeviceChanged(QDBusObjectPath)));
+
+    updateMaxBrightness();
+}
+
+void KeyboardBrightnessController::updateMaxBrightness()
+{
+    const bool wasSupported = m_isSupported;
+    const int oldMaxBrightness = m_maxBrightness;
 
     QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
     rep.waitForFinished();
@@ -38,15 +60,29 @@ KeyboardBrightnessController::KeyboardBrightnessController()
         m_isSupported = true;
         m_cachedBrightness = brightness();
         qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedBrightness;
-        connect(m_kbdBacklight,
-                &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource,
-                this,
-                &KeyboardBrightnessController::onBrightnessChanged);
     } else {
+        m_maxBrightness = 0;
+        m_isSupported = false;
         // Don't warn when no keyboard backlight is available, only for other errors
         if (rep.isError() && rep.error().type() != QDBusError::UnknownMethod) {
             qCWarning(POWERDEVIL) << "Could not query keyboard backlight brightness" << rep.error().message();
         }
+    }
+
+    if (m_isSupported != wasSupported) {
+        Q_EMIT supportedChanged();
+    }
+    if (m_isSupported && m_maxBrightness != oldMaxBrightness) {
+        m_keyboardBrightnessLogic.setValueRange(0, m_maxBrightness);
+        m_keyboardBrightnessLogic.setValue(m_cachedBrightness);
+        Q_EMIT brightnessInfoChanged(m_keyboardBrightnessLogic.info());
+    }
+}
+
+void KeyboardBrightnessController::onUPowerDeviceChanged(const QDBusObjectPath &path)
+{
+    if (path.path().startsWith(u"/org/freedesktop/UPower/KbdBacklight"_s)) {
+        updateMaxBrightness();
     }
 }
 
@@ -146,7 +182,7 @@ int KeyboardBrightnessController::toggleBacklight()
 void KeyboardBrightnessController::onBrightnessChanged(int value, const QString &source)
 {
     qCDebug(POWERDEVIL) << "Keyboard brightness changed!!";
-    if (value != m_cachedBrightness) {
+    if (m_isSupported && value != m_cachedBrightness) {
         m_cachedBrightness = value;
         // source: internal = keyboard brightness changed through hardware, eg a firmware-handled hotkey being pressed -> show the OSD
         //         external = keyboard brightness changed through upower -> don't trigger the OSD as we would already have done that where necessary

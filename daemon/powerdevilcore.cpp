@@ -93,6 +93,7 @@ void Core::loadCore()
 
     connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onControllersReady);
     connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayIdsChanged, this, &Core::refreshActions);
+    connect(m_keyboardBrightnessController.get(), &KeyboardBrightnessController::supportedChanged, this, &Core::refreshActions);
     m_screenBrightnessController->detectDisplays();
 }
 

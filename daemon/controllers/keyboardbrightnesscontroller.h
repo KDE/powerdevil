@@ -10,6 +10,7 @@
 
 #pragma once
 
+#include <QDBusObjectPath>
 #include <QObject>
 
 #include "powerdevilcore_export.h"
@@ -35,11 +36,14 @@ public:
 
 Q_SIGNALS:
     void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void supportedChanged();
 
 private Q_SLOTS:
     void onBrightnessChanged(int value, const QString &source);
+    void onUPowerDeviceChanged(const QDBusObjectPath &path);
 
 private:
+    void updateMaxBrightness();
     int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment);
 
     int m_maxBrightness;
