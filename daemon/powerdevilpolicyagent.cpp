@@ -14,6 +14,7 @@
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusObjectPath>
+#include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #include <QDBusServiceWatcher>
 #include <QMetaType>
@@ -308,6 +309,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
                                              SLOT(onManagerPropertyChanged(QString, QVariantMap, QStringList)));
         checkLogindInhibitions();
 
+        sendSessionIdleHint();
+
         qCDebug(POWERDEVIL) << "systemd support initialized";
     } else if (serviceName == CONSOLEKIT_SERVICE) {
         m_ckAvailable = true;
@@ -372,6 +375,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
 
         setupSystemdInhibition();
 
+        sendSessionIdleHint();
+
         qCDebug(POWERDEVIL) << "ConsoleKit support initialized";
     } else
         qCWarning(POWERDEVIL) << "Unhandled service registered:" << serviceName;
@@ -386,6 +391,40 @@ void PolicyAgent::onSessionHandlerUnregistered(const QString &serviceName)
         m_ckAvailable = false;
         delete m_ckSessionInterface.data();
     }
+    // A session manager that comes back has forgotten the hint
+    m_sentSessionIdleHint.reset();
+}
+
+void PolicyAgent::setSessionIdleHint(bool idle)
+{
+    m_sessionIdleHint = idle;
+    sendSessionIdleHint();
+}
+
+void PolicyAgent::sendSessionIdleHint()
+{
+    // logind and ConsoleKit both name the method SetIdleHint
+    QDBusInterface *session = nullptr;
+    if (m_sdAvailable) {
+        session = m_sdSessionInterface.data();
+    } else if (m_ckAvailable) {
+        session = m_ckSessionInterface.data();
+    }
+    if (!session || m_sentSessionIdleHint == m_sessionIdleHint) {
+        return;
+    }
+    m_sentSessionIdleHint = m_sessionIdleHint;
+
+    auto watcher = new QDBusPendingCallWatcher(session->asyncCall(u"SetIdleHint"_s, m_sessionIdleHint), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        watcher->deleteLater();
+        const QDBusPendingReply<> reply = *watcher;
+        if (reply.isError()) {
+            qCWarning(POWERDEVIL) << "Failed to set the idle hint of the session:" << reply.error().message();
+            // Send again on the next change
+            m_sentSessionIdleHint.reset();
+        }
+    });
 }
 
 void PolicyAgent::onActiveSessionChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)

@@ -28,6 +28,7 @@ target_dbus_files(powerdevil_keyboardbrightnesscontrolaction
     keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
 
 add_powerdevil_bundled_action(dimdisplay)
+add_powerdevil_bundled_action(sessionidlehint)
 add_powerdevil_bundled_action(runscript KF6::KIOCore KF6::KIOWidgets)
 
 add_powerdevil_bundled_action(suspendsession KF6::KIOCore KF6::KIOWidgets)

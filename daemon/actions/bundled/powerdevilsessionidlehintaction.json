@@ -1,0 +1,8 @@
+{
+    "KPlugin": {
+        "Description": "Reports the idle state of the session to logind or ConsoleKit",
+        "Icon": "preferences-desktop-display",
+        "Name": "Session idle hint"
+    },
+    "X-KDE-PowerDevil-Action-ID": "SessionIdleHint"
+}

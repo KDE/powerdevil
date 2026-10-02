@@ -18,6 +18,8 @@
 #include <QDBusUnixFileDescriptor>
 
 #include <KSharedConfig>
+
+#include <optional>
 #include <qobjectdefs.h>
 
 #include "PowerDevilGlobalSettings.h"
@@ -103,6 +105,12 @@ public:
 
     void setupSystemdInhibition();
 
+    /**
+     * Tells logind or ConsoleKit whether the session is idle, through SetIdleHint on the session.
+     * Only a change is sent, and the current value is sent again when the session manager returns.
+     */
+    void setSessionIdleHint(bool idle);
+
     // DEPRECATED: D-Bus getter method, returns array of {who, why}. Use properties instead
     QList<QStringList> ListInhibitions() const;
 
@@ -180,6 +188,10 @@ private:
     bool m_ckAvailable;
     QPointer<QDBusInterface> m_ckSessionInterface;
     QPointer<QDBusInterface> m_ckSeatInterface;
+
+    void sendSessionIdleHint();
+    bool m_sessionIdleHint = false;
+    std::optional<bool> m_sentSessionIdleHint;
     bool m_sessionIsBeingInterrupted;
 
     QHash<uint, InhibitionInternals> m_cookieToInhibition;

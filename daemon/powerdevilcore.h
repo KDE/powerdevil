@@ -82,6 +82,7 @@ public:
     LidController *lidController();
     KeyboardBrightnessController *keyboardBrightnessController();
     ScreenBrightnessController *screenBrightnessController();
+    GlobalSettings *globalSettings() const;
 
     Action *action(const QString actionId);
 

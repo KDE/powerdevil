@@ -16,6 +16,10 @@
     <entry name="pausePlayersOnSuspend" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="SessionIdleTimeoutSec" type="Int">
+      <label>Seconds without input after which logind or ConsoleKit is told that the session is idle, 0 to never tell it</label>
+      <default>300</default>
+    </entry>
   </group>
 
   <group name="BatteryManagement">
