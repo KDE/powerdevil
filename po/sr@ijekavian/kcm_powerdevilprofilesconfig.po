@@ -1,13 +1,14 @@
 # Translation of powerdevilprofilesconfig.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2009, 2010, 2011, 2012, 2017.
 # Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2017-09-28 17:58+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-02 11:27+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -23,246 +24,246 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "не ради ништа"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "на спавање"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "у хибернацију"
 
 #: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "угаси"
 
 #: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "закључај екран"
 
 #: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "прикажи одјавни екран"
 
 #: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "угаси екран"
 
 #: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "укључи/искључи екран"
 
 #: PowerKCM.cpp:461
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr ""
+msgstr "Изгледа да сервис за управљање напајањем није покренут."
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "штедња енергије"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "уравнотежено"
 
 #: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "перформансе"
 
 #: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "не дирај"
 
 #: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "приправност"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Сачува сесију у меморији"
 
 #: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "хибридно спавање"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Сачува сесију и у меморији и на диску"
 
 #: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "приправност, па хибернацију"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr ""
+msgstr "Прелази у хибернацију кад је батерија при крају"
 
 #: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Прелази у хибернацију послије периода неактивности"
 
 #: ui/DurationPromptDialog.qml:131
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "милисекунда"
+msgstr[1] "милисекунде"
+msgstr[2] "милисекунди"
+msgstr[3] "милисекунда"
 
 #: ui/DurationPromptDialog.qml:133
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "секунда"
+msgstr[1] "секунде"
+msgstr[2] "секунди"
+msgstr[3] "секунда"
 
 #: ui/DurationPromptDialog.qml:135
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "минут"
+msgstr[1] "минута"
+msgstr[2] "минута"
+msgstr[3] "минут"
 
 #: ui/DurationPromptDialog.qml:137
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "сат"
+msgstr[1] "сата"
+msgstr[2] "сати"
+msgstr[3] "сат"
 
 #: ui/DurationPromptDialog.qml:139
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "дан"
+msgstr[1] "дана"
+msgstr[2] "дана"
+msgstr[3] "дан"
 
 #: ui/DurationPromptDialog.qml:141
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "седмица"
+msgstr[1] "седмице"
+msgstr[2] "седмица"
+msgstr[3] "седмица"
 
 #: ui/DurationPromptDialog.qml:143
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "мјесец"
+msgstr[1] "мјесеца"
+msgstr[2] "мјесеци"
+msgstr[3] "мјесец"
 
 #: ui/DurationPromptDialog.qml:145
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "година"
+msgstr[1] "године"
+msgstr[2] "година"
+msgstr[3] "година"
 
 #: ui/DurationPromptDialog.qml:169
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "милисекунди"
 
 #: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "секунди"
 
 #: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "минута"
 
 #: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "сати"
 
 #: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "дана"
 
 #: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "седмица"
 
 #: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "мјесеци"
 
 #: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "година"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Напредне поставке напајања"
 
 #: ui/GlobalConfig.qml:21
 #, kde-format
@@ -270,27 +271,26 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:59
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Нивои батерије"
 
 #: ui/GlobalConfig.qml:67
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Низак ниво:"
 
 #: ui/GlobalConfig.qml:75
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "На ниској батерији"
+msgstr "Низак ниво батерије"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -299,6 +299,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Узима се да је батерија ниско када спадне на овај ниво. Тада се умјесто "
+"обичних поставки за батерију користе поставке за ниску батерију."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -306,13 +308,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "&Критичан ниво:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Критичан ниво батерије"
 
 #: ui/GlobalConfig.qml:140
 #, kde-format
@@ -322,6 +324,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Узима се да је батерија критична када спадне на овај ниво. Послије кратког "
+"упозорења систем ће се аутоматски суспендовати или угасити, према радњи "
+"подешеној за критичан ниво батерије."
 
 #: ui/GlobalConfig.qml:149
 #, kde-format
@@ -330,6 +335,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Радња коју сте раније подесили за досезање критичног нивоа батерије сада "
+"није подржана на вашем систему. Изаберите другу."
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
@@ -337,25 +344,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&При критичном нивоу:"
 
 #: ui/GlobalConfig.qml:158
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Радња која се изводи при критичном нивоу батерије"
 
 #: ui/GlobalConfig.qml:183
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Низак ниво за периферне &уређаје:"
 
 #: ui/GlobalConfig.qml:191
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Низак ниво батерије за периферне уређаје"
 
 #: ui/GlobalConfig.qml:216
 #, kde-format
@@ -364,24 +371,25 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Узима се да је батерија периферних уређаја ниско када досегне овај ниво."
 
 #: ui/GlobalConfig.qml:224
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ограничење пуњења"
 
 #: ui/GlobalConfig.qml:235
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "Заштита &батерије:"
 
 #: ui/GlobalConfig.qml:236
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Ограничи највећу напуњеност батерије"
 
 #: ui/GlobalConfig.qml:244
 #, kde-format
@@ -389,7 +397,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Заустави пуњење на:"
 
 #: ui/GlobalConfig.qml:295
 #, kde-format
@@ -397,7 +405,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Почни пуњење кад падне &испод:"
 
 #: ui/GlobalConfig.qml:373
 #, kde-format
@@ -406,6 +414,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Можда ћете морати да искључите и поново прикључите извор напајања да би "
+"батерија поново почела да се пуни."
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
@@ -415,6 +425,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Редовно пуњење батерије до близу 100%, или њено потпуно пражњење, може "
+"убрзати опадање здравља батерије. Ограничавањем највеће напуњености батерије "
+"можете продужити њен вијек трајања."
 
 #: ui/GlobalConfig.qml:392
 #, kde-format
@@ -422,92 +435,94 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Остале поставке"
 
 #: ui/GlobalConfig.qml:400
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Пуштање &медија:"
 
 #: ui/GlobalConfig.qml:401
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Паузирај медија плејере при суспендовању"
 
 #: ui/GlobalConfig.qml:414
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Сродне странице:"
 
+# >> @title:window
 #: ui/GlobalConfig.qml:431
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Обавјештења: управљање напајањем"
 
 #: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Отвори страницу поставки „Обавјештења“, одјељак „Управљање напајањем“"
 
+# >> @title:window
 #: ui/GlobalConfig.qml:442
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr ""
+msgstr "Пречице: управљање напајањем"
 
 #: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Отвори страницу поставки „Пречице“, одјељак „Управљање напајањем“"
 
 #: ui/GlobalConfig.qml:451
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Закључавање екрана"
 
 #: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr ""
+msgstr "Отвори страницу поставки „Закључавање екрана“"
 
 #: ui/GlobalConfig.qml:459
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Сесија површи"
 
 #: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Отвори страницу поставки „Сесија површи“"
 
 #: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Активности"
 
 #: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Отвори страницу поставки „Активности“"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr ""
+msgstr "Подеси напредне по&ставке…"
 
 #: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Не могу да учитам поставке управљања напајањем"
 
 #: ui/main.qml:66
 #, kde-format
@@ -530,13 +545,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:44
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Суспендовање сесије"
 
 #: ui/ProfileConfig.qml:59
 #, kde-format
@@ -545,6 +560,8 @@ msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Радња коју сте раније подесили за случај неактивности сада није подржана на "
+"вашем систему. Изаберите другу."
 
 #: ui/ProfileConfig.qml:66
 #, kde-format
@@ -552,33 +569,33 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "При &неактивности:"
 
 #: ui/ProfileConfig.qml:75
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Радња која се изводи кад систем мирује"
 
 #: ui/ProfileConfig.qml:106
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "послије %1 секунде"
+msgstr[1] "послије %1 секунде"
+msgstr[2] "послије %1 секунди"
+msgstr[3] "послије %1 секунде"
 
 #: ui/ProfileConfig.qml:108
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "послије %1 минута"
+msgstr[1] "послије %1 минута"
+msgstr[2] "послије %1 минута"
+msgstr[3] "послије %1 минута"
 
 #: ui/ProfileConfig.qml:121 ui/ProfileConfig.qml:416 ui/ProfileConfig.qml:557
 #: ui/ProfileConfig.qml:870
@@ -586,19 +603,20 @@ msgstr[3] ""
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "посебно…"
 
 #: ui/ProfileConfig.qml:167
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Искључивање аутоматског суспендовања довешће до веће потрошње енергије."
 
 #: ui/ProfileConfig.qml:169
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Дуго трајање довешће до веће потрошње енергије."
 
 #: ui/ProfileConfig.qml:181
 #, kde-format
@@ -607,6 +625,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Радња коју сте раније подесили за притисак дугмета напајања сада није "
+"подржана на вашем систему. Изаберите другу."
 
 #: ui/ProfileConfig.qml:188
 #, kde-format
@@ -614,13 +634,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Када се притисне &дугме напајања:"
 
 #: ui/ProfileConfig.qml:190
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Радња која се изводи када се притисне дугме напајања"
 
 #: ui/ProfileConfig.qml:220
 #, kde-format
@@ -629,6 +649,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Радња коју сте раније подесили за спуштање поклопца лаптопа сада није "
+"подржана на вашем систему. Изаберите другу."
 
 #: ui/ProfileConfig.qml:227
 #, kde-format
@@ -636,13 +658,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Када се спусти &поклопац лаптопа:"
 
 #: ui/ProfileConfig.qml:229
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Радња која се изводи када се спусти поклопац лаптопа"
 
 #: ui/ProfileConfig.qml:258
 #, kde-format
@@ -650,12 +672,12 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Чак и кад је прикључен спољашњи монитор"
 
 #: ui/ProfileConfig.qml:260
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
-msgstr ""
+msgstr "Изврши радњу поклопца лаптопа чак и кад је прикључен спољашњи монитор"
 
 #: ui/ProfileConfig.qml:278
 #, kde-format
@@ -664,114 +686,116 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Режим спавања који сте раније подесили сада није подржан на вашем систему. "
+"Изаберите други."
 
 #: ui/ProfileConfig.qml:285
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "При спавању пријеђи у:"
 
 #: ui/ProfileConfig.qml:287
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "При спавању пријеђи у овај режим да би се сачувала енергија"
 
 #: ui/ProfileConfig.qml:336
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Екран и освјетљај"
 
 #: ui/ProfileConfig.qml:346
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Промијени освјетљај &екрана:"
 
 #: ui/ProfileConfig.qml:393
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "&Аутоматски пригуши:"
 
 #: ui/ProfileConfig.qml:395
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr ""
+msgstr "&Аутоматски пригуши послије:"
 
 #: ui/ProfileConfig.qml:400
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 секунда"
+msgstr[1] "%1 секунде"
+msgstr[2] "%1 секунди"
+msgstr[3] "%1 секунда"
 
 #: ui/ProfileConfig.qml:402
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 минут"
+msgstr[1] "%1 минута"
+msgstr[2] "%1 минута"
+msgstr[3] "%1 минут"
 
 #: ui/ProfileConfig.qml:409
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "никад"
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr ""
+msgstr "Екран неће бити пригушен јер је подешен да се раније угаси."
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "&Угаси екран:"
 
 #: ui/ProfileConfig.qml:478
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr ""
+msgstr "Угаси екран послије:"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 секунда"
+msgstr[1] "%1 секунде"
+msgstr[2] "%1 секунди"
+msgstr[3] "%1 секунда"
 
 #: ui/ProfileConfig.qml:484
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 минут"
+msgstr[1] "%1 минута"
+msgstr[2] "%1 минута"
+msgstr[3] "%1 минут"
 
 #: ui/ProfileConfig.qml:491
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "никад"
 
 #: ui/ProfileConfig.qml:498
 #, kde-format
@@ -779,33 +803,33 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "посебно…"
 
 #: ui/ProfileConfig.qml:537
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr ""
+msgstr "Кад је екран закључан, угаси га послије:"
 
 #: ui/ProfileConfig.qml:541
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "кад је закључан: %1 секунда"
+msgstr[1] "кад је закључан: %1 секунде"
+msgstr[2] "кад је закључан: %1 секунди"
+msgstr[3] "кад је закључан: %1 секунда"
 
 #: ui/ProfileConfig.qml:543
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "кад је закључан: %1 минут"
+msgstr[1] "кад је закључан: %1 минута"
+msgstr[2] "кад је закључан: %1 минута"
+msgstr[3] "кад је закључан: %1 минут"
 
 #: ui/ProfileConfig.qml:550
 #, kde-format
@@ -813,25 +837,25 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr ""
+msgstr "и кад је закључан и кад није"
 
 #: ui/ProfileConfig.qml:552
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "кад је закључан: одмах"
 
 #: ui/ProfileConfig.qml:591
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Промијени освјетљај &тастатуре:"
 
 #: ui/ProfileConfig.qml:639
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Остале поставке"
 
 #: ui/ProfileConfig.qml:647
 #, kde-format
@@ -839,7 +863,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Пријеђи на п&рофил напајања:"
 
 #: ui/ProfileConfig.qml:651
 #, kde-format
@@ -847,13 +871,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Пријеђи на профил напајања"
 
 #: ui/ProfileConfig.qml:678
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr ""
+msgstr "Изврши наредбу или скрипту:"
 
 #: ui/ProfileConfig.qml:688
 #, kde-format
@@ -861,13 +885,13 @@ msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr ""
+msgstr "Изабери услове извршавања"
 
 #: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr ""
+msgstr "Изабери услове извршавања наредбе или скрипте"
 
 #: ui/ProfileConfig.qml:710
 #, kde-format
@@ -875,7 +899,7 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr ""
+msgstr "При уласку у стање „%1“"
 
 #: ui/ProfileConfig.qml:728
 #, kde-format
@@ -883,13 +907,13 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr ""
+msgstr "При изласку из стања „%1“"
 
 #: ui/ProfileConfig.qml:746
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "При неактивности"
 
 #: ui/ProfileConfig.qml:769
 #, kde-format
@@ -897,13 +921,13 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr ""
+msgstr "При у&ласку у стање „%1“:"
 
 #: ui/ProfileConfig.qml:773
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr ""
+msgstr "Наредба или скрипта при уласку у стање „%1“"
 
 #: ui/ProfileConfig.qml:804
 #, kde-format
@@ -911,120 +935,90 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr ""
+msgstr "При &изласку из стања „%1“:"
 
 #: ui/ProfileConfig.qml:808
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr ""
+msgstr "Наредба или скрипта при изласку из стања „%1“"
 
 #: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr ""
+msgstr "Трајање неактивности прије извршавања наредбе или скрипте"
 
 #: ui/ProfileConfig.qml:843
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "При неа&ктивности:"
 
 #: ui/ProfileConfig.qml:846
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr ""
+msgstr "Изврши наредбу или скрипту послије:"
 
 #: ui/ProfileConfig.qml:855
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "изврши послије %1 секунде"
+msgstr[1] "изврши послије %1 секунде"
+msgstr[2] "изврши послије %1 секунди"
+msgstr[3] "изврши послије %1 секунде"
 
 #: ui/ProfileConfig.qml:857
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "изврши послије %1 минута"
+msgstr[1] "изврши послије %1 минута"
+msgstr[2] "изврши послије %1 минута"
+msgstr[3] "изврши послије %1 минута"
 
 #: ui/ProfileConfig.qml:899
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Наредба или скрипта при неактивности"
 
 #: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr ""
+msgstr "Унесите наредбу или фајл скрипте"
 
 #: ui/RunScriptEdit.qml:36
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr ""
+msgstr "Унесите наредбу или изаберите фајл скрипте"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Изабери…"
 
 #: ui/RunScriptEdit.qml:55
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Изабери фајл скрипте"
 
 #: ui/RunScriptEdit.qml:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Избор фајла скрипте"
 
 #: ui/TimeDurationComboBox.qml:22
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Часлав Илић"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "caslav.ilic@gmx.net"
-
-#~ msgid ""
-#~ "The KDE Power Management System will now generate a set of defaults based "
-#~ "on your computer's capabilities. This will also erase all existing "
-#~ "modifications you made. Are you sure you want to continue?"
-#~ msgstr ""
-#~ "КДЕ‑ов систем за управљање напајањем сада ће начинити нови скуп "
-#~ "подразумијеваних, на основу могућности рачунара. Притом ће бити обрисане "
-#~ "све постојеће измене које сте начинили. Желите ли заиста да наставите?"
-
-# >> @title:window
-#~ msgid "Restore Default Profiles"
-#~ msgstr "Обнављање подразумијеваних профила"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Изгледа да сервис за управљање напајањем није у погону.\n"
-#~ "Ово се може решити тако што се покрене или распореди под „Подизање и "
-#~ "гашење“."
+msgstr "Посебно трајање"

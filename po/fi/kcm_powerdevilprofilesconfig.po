@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-02-24 19:37+0200\n"
+"PO-Revision-Date: 2026-10-02 20:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -788,16 +788,16 @@ msgstr "Lukittuna sammuta näyttö ajassa:"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Lukittuna: %1 sekunnissa"
-msgstr[1] "Lukittuna: %1 sekunnissa"
+msgstr[0] "Lukitse: %1 sekunnissa"
+msgstr[1] "Lukitse: %1 sekunnissa"
 
 #: ui/ProfileConfig.qml:543
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] "Lukittuna: %1 minuutissa"
-msgstr[1] "Lukittuna: %1 minuutissa"
+msgstr[0] "Lukitse: %1 minuutissa"
+msgstr[1] "Lukitse: %1 minuutissa"
 
 #: ui/ProfileConfig.qml:550
 #, kde-format
@@ -811,7 +811,7 @@ msgstr "Lukitustilasta riippumatta"
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr "Lukittuna: välittömästi"
+msgstr "Lukitse: välittömästi"
 
 #: ui/ProfileConfig.qml:591
 #, kde-format
