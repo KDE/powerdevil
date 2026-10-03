@@ -17,6 +17,7 @@ target_link_libraries(brightnesscontrolplugin PRIVATE
     Qt::DBus
     Qt::Qml
     KF6::ConfigGui
+    KF6::CoreAddons
     KF6::Package
     QCoro::Coro
     QCoro::DBus
