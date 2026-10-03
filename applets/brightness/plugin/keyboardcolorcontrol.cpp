@@ -15,6 +15,8 @@
 #include <QDBusPendingCall>
 #include <QDBusReply>
 
+#include <KPluginMetaData>
+
 using namespace Qt::StringLiterals;
 
 namespace
@@ -22,11 +24,18 @@ namespace
 inline constexpr QLatin1String KAMELEON_SERVICE("org.kde.kded6");
 inline constexpr QLatin1String KAMELEON_PATH("/modules/kameleon");
 inline constexpr QLatin1String KAMELEON_INTERFACE("org.kde.kameleon");
+inline constexpr QLatin1String KAMELEON_PLUGIN("kf6/kded/kameleon");
 }
 
 KeyboardColorControl::KeyboardColorControl(QObject *parent)
     : QObject(parent)
 {
+    // kameleon comes with kdeplasma-addons, which may not be installed
+    if (!KPluginMetaData(KAMELEON_PLUGIN).isValid()) {
+        qCDebug(APPLETS::BRIGHTNESS) << "kameleon kded module is not installed";
+        return;
+    }
+
     if (!QDBusConnection::sessionBus().interface()->isServiceRegistered(KAMELEON_SERVICE)) {
         qCWarning(APPLETS::BRIGHTNESS) << "error connecting to kameleon via dbus: kded service is not registered";
         return;
