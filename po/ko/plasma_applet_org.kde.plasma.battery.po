@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:47+0000\n"
-"PO-Revision-Date: 2026-09-24 13:48+0200\n"
-"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
-"Language-Team: Korean\n"
+"PO-Revision-Date: 2026-10-03 23:05+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: BatteryItem.qml:102
 #, kde-format
@@ -327,8 +327,7 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "공급되는 전원이 배터리를 충전하기에 충분하지 않음"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
 msgstr "배터리 없음"
 

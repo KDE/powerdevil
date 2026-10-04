@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:47+0000\n"
-"PO-Revision-Date: 2026-08-22 10:06+0200\n"
+"PO-Revision-Date: 2026-10-02 08:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Text-Markup: kde4\n"
 
 #: BatteryItem.qml:102
@@ -354,8 +354,7 @@ msgstr ""
 "L'alimentation électrique n'est pas assez puissante pour charger la batterie"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
 msgstr "Aucune batterie disponible"
 
