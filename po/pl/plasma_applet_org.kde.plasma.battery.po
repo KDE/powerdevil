@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-08-29 21:33+0200\n"
+"PO-Revision-Date: 2026-10-04 14:24+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -332,7 +332,7 @@ msgstr "Źródło prądu nie jest wystarczająco silne, aby naładować baterię
 #: main.qml:152
 #, kde-format
 msgid "No Batteries Available"
-msgstr "Brak baterii"
+msgstr "Nie jest dostępna żadna bateria"
 
 #: main.qml:159
 #, kde-format

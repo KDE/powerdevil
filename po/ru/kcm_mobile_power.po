@@ -22,7 +22,7 @@ msgstr ""
 #: mobilepower.cpp:36
 #, kde-format
 msgid "30 sec"
-msgstr "30 с"
+msgstr "30 секунд"
 
 #: mobilepower.cpp:37
 #, kde-format
@@ -286,19 +286,19 @@ msgstr "Экран"
 #, kde-format
 msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
 msgid "Dim screen after"
-msgstr "Потухание экрана"
+msgstr "Затемнение экрана через"
 
 #: ui/main.qml:131
 #, kde-format
 msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
 msgid "Turn off screen after"
-msgstr "Отключение экрана"
+msgstr "Отключение экрана через"
 
 #: ui/main.qml:141
 #, kde-format
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
-msgstr "Спящий режим"
+msgstr "Спящий режим через"
 
 #: ui/main.qml:149
 #, kde-format
