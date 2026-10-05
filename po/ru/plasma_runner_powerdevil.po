@@ -109,7 +109,7 @@ msgstr "Приостановить с сохранением на диск"
 #: PowerDevilRunner.cpp:62
 #, kde-format
 msgid "Sleeps now and falls back to hibernate"
-msgstr "Приостановить с сохранением в ОЗУ и на диск"
+msgstr "Перейти в спящий режим, а затем в гибернацию"
 
 #: PowerDevilRunner.cpp:65
 #, kde-format
@@ -131,7 +131,7 @@ msgstr ""
 #: PowerDevilRunner.cpp:89
 #, kde-format
 msgid "Set Brightness to %1%"
-msgstr "Установить яркость экрана в %1%"
+msgstr "Установить яркость экрана на %1%"
 
 #: PowerDevilRunner.cpp:98
 #, kde-format
@@ -178,7 +178,7 @@ msgstr "Гибридный спящий режим"
 #: PowerDevilRunner.cpp:148
 #, kde-format
 msgid "Sleep now and fall back to hibernate"
-msgstr "Приостановить с сохранением в ОЗУ и на диск"
+msgstr "Перейти в спящий режим, а затем в гибернацию"
 
 #: PowerDevilRunner.cpp:226
 #, kde-format

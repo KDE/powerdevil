@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021-2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:47+0000\n"
-"PO-Revision-Date: 2026-01-31 20:49+0530\n"
+"PO-Revision-Date: 2026-10-04 18:53+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: BatteryItem.qml:102
 #, kde-format
@@ -50,12 +50,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "தெரியாத காரணம்."
+msgstr "தெரியாதது"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -301,7 +299,7 @@ msgstr "புறையில் மின்கலம் இல்லை"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "மின்கலத்தின் மட்டம் தெரியாதது"
 
 #: main.qml:133
 #, kde-format
@@ -329,10 +327,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "மின்கலத்தில் ஆற்றல் ஏற்றும் அளவுக்கு மின்னளிப்பு ஆற்றல்வாய்ந்ததல்ல"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
-msgstr "மின்கலங்கள் ஏதுமில்லை"
+msgstr "மின்கலம் ஏதுமில்லை"
 
 #: main.qml:159
 #, kde-format

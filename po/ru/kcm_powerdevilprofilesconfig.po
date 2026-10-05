@@ -57,7 +57,7 @@ msgstr "Заблокировать экран"
 #: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
-msgstr "Экран завершения работы"
+msgstr "Показать экран завершения работы"
 
 #: PowerButtonActionModel.cpp:83
 #, kde-format
@@ -194,7 +194,7 @@ msgid "week"
 msgid_plural "weeks"
 msgstr[0] "неделю"
 msgstr[1] "недели"
-msgstr[2] "недели"
+msgstr[2] "недель"
 msgstr[3] "неделю"
 
 #: ui/DurationPromptDialog.qml:143
@@ -306,7 +306,7 @@ msgid ""
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
 "Уровень заряда батареи будет считаться низким, когда он снизится до "
-"указанного значения.Параметры низкого заряда батареи будут использованы "
+"указанного значения. Параметры низкого заряда батареи будут использованы "
 "вместо обычных параметров батареи."
 
 #: ui/GlobalConfig.qml:107
@@ -315,7 +315,7 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr "Критический уровень:"
+msgstr "&Критический уровень:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
@@ -332,9 +332,10 @@ msgid ""
 "according to the configured critical battery level action."
 msgstr ""
 "Уровень заряда батареи будет считаться критическим, когда он снизится до "
-"указанного значения.После вывода предупреждения и недолгого ожидания система "
-"будет автоматически переведена в спящий режим или выключена в соответствии с "
-"настроенным действием при достижении критического уровня заряда батареи."
+"указанного значения. После вывода предупреждения и недолгого ожидания "
+"система будет автоматически переведена в спящий режим или выключена в "
+"соответствии с настроенным действием при достижении критического уровня "
+"заряда батареи."
 
 #: ui/GlobalConfig.qml:149
 #, kde-format
@@ -344,7 +345,7 @@ msgid ""
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
 "Настроенное ранее действие, выполняемое при достижении критического уровня "
-"заряда батареи, сейчас не поддерживается вашей системой. Выберете другое "
+"заряда батареи, сейчас не поддерживается вашей системой. Выберите другое "
 "действие, которое будет выполняться при достижении критического уровня "
 "заряда батареи."
 
@@ -366,7 +367,7 @@ msgstr "Действие при достижении критического у
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr "Низкий уровень заряда &периферийного устройства:"
+msgstr "Низкий уровень заряда &периферийных устройств:"
 
 #: ui/GlobalConfig.qml:191
 #, kde-format
@@ -381,7 +382,7 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
-"Уровень заряда батареи периферийного устройства будет считаться критическим, "
+"Уровень заряда батареи периферийного устройства будет считаться низким, "
 "когда он снизится до указанного значения."
 
 #: ui/GlobalConfig.qml:224
@@ -400,7 +401,7 @@ msgstr "Защита &батареи:"
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr "Ограничение максимального уровня заряда батареи"
+msgstr "Ограничивать максимальный уровень заряда батареи"
 
 #: ui/GlobalConfig.qml:244
 #, kde-format
@@ -416,7 +417,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr "Начинать зарядку при уровне ниже:"
+msgstr "Начинать зарядку при &уровне ниже:"
 
 #: ui/GlobalConfig.qml:373
 #, kde-format
@@ -425,7 +426,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
-"Для начала заряда отключите и снова подключите источник внешнего питания."
+"Возможно, для возобновления зарядки потребуется отключить и снова подключить "
+"источник питания."
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
@@ -457,7 +459,7 @@ msgstr "Воспроизведение &медиафайлов:"
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr "Приостанавливать воспроизведение при приостановке работы"
+msgstr "Приостанавливать воспроизведение при переходе в спящий режим"
 
 #: ui/GlobalConfig.qml:414
 #, kde-format
@@ -474,7 +476,7 @@ msgstr "Уведомления: управление питанием"
 #: ui/GlobalConfig.qml:433
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Открыть страницу настроек «Уведомления», раздел «Управление питанием»"
+msgstr "Открыть страницу «Уведомления», раздел «Управление питанием»"
 
 #: ui/GlobalConfig.qml:442
 #, kde-format
@@ -485,8 +487,7 @@ msgstr "Комбинации клавиш: управление питанием
 #: ui/GlobalConfig.qml:444
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr ""
-"Открыть страницу настроек «Комбинации клавиш», раздел «Управление питанием»"
+msgstr "Открыть страницу «Комбинации клавиш», раздел «Управление питанием»"
 
 #: ui/GlobalConfig.qml:451
 #, kde-format
@@ -497,7 +498,7 @@ msgstr "Блокировка экрана"
 #: ui/GlobalConfig.qml:452
 #, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Открыть страницу настроек «Блокировка экрана»"
+msgstr "Открыть страницу «Блокировка экрана»"
 
 #: ui/GlobalConfig.qml:459
 #, kde-format
@@ -508,18 +509,18 @@ msgstr "Управление сеансами"
 #: ui/GlobalConfig.qml:460
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr "Открыть страницу настроек «Сеансы»"
+msgstr "Открыть страницу «Управление сеансами»"
 
 #: ui/GlobalConfig.qml:467
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr "Управление комнатами"
+msgstr "Комнаты"
 
 #: ui/GlobalConfig.qml:468
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Открыть страницу настроек «Комнаты»"
+msgstr "Открыть страницу «Комнаты»"
 
 #: ui/main.qml:19
 #, kde-format
@@ -570,7 +571,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "Настроенное ранее действие, выполняемое при неактивности, сейчас не "
-"поддерживается вашей системой. Выберете другое действие."
+"поддерживается вашей системой. Выберите другое действие."
 
 #: ui/ProfileConfig.qml:66
 #, kde-format
@@ -636,7 +637,7 @@ msgid ""
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
 "Настроенное ранее действие, выполняемое при нажатии кнопки питания, сейчас "
-"не поддерживается вашей системой. Выберете другое действие, которое будет "
+"не поддерживается вашей системой. Выберите другое действие, которое будет "
 "выполняться при нажатии кнопки питания."
 
 #: ui/ProfileConfig.qml:188
@@ -661,8 +662,8 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "Настроенное ранее действие, выполняемое при закрытии крышки, сейчас не "
-"поддерживается вашей системой. Выберете другое действие, которое будет "
-"выполняться при нажатии закрытии крышки."
+"поддерживается вашей системой. Выберите другое действие, которое будет "
+"выполняться при закрытии крышки."
 
 #: ui/ProfileConfig.qml:227
 #, kde-format
@@ -690,8 +691,8 @@ msgstr "Даже если подключён внешний монитор"
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
-"Действие, назначенное на закрытие крышки ноутбука, будет выполнено даже если "
-"подключён внешний монитор"
+"Действие, назначенное на закрытие крышки ноутбука, будет выполнено, даже "
+"если подключён внешний монитор"
 
 #: ui/ProfileConfig.qml:278
 #, kde-format
@@ -700,8 +701,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
-"Способ приостановки сеанса, настроенный ранее, более ранее, сейчас не "
-"поддерживается вашей системой. Выберите другой способ приостановки сеанса."
+"Способ приостановки сеанса, настроенный ранее, сейчас не поддерживается "
+"вашей системой. Выберите другой способ приостановки сеанса."
 
 #: ui/ProfileConfig.qml:285
 #, kde-format
@@ -771,7 +772,8 @@ msgstr "Не затемнять"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr "Экран не будет затемнён, потому что будет скоро отключён."
+msgstr ""
+"Экран не будет затемнён, так как он настроен на более раннее отключение."
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
@@ -851,7 +853,7 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "После блокировки и разблокировки"
+msgstr "С блокировкой и без неё"
 
 #: ui/ProfileConfig.qml:552
 #, kde-format
@@ -863,7 +865,7 @@ msgstr "После блокировки: немедленно"
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr "Изменить яркость подсветки &клавиатуры:"
+msgstr "Яркость подсветки &клавиатуры:"
 
 #: ui/ProfileConfig.qml:639
 #, kde-format

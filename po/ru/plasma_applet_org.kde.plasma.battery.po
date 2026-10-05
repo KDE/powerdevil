@@ -76,9 +76,8 @@ msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
-"Остаточная ёмкость этой батареи — %1%. Это означает, что она испорчена и "
-"требует замены. Обратитесь к своему производителю оборудования за "
-"дополнительной информацией."
+"Остаточная ёмкость батареи — всего %1%, её следует заменить. Обратитесь к "
+"производителю."
 
 #: BatteryItem.qml:214
 #, kde-format
@@ -110,7 +109,7 @@ msgstr "%1%"
 #: BatteryItem.qml:249
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr "Задан максимальный заряд батареи: %1%."
+msgstr "Батарея настроена на зарядку примерно до %1%."
 
 #: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
@@ -244,8 +243,8 @@ msgctxt ""
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr ""
-"И приложение «%1» отключило блокирование экрана и переход в спящий режим. "
-"(%2)"
+"Приложение «%1» также отключило блокирование экрана и переход в спящий "
+"режим. (%2)"
 
 #: InhibitionItem.qml:176
 #, kde-format
@@ -253,7 +252,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "И приложение «%1» отключило блокирование экрана. (%2)"
+msgstr "Приложение «%1» также отключило блокирование экрана. (%2)"
 
 #: InhibitionItem.qml:178
 #, kde-format
@@ -261,7 +260,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr "И приложение «%1» отключило переход в спящий режим. (%2)"
+msgstr "Приложение «%1» также отключило переход в спящий режим. (%2)"
 
 #: InhibitionItem.qml:182
 #, kde-format
@@ -335,7 +334,7 @@ msgstr "Заряд батареи %1%, не заряжается"
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr ""
-"Заряд батареи %1%, внешние питание подключено, но батарея не заряжается"
+"Заряд батареи %1%, внешнее питание подключено, но батарея не заряжается"
 
 #: main.qml:137
 #, kde-format
@@ -350,7 +349,7 @@ msgstr "Заряд батареи %1%"
 #: main.qml:148
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr "Мощности внешнего питания не достаточно для заряда батареи"
+msgstr "Мощности внешнего питания недостаточно для заряда батареи"
 
 #: main.qml:152
 #, kde-format
@@ -386,14 +385,14 @@ msgstr ""
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
-"Щёлкните средней кнопкой мыши чтобы запретить блокировку экрана и переход в "
+"Щёлкните средней кнопкой мыши, чтобы запретить блокировку экрана и переход в "
 "спящий режим"
 
 #: main.qml:177
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] "%1 приложение запросили включение производительного режима."
+msgstr[0] "%1 приложение запросило включение производительного режима."
 msgstr[1] "%1 приложения запросили включение производительного режима."
 msgstr[2] "%1 приложений запросили включение производительного режима."
 msgstr[3] "Приложение запросило включение производительного режима."
@@ -408,7 +407,7 @@ msgstr ""
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
-msgstr[0] "%1 приложение запросили включение режима экономии энергии."
+msgstr[0] "%1 приложение запросило включение режима экономии энергии."
 msgstr[1] "%1 приложения запросили включение режима экономии энергии."
 msgstr[2] "%1 приложений запросили включение режима экономии энергии."
 msgstr[3] "Приложение запросило включение режима экономии энергии."
@@ -423,13 +422,12 @@ msgstr ""
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
-"Используется сбалансированный режим экономии энергии; прокрутите колесом "
-"мыши для изменения"
+"Используется сбалансированный режим; прокрутите колесом мыши для изменения"
 
 #: main.qml:310
 #, kde-format
 msgid "&Show Energy Information…"
-msgstr "&Информация об энергопотреблении..."
+msgstr "&Показать информацию об энергопотреблении…"
 
 #: main.qml:316
 #, kde-format
@@ -476,7 +474,7 @@ msgstr "Недоступно"
 #: PowerProfileItem.qml:150
 #, kde-format
 msgid "Failed to activate %1 mode"
-msgstr "Не удалось активировать режим %1"
+msgstr "Не удалось включить режим «%1»"
 
 #: PowerProfileItem.qml:227
 #, kde-format
@@ -485,20 +483,20 @@ msgid ""
 "computer has detected that it may be sitting on your lap."
 msgstr ""
 "Производительный режим отключён для уменьшения выделения тепла, так как "
-"определено, что компьютер может находиться не на стационарной поверхности."
+"компьютер, по-видимому, находится у вас на коленях."
 
 #: PowerProfileItem.qml:229
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
-"Производительный режим не доступен, так как температура компонентов "
+"Производительный режим недоступен, так как температура компонентов "
 "устройства превышает допустимую."
 
 #: PowerProfileItem.qml:231
 #, kde-format
 msgid "Performance mode is unavailable."
-msgstr "Производительный режим не доступен."
+msgstr "Производительный режим недоступен."
 
 #: PowerProfileItem.qml:247
 #, kde-format
@@ -506,8 +504,8 @@ msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
-"Производительность снижена для уменьшения выделения тепла, так как "
-"определено, что компьютер может находиться не на стационарной поверхности."
+"Производительность может быть снижена для уменьшения выделения тепла, так "
+"как компьютер, по-видимому, находится у вас на коленях."
 
 #: PowerProfileItem.qml:249
 #, kde-format
@@ -528,7 +526,7 @@ msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Использование профиля «%2» запрошено %1 приложением:"
 msgstr[1] "Использование профиля «%2» запрошено %1 приложениями:"
 msgstr[2] "Использование профиля «%2» запрошено %1 приложениями:"
-msgstr[3] "Использование профиля «%2» запрошено приложением"
+msgstr[3] "Использование профиля «%2» запрошено приложением:"
 
 #: PowerProfileItem.qml:287
 #, kde-format
@@ -558,8 +556,9 @@ msgid ""
 "package manager and restarting the system."
 msgstr ""
 "Ваше устройство может поддерживать работу с использованием различных "
-"профилей энергопотребления.<nl/> Попытайтесь установить пакет <command>power-"
-"profiles-daemon</command> и перезагрузите систему."
+"профилей энергопотребления.<nl/>Попробуйте установить пакет <command>power-"
+"profiles-daemon</command> с помощью менеджера пакетов дистрибутива и "
+"перезагрузить систему."
 
 #~ msgctxt "Sleep and Screen Locking after Inactivity"
 #~ msgid "Blocked"
