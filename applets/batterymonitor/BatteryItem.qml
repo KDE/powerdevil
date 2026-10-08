@@ -92,6 +92,7 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: isPowerSupplyLabel
+                    objectName: "statusLabel"
                     text: {
                         if (root.batteryPluggedIn) {
                             switch (root.batteryChargeState) {
@@ -115,6 +116,7 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: percentLabel
+                    objectName: "percentageLabel"
                     horizontalAlignment: Text.AlignRight
                     visible: root.batteryPluggedIn
                     text: i18nc("Placeholder is battery percentage", "%1%", root.batteryPercent)
@@ -124,6 +126,7 @@ PlasmaComponents3.ItemDelegate {
 
             PlasmaComponents3.ProgressBar {
                 id: chargeBar
+                objectName: "chargeBar"
 
                 Layout.fillWidth: true
                 Layout.topMargin: root.extraMargin
