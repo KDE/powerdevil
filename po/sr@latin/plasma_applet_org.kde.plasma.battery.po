@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:47+0000\n"
-"PO-Revision-Date: 2026-09-30 12:00+0200\n"
+"PO-Revision-Date: 2026-10-07 11:45+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
@@ -344,8 +344,7 @@ msgstr "Napajanje nije dovoljno snažno da puni bateriju"
 
 # >> @info:tooltip
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
 msgstr "Nema baterija"
 
@@ -418,7 +417,7 @@ msgstr "Sistem je u uravnoteženom režimu napajanja; kliznite za promenu"
 #: main.qml:310
 #, kde-format
 msgid "&Show Energy Information…"
-msgstr "&Prikaži podatke o energiji…"
+msgstr "Prikaži podatke o &energiji…"
 
 #: main.qml:316
 #, kde-format
