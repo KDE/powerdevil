@@ -278,6 +278,8 @@ void HandleButtonEvents::onResumeFromSuspend()
     if (wakeupType & SuspendController::WakeupSource::Network || wakeupType & SuspendController::WakeupSource::Telephony
         || wakeupType & SuspendController::WakeupSource::Timer) {
         qCDebug(POWERDEVIL) << "HandleButtonEvents wakeupType" << wakeupType << "waiting for user input now";
+        // drop the timeouts of a previous dark wakeup, KIdleTime would reuse the one that already fired
+        unregisterIdleTimeouts();
         // set idle timeout of 30s, if we don't get any activity from user, we shut down
         // This is also enough time for consumer of such wakeup events to register a user activity
         // and wakeup system fully (DPMS on).
