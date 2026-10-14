@@ -321,6 +321,9 @@ void ScreenBrightnessController::setBrightness(const QString &displayId,
             if (!m_legacyDisplayIds.isEmpty() && displayId == m_legacyDisplayIds.first()) {
                 Q_EMIT legacyBrightnessInfoChanged(info.brightnessLogic.info(), hint);
             }
+        } else if (hint == ShowIndicator) {
+            // nothing changed (e.g. already at minimum or maximum), but the user still expects feedback
+            Q_EMIT brightnessIndicatorRequested(displayId, bi);
         }
 
         // but always call setBrightness() on the display, in case we're unaware of an external change
@@ -366,6 +369,9 @@ void ScreenBrightnessController::adjustBrightnessRatio(double delta, const QStri
         return false;
     });
     if (!any) {
+        if (hint == ShowIndicator) {
+            requestBrightnessIndicatorForAllDisplays();
+        }
         return;
     }
 
@@ -403,10 +409,22 @@ void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogi
     }
 
     if (referenceDisplayDelta == 0.0) {
+        if (hint == ShowIndicator) {
+            requestBrightnessIndicatorForAllDisplays();
+        }
         return;
     }
     for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
         adjustBrightnessRatio(displayId, referenceDisplayDelta, sourceClientName, sourceClientContext, hint);
+    }
+}
+
+void ScreenBrightnessController::requestBrightnessIndicatorForAllDisplays()
+{
+    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
+        if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
+            Q_EMIT brightnessIndicatorRequested(displayId, it->second.brightnessLogic.info());
+        }
     }
 }
 

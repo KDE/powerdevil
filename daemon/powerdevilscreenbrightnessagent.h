@@ -110,6 +110,7 @@ private Q_SLOTS:
                              const QString &sourceClientContext,
                              ScreenBrightnessController::IndicatorHint hint);
     void onBrightnessRangeChanged(const QString &displayId, const BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void showBrightnessIndicator(const QString &displayId, const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     void actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action);
 

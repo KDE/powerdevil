@@ -183,6 +183,13 @@ Q_SIGNALS:
                            const QString &sourceClientName,
                            const QString &sourceClientContext,
                            IndicatorHint);
+    /**
+     * Emitted when a brightness change with the ShowIndicator hint was requested, but the
+     * brightness did not change because it is already at the requested value - typically when
+     * a brightness key is pressed while brightness is at its minimum or maximum. The indicator
+     * should be shown anyway, so the user gets feedback that the key press was registered.
+     */
+    void brightnessIndicatorRequested(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()
@@ -197,6 +204,7 @@ private Q_SLOTS:
 private:
     int brightnessMultiplied(int value, double multiplier, int min) const;
     double dimmingRatioForDisplay(const QString &displayId);
+    void requestBrightnessIndicatorForAllDisplays();
 
 private:
     struct DisplayInfo {

@@ -106,6 +106,7 @@ ScreenBrightnessAgent::ScreenBrightnessAgent(QObject *parent, ScreenBrightnessCo
     QDBusConnection::sessionBus().registerObject(u"/org/kde/ScreenBrightness"_s, this);
 
     connect(m_controller, &ScreenBrightnessController::brightnessChanged, this, &ScreenBrightnessAgent::onBrightnessChanged);
+    connect(m_controller, &ScreenBrightnessController::brightnessIndicatorRequested, this, &ScreenBrightnessAgent::showBrightnessIndicator);
     // TODO: handle max brightness change via new ScreenBrightnessController::brightnessRangeChanged signal?
 
     connect(m_controller, &ScreenBrightnessController::displayAdded, this, [this](const QString &displayId) {
@@ -199,14 +200,19 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
     QDBusConnection::sessionBus().send(signal);
 
     if (hint == ScreenBrightnessController::ShowIndicator) {
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
-                                                          QStringLiteral("/org/kde/osdService"),
-                                                          QStringLiteral("org.kde.osdService"),
-                                                          QLatin1String("screenBrightnessChanged"));
-        msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << displayId << m_controller->label(displayId)
-            << static_cast<int>(m_controller->displayIds().indexOf(displayId)) << QRect();
-        QDBusConnection::sessionBus().asyncCall(msg);
+        showBrightnessIndicator(displayId, info);
     }
+}
+
+void ScreenBrightnessAgent::showBrightnessIndicator(const QString &displayId, const BrightnessLogic::BrightnessInfo &info)
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
+                                                      QStringLiteral("/org/kde/osdService"),
+                                                      QStringLiteral("org.kde.osdService"),
+                                                      QLatin1String("screenBrightnessChanged"));
+    msg << brightnessPercent(info.value - info.valueMin, info.valueMax - info.valueMin) << displayId << m_controller->label(displayId)
+        << static_cast<int>(m_controller->displayIds().indexOf(displayId)) << QRect();
+    QDBusConnection::sessionBus().asyncCall(msg);
 }
 
 void ScreenBrightnessAgent::onBrightnessRangeChanged(const QString &displayId, const BrightnessLogic::BrightnessInfo &info)
