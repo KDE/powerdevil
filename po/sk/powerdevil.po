@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:49+0000\n"
+"POT-Creation-Date: 2026-10-15 00:48+0000\n"
 "PO-Revision-Date: 2023-11-11 13:04+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -30,7 +30,7 @@ msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: actions/bundled/dpms.cpp:60 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:139
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -332,25 +332,25 @@ msgstr "Nabíjanie dokončené"
 msgid "Battery now fully charged."
 msgstr "Batéria je teraz plne nabitá."
 
-#: powerdevilscreenbrightnessagent.cpp:141
+#: powerdevilscreenbrightnessagent.cpp:142
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Zvýšiť jas obrazovky"
 
-#: powerdevilscreenbrightnessagent.cpp:148
+#: powerdevilscreenbrightnessagent.cpp:149
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Zvýšiť jas obrazovky o 1%"
 
-#: powerdevilscreenbrightnessagent.cpp:155
+#: powerdevilscreenbrightnessagent.cpp:156
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Znížiť jas obrazovky"
 
-#: powerdevilscreenbrightnessagent.cpp:162
+#: powerdevilscreenbrightnessagent.cpp:163
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"

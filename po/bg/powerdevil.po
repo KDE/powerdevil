@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:49+0000\n"
+"POT-Creation-Date: 2026-10-15 00:48+0000\n"
 "PO-Revision-Date: 2026-08-13 09:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -31,7 +31,7 @@ msgstr "yasen@lindeas.com"
 
 #: actions/bundled/dpms.cpp:60 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:139
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -337,25 +337,25 @@ msgstr "Зареждането завърши"
 msgid "Battery now fully charged."
 msgstr "Батерията сега е напълно заредена."
 
-#: powerdevilscreenbrightnessagent.cpp:141
+#: powerdevilscreenbrightnessagent.cpp:142
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Увеличаване яркостта на екрана"
 
-#: powerdevilscreenbrightnessagent.cpp:148
+#: powerdevilscreenbrightnessagent.cpp:149
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Увеличаване яркостта на екрана 1%"
 
-#: powerdevilscreenbrightnessagent.cpp:155
+#: powerdevilscreenbrightnessagent.cpp:156
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Намаляване яркостта на екрана"
 
-#: powerdevilscreenbrightnessagent.cpp:162
+#: powerdevilscreenbrightnessagent.cpp:163
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
