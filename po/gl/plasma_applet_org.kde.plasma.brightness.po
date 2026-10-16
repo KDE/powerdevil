@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 17:44+0000\n"
+"POT-Creation-Date: 2026-10-16 00:50+0000\n"
 "PO-Revision-Date: 2025-01-30 08:20+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -71,7 +71,7 @@ msgctxt "@action:button"
 msgid "Dark Mode"
 msgstr ""
 
-#: DarkModeItem.qml:86 NightLightItem.qml:177
+#: DarkModeItem.qml:86 NightLightItem.qml:384
 #, kde-format
 msgid "Configure…"
 msgstr "Configurar…"
@@ -112,38 +112,48 @@ msgstr "Brillo do teclado ao %1%"
 #: main.qml:115
 #, kde-format
 msgctxt "Status"
-msgid "Night Light suspended; middle-click to resume"
-msgstr "Suspendeuse a luz nocturna; faga clic central para continuar."
-
-#: main.qml:117
-#, kde-format
-msgctxt "Status"
-msgid "Night Light suspended"
-msgstr "Suspendeuse a luz nocturna."
-
-#: main.qml:122
-#, kde-format
-msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Luz nocturna coa temperatura de cor do día"
 
-#: main.qml:124
+#: main.qml:117
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Luz nocturna coa temperatura de cor da noite"
 
-#: main.qml:129
+#: main.qml:122
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "Luz nocturna na transición da mañá (completar ás %1)"
 
-#: main.qml:131
+#: main.qml:124
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "Luz nocturna na transición da tarde (completar ás %1)"
+
+#: main.qml:138
+#, kde-format
+msgid "Night Light is temporarily active until manually disabled"
+msgstr ""
+
+#: main.qml:140
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light is temporarily active until %1"
+msgstr ""
+
+#: main.qml:142
+#, kde-format
+msgid "Night Light is temporarily inactive until manually resumed"
+msgstr ""
+
+#: main.qml:144
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light is temporarily inactive until %1"
+msgstr ""
 
 #: main.qml:149
 #, kde-format
@@ -162,116 +172,196 @@ msgstr "A transición da mañá da luz nocturna planificouse para as %1."
 msgid "Scroll to adjust screen brightness"
 msgstr "Desprace para axustar o brillo da pantalla"
 
-#: main.qml:158
-#, kde-format
-msgid "Middle-click to suspend Night Light"
+#: main.qml:159 main.qml:165
+#, fuzzy, kde-format
+#| msgid "Middle-click to suspend Night Light"
+msgid "Middle-click to resume normal Night Light operation"
 msgstr "Faga un clic central para suspender a luz nocturna."
 
-#: main.qml:244
+#: main.qml:161
+#, fuzzy, kde-format
+#| msgid "Middle-click to suspend Night Light"
+msgid "Middle-click to deactivate Night Light"
+msgstr "Faga un clic central para suspender a luz nocturna."
+
+#: main.qml:167
+#, fuzzy, kde-format
+#| msgid "Middle-click to suspend Night Light"
+msgid "Middle-click to activate Night Light"
+msgstr "Faga un clic central para suspender a luz nocturna."
+
+#: main.qml:171
+#, fuzzy, kde-format
+#| msgid "Middle-click to suspend Night Light"
+msgid "Middle-click to temporarily activate Night Light"
+msgstr "Faga un clic central para suspender a luz nocturna."
+
+#: main.qml:173
+#, fuzzy, kde-format
+#| msgid "Middle-click to suspend Night Light"
+msgid "Middle-click to temporarily deactivate Night Light"
+msgstr "Faga un clic central para suspender a luz nocturna."
+
+#: main.qml:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Configurar a luz nocturna…"
 
-#: main.qml:250
+#: main.qml:264
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configurar a xestión de enerxía…"
 
-#: NightLightItem.qml:112
+#: NightLightItem.qml:203
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "Suspendida"
 
-#: NightLightItem.qml:115
+#: NightLightItem.qml:206
 #, kde-format
 msgctxt "Night light status"
 msgid "Unavailable"
 msgstr "Non dispoñíbel"
 
-#: NightLightItem.qml:118
-#, kde-format
-msgctxt "Night light status"
-msgid "Not enabled"
-msgstr "Non activada"
-
-#: NightLightItem.qml:121
-#, kde-format
-msgctxt "Night light status"
-msgid "Not running"
-msgstr "Non en execución"
-
-#: NightLightItem.qml:124
+#: NightLightItem.qml:209 NightLightItem.qml:221
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "Acendida"
 
-#: NightLightItem.qml:127
+#: NightLightItem.qml:212
+#, kde-format
+msgctxt "Night light status"
+msgid "Paused"
+msgstr ""
+
+#: NightLightItem.qml:215
+#, kde-format
+msgctxt "Night light status"
+msgid "Not enabled"
+msgstr "Non activada"
+
+#: NightLightItem.qml:218
+#, kde-format
+msgctxt "Night light status"
+msgid "Not running"
+msgstr "Non en execución"
+
+#: NightLightItem.qml:225
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Transición da mañá"
 
-#: NightLightItem.qml:129
-#, kde-format
-msgctxt "Night light phase"
-msgid "Day"
-msgstr "Día"
-
-#: NightLightItem.qml:131
+#: NightLightItem.qml:227
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Transición da tarde"
 
-#: NightLightItem.qml:133
+#: NightLightItem.qml:231
+#, kde-format
+msgctxt "Night light phase"
+msgid "Day"
+msgstr "Día"
+
+#: NightLightItem.qml:233
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Noite"
 
-#: NightLightItem.qml:144
+#: NightLightItem.qml:244
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1K"
 
-#: NightLightItem.qml:160
+#: NightLightItem.qml:261 NightLightItem.qml:269
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Suspender"
 
-#: NightLightItem.qml:177
+#: NightLightItem.qml:263 NightLightItem.qml:267
 #, kde-format
-msgid "Enable and Configure…"
-msgstr "Activar e configurar…"
+msgctxt "@action:button Night Light"
+msgid "Activate"
+msgstr ""
 
-#: NightLightItem.qml:203
+#: NightLightItem.qml:311
+#, kde-format
+msgctxt "Part of 'Activate Night Light for 1 hour'"
+msgid "For 1 hour"
+msgstr ""
+
+#: NightLightItem.qml:318
+#, kde-format
+msgctxt "Part of 'Activate Night Light until this morning'"
+msgid "Until this morning"
+msgstr ""
+
+#: NightLightItem.qml:319
+#, kde-format
+msgctxt "Part of 'Activate Night Light until tomorrow morning'"
+msgid "Until tomorrow morning"
+msgstr ""
+
+#: NightLightItem.qml:325
+#, kde-format
+msgctxt "Part of 'Activate Night Light until manually disabled'"
+msgid "Until manually disabled"
+msgstr ""
+
+#: NightLightItem.qml:340
+#, kde-format
+msgctxt "Part of 'Suspend Night Light for 1 hour'"
+msgid "For 1 hour"
+msgstr ""
+
+#: NightLightItem.qml:347
+#, kde-format
+msgctxt "Part of 'Suspend Night Light until this evening'"
+msgid "Until this evening)"
+msgstr ""
+
+#: NightLightItem.qml:348
+#, kde-format
+msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
+msgid "Until tomorrow evening"
+msgstr ""
+
+#: NightLightItem.qml:354
+#, kde-format
+msgctxt "Part of 'Suspend Night Light until manually resumed'"
+msgid "Until manually resumed"
+msgstr ""
+
+#: NightLightItem.qml:404
+#, kde-format
+msgid "Activated until manually disabled"
+msgstr ""
+
+#: NightLightItem.qml:407
 #, kde-format
 msgctxt "Label for a time"
-msgid "Transition to day complete by:"
-msgstr "A transición ao día completouse ás:"
+msgid "Activated until: %1"
+msgstr ""
 
-#: NightLightItem.qml:205
+#: NightLightItem.qml:409
 #, kde-format
-msgctxt "Label for a time"
-msgid "Transition to night scheduled for:"
-msgstr "A transición á noite está programada para as:"
+msgid "Suspended until manually resumed"
+msgstr ""
 
-#: NightLightItem.qml:207
-#, kde-format
+#: NightLightItem.qml:412
+#, fuzzy, kde-format
+#| msgctxt "Night light status"
+#| msgid "Suspended"
 msgctxt "Label for a time"
-msgid "Transition to night complete by:"
-msgstr "A transición á noite completouse ás:"
-
-#: NightLightItem.qml:209
-#, kde-format
-msgctxt "Label for a time"
-msgid "Transition to day scheduled for:"
-msgstr "A transición ao día está programada para as:"
+msgid "Suspended until: %1"
+msgstr "Suspendida"
 
 #: PopupDialog.qml:133
 #, kde-format
@@ -292,6 +382,33 @@ msgstr "Luz nocturna"
 #, kde-format
 msgid "Theme"
 msgstr ""
+
+#~ msgctxt "Status"
+#~ msgid "Night Light suspended; middle-click to resume"
+#~ msgstr "Suspendeuse a luz nocturna; faga clic central para continuar."
+
+#~ msgctxt "Status"
+#~ msgid "Night Light suspended"
+#~ msgstr "Suspendeuse a luz nocturna."
+
+#~ msgid "Enable and Configure…"
+#~ msgstr "Activar e configurar…"
+
+#~ msgctxt "Label for a time"
+#~ msgid "Transition to day complete by:"
+#~ msgstr "A transición ao día completouse ás:"
+
+#~ msgctxt "Label for a time"
+#~ msgid "Transition to night scheduled for:"
+#~ msgstr "A transición á noite está programada para as:"
+
+#~ msgctxt "Label for a time"
+#~ msgid "Transition to night complete by:"
+#~ msgstr "A transición á noite completouse ás:"
+
+#~ msgctxt "Label for a time"
+#~ msgid "Transition to day scheduled for:"
+#~ msgstr "A transición ao día está programada para as:"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light off"
