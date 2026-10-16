@@ -344,7 +344,7 @@ PlasmaComponents3.ItemDelegate {
                                 const nextEvening = schedule.nextEvening(now);
                                 actions.push({
                                     text: nextEvening.getDay() == now.getDay()
-                                        ? i18nc("Part of 'Suspend Night Light until this evening'", "Until this evening)")
+                                        ? i18nc("Part of 'Suspend Night Light until this evening'", "Until this evening")
                                         : i18nc("Part of 'Suspend Night Light until tomorrow evening'", "Until tomorrow evening"),
                                     hint: formatUntilDateTime(nextEvening),
                                     action: () => root.nightLightControl.deactivateUntil(nextEvening)
