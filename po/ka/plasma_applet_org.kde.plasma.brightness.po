@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:50+0000\n"
-"PO-Revision-Date: 2026-01-18 02:45+0100\n"
+"POT-Creation-Date: 2026-10-17 00:52+0000\n"
+"PO-Revision-Date: 2026-10-16 06:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.10\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -136,24 +136,24 @@ msgstr "ღამის სინათლეზე საღამოს გა
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "ღამის სინათლე დროებით გააქტიურდა, სანამ მას ხელთ არ გამორთავენ"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "ღამის სინათლე დროებით გააქტიურდა %1-მდე"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "ღამის სინათლე დროებით გამორთულია, სანამ მას ხელით არ ჩართავენ"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "ღამის სინათლე დროებით გაჩერდა (%1-მდე)"
 
 #: main.qml:149
 #, kde-format
@@ -173,34 +173,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "ეკრანის სიკაშკაშის მოსარგები ჩოჩია"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "შუა-წკაპი ღამის სინათლის შესაჩერებლად"
+msgstr "შუა-წკაპი ნორმალური ღამის სინათლის გასაგრძელებლად"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "შუა-წკაპი ღამის სინათლის შესაჩერებლად"
+msgstr "შუა-წკაპი ღამის სინათლის დეაქტივაციისთვის"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "შუა-წკაპი ღამის სინათლის შესაჩერებლად"
+msgstr "შუა-წკაპი ღამის სინათლის გასააქტიურებლად"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "შუა-წკაპი ღამის სინათლის შესაჩერებლად"
+msgstr "შუა-წკაპი ღამის სინათლის დროებით გასააქტიურებლად"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "შუა-წკაპი ღამის სინათლის შესაჩერებლად"
+msgstr "შუა-წკაპი ღამის სინათლის დროებით დეაქტივაციისთვის"
 
 #: main.qml:258
 #, kde-format
@@ -235,7 +230,7 @@ msgstr "ჩართულია"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "შეჩერებულია"
 
 #: NightLightItem.qml:215
 #, kde-format
@@ -289,79 +284,79 @@ msgstr "შეჩერება"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "გააქტიურება"
 
 #: NightLightItem.qml:311
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 საათით"
 
 #: NightLightItem.qml:318
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "ამ დილამდე"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "ხვალ დილამდე"
 
 #: NightLightItem.qml:325
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "სანამ ხელით არ გამოვრთავ"
 
 #: NightLightItem.qml:340
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 საათით"
 
 #: NightLightItem.qml:347
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Part of 'Suspend Night Light until this evening'"
+#| msgid "Until this evening)"
 msgctxt "Part of 'Suspend Night Light until this evening'"
-msgid "Until this evening)"
-msgstr ""
+msgid "Until this evening"
+msgstr "ამ საღამომდე)"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "ხვალ საღამომდე"
 
 #: NightLightItem.qml:354
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "სანამ ხელით არ განახლდება"
 
 #: NightLightItem.qml:404
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "გააქტიურებულია ხელით გამორთვამდე"
 
 #: NightLightItem.qml:407
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "აქტიურია სანამდე: %1"
 
 #: NightLightItem.qml:409
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "შეჩერებულია ხელით განახლებამდე"
 
 #: NightLightItem.qml:412
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "შეჩერებულია"
+msgstr "შეჩერებულია სანამდე: %1"
 
 #: PopupDialog.qml:133
 #, kde-format

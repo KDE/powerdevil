@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:50+0000\n"
-"PO-Revision-Date: 2026-01-18 11:53+0100\n"
+"POT-Creation-Date: 2026-10-17 00:52+0000\n"
+"PO-Revision-Date: 2026-10-16 09:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -138,23 +138,25 @@ msgstr "Llum de nit en la transició del vespre (completat a les %1)"
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
 msgstr ""
+"La llum de nit està activa temporalment fins que es desactivi manualment"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "La llum de nit està activa temporalment fins a les %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
 msgstr ""
+"La llum de nit està inactiva temporalment fins que es reprengui manualment"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "La llum de nit està inactiva temporalment fins a les %1"
 
 #: main.qml:149
 #, kde-format
@@ -174,34 +176,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "Desplaceu per a ajustar la lluminositat de la pantalla"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "Clic del mig per a suspendre la llum de nit"
+msgstr "Clic del mig per a reprendre l'operativa normal de la llum de nit"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "Clic del mig per a suspendre la llum de nit"
+msgstr "Clic del mig per a desactivar la llum de nit"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "Clic del mig per a suspendre la llum de nit"
+msgstr "Clic del mig per a activar la llum de nit"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "Clic del mig per a suspendre la llum de nit"
+msgstr "Clic del mig per a activar temporalment la llum de nit"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "Clic del mig per a suspendre la llum de nit"
+msgstr "Clic del mig per a desactivar temporalment la llum de nit"
 
 #: main.qml:258
 #, kde-format
@@ -236,7 +233,7 @@ msgstr "Activa"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "En pausa"
 
 #: NightLightItem.qml:215
 #, kde-format
@@ -290,79 +287,79 @@ msgstr "Suspèn"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "Activa"
 
 #: NightLightItem.qml:311
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Durant 1 hora"
 
 #: NightLightItem.qml:318
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "Fins aquest matí"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "Fins demà al matí"
 
 #: NightLightItem.qml:325
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "Fins que es desactivi manualment"
 
 #: NightLightItem.qml:340
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Durant 1 hora"
 
 #: NightLightItem.qml:347
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Part of 'Suspend Night Light until this evening'"
+#| msgid "Until this evening)"
 msgctxt "Part of 'Suspend Night Light until this evening'"
-msgid "Until this evening)"
-msgstr ""
+msgid "Until this evening"
+msgstr "Fins aquest vespre"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "Fins demà al vespre"
 
 #: NightLightItem.qml:354
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "Fins que es reprengui manualment"
 
 #: NightLightItem.qml:404
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "Activada fins que es desactivi manualment"
 
 #: NightLightItem.qml:407
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "Activada fins a les: %1"
 
 #: NightLightItem.qml:409
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "Suspesa fins que es reprengui manualment"
 
 #: NightLightItem.qml:412
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "Suspesa"
+msgstr "Suspesa fins a les: %1"
 
 #: PopupDialog.qml:133
 #, kde-format

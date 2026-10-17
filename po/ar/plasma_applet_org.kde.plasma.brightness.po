@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-16 00:50+0000\n"
+"POT-Creation-Date: 2026-10-17 00:52+0000\n"
 "PO-Revision-Date: 2026-01-18 18:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -324,7 +324,7 @@ msgstr ""
 #: NightLightItem.qml:347
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
-msgid "Until this evening)"
+msgid "Until this evening"
 msgstr ""
 
 #: NightLightItem.qml:348
