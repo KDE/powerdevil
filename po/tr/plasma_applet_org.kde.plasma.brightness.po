@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2023-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 20:16+0000\n"
-"PO-Revision-Date: 2026-03-15 14:18+0300\n"
+"PO-Revision-Date: 2026-10-16 19:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -130,19 +130,19 @@ msgstr "Gündüz Gece Işığı açık"
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
-msgstr "Gece Işığı açık"
+msgstr "Gece Işığı, açık"
 
 #: main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
-msgstr "Sabah geçişinde Gece Işığı (%1 olduğunda tamamlanır)"
+msgstr "Gece Işığı, sabah geçişinde (%1 olduğunda tamamlanır)"
 
 #: main.qml:131
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
-msgstr "Akşam geçişinde Gece Işığı (%1 olduğunda tamamlanır)"
+msgstr "Gece Işığı, akşam geçişinde (%1 olduğunda tamamlanır)"
 
 #: main.qml:149
 #, kde-format

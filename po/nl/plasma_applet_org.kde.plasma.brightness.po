@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2023-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 20:16+0000\n"
-"PO-Revision-Date: 2026-01-18 14:27+0100\n"
+"PO-Revision-Date: 2026-10-16 12:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -170,7 +170,7 @@ msgstr "Middenklik om nachtlicht te onderbreken"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
-msgstr "Nachtlicht configureren…"
+msgstr "Nachtkleur configureren…"
 
 #: main.qml:250
 #, kde-format
@@ -285,7 +285,7 @@ msgstr "Toetsenbordkleur"
 #: PopupDialog.qml:171
 #, kde-format
 msgid "Night Light"
-msgstr "Nachtlicht"
+msgstr "Nachtkleur"
 
 #: PopupDialog.qml:179
 #, kde-format
