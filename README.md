@@ -83,7 +83,7 @@ Advanced users who want to dig into ddcutil can specify a [`ddcutil/ddcutilrc` f
 
 ## Building & debugging
 
-Set up a KDE development environment [as described in the developer documentation](https://develop.kde.org/docs/getting-started/building/), in particular the parts about [setting up kdesrc-build](https://develop.kde.org/docs/getting-started/building/kdesrc-build-setup/) and [building KDE software including Plasma](https://develop.kde.org/docs/getting-started/building/kdesrc-build-compile/). PowerDevil is part of the `workspace` meta-target for `kdesrc-build` and will be built by following the standard instructions.
+Set up a KDE development environment [as described in the developer documentation](https://develop.kde.org/docs/getting-started/building/), in particular the parts about [setting up kde-builder](https://develop.kde.org/docs/getting-started/building/kde-builder-setup) and [building KDE software including Plasma](https://develop.kde.org/docs/getting-started/building/kde-builder-compile). PowerDevil is part of the `workspace` meta-target for `kde-builder` and will be built by following the standard instructions.
 
 Restart using systemd (or your init system of choice) as mentioned earlier. Use system log messages and attach gdb to the running session for further debugging.
 
