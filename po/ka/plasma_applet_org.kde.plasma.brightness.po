@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-17 00:52+0000\n"
-"PO-Revision-Date: 2026-10-16 06:29+0200\n"
+"PO-Revision-Date: 2026-10-17 04:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -317,12 +317,10 @@ msgid "For 1 hour"
 msgstr "1 საათით"
 
 #: NightLightItem.qml:347
-#, fuzzy, kde-format
-#| msgctxt "Part of 'Suspend Night Light until this evening'"
-#| msgid "Until this evening)"
+#, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr "ამ საღამომდე)"
+msgstr "ამ საღამომდე"
 
 #: NightLightItem.qml:348
 #, kde-format

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-17 00:52+0000\n"
-"PO-Revision-Date: 2026-10-16 11:11+0200\n"
+"PO-Revision-Date: 2026-10-17 21:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -314,9 +314,7 @@ msgid "For 1 hour"
 msgstr "Za 1 uro"
 
 #: NightLightItem.qml:347
-#, fuzzy, kde-format
-#| msgctxt "Part of 'Suspend Night Light until this evening'"
-#| msgid "Until this evening)"
+#, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
 msgstr "Do tega večera"

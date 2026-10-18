@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-17 00:52+0000\n"
-"PO-Revision-Date: 2026-01-20 23:45+0200\n"
+"PO-Revision-Date: 2026-10-17 12:57+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -137,24 +137,24 @@ msgstr "Naktinė šviesa yra vakarinio perėjimo būsenoje (bus užbaigtas %1)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "Naktinė šviesa laikinai aktyvi tol, kol nebus išjungta rankiniu būdu"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "Naktinė šviesa laikinai aktyvi iki %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "Naktinė šviesa laikinai neaktyvi tol, kol nebus pratęsta rankiniu būdu"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "Naktinė šviesa laikinai neaktyvi iki %1"
 
 #: main.qml:149
 #, kde-format
@@ -174,39 +174,37 @@ msgid "Scroll to adjust screen brightness"
 msgstr "Slinkite norėdami reguliuoti ryškumą"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
 msgstr ""
-"Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
+"Spustelėkite viduriniuoju pelės mygtuku norėdami pratęsti įprastą naktinės "
+"šviesos veikimą"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
 msgstr ""
-"Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
+"Spustelėkite viduriniuoju pelės mygtuku norėdami pasyvinti naktinę šviesą"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
 msgstr ""
-"Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
+"Spustelėkite viduriniuoju pelės mygtuku norėdami aktyvuoti naktinę šviesą"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
 msgstr ""
-"Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
+"Spustelėkite viduriniuoju pelės mygtuku norėdami laikinai aktyvuoti naktinę "
+"šviesą"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
 msgstr ""
-"Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
+"Spustelėkite viduriniuoju pelės mygtuku norėdami laikinai pasyvinti naktinę "
+"šviesą"
 
 #: main.qml:258
 #, kde-format
@@ -241,7 +239,7 @@ msgstr "Įjungta"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "Pristabdyta"
 
 #: NightLightItem.qml:215
 #, kde-format
@@ -295,79 +293,77 @@ msgstr "Pristabdyti"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "Aktyvuoti"
 
 #: NightLightItem.qml:311
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 valandai"
 
 #: NightLightItem.qml:318
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "Iki šio ryto"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "Iki rytojaus ryto"
 
 #: NightLightItem.qml:325
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "Kol nebus išjungta rankiniu būdu"
 
 #: NightLightItem.qml:340
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 valandai"
 
 #: NightLightItem.qml:347
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "Iki šio vakaro"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "Iki rytojaus vakaro"
 
 #: NightLightItem.qml:354
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "Kol nebus pratęsta rankiniu būdu"
 
 #: NightLightItem.qml:404
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "Aktyvuota tol, kol nebus išjungta rankiniu būdu"
 
 #: NightLightItem.qml:407
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "Aktyvuota iki: %1"
 
 #: NightLightItem.qml:409
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "Pristabdyta tol, kol nebus pratęsta rankiniu būdu"
 
 #: NightLightItem.qml:412
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "Pristabdyta"
+msgstr "Pristabdyta iki: %1"
 
 #: PopupDialog.qml:133
 #, kde-format
