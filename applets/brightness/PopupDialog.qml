@@ -49,7 +49,7 @@ PlasmaExtras.Representation {
         ColumnLayout {
             id: brightnessList
 
-            width: scrollView.width
+            width: scrollView.contentItem.width
             spacing: Kirigami.Units.smallSpacing * 2
 
             Repeater {
