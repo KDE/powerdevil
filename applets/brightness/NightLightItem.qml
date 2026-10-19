@@ -38,8 +38,6 @@ PlasmaComponents3.ItemDelegate {
         path: "/org/kde/KWin/NightLight"
         iface: "org.kde.KWin.NightLight"
 
-        // This property holds a value to indicate if Night Light is available.
-        readonly property bool available: Boolean(properties.available)
         // This property holds a value to indicate if Night Light is enabled.
         readonly property bool enabled: Boolean(properties.enabled)
         // This property holds a value to indicate if Night Light is running.
@@ -201,9 +199,6 @@ PlasmaComponents3.ItemDelegate {
                         if (root.nightLightControl.inhibited && root.nightLightControl.enabled) {
                             return i18nc("Night light status", "Suspended");
                         }
-                        if (!root.nightLightControl.available) {
-                            return i18nc("Night light status", "Unavailable");
-                        }
                         if (root.nightLightControl.temporarilyActivated) {
                             return i18nc("Night light status", "On");
                         }
@@ -239,7 +234,7 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: currentTemp
-                    visible: root.nightLightControl.available && root.nightLightControl.enabled && root.nightLightControl.running
+                    visible: root.nightLightControl.enabled && root.nightLightControl.running
                     text: i18nc("Placeholder is screen color temperature", "%1K", root.nightLightControl.currentTemperature)
                     font.features: { "tnum": 1 }
                     textFormat: Text.PlainText
