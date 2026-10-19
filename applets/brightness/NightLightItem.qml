@@ -13,7 +13,6 @@ import org.kde.kcmutils // KCMLauncher
 import org.kde.config as KConfig  // KAuthorized.authorizeControlModule
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
-import org.kde.coreaddons as KCoreAddons
 
 import org.kde.plasma.private.brightnesscontrolplugin
 import org.kde.plasma.workspace.dbus as DBus
@@ -426,11 +425,12 @@ PlasmaComponents3.ItemDelegate {
 
     function formatUntilDateTime(dateTime: date): string {
         const now = new Date();
+        const timeString = dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
         if (dateTime.getDay() == now.getDay()) {
-            return dateTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            return timeString;
         } else {
-            return KCoreAddons.Format.formatRelativeDateTime(dateTime, Locale.ShortFormat);
+            return i18nc("The placeholder is for time", "Tomorrow at %1", timeString);
         }
     }
 }
