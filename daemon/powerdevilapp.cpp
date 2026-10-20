@@ -111,11 +111,14 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData);
 
     bool replace = false;
+    bool restartAfterCrash = false; // otherwise managed by systemd
     {
         QCommandLineParser parser;
         QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
+        QCommandLineOption restartAfterCrashOption({QStringLiteral("restartAfterCrash")}, i18n("Restart after a crash (if not systemd managed)"));
 
         parser.addOption(replaceOption);
+        parser.addOption(restartAfterCrashOption);
 
         KAboutData aboutData = KAboutData::applicationData();
         aboutData.setupCommandLine(&parser);
@@ -124,9 +127,13 @@ int main(int argc, char **argv)
         aboutData.processCommandLine(&parser);
 
         replace = parser.isSet(replaceOption);
+        restartAfterCrash = parser.isSet(restartAfterCrashOption);
     }
     KDBusService service(KDBusService::Unique | KDBusService::StartupOption(replace ? KDBusService::Replace : 0));
-    KCrash::setFlags(KCrash::AutoRestart);
+
+    if (restartAfterCrash) {
+        KCrash::setFlags(KCrash::AutoRestart);
+    }
 
     KCrash::setErrorTags({
 #ifdef WITH_DDCUTIL
