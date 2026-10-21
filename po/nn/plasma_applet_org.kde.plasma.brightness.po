@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:55+0000\n"
+"POT-Creation-Date: 2026-10-21 00:53+0000\n"
 "PO-Revision-Date: 2026-06-27 11:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -73,7 +73,7 @@ msgctxt "@action:button"
 msgid "Dark Mode"
 msgstr "Mørk modus"
 
-#: DarkModeItem.qml:86 NightLightItem.qml:383
+#: DarkModeItem.qml:86 NightLightItem.qml:378
 #, kde-format
 msgid "Configure…"
 msgstr "Set opp …"
@@ -215,149 +215,143 @@ msgstr "Set opp kveldsfargar …"
 msgid "&Configure Power Management…"
 msgstr "&Set opp straumstyring …"
 
-#: NightLightItem.qml:202
+#: NightLightItem.qml:200
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "På pause"
 
-#: NightLightItem.qml:205
-#, kde-format
-msgctxt "Night light status"
-msgid "Unavailable"
-msgstr "Ikkje tilgjengeleg"
-
-#: NightLightItem.qml:208 NightLightItem.qml:220
+#: NightLightItem.qml:203 NightLightItem.qml:215
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "På"
 
-#: NightLightItem.qml:211
+#: NightLightItem.qml:206
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
 msgstr ""
 
-#: NightLightItem.qml:214
+#: NightLightItem.qml:209
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
 msgstr "Ikkje slått på"
 
-#: NightLightItem.qml:217
+#: NightLightItem.qml:212
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
 msgstr "Køyrer ikkje"
 
-#: NightLightItem.qml:224
+#: NightLightItem.qml:219
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Morgonovergang"
 
-#: NightLightItem.qml:226
+#: NightLightItem.qml:221
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Kveldsovergang"
 
-#: NightLightItem.qml:230
+#: NightLightItem.qml:225
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
 msgstr "Dag"
 
-#: NightLightItem.qml:232
+#: NightLightItem.qml:227
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Kveld"
 
-#: NightLightItem.qml:243
+#: NightLightItem.qml:238
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1 K"
 
-#: NightLightItem.qml:260 NightLightItem.qml:268
+#: NightLightItem.qml:255 NightLightItem.qml:263
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Set på pause"
 
-#: NightLightItem.qml:262 NightLightItem.qml:266
+#: NightLightItem.qml:257 NightLightItem.qml:261
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
 msgstr ""
 
-#: NightLightItem.qml:310
+#: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
 msgstr ""
 
-#: NightLightItem.qml:317
+#: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
 msgstr ""
 
-#: NightLightItem.qml:318
+#: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
 msgstr ""
 
-#: NightLightItem.qml:324
+#: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
 msgstr ""
 
-#: NightLightItem.qml:339
+#: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
 msgstr ""
 
-#: NightLightItem.qml:346
+#: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
 msgstr ""
 
-#: NightLightItem.qml:347
+#: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
 msgstr ""
 
-#: NightLightItem.qml:353
+#: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
 msgstr ""
 
-#: NightLightItem.qml:403
+#: NightLightItem.qml:398
 #, kde-format
 msgid "Activated until manually disabled"
 msgstr ""
 
-#: NightLightItem.qml:406
+#: NightLightItem.qml:401
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
 msgstr ""
 
-#: NightLightItem.qml:408
+#: NightLightItem.qml:403
 #, kde-format
 msgid "Suspended until manually resumed"
 msgstr ""
 
-#: NightLightItem.qml:411
+#: NightLightItem.qml:406
 #, fuzzy, kde-format
 #| msgctxt "Night light status"
 #| msgid "Suspended"
@@ -365,7 +359,7 @@ msgctxt "Label for a time"
 msgid "Suspended until: %1"
 msgstr "På pause"
 
-#: NightLightItem.qml:433
+#: NightLightItem.qml:428
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
@@ -390,6 +384,10 @@ msgstr "Kveldsfargar"
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
+
+#~ msgctxt "Night light status"
+#~ msgid "Unavailable"
+#~ msgstr "Ikkje tilgjengeleg"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light suspended; middle-click to resume"

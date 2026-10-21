@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:55+0000\n"
-"PO-Revision-Date: 2026-10-17 17:17+0300\n"
+"POT-Creation-Date: 2026-10-21 00:53+0000\n"
+"PO-Revision-Date: 2026-10-20 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -72,7 +72,7 @@ msgctxt "@action:button"
 msgid "Dark Mode"
 msgstr "Темний режим"
 
-#: DarkModeItem.qml:86 NightLightItem.qml:383
+#: DarkModeItem.qml:86 NightLightItem.qml:378
 #, kde-format
 msgid "Configure…"
 msgstr "Налаштувати…"
@@ -208,159 +208,153 @@ msgstr "Налаштувати нічний режим…"
 msgid "&Configure Power Management…"
 msgstr "&Налаштувати керування живленням…"
 
-#: NightLightItem.qml:202
+#: NightLightItem.qml:200
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "Призупинено"
 
-#: NightLightItem.qml:205
-#, kde-format
-msgctxt "Night light status"
-msgid "Unavailable"
-msgstr "Немає доступу"
-
-#: NightLightItem.qml:208 NightLightItem.qml:220
+#: NightLightItem.qml:203 NightLightItem.qml:215
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "Увімкнено"
 
-#: NightLightItem.qml:211
+#: NightLightItem.qml:206
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
 msgstr "Призупинено"
 
-#: NightLightItem.qml:214
+#: NightLightItem.qml:209
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
 msgstr "Не увімкнено"
 
-#: NightLightItem.qml:217
+#: NightLightItem.qml:212
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
 msgstr "Не запущено"
 
-#: NightLightItem.qml:224
+#: NightLightItem.qml:219
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Вранішній перехід"
 
-#: NightLightItem.qml:226
+#: NightLightItem.qml:221
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Вечірній перехід"
 
-#: NightLightItem.qml:230
+#: NightLightItem.qml:225
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
 msgstr "День"
 
-#: NightLightItem.qml:232
+#: NightLightItem.qml:227
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Ніч"
 
-#: NightLightItem.qml:243
+#: NightLightItem.qml:238
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1K"
 
-#: NightLightItem.qml:260 NightLightItem.qml:268
+#: NightLightItem.qml:255 NightLightItem.qml:263
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Призупинити"
 
-#: NightLightItem.qml:262 NightLightItem.qml:266
+#: NightLightItem.qml:257 NightLightItem.qml:261
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
 msgstr "Активувати"
 
-#: NightLightItem.qml:310
+#: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
 msgstr "Протягом години"
 
-#: NightLightItem.qml:317
+#: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
 msgstr "До наступного ранку"
 
-#: NightLightItem.qml:318
+#: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
 msgstr "До завтрашнього ранку"
 
-#: NightLightItem.qml:324
+#: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
 msgstr "До вимикання вручну"
 
-#: NightLightItem.qml:339
+#: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
 msgstr "Протягом години"
 
-#: NightLightItem.qml:346
+#: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
 msgstr "До цього вечора"
 
-#: NightLightItem.qml:347
+#: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
 msgstr "До завтрашнього вечора"
 
-#: NightLightItem.qml:353
+#: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
 msgstr "До відновлення вручну"
 
-#: NightLightItem.qml:403
+#: NightLightItem.qml:398
 #, kde-format
 msgid "Activated until manually disabled"
 msgstr "Активовано до вимикання вручну"
 
-#: NightLightItem.qml:406
+#: NightLightItem.qml:401
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
 msgstr "Активовано до: %1"
 
-#: NightLightItem.qml:408
+#: NightLightItem.qml:403
 #, kde-format
 msgid "Suspended until manually resumed"
 msgstr "Призупинено до відновлення вручну"
 
-#: NightLightItem.qml:411
+#: NightLightItem.qml:406
 #, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
 msgstr "Призупинено до: %1"
 
-#: NightLightItem.qml:433
+#: NightLightItem.qml:428
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Завтра о %1"
 
 #: PopupDialog.qml:133
 #, kde-format
@@ -381,6 +375,10 @@ msgstr "Нічні кольори"
 #, kde-format
 msgid "Theme"
 msgstr "Тема"
+
+#~ msgctxt "Night light status"
+#~ msgid "Unavailable"
+#~ msgstr "Немає доступу"
 
 #~ msgctxt "Status"
 #~ msgid "Night Light suspended; middle-click to resume"
