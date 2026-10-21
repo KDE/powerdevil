@@ -48,7 +48,7 @@ void BacklightDetector::detect()
     KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
     connect(brightnessJob, &KJob::result, this, [this, brightnessJob, deleteOld = std::move(deleteOld)] {
         if (brightnessJob->error()) {
-            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed" << brightnessJob->error();
             qCDebug(POWERDEVIL) << brightnessJob->errorText();
             Q_EMIT detectionFinished(false);
             return;
@@ -60,7 +60,7 @@ void BacklightDetector::detect()
         KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
         connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob, cachedBrightness, deleteOld = std::move(deleteOld)] {
             if (brightnessMaxJob->error()) {
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
+                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed" << brightnessMaxJob->error();
                 qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
                 Q_EMIT detectionFinished(false);
                 return;
@@ -81,7 +81,7 @@ void BacklightDetector::detect()
             KAuth::ExecuteJob* syspathJob = syspathAction.execute();
             connect(syspathJob, &KJob::result, this, [this, syspathJob, cachedBrightness, maxBrightness, deleteOld = std::move(deleteOld)] {
                 if (syspathJob->error()) {
-                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
+                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed" << syspathJob->error();
                     qCDebug(POWERDEVIL) << syspathJob->errorText();
                     Q_EMIT detectionFinished(false);
                     return;
@@ -257,7 +257,7 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
         m_isWaitingForKAuthJob = false;
 
         if (job->error()) {
-            qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->errorText();
+            qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->error() << job->errorText();
             Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
             return;
         }
