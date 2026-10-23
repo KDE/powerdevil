@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2023-2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 20:16+0000\n"
-"PO-Revision-Date: 2026-01-19 07:44+0100\n"
+"PO-Revision-Date: 2026-10-20 15:26+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Poedit 3.10\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -246,7 +246,7 @@ msgstr "Sospendi"
 #: NightLightItem.qml:177
 #, kde-format
 msgid "Enable and Configure…"
-msgstr "Abilita e configura..."
+msgstr "Abilita e configura…"
 
 #: NightLightItem.qml:203
 #, kde-format
