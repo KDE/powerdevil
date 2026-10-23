@@ -91,6 +91,7 @@ PlasmaComponents3.ItemDelegate {
                 id: inhibitionSwitch
                 Layout.fillWidth: true
                 text: i18nc("@action:button Block sleep and screen locking after inactivity", "Manually Block Sleep and Screen Locking")
+                checked: root.isManuallyInhibited
 
                 Keys.onPressed: (event) => {
                     if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
