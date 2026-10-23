@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-21 00:53+0000\n"
-"PO-Revision-Date: 2026-10-18 10:49+0200\n"
+"PO-Revision-Date: 2026-10-21 10:02+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -353,7 +353,7 @@ msgstr "Suspendu jusqu'à : %1"
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Demain à %1"
 
 #: PopupDialog.qml:133
 #, kde-format

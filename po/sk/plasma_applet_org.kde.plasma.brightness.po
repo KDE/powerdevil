@@ -133,24 +133,24 @@ msgstr "Nočná farba večerný prechod (skončí o %1)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "Nočná farba je dočasne aktívna, kým sa ručne nevypne"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "Nočná farba je dočasne aktívna do %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "Nočná farba je dočasne neaktívna, kým sa ručne neobnoví"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "Nočná farba je dočasne neaktívna do %1"
 
 #: main.qml:149
 #, kde-format
@@ -170,34 +170,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "Kolieskom myši upravíte jas obrazovky"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "Stredným tlačidlom sa vypne Nočná farba"
+msgstr "Stredným tlačidlom sa obnoví bežná činnosť Nočnej farby"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "Stredným tlačidlom sa vypne Nočná farba"
+msgstr "Stredným tlačidlom sa deaktivuje Nočná farba"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "Stredným tlačidlom sa vypne Nočná farba"
+msgstr "Stredným tlačidlom sa aktivuje Nočná farba"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "Stredným tlačidlom sa vypne Nočná farba"
+msgstr "Stredným tlačidlom sa dočasne aktivuje Nočná farba"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "Stredným tlačidlom sa vypne Nočná farba"
+msgstr "Stredným tlačidlom sa dočasne deaktivuje Nočná farba"
 
 #: main.qml:258
 #, kde-format
@@ -226,7 +221,7 @@ msgstr "Zapnuté"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "Pozastavené"
 
 #: NightLightItem.qml:209
 #, kde-format
@@ -280,85 +275,83 @@ msgstr "Uspať"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "Aktivovať"
 
 #: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Na 1 hodinu"
 
 #: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "Do dnešného rána"
 
 #: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "Do zajtrajšieho rána"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "Kým sa ručne nevypne"
 
 #: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Na 1 hodinu"
 
 #: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "Do dnešného večera"
 
 #: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "Do zajtrajšieho večera"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "Kým sa ručne neobnoví"
 
 #: NightLightItem.qml:398
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "Aktivované, kým sa ručne nevypne"
 
 #: NightLightItem.qml:401
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "Aktivované do: %1"
 
 #: NightLightItem.qml:403
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "Pozastavené, kým sa ručne neobnoví"
 
 #: NightLightItem.qml:406
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "Pozastavené"
+msgstr "Pozastavené do: %1"
 
 #: NightLightItem.qml:428
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Zajtra o %1"
 
 #: PopupDialog.qml:133
 #, kde-format

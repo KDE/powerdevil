@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-21 00:53+0000\n"
-"PO-Revision-Date: 2026-10-19 16:17+0200\n"
+"PO-Revision-Date: 2026-10-22 21:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -353,7 +353,7 @@ msgstr "Спрян до: %1"
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Утре в %1"
 
 #: PopupDialog.qml:133
 #, kde-format
@@ -374,7 +374,3 @@ msgstr "Вечерни цветове"
 #, kde-format
 msgid "Theme"
 msgstr "Тема"
-
-#~ msgctxt "Night light status"
-#~ msgid "Unavailable"
-#~ msgstr "Не са налични"

@@ -331,10 +331,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Zdroj energie nie je dostatočne výkonný na nabitie batérie"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
-msgstr "Batérie nie sú dostupné"
+msgstr "Nie sú dostupné žiadne batérie"
 
 #: main.qml:159
 #, kde-format
