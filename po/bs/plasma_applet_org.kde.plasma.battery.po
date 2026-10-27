@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-27 03:19+0000\n"
 "PO-Revision-Date: 2015-02-15 13:01+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -153,17 +153,17 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:114
+#: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 
-#: InhibitionItem.qml:117
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
 
-#: InhibitionItem.qml:131
+#: InhibitionItem.qml:132
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -171,7 +171,7 @@ msgctxt ""
 msgid "This will result in higher energy consumption."
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:132
+#: InhibitionItem.qml:133
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -182,7 +182,7 @@ msgid ""
 "result in higher energy consumption."
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:139
+#: InhibitionItem.qml:140
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -190,13 +190,13 @@ msgid ""
 "external monitor is connected."
 msgstr ""
 
-#: InhibitionItem.qml:159
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr ""
 
-#: InhibitionItem.qml:166
+#: InhibitionItem.qml:167
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -205,7 +205,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:168
+#: InhibitionItem.qml:169
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -214,7 +214,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:170
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -222,7 +222,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:174
+#: InhibitionItem.qml:175
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -231,7 +231,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:176
+#: InhibitionItem.qml:177
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -240,7 +240,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:178
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -248,7 +248,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:182
+#: InhibitionItem.qml:183
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -257,7 +257,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:184
+#: InhibitionItem.qml:185
 #, fuzzy, kde-format
 #| msgid "The battery applet has enabled system-wide inhibition"
 msgctxt ""
@@ -266,7 +266,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "Baterija aplet ima omogućenu sistemsku inhibiciju"
 
-#: InhibitionItem.qml:186
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -274,7 +274,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr ""
 
-#: InhibitionItem.qml:194
+#: InhibitionItem.qml:195
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -282,7 +282,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr ""
 
-#: InhibitionItem.qml:202
+#: InhibitionItem.qml:203
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

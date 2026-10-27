@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-27 03:19+0000\n"
 "PO-Revision-Date: 2026-08-21 06:10+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -148,24 +148,24 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "ძილისა და ეკრანის ჩაკეტვის ხელით დაბლოკვა"
 
-#: InhibitionItem.qml:114
+#: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "ავტომატური ძილისა და ეკრანის განბლოკვა ჩავარდა"
 
-#: InhibitionItem.qml:117
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "ავტომატური ძილისა და ეკრანის დაბლოკვა ჩავარდა"
 
-#: InhibitionItem.qml:131
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "ეს ენერგიის უფრო დიდ დანახარჯს გამოიწვევს."
 
-#: InhibitionItem.qml:132
+#: InhibitionItem.qml:133
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -177,7 +177,7 @@ msgstr ""
 "თქვენ ხელით დაბლოკეთ ავტომატური ძილი და ეკრანის ჩაკეტვა. ეს ენერგიის უფრო "
 "დიდ დანახარჯს გამოიწვევს."
 
-#: InhibitionItem.qml:139
+#: InhibitionItem.qml:140
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -187,13 +187,13 @@ msgstr ""
 "თქვენი ნოუთბუქი მორგებულია, რომ არ დაიძინოს, როცა დააფარებთ თავსახურს ან "
 "როცა გარე ეკრანია მიერთებული."
 
-#: InhibitionItem.qml:159
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "უცნობი მიზეზი."
 
-#: InhibitionItem.qml:166
+#: InhibitionItem.qml:167
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -201,7 +201,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1-ს სურს, დაბლოკოს ძილი და ეკრანის ჩაკეტვა (%2)"
 
-#: InhibitionItem.qml:168
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -209,7 +209,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1-ს სურს, ეკრანის ჩაკეტვა დაბლოკოს. (%2)"
 
-#: InhibitionItem.qml:170
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -217,7 +217,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1-ს სურს ძილის დაბლოკვა. (%2)"
 
-#: InhibitionItem.qml:174
+#: InhibitionItem.qml:175
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -225,7 +225,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 ასევე ბლოკავს ძილს და ეკრანის ჩაკეტვას. (%2)"
 
-#: InhibitionItem.qml:176
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -233,7 +233,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 ასევე ბლოკავს ეკრანის ჩაკეტვას. (%2)"
 
-#: InhibitionItem.qml:178
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -241,7 +241,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 ასევე ბლოკავს ძილს. (%2)"
 
-#: InhibitionItem.qml:182
+#: InhibitionItem.qml:183
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -249,7 +249,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 ბლოკავს ძილს და ეკრანის ჩაკეტვას. (%2)"
 
-#: InhibitionItem.qml:184
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -257,7 +257,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 ბლოკავს ეკრანის ჩაკეტვას (%2)"
 
-#: InhibitionItem.qml:186
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -265,7 +265,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 ბლოკავს ძილს. (%2)"
 
-#: InhibitionItem.qml:194
+#: InhibitionItem.qml:195
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -273,7 +273,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "განბლოკვა"
 
-#: InhibitionItem.qml:202
+#: InhibitionItem.qml:203
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

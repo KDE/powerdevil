@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:48+0000\n"
+"POT-Creation-Date: 2026-10-27 03:19+0000\n"
 "PO-Revision-Date: 2026-06-04 22:02+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -155,25 +155,25 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Altatás és képernyőzárolás letiltása kézzel"
 
-#: InhibitionItem.qml:114
+#: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 "Automatikus alvó állapot és képernyőzárolás tiltásának feloldása sikertelen"
 
-#: InhibitionItem.qml:117
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Automatikus alvó állapot és képernyőzárolás tiltása sikertelen"
 
-#: InhibitionItem.qml:131
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Ez magasabb energiafogyasztást eredményez."
 
-#: InhibitionItem.qml:132
+#: InhibitionItem.qml:133
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -185,7 +185,7 @@ msgstr ""
 "Saját kezűleg kikapcsolta az automatikus altatást és a képernyőzárolást. Ez "
 "magasabb energiafogyasztást eredményez."
 
-#: InhibitionItem.qml:139
+#: InhibitionItem.qml:140
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -195,13 +195,13 @@ msgstr ""
 "A laptop úgy van beállítva, hogy ne menjen alvó állapotva a fedél "
 "lecsukásakor, ha külső monitor van csatlakoztatva."
 
-#: InhibitionItem.qml:159
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Ismeretlen ok."
 
-#: InhibitionItem.qml:166
+#: InhibitionItem.qml:167
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -209,7 +209,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "A(z) %1 meg akarja tiltani az altatást és a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:168
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -217,7 +217,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "A(z) %1 meg akarja tiltani a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:170
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -225,7 +225,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "A(z) %1 meg akarja tiltani az altatást. (%2)"
 
-#: InhibitionItem.qml:174
+#: InhibitionItem.qml:175
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -233,7 +233,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "A(z) %1 emellett tiltja az altatást és a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:176
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -241,7 +241,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "A(z) %1 emellett tiltja a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:178
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -249,7 +249,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "A(z) %1 emellett tiltja az altatást. (%2)"
 
-#: InhibitionItem.qml:182
+#: InhibitionItem.qml:183
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -257,7 +257,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "A(z) %1 tiltja az altatást és a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:184
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -265,7 +265,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "A(z) %1 tiltja a képernyőzárolást. (%2)"
 
-#: InhibitionItem.qml:186
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -273,7 +273,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "A(z) %1 tiltja az altatást. (%2)"
 
-#: InhibitionItem.qml:194
+#: InhibitionItem.qml:195
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -281,7 +281,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Tiltás feloldása"
 
-#: InhibitionItem.qml:202
+#: InhibitionItem.qml:203
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
