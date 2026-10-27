@@ -69,9 +69,20 @@ void KWinDisplayDetector::checkOutputs()
         });
     });
     // remove all that can't do brightness control (anymore)
-    changed |= std::erase_if(m_displays, [](const auto &pair) {
-        return !(pair.first->capabilities() & KScreen::Output::Capability::BrightnessControl) || !pair.first->isEnabled();
+    bool undimmed = false;
+    changed |= std::erase_if(m_displays, [&undimmed](const auto &pair) {
+        const bool remove = !(pair.first->capabilities() & KScreen::Output::Capability::BrightnessControl) || !pair.first->isEnabled();
+        // KWin keeps applying the dimming without a brightness device,
+        // and nothing would undim the output once we stop managing it
+        if (remove && pair.first->dimming() != 1.0) {
+            pair.first->setDimming(1.0);
+            undimmed = true;
+        }
+        return remove;
     });
+    if (undimmed) {
+        scheduleSetConfig();
+    }
     for (const auto &output : outputs) {
         if (!(output->capabilities() & KScreen::Output::Capability::BrightnessControl) || !output->isEnabled()) {
             continue;
@@ -134,7 +145,7 @@ KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, K
     , m_detector(detector)
     , m_label(label)
     , m_desiredBrightness(m_output->brightness())
-    , m_desiredDimming(1.0)
+    , m_desiredDimming(m_output->dimming())
 {
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
