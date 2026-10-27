@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:47+0000\n"
+"POT-Creation-Date: 2026-10-27 01:02+0000\n"
 "PO-Revision-Date: 2026-10-01 20:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -158,24 +158,24 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Uykuyu ve Ekran Kilidini Elle Engelle"
 
-#: InhibitionItem.qml:114
+#: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Kendiliğinden uyku ve ekran kilidi engeli kaldırılamadı"
 
-#: InhibitionItem.qml:117
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Kendiliğinden uyku ve ekran kilidi engellenemedi"
 
-#: InhibitionItem.qml:131
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Bu, daha yüksek enerji tüketimine neden olacaktır."
 
-#: InhibitionItem.qml:132
+#: InhibitionItem.qml:133
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -187,7 +187,7 @@ msgstr ""
 "Kendiliğinden uyku ve ekran kilidini elle engellediniz. Bu, daha yüksek "
 "enerji tüketimine neden olacaktır."
 
-#: InhibitionItem.qml:139
+#: InhibitionItem.qml:140
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -197,13 +197,13 @@ msgstr ""
 "Dizüstü bilgisayarınız bir dış monitör bağlıyken kapağı kapatıldığında "
 "uyumamak üzere yapılandırılmış."
 
-#: InhibitionItem.qml:159
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Bilinmeyen neden."
 
-#: InhibitionItem.qml:166
+#: InhibitionItem.qml:167
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -211,7 +211,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1, uykuyu ve ekran kilidini engellemek istiyor. (%2)"
 
-#: InhibitionItem.qml:168
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -219,7 +219,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1, ekran kilidini engellemek istiyor. (%2)"
 
-#: InhibitionItem.qml:170
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -227,7 +227,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1, uykuyu engellemek istiyor. (%2)"
 
-#: InhibitionItem.qml:174
+#: InhibitionItem.qml:175
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -235,7 +235,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1, ayrıca uykuyu ve ekran kilidini engelliyor. (%2)"
 
-#: InhibitionItem.qml:176
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -243,7 +243,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1, ayrıca ekran kilidini engelliyor. (%2)"
 
-#: InhibitionItem.qml:178
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -251,7 +251,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1, ayrıca uykuyu engelliyor. (%2)"
 
-#: InhibitionItem.qml:182
+#: InhibitionItem.qml:183
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -259,7 +259,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1, uykuyu ve ekran kilidini engelliyor. (%2)"
 
-#: InhibitionItem.qml:184
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -267,7 +267,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1, ekran kilidini engelliyor. (%2)"
 
-#: InhibitionItem.qml:186
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -275,7 +275,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1, uykuyu engelliyor. (%2)"
 
-#: InhibitionItem.qml:194
+#: InhibitionItem.qml:195
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -283,7 +283,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Engeli Kaldır"
 
-#: InhibitionItem.qml:202
+#: InhibitionItem.qml:203
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "

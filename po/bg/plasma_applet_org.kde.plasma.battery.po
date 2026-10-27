@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:47+0000\n"
+"POT-Creation-Date: 2026-10-27 01:02+0000\n"
 "PO-Revision-Date: 2026-10-07 23:44+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -152,25 +152,25 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block Sleep and Screen Locking"
 msgstr "Ръчно блокиране на приспиване и заключване на екрана"
 
-#: InhibitionItem.qml:114
+#: InhibitionItem.qml:115
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 "Неуспешно отблокиране на автоматичното приспиване и заключване на екрана"
 
-#: InhibitionItem.qml:117
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Неуспешно блокиране на автоматичното приспиване и заключване на екрана"
 
-#: InhibitionItem.qml:131
+#: InhibitionItem.qml:132
 #, kde-format
 msgctxt ""
 "@label corresponding to Manually Block Sleep and Screen Locking toggle"
 msgid "This will result in higher energy consumption."
 msgstr "Това ще доведе до повишена консумация на енергия."
 
-#: InhibitionItem.qml:132
+#: InhibitionItem.qml:133
 #, kde-format
 msgctxt ""
 "@label accessible - the sentence about higher energy consumption must be "
@@ -182,7 +182,7 @@ msgstr ""
 "Ръчно блокирахте автоматичното приспиване и заключване на екрана. Това ще "
 "доведе до повишена консумация на енергия."
 
-#: InhibitionItem.qml:139
+#: InhibitionItem.qml:140
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -192,13 +192,13 @@ msgstr ""
 "Вашият лаптоп е конфигуриран да не се приспива при затваряне на екрана, "
 "докато е свързан с външен монитор."
 
-#: InhibitionItem.qml:159
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
 msgstr "Неизвестна причина."
 
-#: InhibitionItem.qml:166
+#: InhibitionItem.qml:167
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -206,7 +206,7 @@ msgctxt ""
 msgid "%1 wants to block sleep and screen locking. (%2)"
 msgstr "%1 иска да блокира приспиването и заключването на екрана. (%2)"
 
-#: InhibitionItem.qml:168
+#: InhibitionItem.qml:169
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -214,7 +214,7 @@ msgctxt ""
 msgid "%1 wants to block screen locking. (%2)"
 msgstr "%1 иска да блокира заключването на екрана. (%2)"
 
-#: InhibitionItem.qml:170
+#: InhibitionItem.qml:171
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
@@ -222,7 +222,7 @@ msgctxt ""
 msgid "%1 wants to block sleep. (%2)"
 msgstr "%1 иска да блокира приспиването. (%2)"
 
-#: InhibitionItem.qml:174
+#: InhibitionItem.qml:175
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -230,7 +230,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep and screen locking. (%2)"
 msgstr "%1 блокира и приспиването и заключването на екрана. (%2)"
 
-#: InhibitionItem.qml:176
+#: InhibitionItem.qml:177
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -238,7 +238,7 @@ msgctxt ""
 msgid "%1 is also blocking screen locking. (%2)"
 msgstr "%1 предотвратява и заключването на екрана. (%2)"
 
-#: InhibitionItem.qml:178
+#: InhibitionItem.qml:179
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -246,7 +246,7 @@ msgctxt ""
 msgid "%1 is also blocking sleep. (%2)"
 msgstr "%1 блокира и приспиването. (%2)"
 
-#: InhibitionItem.qml:182
+#: InhibitionItem.qml:183
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -254,7 +254,7 @@ msgctxt ""
 msgid "%1 is blocking sleep and screen locking. (%2)"
 msgstr "%1 блокира приспиването и заключването на екрана (%2)"
 
-#: InhibitionItem.qml:184
+#: InhibitionItem.qml:185
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -262,7 +262,7 @@ msgctxt ""
 msgid "%1 is blocking screen locking. (%2)"
 msgstr "%1 блокиране на заключването на екрана (%2)"
 
-#: InhibitionItem.qml:186
+#: InhibitionItem.qml:187
 #, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
@@ -270,7 +270,7 @@ msgctxt ""
 msgid "%1 is blocking sleep. (%2)"
 msgstr "%1 блокира приспиването (%2)"
 
-#: InhibitionItem.qml:194
+#: InhibitionItem.qml:195
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -278,7 +278,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Отблокиране"
 
-#: InhibitionItem.qml:202
+#: InhibitionItem.qml:203
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
