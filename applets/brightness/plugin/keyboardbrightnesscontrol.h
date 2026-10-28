@@ -21,14 +21,13 @@ class KeyboardBrightnessControl : public QObject
     Q_PROPERTY(int brightness READ default WRITE setBrightness NOTIFY brightnessChanged BINDABLE bindableBrightness)
     Q_PROPERTY(int brightnessMax READ default NOTIFY brightnessMaxChanged BINDABLE bindableBrightnessMax)
     Q_PROPERTY(bool isBrightnessAvailable READ default NOTIFY isBrightnessAvailableChanged BINDABLE bindableIsBrightnessAvailable)
-    Q_PROPERTY(bool isSilent WRITE setIsSilent)
+    Q_PROPERTY(bool isSilent MEMBER m_isSilent)
 
 public:
     explicit KeyboardBrightnessControl(QObject *parent = nullptr);
     ~KeyboardBrightnessControl() override;
 
     void setBrightness(int value);
-    void setIsSilent(bool silent);
 
     QBindable<bool> bindableIsBrightnessAvailable();
     QBindable<int> bindableBrightness();

@@ -72,11 +72,6 @@ QBindable<int> KeyboardBrightnessControl::bindableBrightnessMax()
     return &m_maxBrightness;
 }
 
-void KeyboardBrightnessControl::setIsSilent(bool silent)
-{
-    m_isSilent = silent;
-}
-
 void KeyboardBrightnessControl::onBrightnessChanged(int value)
 {
     m_brightness = value;
