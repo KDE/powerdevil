@@ -56,8 +56,8 @@ PlasmaExtras.Representation {
                 id: screenBrightnessRepeater
                 model: dialog.screenBrightnessControl.displays
 
-                property Item firstSlider: null
-                property Item lastSlider: null
+                property BrightnessItem firstSlider: null
+                property BrightnessItem lastSlider: null
 
                 BrightnessItem {
                     id: screenBrightnessSlider
@@ -68,8 +68,8 @@ PlasmaExtras.Representation {
                     required property int brightness
                     required property int maxBrightness
 
-                    property Item previousSlider: null
-                    property Item nextSlider: null
+                    property BrightnessItem previousSlider: null
+                    property BrightnessItem nextSlider: null
 
                     Layout.fillWidth: true
 
