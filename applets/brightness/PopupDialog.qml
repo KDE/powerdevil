@@ -56,8 +56,8 @@ PlasmaExtras.Representation {
                 id: screenBrightnessRepeater
                 model: dialog.screenBrightnessControl.displays
 
-                property Item firstSlider: screenBrightnessRepeater.itemAt(0)
-                property Item lastSlider: screenBrightnessRepeater.itemAt(count - 1)
+                property Item firstSlider: null
+                property Item lastSlider: null
 
                 BrightnessItem {
                     id: screenBrightnessSlider
@@ -68,8 +68,8 @@ PlasmaExtras.Representation {
                     required property int brightness
                     required property int maxBrightness
 
-                    property Item previousSlider: screenBrightnessRepeater.itemAt(index - 1)
-                    property Item nextSlider: screenBrightnessRepeater.itemAt(index + 1)
+                    property Item previousSlider: null
+                    property Item nextSlider: null
 
                     Layout.fillWidth: true
 
@@ -92,36 +92,25 @@ PlasmaExtras.Representation {
                     onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
 
-                // itemAt() doesn't cause bindings to be updated when the underlying items change,
-                // so let's do it by ourselves
-                onItemAdded: (index, item) => {
-                    if (index == 0) {
-                        firstSlider = item;
+                // Keep neighboring sliders linked explicitly: itemAt() doesn't notify bindings
+                // when items are inserted, removed or reindexed.
+                function updateKeyNavigation() {
+                    firstSlider = itemAt(0) as BrightnessItem;
+                    let previousSlider = firstSlider;
+                    for (let i = 1; i < count; ++i) {
+                        const slider = itemAt(i) as BrightnessItem;
+                        slider.previousSlider = previousSlider;
+                        previousSlider.nextSlider = slider;
+                        previousSlider = slider;
                     }
-                    if (index > 0) {
-                        itemAt(index - 1).nextSlider = item;
-                    }
-                    if (index + 1 < count) {
-                        itemAt(index + 1).previousSlider = item;
-                    }
-                    if (index + 1 == count) {
-                        lastSlider = item;
-                    }
-                }
-                onItemRemoved: (index, item) => {
-                    if (item == firstSlider) {
-                        firstSlider = itemAt(0);
-                    }
-                    if (index > 0) {
-                        itemAt(index - 1).nextSlider = itemAt(index);
-                    }
-                    if (index + 1 < count) {
-                        itemAt(index + 1).previousSlider = itemAt(index);
-                    }
-                    if (item == lastSlider) {
-                        lastSlider = itemAt(count - 1);
+                    lastSlider = previousSlider;
+                    if (firstSlider) {
+                        firstSlider.previousSlider = null;
+                        lastSlider.nextSlider = null;
                     }
                 }
+                onItemAdded: Qt.callLater(updateKeyNavigation)
+                onItemRemoved: Qt.callLater(updateKeyNavigation)
             }
 
             BrightnessItem {
