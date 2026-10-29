@@ -244,7 +244,8 @@ PlasmaComponents3.ItemDelegate {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
+                visible: root.pluggedIn && root.batteryIsPowerSupply && root.batteryType === "Battery"
+                    && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
                 iconSource: "kt-speed-limits" // FIXME good icon
                 text: i18n("Battery is configured to charge up to approximately %1%.", root.chargeStopThreshold)
             }
