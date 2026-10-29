@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:53+0000\n"
+"POT-Creation-Date: 2026-10-29 00:55+0000\n"
 "PO-Revision-Date: 2026-10-22 21:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -327,50 +327,50 @@ msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
 msgstr "До ръчно възобновяване"
 
-#: NightLightItem.qml:398
+#: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
 msgstr "Активирано до ръчно изключване"
 
-#: NightLightItem.qml:401
+#: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
 msgstr "Активиран до: %1"
 
-#: NightLightItem.qml:403
+#: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
 msgstr "Спрян до ръчно възобновяване"
 
-#: NightLightItem.qml:406
+#: NightLightItem.qml:404
 #, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
 msgstr "Спрян до: %1"
 
-#: NightLightItem.qml:428
+#: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
 msgstr "Утре в %1"
 
-#: PopupDialog.qml:133
+#: PopupDialog.qml:122
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Яркост на клавиатурата"
 
-#: PopupDialog.qml:158
+#: PopupDialog.qml:147
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Цвят на клавиатурата"
 
-#: PopupDialog.qml:171
+#: PopupDialog.qml:160
 #, kde-format
 msgid "Night Light"
 msgstr "Вечерни цветове"
 
-#: PopupDialog.qml:179
+#: PopupDialog.qml:168
 #, kde-format
 msgid "Theme"
 msgstr "Тема"

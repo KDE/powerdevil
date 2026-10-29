@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:53+0000\n"
+"POT-Creation-Date: 2026-10-29 00:55+0000\n"
 "PO-Revision-Date: 2026-10-20 12:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -325,50 +325,50 @@ msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
 msgstr "Do ročnega nadaljevanja"
 
-#: NightLightItem.qml:398
+#: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
 msgstr "Aktivirano dokler ni ročno onemogočeno"
 
-#: NightLightItem.qml:401
+#: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
 msgstr "Aktivirano do: %1"
 
-#: NightLightItem.qml:403
+#: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
 msgstr "Začasno ustavljeno do ročnega nadaljevanja"
 
-#: NightLightItem.qml:406
+#: NightLightItem.qml:404
 #, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
 msgstr "Začasno ustavljeno do: %1"
 
-#: NightLightItem.qml:428
+#: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
 msgstr "Jutri ob %1"
 
-#: PopupDialog.qml:133
+#: PopupDialog.qml:122
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Osvetljeno ozadje tipkovnice"
 
-#: PopupDialog.qml:158
+#: PopupDialog.qml:147
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Barva tipkovnice"
 
-#: PopupDialog.qml:171
+#: PopupDialog.qml:160
 #, kde-format
 msgid "Night Light"
 msgstr "Nočna svetloba"
 
-#: PopupDialog.qml:179
+#: PopupDialog.qml:168
 #, kde-format
 msgid "Theme"
 msgstr "Tema"

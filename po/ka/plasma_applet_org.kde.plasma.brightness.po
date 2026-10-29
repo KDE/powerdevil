@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:53+0000\n"
+"POT-Creation-Date: 2026-10-29 00:55+0000\n"
 "PO-Revision-Date: 2026-10-20 06:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -328,50 +328,50 @@ msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
 msgstr "სანამ ხელით არ განახლდება"
 
-#: NightLightItem.qml:398
+#: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
 msgstr "გააქტიურებულია ხელით გამორთვამდე"
 
-#: NightLightItem.qml:401
+#: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
 msgstr "აქტიურია სანამდე: %1"
 
-#: NightLightItem.qml:403
+#: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
 msgstr "შეჩერებულია ხელით განახლებამდე"
 
-#: NightLightItem.qml:406
+#: NightLightItem.qml:404
 #, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
 msgstr "შეჩერებულია სანამდე: %1"
 
-#: NightLightItem.qml:428
+#: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
 msgstr "ხვალ, %1-ზე"
 
-#: PopupDialog.qml:133
+#: PopupDialog.qml:122
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "კლავიატურის განათება"
 
-#: PopupDialog.qml:158
+#: PopupDialog.qml:147
 #, kde-format
 msgid "Keyboard Color"
 msgstr "კლავიატურის ფერი"
 
-#: PopupDialog.qml:171
+#: PopupDialog.qml:160
 #, kde-format
 msgid "Night Light"
 msgstr "ღამის სინათლე"
 
-#: PopupDialog.qml:179
+#: PopupDialog.qml:168
 #, kde-format
 msgid "Theme"
 msgstr "თემა"
