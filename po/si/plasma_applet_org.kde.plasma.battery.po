@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 03:19+0000\n"
+"POT-Creation-Date: 2026-10-30 02:59+0000\n"
 "PO-Revision-Date: 2009-11-02 17:48+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -90,7 +90,7 @@ msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr ""
 
-#: BatteryItem.qml:249
+#: BatteryItem.qml:250
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
