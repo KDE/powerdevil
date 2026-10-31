@@ -52,7 +52,7 @@ msgstr "No hi és"
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: BatteryItem.qml:130
 #, kde-format
@@ -94,7 +94,7 @@ msgstr "Estat de la bateria:"
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: BatteryItem.qml:250
 #, kde-format
@@ -106,7 +106,7 @@ msgstr ""
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: InhibitionItem.qml:51
 #, kde-format

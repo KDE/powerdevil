@@ -348,7 +348,7 @@ msgstr "Augmenta la brillantor de la pantalla"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Augmenta la brillantor de la pantalla un 1%"
+msgstr "Augmenta la brillantor de la pantalla un 1 %"
 
 #: powerdevilscreenbrightnessagent.cpp:156
 #, kde-format
@@ -360,4 +360,4 @@ msgstr "Disminuïx la brillantor de la pantalla"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Disminuïx la brillantor de la pantalla un 1%"
+msgstr "Disminuïx la brillantor de la pantalla un 1 %"
