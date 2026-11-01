@@ -96,11 +96,21 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: brightnessValue
+                    // intentionally ignoring qualitative labels (low/medium/high)
+                    // too large of a distance between hint and value looks worse than misaligned
+                    Layout.minimumWidth: Math.ceil(percentMetrics.advanceWidth)
                     Layout.alignment: Qt.AlignRight
+                    horizontalAlignment: Text.AlignRight
                     text: root.labelText
                     textFormat: Text.PlainText
                     font.features: Object.assign({}, Kirigami.Theme.defaultFont.features, { "tnum": 1 })
                     Accessible.ignored: true
+
+                    TextMetrics {
+                        id: percentMetrics
+                        font: brightnessValue.font
+                        text: i18nc("only used for sizing, should be widest possible string", "100%")
+                    }
                 }
             }
 
