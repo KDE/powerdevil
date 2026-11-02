@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 02:59+0000\n"
-"PO-Revision-Date: 2026-06-04 22:02+0200\n"
+"PO-Revision-Date: 2026-11-01 21:54+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: BatteryItem.qml:102
 #, kde-format
@@ -53,12 +53,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BatteryItem.qml:130
-#, fuzzy, kde-format
-#| msgctxt "An application's reason for inhibiting sleep and/or screen locking"
-#| msgid "Unknown reason."
+#, kde-format
 msgctxt "@info Battery percentage is unknown"
 msgid "Unknown"
-msgstr "Ismeretlen ok."
+msgstr "Ismeretlen"
 
 #: BatteryItem.qml:195
 #, kde-format
@@ -310,7 +308,7 @@ msgstr "Az akkumulátor nincs a helyén"
 #, kde-format
 msgctxt "@info:status"
 msgid "Battery level unknown"
-msgstr ""
+msgstr "Akkumulátorszint ismeretlen"
 
 #: main.qml:133
 #, kde-format
