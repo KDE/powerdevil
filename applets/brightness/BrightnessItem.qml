@@ -99,7 +99,7 @@ PlasmaComponents3.ItemDelegate {
                     Layout.alignment: Qt.AlignRight
                     text: root.labelText
                     textFormat: Text.PlainText
-                    font.features: { "tnum": 1 }
+                    font.features: Object.assign({}, Kirigami.Theme.defaultFont.features, { "tnum": 1 })
                     Accessible.ignored: true
                 }
             }
