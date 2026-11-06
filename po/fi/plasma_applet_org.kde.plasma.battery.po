@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:56+0000\n"
-"PO-Revision-Date: 2026-08-25 10:23+0300\n"
+"PO-Revision-Date: 2026-10-05 18:11+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -343,10 +343,9 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Virtalähde ei ole tarpeeksi tehokas lataamaan akkua"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
-msgstr "Ei akkuja"
+msgstr "Ei akkuja käytettävissä"
 
 #: main.qml:159
 #, kde-format
