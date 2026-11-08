@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:55+0000\n"
+"POT-Creation-Date: 2026-11-07 10:09+0000\n"
 "PO-Revision-Date: 2026-09-24 20:24-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -60,7 +60,13 @@ msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "يورۇقلۇق"
 
-#: BrightnessItem.qml:116
+#: BrightnessItem.qml:112
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr ""
+
+#: BrightnessItem.qml:126
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"

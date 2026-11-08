@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:55+0000\n"
+"POT-Creation-Date: 2026-11-07 10:09+0000\n"
 "PO-Revision-Date: 2024-03-16 22:34+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -60,7 +60,13 @@ msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Brillu de la pantalla"
 
-#: BrightnessItem.qml:116
+#: BrightnessItem.qml:112
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr ""
+
+#: BrightnessItem.qml:126
 #, fuzzy, kde-format
 #| msgid "Display Brightness"
 msgctxt "Placeholder is display name"

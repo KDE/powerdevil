@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:55+0000\n"
+"POT-Creation-Date: 2026-11-07 10:09+0000\n"
 "PO-Revision-Date: 2026-10-20 12:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -61,7 +61,13 @@ msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Brillo"
 
-#: BrightnessItem.qml:116
+#: BrightnessItem.qml:112
+#, kde-format
+msgctxt "only used for sizing, should be widest possible string"
+msgid "100%"
+msgstr ""
+
+#: BrightnessItem.qml:126
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
