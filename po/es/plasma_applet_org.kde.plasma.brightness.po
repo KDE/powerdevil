@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-10-20 12:19+0100\n"
+"PO-Revision-Date: 2026-11-09 01:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -65,7 +65,7 @@ msgstr "Brillo"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100 %"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -384,7 +384,3 @@ msgstr "Luz nocturna"
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
-
-#~ msgctxt "Night light status"
-#~ msgid "Unavailable"
-#~ msgstr "No disponible"
