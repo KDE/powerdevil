@@ -92,7 +92,7 @@ ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX POWERDEVIL
                   VERSION_HEADER "${CMAKE_BINARY_DIR}/powerdevil_version.h"
 )
 ecm_set_disabled_deprecation_versions(QT 6.11.0
-    KF 6.27.0
+    KF 6.32.0
 )
 
 add_subdirectory(applets)
