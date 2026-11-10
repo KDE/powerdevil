@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-10-20 09:10+0200\n"
+"PO-Revision-Date: 2026-11-08 09:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -65,7 +65,7 @@ msgstr "Brillantor"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100 %"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -384,7 +384,3 @@ msgstr "Llum de nit"
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
-
-#~ msgctxt "Night light status"
-#~ msgid "Unavailable"
-#~ msgstr "No disponible"
