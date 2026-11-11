@@ -61,7 +61,7 @@ msgstr "Slå av skjermen"
 #: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr "Slå av/på skjermen"
+msgstr "Slå på/av skjermen"
 
 #: PowerKCM.cpp:461
 #, kde-format
@@ -604,7 +604,7 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
-"Handlingen du tidligere har valgt for kjøring når av/på-knappen trykkes inn, "
+"Handlingen du tidligere har valgt for kjøring når på/av-knappen trykkes inn, "
 "er ikke lenger støttet. Velg en ny handling."
 
 #: ui/ProfileConfig.qml:188
@@ -613,13 +613,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr "Ved trykk på &av/på-knappen:"
+msgstr "Ved trykk på &på/av-knappen:"
 
 #: ui/ProfileConfig.qml:190
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr "Handling som skal utføres når av/på-knappen trykkes inn"
+msgstr "Handling som skal utføres når på/av-knappen trykkes inn"
 
 #: ui/ProfileConfig.qml:220
 #, kde-format
