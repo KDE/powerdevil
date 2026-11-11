@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-10-21 10:02+0200\n"
+"PO-Revision-Date: 2026-11-09 09:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -61,7 +61,7 @@ msgstr "Luminosité"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100 %"
 
 #: BrightnessItem.qml:126
 #, kde-format
