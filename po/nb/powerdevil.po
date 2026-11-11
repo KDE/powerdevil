@@ -187,7 +187,7 @@ msgstr "Senk lysstyrken på tastaturet"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr "Slå av/på tastaturbaklys"
+msgstr "Slå på/av tastaturbaklys"
 
 #: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
 #, kde-format
