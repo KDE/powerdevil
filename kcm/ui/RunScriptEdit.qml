@@ -55,7 +55,7 @@ FocusScope {
             Accessible.name: i18nc("@action:button opens file picker", "Choose script file")
             onClicked: { fileDialogComponent.incubateObject(root); }
 
-            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.visible: hovered || visualFocus
             QQC2.ToolTip.text: text
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
