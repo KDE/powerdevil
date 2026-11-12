@@ -80,15 +80,15 @@ msgid "Time To Full:"
 msgstr "Χρόνος για πλήρη φόρτιση:"
 
 #: BatteryItem.qml:215
-#, kde-format
+#, fuzzy, kde-format
 msgid "Remaining Time:"
-msgstr ""
+msgstr "Υπολειπόμενος χρόνος:"
 
 #: BatteryItem.qml:221
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid "Estimating…"
-msgstr ""
+msgstr "Υπολογισμός…"
 
 #: BatteryItem.qml:231
 #, fuzzy, kde-format
@@ -103,9 +103,9 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BatteryItem.qml:250
-#, kde-format
+#, fuzzy, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr ""
+msgstr "Η μπαταρία έχει ρυθμιστεί να φορτίζει έως περίπου το %1%."
 
 #: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
@@ -114,42 +114,50 @@ msgid "%1%"
 msgstr "%1%"
 
 #: InhibitionItem.qml:51
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Αναστολή λειτουργίας και κλείδωμα οθόνης μετά από αδράνεια"
 
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:75
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
 msgid "Power Management"
-msgstr "Ενεργοποίηση της διαχείρισης ενέργειας"
+msgstr "Διαχείριση ενέργειας"
 
 #: InhibitionItem.qml:63
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "accessible-only status text"
 msgid "Automatic sleep and screen locking are currently blocked."
 msgstr ""
+"Η αυτόματη αναστολή λειτουργίας και το κλείδωμα οθόνης είναι αυτή τη στιγμή "
+"μπλοκαρισμένα."
 
 #: InhibitionItem.qml:65
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Screen locking is currently blocked. Sleep is automatic after inactivity."
 msgstr ""
+"Το κλείδωμα οθόνης είναι αυτή τη στιγμή μπλοκαρισμένο. Η αναστολή "
+"λειτουργίας γίνεται αυτόματα μετά από αδράνεια."
 
 #: InhibitionItem.qml:67
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "accessible-only status text"
 msgid ""
 "Sleep is currently blocked. Screen locking is automatic after inactivity."
 msgstr ""
+"Η αναστολή λειτουργίας είναι αυτή τη στιγμή μπλοκαρισμένη. Το κλείδωμα "
+"οθόνης γίνεται αυτόματα μετά από αδράνεια."
 
 #: InhibitionItem.qml:69
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "accessible-only status text"
 msgid "Sleep and screen locking are automatic after inactivity."
 msgstr ""
+"Η αναστολή λειτουργίας και το κλείδωμα οθόνης γίνονται αυτόματα μετά από "
+"αδράνεια."
 
 #: InhibitionItem.qml:93
 #, fuzzy, kde-format
@@ -159,14 +167,16 @@ msgid "Manually Block Sleep and Screen Locking"
 msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
 
 #: InhibitionItem.qml:115
-#, kde-format
+#, fuzzy, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
+"Αποτυχία ξεμπλοκαρίσματος της αυτόματης αναστολής και του κλειδώματος οθόνης"
 
 #: InhibitionItem.qml:118
-#, kde-format
+#, fuzzy, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
+"Αποτυχία μπλοκαρίσματος της αυτόματης αναστολής και του κλειδώματος οθόνης"
 
 #: InhibitionItem.qml:132
 #, fuzzy, kde-format
@@ -201,10 +211,10 @@ msgstr ""
 "όταν κλείνει το καπάκι, σε περίπτωση που έχει συνδεθεί εξωτερική οθόνη."
 
 #: InhibitionItem.qml:160
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "An application's reason for inhibiting sleep and/or screen locking"
 msgid "Unknown reason."
-msgstr ""
+msgstr "Άγνωστος λόγος."
 
 #: InhibitionItem.qml:167
 #, fuzzy, kde-format
@@ -213,7 +223,9 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep and screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr ""
+"Το %1 θέλει να μπλοκάρει την αναστολή λειτουργίας και το κλείδωμα οθόνης. "
+"(%2)"
 
 #: InhibitionItem.qml:169
 #, fuzzy, kde-format
@@ -222,15 +234,15 @@ msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr "Το %1 θέλει να μπλοκάρει το κλείδωμα οθόνης. (%2)"
 
 #: InhibitionItem.qml:171
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Application (1) with reason (2) has been prevented from blocking this "
 "inactivity behavior. The user can choose to allow it again."
 msgid "%1 wants to block sleep. (%2)"
-msgstr ""
+msgstr "Το %1 θέλει να μπλοκάρει την αναστολή λειτουργίας. (%2)"
 
 #: InhibitionItem.qml:175
 #, fuzzy, kde-format
@@ -239,7 +251,8 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep and screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr ""
+"Το %1 μπλοκάρει επίσης την αναστολή λειτουργίας και το κλείδωμα οθόνης. (%2)"
 
 #: InhibitionItem.qml:177
 #, fuzzy, kde-format
@@ -248,15 +261,15 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr "Το %1 μπλοκάρει επίσης το κλείδωμα οθόνης. (%2)"
 
 #: InhibitionItem.qml:179
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, in addition to the user's manual block switch."
 msgid "%1 is also blocking sleep. (%2)"
-msgstr ""
+msgstr "Το %1 μπλοκάρει επίσης την αναστολή λειτουργίας. (%2)"
 
 #: InhibitionItem.qml:183
 #, fuzzy, kde-format
@@ -265,7 +278,7 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep and screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr "Το %1 μπλοκάρει την αναστολή λειτουργίας και το κλείδωμα οθόνης. (%2)"
 
 #: InhibitionItem.qml:185
 #, fuzzy, kde-format
@@ -274,31 +287,31 @@ msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking screen locking. (%2)"
-msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοποιήσει καθολική αποτροπή"
+msgstr "Το %1 μπλοκάρει το κλείδωμα οθόνης. (%2)"
 
 #: InhibitionItem.qml:187
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Application (1) with reason (2) is currently blocking this inactivity "
 "behavior, the user can choose to unblock it."
 msgid "%1 is blocking sleep. (%2)"
-msgstr ""
+msgstr "Το %1 μπλοκάρει την αναστολή λειτουργίας. (%2)"
 
 #: InhibitionItem.qml:195
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Ξεμπλοκάρισμα"
 
 #: InhibitionItem.qml:203
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Allow"
-msgstr ""
+msgstr "Να επιτρέπεται"
 
 #: main.qml:76
 #, fuzzy, kde-format
@@ -313,9 +326,9 @@ msgid "Power & Battery"
 msgstr "Ενέργεια και μπαταρία"
 
 #: main.qml:116
-#, kde-format
+#, fuzzy, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Η μπαταρία δεν βρίσκεται στη θέση της"
 
 #: main.qml:127
 #, kde-format
@@ -352,7 +365,7 @@ msgstr "Μπαταρία %1:"
 #, fuzzy, kde-format
 #| msgid "Show the percentage of &charge on the battery"
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr "Εμφάνιση ποσοστού &φόρτισης της μπαταρίας"
+msgstr "Το τροφοδοτικό δεν είναι αρκετά ισχυρό για να φορτίσει τη μπαταρία"
 
 #: main.qml:152
 #, fuzzy, kde-format
@@ -365,7 +378,7 @@ msgstr "Καμιά μπαταρία διαθέσιμη"
 #| msgid "Fully Charged"
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
-msgstr "Πλήρως φορτισμένη"
+msgstr "%1 έως την πλήρη φόρτιση"
 
 #: main.qml:161
 #, fuzzy, kde-format
@@ -373,7 +386,7 @@ msgstr "Πλήρως φορτισμένη"
 #| msgid "%1 Remaining (%2%)"
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
-msgstr "%1 Απομένει (%2%)"
+msgstr "Απομένουν %1"
 
 #: main.qml:164
 #, kde-format
@@ -381,44 +394,48 @@ msgid "Not charging"
 msgstr "Εκτός φόρτισης"
 
 #: main.qml:169
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
+"Η αυτόματη αναστολή και το κλείδωμα οθόνης είναι απενεργοποιημένα· μεσαίο "
+"κλικ για επανενεργοποίηση"
 
 #: main.qml:171
-#, kde-format
+#, fuzzy, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
+"Μεσαίο κλικ για απενεργοποίηση της αυτόματης αναστολής και του κλειδώματος "
+"οθόνης"
 
 #: main.qml:177
-#, kde-format
+#, fuzzy, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Μια εφαρμογή ζήτησε ενεργοποίηση της λειτουργίας απόδοσης"
+msgstr[1] "%1 εφαρμογές ζήτησαν ενεργοποίηση της λειτουργίας απόδοσης"
 
 #: main.qml:181
-#, kde-format
+#, fuzzy, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr ""
+msgstr "Το σύστημα είναι σε λειτουργία απόδοσης· κύλιση για αλλαγή"
 
 #: main.qml:185
-#, kde-format
+#, fuzzy, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Μια εφαρμογή ζήτησε ενεργοποίηση της εξοικονόμησης ενέργειας"
+msgstr[1] "%1 εφαρμογές ζήτησαν ενεργοποίηση της εξοικονόμησης ενέργειας"
 
 #: main.qml:189
-#, kde-format
+#, fuzzy, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr ""
+msgstr "Το σύστημα είναι σε εξοικονόμηση ενέργειας· κύλιση για αλλαγή"
 
 #: main.qml:192
-#, kde-format
+#, fuzzy, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
-msgstr ""
+msgstr "Το σύστημα είναι σε ισορροπημένη λειτουργία· κύλιση για αλλαγή"
 
 #: main.qml:310
 #, fuzzy, kde-format
@@ -445,14 +462,14 @@ msgid "Power Save"
 msgstr "Ρυθμίσεις ενέργειας"
 
 #: PowerProfileItem.qml:44
-#, kde-format
+#, fuzzy, kde-format
 msgid "Balanced"
-msgstr ""
+msgstr "Ισορροπημένη"
 
 #: PowerProfileItem.qml:48
-#, kde-format
+#, fuzzy, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "Απόδοση"
 
 #: PowerProfileItem.qml:65
 #, kde-format
@@ -460,10 +477,10 @@ msgid "Power Profile"
 msgstr "Προφίλ ενέργειας"
 
 #: PowerProfileItem.qml:109
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Αυτόματο"
 
 #: PowerProfileItem.qml:110
 #, fuzzy, kde-format
@@ -473,22 +490,26 @@ msgid "Not available"
 msgstr "Καμιά μπαταρία διαθέσιμη"
 
 #: PowerProfileItem.qml:150
-#, kde-format
+#, fuzzy, kde-format
 msgid "Failed to activate %1 mode"
-msgstr ""
+msgstr "Αποτυχία ενεργοποίησης της λειτουργίας %1"
 
 #: PowerProfileItem.qml:227
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
+"Η λειτουργία απόδοσης απενεργοποιήθηκε για λιγότερη θερμότητα, επειδή ο "
+"υπολογιστής εντόπισε ότι ίσως βρίσκεται στα πόδια σας."
 
 #: PowerProfileItem.qml:229
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
+"Η λειτουργία απόδοσης δεν είναι διαθέσιμη, επειδή ο υπολογιστής έχει "
+"υπερθερμανθεί."
 
 #: PowerProfileItem.qml:231
 #, fuzzy, kde-format
@@ -497,16 +518,18 @@ msgid "Performance mode is unavailable."
 msgstr "Η διαχείριση ενέργειας είναι απενεργοποιημένη"
 
 #: PowerProfileItem.qml:247
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
+"Η απόδοση μπορεί να μειωθεί για λιγότερη θερμότητα, επειδή ο υπολογιστής "
+"εντόπισε ότι ίσως βρίσκεται στα πόδια σας."
 
 #: PowerProfileItem.qml:249
-#, kde-format
+#, fuzzy, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
-msgstr ""
+msgstr "Η απόδοση μπορεί να μειωθεί, επειδή ο υπολογιστής έχει υπερθερμανθεί."
 
 #: PowerProfileItem.qml:251
 #, fuzzy, kde-format
@@ -515,37 +538,40 @@ msgid "Performance may be reduced."
 msgstr "Η διαχείριση ενέργειας είναι απενεργοποιημένη"
 
 #: PowerProfileItem.qml:264
-#, kde-format
+#, fuzzy, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Μια εφαρμογή ζήτησε ενεργοποίηση της λειτουργίας %2:"
+msgstr[1] "%1 εφαρμογές ζήτησαν ενεργοποίηση της λειτουργίας %2:"
 
 #: PowerProfileItem.qml:287
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
 "activating performance mode"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: PowerProfileItem.qml:305
-#, kde-format
+#, fuzzy, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Η υπηρεσία TLP ελέγχει αυτόματα τα προφίλ ενέργειας"
 
 #: PowerProfileItem.qml:307
-#, kde-format
+#, fuzzy, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Τα προφίλ ενέργειας δεν υποστηρίζονται στη συσκευή σας."
 
 #: PowerProfileItem.qml:308
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
+"Τα προφίλ ενέργειας ίσως υποστηρίζονται στη συσκευή σας.<nl/>Δοκιμάστε να "
+"εγκαταστήσετε το πακέτο <command>power-profiles-daemon</command> από τον "
+"διαχειριστή πακέτων της διανομής σας και επανεκκινήστε το σύστημα."
 
 #, fuzzy
 #~| msgctxt "tooltip: placeholder is the battery ID"

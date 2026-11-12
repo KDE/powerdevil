@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-30 00:56+0000\n"
-"PO-Revision-Date: 2026-10-01 08:16+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 23:01+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "Отсутствует"
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: BatteryItem.qml:130
 #, kde-format
@@ -76,7 +76,7 @@ msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
-"Остаточная ёмкость батареи — всего %1%, её следует заменить. Обратитесь к "
+"Остаточная ёмкость батареи — всего %1 %, её следует заменить. Обратитесь к "
 "производителю."
 
 #: BatteryItem.qml:214
@@ -104,18 +104,18 @@ msgstr "Состояние батареи:"
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: BatteryItem.qml:250
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr "Батарея настроена на зарядку примерно до %1%."
+msgstr "Батарея настроена на зарядку примерно до %1 %."
 
 #: CompactRepresentation.qml:104 CompactRepresentation.qml:167
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: InhibitionItem.qml:51
 #, kde-format
@@ -328,23 +328,23 @@ msgstr "Заряд батареи неизвестен"
 #: main.qml:133
 #, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "Заряд батареи %1%, не заряжается"
+msgstr "Заряд батареи %1 %, не заряжается"
 
 #: main.qml:135
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr ""
-"Заряд батареи %1%, внешнее питание подключено, но батарея не заряжается"
+"Заряд батареи %1 %, внешнее питание подключено, но батарея не заряжается"
 
 #: main.qml:137
 #, kde-format
 msgid "Battery at %1%, Charging"
-msgstr "Заряд батареи %1%, заряжается"
+msgstr "Заряд батареи %1 %, заряжается"
 
 #: main.qml:140
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Заряд батареи %1%"
+msgstr "Заряд батареи %1 %"
 
 #: main.qml:148
 #, kde-format

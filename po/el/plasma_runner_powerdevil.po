@@ -21,10 +21,10 @@ msgstr ""
 "X-Generator: Lokalize 1.2\n"
 
 #: PowerDevilRunner.cpp:31
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Note this is a KRunner keyword; 'power' as in 'power saving mode'"
 msgid "power"
-msgstr ""
+msgstr "power"
 
 #: PowerDevilRunner.cpp:32
 #, kde-format
@@ -57,16 +57,16 @@ msgid "to disk"
 msgstr "στο δίσκο"
 
 #: PowerDevilRunner.cpp:37
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid sleep"
-msgstr ""
+msgstr "hybrid sleep"
 
 #: PowerDevilRunner.cpp:38
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid"
-msgstr ""
+msgstr "hybrid"
 
 #: PowerDevilRunner.cpp:39 PowerDevilRunner.cpp:40 PowerDevilRunner.cpp:66
 #, kde-format
@@ -94,9 +94,9 @@ msgid "Suspends the system to disk"
 msgstr "Αναστολή συστήματος στο δίσκο"
 
 #: PowerDevilRunner.cpp:62
-#, kde-format
+#, fuzzy, kde-format
 msgid "Sleeps now and falls back to hibernate"
-msgstr ""
+msgstr "Αναστολή τώρα, με μετάπτωση σε αδρανοποίηση"
 
 #: PowerDevilRunner.cpp:65
 #, fuzzy, kde-format
@@ -166,9 +166,9 @@ msgid "Hybrid sleep"
 msgstr "Υβριδική αναστολή"
 
 #: PowerDevilRunner.cpp:148
-#, kde-format
+#, fuzzy, kde-format
 msgid "Sleep now and fall back to hibernate"
-msgstr ""
+msgstr "Αναστολή τώρα, με μετάπτωση σε αδρανοποίηση"
 
 #: PowerDevilRunner.cpp:226
 #, kde-format

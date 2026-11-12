@@ -214,10 +214,10 @@ msgstr ""
 "απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή αντικαταστήστε τη μπαταρία."
 
 #: powerdevilcore.cpp:547
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Placeholder is device name"
 msgid "The battery in “%1” is running low."
-msgstr ""
+msgstr "Η μπαταρία της συσκευής «%1» εξαντλείται."
 
 #: powerdevilcore.cpp:553
 #, kde-format
@@ -254,9 +254,9 @@ msgstr ""
 "μπαταρία."
 
 #: powerdevilcore.cpp:613
-#, kde-format
+#, fuzzy, kde-format
 msgid "Plug in the power cord."
-msgstr ""
+msgstr "Συνδέστε το καλώδιο τροφοδοσίας."
 
 #: powerdevilcore.cpp:633
 #, fuzzy, kde-format

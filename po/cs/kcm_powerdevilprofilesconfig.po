@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:48+0000\n"
-"PO-Revision-Date: 2026-08-26 23:22+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 18:51+0100\n"
+"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: PowerButtonActionModel.cpp:31
 #, kde-format
@@ -318,7 +318,7 @@ msgid ""
 msgstr ""
 "Stav nabití baterie bude považován za kritický pokud dosáhne této úrovně. Po "
 "krátkém varování bude systém automaticky uspán nebo hibernován podle "
-"nastavení činností pro kritickou úroveň nabytí baterie."
+"nastavení činností pro kritickou úroveň nabití baterie."
 
 #: ui/GlobalConfig.qml:149
 #, kde-format
@@ -380,7 +380,7 @@ msgstr "Ochrana &baterie:"
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr "Omezit na maximální nabytí baterie"
+msgstr "Omezit na maximální nabití baterie"
 
 #: ui/GlobalConfig.qml:244
 #, kde-format
@@ -417,7 +417,7 @@ msgid ""
 "charge, you can help extend the battery lifespan."
 msgstr ""
 "Pravidelné nabíjení baterie na 100%, nebo její úplné vybití může zrychlit "
-"její degradaci. Omezením maximální úrovně nabytí můžete prodloužit životnost "
+"její degradaci. Omezením maximální úrovně nabití můžete prodloužit životnost "
 "baterie."
 
 #: ui/GlobalConfig.qml:392

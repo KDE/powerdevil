@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-06 00:45+0000\n"
-"PO-Revision-Date: 2026-03-08 08:38+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 23:01+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +146,7 @@ msgstr "Текущий заряд"
 #, kde-format
 msgctxt "%1 is percentage value"
 msgid "%1 %"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: ui/BatteryPage.qml:115
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "Неизвестная технология"
 #, kde-format
 msgctxt "%1 is a percentage value"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/main.qml:33
 #, kde-format
@@ -263,7 +263,7 @@ msgstr "Неизвестная батарея"
 #, kde-format
 msgctxt "%1 is the charge percent, % is the percent sign"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: ui/main.qml:91
 #, kde-format

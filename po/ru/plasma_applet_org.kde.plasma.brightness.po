@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-11-08 07:47+0200\n"
+"PO-Revision-Date: 2026-11-11 23:01+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -53,7 +53,7 @@ msgstr "Включена"
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: BrightnessItem.qml:91
 #, kde-format
@@ -65,7 +65,7 @@ msgstr "Яркость"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr "100%"
+msgstr "100 %"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -103,18 +103,18 @@ msgstr "Яркость и цвет"
 #: main.qml:103
 #, kde-format
 msgid "Screen brightness at %1%"
-msgstr "Яркость экрана: %1%"
+msgstr "Яркость экрана: %1 %"
 
 #: main.qml:104
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Яркость %1: %2%"
+msgstr "Яркость %1: %2 %"
 
 #: main.qml:109
 #, kde-format
 msgid "Keyboard brightness at %1%"
-msgstr "Яркость клавиатуры: %1%"
+msgstr "Яркость клавиатуры: %1 %"
 
 #: main.qml:115
 #, kde-format

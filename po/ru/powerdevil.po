@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:48+0000\n"
-"PO-Revision-Date: 2026-06-18 18:15+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 23:01+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -198,7 +198,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда батареи устройства (осталось %1%)"
+msgstr "Низкий уровень заряда батареи устройства (осталось %1 %)"
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -215,22 +215,22 @@ msgstr "Батарея устройства «%1» почти разряжена
 #: powerdevilcore.cpp:553
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда батареи мыши (осталось %1%)"
+msgstr "Низкий уровень заряда батареи мыши (осталось %1 %)"
 
 #: powerdevilcore.cpp:557
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда батареи клавиатуры (осталось %1%)"
+msgstr "Низкий уровень заряда батареи клавиатуры (осталось %1 %)"
 
 #: powerdevilcore.cpp:567
 #, kde-format
 msgid "Phone Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда телефона (осталось %1%)"
+msgstr "Низкий уровень заряда телефона (осталось %1 %)"
 
 #: powerdevilcore.cpp:571
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда устройства Bluetooth (осталось %1%)"
+msgstr "Низкий уровень заряда устройства Bluetooth (осталось %1 %)"
 
 #: powerdevilcore.cpp:611
 #, kde-format
@@ -304,12 +304,12 @@ msgstr "Отменить"
 #: powerdevilcore.cpp:678
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Низкий уровень заряда батареи (осталось %1%)"
+msgstr "Низкий уровень заряда батареи (осталось %1 %)"
 
 #: powerdevilcore.cpp:685
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Критический уровень заряда батареи (осталось %1%)"
+msgstr "Критический уровень заряда батареи (осталось %1 %)"
 
 #: powerdevilcore.cpp:715
 #, kde-format
@@ -361,7 +361,7 @@ msgstr "Увеличить яркость экрана"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Увеличить яркость экрана на 1%"
+msgstr "Увеличить яркость экрана на 1 %"
 
 #: powerdevilscreenbrightnessagent.cpp:156
 #, kde-format
@@ -373,7 +373,7 @@ msgstr "Уменьшить яркость экрана"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Уменьшить яркость экрана на 1%"
+msgstr "Уменьшить яркость экрана на 1 %"
 
 #~ msgctxt "Placeholder is device name"
 #~ msgid ""

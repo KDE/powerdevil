@@ -20,46 +20,46 @@ msgstr ""
 "X-Generator: Lokalize 20.04.2\n"
 
 #: PowerButtonActionModel.cpp:31
-#, kde-format
+#, fuzzy, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Καμία ενέργεια"
 
 #: PowerButtonActionModel.cpp:40
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Αναστολή"
 
 #: PowerButtonActionModel.cpp:50
-#, kde-format
+#, fuzzy, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Αδρανοποίηση"
 
 #: PowerButtonActionModel.cpp:59
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Τερματισμός"
 
 #: PowerButtonActionModel.cpp:67
-#, kde-format
+#, fuzzy, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Κλείδωμα οθόνης"
 
 #: PowerButtonActionModel.cpp:75
-#, kde-format
+#, fuzzy, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Εμφάνιση οθόνης αποσύνδεσης"
 
 #: PowerButtonActionModel.cpp:83
-#, kde-format
+#, fuzzy, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Απενεργοποίηση οθόνης"
 
 #: PowerButtonActionModel.cpp:91
-#, kde-format
+#, fuzzy, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Εναλλαγή μεταξύ ενεργοποίησης και απενεργοποίησης της οθόνης"
 
 #: PowerKCM.cpp:461
 #, kde-format
@@ -67,206 +67,206 @@ msgid "The Power Management Service appears not to be running."
 msgstr "Η υπηρεσία διαχείρισης ισχύος μάλλον δεν εκτελείται."
 
 #: PowerProfileModel.cpp:42
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Εξοικονόμηση ενέργειας"
 
 #: PowerProfileModel.cpp:43
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Ισορροπημένο"
 
 #: PowerProfileModel.cpp:44
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Απόδοση"
 
 #: PowerProfileModel.cpp:48
-#, kde-format
+#, fuzzy, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Χωρίς αλλαγή"
 
 #: SleepModeModel.cpp:20
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Αναμονή"
 
 #: SleepModeModel.cpp:21
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Αποθήκευση συνεδρίας στη μνήμη"
 
 #: SleepModeModel.cpp:28
-#, kde-format
+#, fuzzy, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Υβριδική αναστολή"
 
 #: SleepModeModel.cpp:29
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Αποθήκευση συνεδρίας στη μνήμη και στον δίσκο"
 
 #: SleepModeModel.cpp:36
-#, kde-format
+#, fuzzy, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Αναμονή και μετά αδρανοποίηση"
 
 #: SleepModeModel.cpp:38
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr ""
+msgstr "Μετάβαση σε αδρανοποίηση όταν η στάθμη της μπαταρίας πέσει"
 
 #: SleepModeModel.cpp:39
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Μετάβαση σε αδρανοποίηση μετά από ένα διάστημα αδράνειας"
 
 #: ui/DurationPromptDialog.qml:131
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "χιλιοστό του δευτερολέπτου"
+msgstr[1] "χιλιοστά του δευτερολέπτου"
 
 #: ui/DurationPromptDialog.qml:133
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "δευτερόλεπτο"
+msgstr[1] "δευτερόλεπτα"
 
 #: ui/DurationPromptDialog.qml:135
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "λεπτό"
+msgstr[1] "λεπτά"
 
 #: ui/DurationPromptDialog.qml:137
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ώρα"
+msgstr[1] "ώρες"
 
 #: ui/DurationPromptDialog.qml:139
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ημέρα"
+msgstr[1] "ημέρες"
 
 #: ui/DurationPromptDialog.qml:141
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "εβδομάδα"
+msgstr[1] "εβδομάδες"
 
 #: ui/DurationPromptDialog.qml:143
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "μήνας"
+msgstr[1] "μήνες"
 
 #: ui/DurationPromptDialog.qml:145
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "έτος"
+msgstr[1] "έτη"
 
 #: ui/DurationPromptDialog.qml:169
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "χιλιοστά του δευτερολέπτου"
 
 #: ui/DurationPromptDialog.qml:171
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "δευτερόλεπτα"
 
 #: ui/DurationPromptDialog.qml:173
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "λεπτά"
 
 #: ui/DurationPromptDialog.qml:175
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "ώρες"
 
 #: ui/DurationPromptDialog.qml:177
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "ημέρες"
 
 #: ui/DurationPromptDialog.qml:179
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "εβδομάδες"
 
 #: ui/DurationPromptDialog.qml:181
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "μήνες"
 
 #: ui/DurationPromptDialog.qml:183
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "έτη"
 
 #: ui/GlobalConfig.qml:16
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Προχωρημένες ρυθμίσεις ενέργειας"
 
 #: ui/GlobalConfig.qml:21
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:59
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Επίπεδα μπαταρίας"
 
 #: ui/GlobalConfig.qml:67
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Χαμηλό επίπεδο:"
 
 #: ui/GlobalConfig.qml:75
 #, fuzzy, kde-format
@@ -276,221 +276,238 @@ msgid "Low battery level"
 msgstr "Σε χαμηλή μπαταρία"
 
 #: ui/GlobalConfig.qml:100
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Η φόρτιση της μπαταρίας θεωρείται χαμηλή όταν πέσει σε αυτό το επίπεδο. Τότε "
+"χρησιμοποιούνται οι ρυθμίσεις χαμηλής μπαταρίας αντί για τις κανονικές."
 
 #: ui/GlobalConfig.qml:107
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Κρίσιμ&ο επίπεδο:"
 
 #: ui/GlobalConfig.qml:115
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Κρίσιμο επίπεδο μπαταρίας"
 
 #: ui/GlobalConfig.qml:140
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge will be considered critical when it drops to this level. "
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Η φόρτιση της μπαταρίας θεωρείται κρίσιμη όταν πέσει σε αυτό το επίπεδο. "
+"Μετά από σύντομη προειδοποίηση, το σύστημα θα κάνει αυτόματα αναστολή ή "
+"τερματισμό, ανάλογα με την ενέργεια που έχει ρυθμιστεί για το κρίσιμο "
+"επίπεδο."
 
 #: ui/GlobalConfig.qml:149
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Η ενέργεια που είχατε ρυθμίσει για το κρίσιμο επίπεδο μπαταρίας δεν "
+"υποστηρίζεται πλέον στο σύστημά σας. Επιλέξτε μια άλλη."
 
 #: ui/GlobalConfig.qml:156
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Σ&το κρίσιμο επίπεδο:"
 
 #: ui/GlobalConfig.qml:158
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Ενέργεια στο κρίσιμο επίπεδο μπαταρίας"
 
 #: ui/GlobalConfig.qml:183
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Χαμηλό επίπεδο για περιφερειακές σ&υσκευές:"
 
 #: ui/GlobalConfig.qml:191
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Χαμηλό επίπεδο μπαταρίας περιφερειακών συσκευών"
 
 #: ui/GlobalConfig.qml:216
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Η φόρτιση της μπαταρίας των περιφερειακών συσκευών θεωρείται χαμηλή όταν "
+"φτάσει σε αυτό το επίπεδο."
 
 #: ui/GlobalConfig.qml:224
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Όριο φόρτισης"
 
 #: ui/GlobalConfig.qml:235
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "Προστασία &μπαταρίας:"
 
 #: ui/GlobalConfig.qml:236
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Περιορισμός της μέγιστης φόρτισης μπαταρίας"
 
 #: ui/GlobalConfig.qml:244
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Διακοπή φόρτισης στο:"
 
 #: ui/GlobalConfig.qml:295
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Έναρξη φόρτισης όταν πέσει &κάτω από:"
 
 #: ui/GlobalConfig.qml:373
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Ίσως χρειαστεί να αποσυνδέσετε και να ξανασυνδέσετε το τροφοδοτικό για να "
+"ξεκινήσει ξανά η φόρτιση."
 
 #: ui/GlobalConfig.qml:384
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
 "Regularly charging the battery close to 100%, or fully discharging it, may "
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Η τακτική φόρτιση της μπαταρίας κοντά στο 100% ή η πλήρης αποφόρτισή της "
+"μπορεί να επιταχύνει τη φθορά της. Περιορίζοντας τη μέγιστη φόρτιση, βοηθάτε "
+"να διαρκέσει περισσότερο η μπαταρία."
 
 #: ui/GlobalConfig.qml:392
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Άλλες ρυθμίσεις"
 
 #: ui/GlobalConfig.qml:400
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Αναπαραγωγή &πολυμέσων:"
 
 #: ui/GlobalConfig.qml:401
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Παύση αναπαραγωγών πολυμέσων κατά την αναστολή"
 
 #: ui/GlobalConfig.qml:414
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Σχετικές σελίδες:"
 
 #: ui/GlobalConfig.qml:431
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Ειδοποιήσεις: Διαχείριση ενέργειας"
 
 #: ui/GlobalConfig.qml:433
-#, kde-format
+#, fuzzy, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
+"Άνοιγμα της σελίδας ρυθμίσεων «Ειδοποιήσεις», ενότητα «Διαχείριση ενέργειας»"
 
 #: ui/GlobalConfig.qml:442
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr ""
+msgstr "Συντομεύσεις: Διαχείριση ενέργειας"
 
 #: ui/GlobalConfig.qml:444
-#, kde-format
+#, fuzzy, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
+"Άνοιγμα της σελίδας ρυθμίσεων «Συντομεύσεις», ενότητα «Διαχείριση ενέργειας»"
 
 #: ui/GlobalConfig.qml:451
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Κλείδωμα οθόνης"
 
 #: ui/GlobalConfig.qml:452
-#, kde-format
+#, fuzzy, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr ""
+msgstr "Άνοιγμα της σελίδας ρυθμίσεων «Κλείδωμα οθόνης»"
 
 #: ui/GlobalConfig.qml:459
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Συνεδρία επιφάνειας εργασίας"
 
 #: ui/GlobalConfig.qml:460
-#, kde-format
+#, fuzzy, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Άνοιγμα της σελίδας ρυθμίσεων «Συνεδρία επιφάνειας εργασίας»"
 
 #: ui/GlobalConfig.qml:467
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Δραστηριότητες"
 
 #: ui/GlobalConfig.qml:468
-#, kde-format
+#, fuzzy, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Άνοιγμα της σελίδας ρυθμίσεων «Δραστηριότητες»"
 
 #: ui/main.qml:19
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr ""
+msgstr "Προχωρημένες &ρυθμίσεις…"
 
 #: ui/main.qml:44
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων διαχείρισης ενέργειας"
 
 #: ui/main.qml:66
 #, kde-format
@@ -508,459 +525,472 @@ msgid "On Low Battery"
 msgstr "Σε χαμηλή μπαταρία"
 
 #: ui/ProfileConfig.qml:25
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:44
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Αναστολή συνεδρίας"
 
 #: ui/ProfileConfig.qml:59
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Η ενέργεια που είχατε ρυθμίσει για την αδράνεια δεν υποστηρίζεται πλέον στο "
+"σύστημά σας. Επιλέξτε μια άλλη."
 
 #: ui/ProfileConfig.qml:66
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "Σε &αδράνεια:"
 
 #: ui/ProfileConfig.qml:75
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Ενέργεια όταν το σύστημα είναι σε αδράνεια"
 
 #: ui/ProfileConfig.qml:106
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Μετά από %1 δευτερόλεπτο"
+msgstr[1] "Μετά από %1 δευτερόλεπτα"
 
 #: ui/ProfileConfig.qml:108
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Μετά από %1 λεπτό"
+msgstr[1] "Μετά από %1 λεπτά"
 
 #: ui/ProfileConfig.qml:121 ui/ProfileConfig.qml:416 ui/ProfileConfig.qml:557
 #: ui/ProfileConfig.qml:870
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "Προσαρμογή…"
 
 #: ui/ProfileConfig.qml:167
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Η απενεργοποίηση της αυτόματης αναστολής θα αυξήσει την κατανάλωση ενέργειας."
 
 #: ui/ProfileConfig.qml:169
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Μεγάλη διάρκεια θα αυξήσει την κατανάλωση ενέργειας."
 
 #: ui/ProfileConfig.qml:181
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Η ενέργεια που είχατε ρυθμίσει για το πάτημα του κουμπιού λειτουργίας δεν "
+"υποστηρίζεται πλέον στο σύστημά σας. Επιλέξτε μια άλλη."
 
 #: ui/ProfileConfig.qml:188
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Με το πάτημα του &κουμπιού λειτουργίας:"
 
 #: ui/ProfileConfig.qml:190
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Ενέργεια με το πάτημα του κουμπιού λειτουργίας"
 
 #: ui/ProfileConfig.qml:220
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Η ενέργεια που είχατε ρυθμίσει για το κλείσιμο του καπακιού δεν "
+"υποστηρίζεται πλέον στο σύστημά σας. Επιλέξτε μια άλλη."
 
 #: ui/ProfileConfig.qml:227
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Με το κλείσιμο του &καπακιού:"
 
 #: ui/ProfileConfig.qml:229
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Ενέργεια με το κλείσιμο του καπακιού του φορητού"
 
 #: ui/ProfileConfig.qml:258
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Ακόμα και όταν είναι συνδεδεμένη εξωτερική οθόνη"
 
 #: ui/ProfileConfig.qml:260
-#, kde-format
+#, fuzzy, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Εκτέλεση της ενέργειας καπακιού ακόμα και όταν είναι συνδεδεμένη εξωτερική "
+"οθόνη"
 
 #: ui/ProfileConfig.qml:278
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Η λειτουργία αναστολής που είχατε ρυθμίσει δεν υποστηρίζεται πλέον στο "
+"σύστημά σας. Επιλέξτε μια άλλη."
 
 #: ui/ProfileConfig.qml:285
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Κατά την αναστολή, μετάβαση σε:"
 
 #: ui/ProfileConfig.qml:287
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Λειτουργία εξοικονόμησης κατά την αναστολή"
 
 #: ui/ProfileConfig.qml:336
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Οθόνη και φωτεινότητα"
 
 #: ui/ProfileConfig.qml:346
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Αλλαγή φωτεινότητας ο&θόνης:"
 
 #: ui/ProfileConfig.qml:393
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Αυτόματη &μείωση φωτεινότητας:"
 
 #: ui/ProfileConfig.qml:395
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr ""
+msgstr "Αυτόματη &μείωση φωτεινότητας μετά από:"
 
 #: ui/ProfileConfig.qml:400
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 δευτερόλεπτο"
+msgstr[1] "%1 δευτερόλεπτα"
 
 #: ui/ProfileConfig.qml:402
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 λεπτό"
+msgstr[1] "%1 λεπτά"
 
 #: ui/ProfileConfig.qml:409
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "Ποτέ"
 
 #: ui/ProfileConfig.qml:461
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr ""
+"Η φωτεινότητα δεν θα μειωθεί, γιατί η οθόνη έχει ρυθμιστεί να σβήνει "
+"νωρίτερα."
 
 #: ui/ProfileConfig.qml:466
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "&Απενεργοποίηση οθόνης:"
 
 #: ui/ProfileConfig.qml:478
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr ""
+msgstr "Απενεργοποίηση οθόνης μετά από:"
 
 #: ui/ProfileConfig.qml:482
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 δευτερόλεπτο"
+msgstr[1] "%1 δευτερόλεπτα"
 
 #: ui/ProfileConfig.qml:484
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 λεπτό"
+msgstr[1] "%1 λεπτά"
 
 #: ui/ProfileConfig.qml:491
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "Ποτέ"
 
 #: ui/ProfileConfig.qml:498
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "Προσαρμογή…"
 
 #: ui/ProfileConfig.qml:537
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr ""
+msgstr "Όταν είναι κλειδωμένη, απενεργοποίηση οθόνης μετά από:"
 
 #: ui/ProfileConfig.qml:541
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Κλειδωμένη: %1 δευτερόλεπτο"
+msgstr[1] "Κλειδωμένη: %1 δευτερόλεπτα"
 
 #: ui/ProfileConfig.qml:543
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Κλειδωμένη: %1 λεπτό"
+msgstr[1] "Κλειδωμένη: %1 λεπτά"
 
 #: ui/ProfileConfig.qml:550
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr ""
+msgstr "Κλειδωμένη και ξεκλείδωτη"
 
 #: ui/ProfileConfig.qml:552
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Κλειδωμένη: Αμέσως"
 
 #: ui/ProfileConfig.qml:591
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Αλλαγή φωτεινότητας πλη&κτρολογίου:"
 
 #: ui/ProfileConfig.qml:639
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Άλλες ρυθμίσεις"
 
 #: ui/ProfileConfig.qml:647
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Αλλαγή σε προφίλ &ενέργειας:"
 
 #: ui/ProfileConfig.qml:651
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Αλλαγή σε προφίλ ενέργειας"
 
 #: ui/ProfileConfig.qml:678
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr ""
+msgstr "Εκτέλεση εντολής ή σεναρίου:"
 
 #: ui/ProfileConfig.qml:688
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr ""
+msgstr "Επιλογή συνθηκών εκτέλεσης"
 
 #: ui/ProfileConfig.qml:690
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr ""
+msgstr "Επιλογή συνθηκών εκτέλεσης εντολής ή σεναρίου"
 
 #: ui/ProfileConfig.qml:710
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr ""
+msgstr "Κατά την είσοδο στην κατάσταση «%1»"
 
 #: ui/ProfileConfig.qml:728
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr ""
+msgstr "Κατά την έξοδο από την κατάσταση «%1»"
 
 #: ui/ProfileConfig.qml:746
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "Σε αδράνεια"
 
 #: ui/ProfileConfig.qml:769
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr ""
+msgstr "Κατά την &είσοδο στην κατάσταση «%1»:"
 
 #: ui/ProfileConfig.qml:773
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr ""
+msgstr "Εντολή ή σενάριο κατά την είσοδο στην κατάσταση «%1»"
 
 #: ui/ProfileConfig.qml:804
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr ""
+msgstr "Κατά την έ&ξοδο από την κατάσταση «%1»:"
 
 #: ui/ProfileConfig.qml:808
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr ""
+msgstr "Εντολή ή σενάριο κατά την έξοδο από την κατάσταση «%1»"
 
 #: ui/ProfileConfig.qml:837
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr ""
+msgstr "Διάρκεια αδράνειας πριν από την εκτέλεση της εντολής ή του σεναρίου"
 
 #: ui/ProfileConfig.qml:843
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Σε α&δράνεια:"
 
 #: ui/ProfileConfig.qml:846
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr ""
+msgstr "Εκτέλεση εντολής ή σεναρίου μετά από:"
 
 #: ui/ProfileConfig.qml:855
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Εκτέλεση μετά από %1 δευτερόλεπτο"
+msgstr[1] "Εκτέλεση μετά από %1 δευτερόλεπτα"
 
 #: ui/ProfileConfig.qml:857
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Εκτέλεση μετά από %1 λεπτό"
+msgstr[1] "Εκτέλεση μετά από %1 λεπτά"
 
 #: ui/ProfileConfig.qml:899
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Εντολή ή σενάριο σε αδράνεια"
 
 #: ui/RunScriptEdit.qml:35
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr ""
+msgstr "Εισαγάγετε εντολή ή αρχείο σεναρίου"
 
 #: ui/RunScriptEdit.qml:36
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr ""
+msgstr "Εισαγάγετε εντολή ή επιλέξτε αρχείο σεναρίου"
 
 #: ui/RunScriptEdit.qml:54
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Επιλογή…"
 
 #: ui/RunScriptEdit.qml:55
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Επιλογή αρχείου σεναρίου"
 
 #: ui/RunScriptEdit.qml:68
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Επιλογή αρχείου σεναρίου"
 
 #: ui/TimeDurationComboBox.qml:22
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Προσαρμοσμένη διάρκεια"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
