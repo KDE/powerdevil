@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the plasma-workspace package.
 #
 # Māris Nartišs <maris.kde@gmail.com>, 2023.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024-2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-01-19 16:37+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-11-11 15:02+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -65,7 +65,7 @@ msgstr "Spilgtums"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100 %"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -143,24 +143,24 @@ msgstr "Nakts gaismas vakara pāreja (beigsies %1)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "Nakts gaisma ir uz laiku aktīva līdz tiks manuāli izslēgta"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "Nakts gaisma ir uz laiku aktīva līdz %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "Nakts gaisma ir uz laiku neaktīva līdz tiks manuāli atsākta"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "Nakts gaisma ir uz laiku neaktīva līdz %1"
 
 #: main.qml:149
 #, kde-format
@@ -180,34 +180,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "Ritiniet, lai mainītu ekrāna spilgtumu"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
+msgstr "Spiediet te ar peles vidējo pogu, lai atsāktu nakts gaismas darbību"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
+msgstr "Spiediet te ar peles vidējo pogu izslēgtu nakts gaismu"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
+msgstr "Spiediet te ar peles vidējo pogu, lai ieslēgtu nakts gaismu"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
+msgstr "Spiediet te ar peles vidējo pogu, lai uz laiku ieslēgtu nakts gaismu"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "Spiediet te peles vidējo pogu, lai apturētu nakts gaismas darbību"
+msgstr "Spiediet te ar peles vidējo pogu, lai uz laiku izslēgtu nakts gaismu"
 
 #: main.qml:258
 #, kde-format
@@ -236,7 +231,7 @@ msgstr "Ieslēgta"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "Pauzēta"
 
 #: NightLightItem.qml:209
 #, kde-format
@@ -290,95 +285,93 @@ msgstr "Apturēt"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "Aktivēt"
 
 #: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Uz vienu stundu"
 
 #: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "Līdz rītam"
 
 #: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "Līdz rītdienas rītam"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "Līdz manuāli izslēdzu"
 
 #: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Uz vienu stundu"
 
 #: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "Līdz vakaram"
 
 #: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "Līdz rītdienas vakaram"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "Līdz manuāli atsāku"
 
 #: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "Aktivēt līdz manuāli izslēdzu"
 
 #: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "Aktivēt līdz: %1"
 
 #: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "Apturēts līdz manuāli turpināts"
 
 #: NightLightItem.qml:404
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "Apturēta"
+msgstr "Apturēts līdz: %1"
 
 #: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Rīt %1"
 
 #: PopupDialog.qml:122
 #, kde-format
 msgid "Keyboard Backlight"
-msgstr "Tastatūras spilgtums"
+msgstr "Tastatūras apgaismojums"
 
 #: PopupDialog.qml:147
 #, kde-format
 msgid "Keyboard Color"
-msgstr "Tastatūras krāsa"
+msgstr "Tastatūras apgaismojuma krāsa"
 
 #: PopupDialog.qml:160
 #, kde-format
