@@ -1,0 +1,546 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+<article id="powerdevil" lang="&language;">
+<articleinfo>
+<title
+>إدارة الطاقة</title>
+<authorgroup>
+<author
+>&Dario.Freddi;&Dario.Freddi.mail;</author>
+<author
+>&Jakob.Petsovits;&Jakob.Petsovits.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2024-02-09</date>
+<releaseinfo
+>بلازما 6.0</releaseinfo>
+
+<keywordset>
+<keyword
+>بلازما</keyword>
+<keyword
+>إعدادات النّظام</keyword>
+<keyword
+>عفريت الطاقة</keyword>
+<keyword
+>إدارة الطاقة</keyword>
+<keyword
+>حِفظ الطاقة</keyword>
+<keyword
+>طاقة حاسوب محمول</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="kcm_powerdevilconfig">
+<title
+>إدارة الطاقة</title>
+
+<para
+>تضبط وحدة الإعدادات هذه خدمة إدارة الطاقة في بلازما، والمعروفة أيضًا باسم عفريت الطاقة (PowerDevil). وهي تتيح لك الموازنة بين توفير الطاقة والاستفادة الكاملة من قدرات نظامك. خدمة إدارة الطاقة مدمجة في سطح مكتبك ويمكنها التفاعل مع أجهزتك.</para>
+
+<para
+>تعرض الصفحة الرئيسة للوحدة الإعدادات التي تساعد في توفير الطاقة. ستظهر فقط الإعدادات التي يدعمها نظامك. في الأنظمة التي تعمل بالبطارية، توفر الصفحة ثلاثة ألسنة بإعدادات مختلفة لحالات الطاقة: <guilabel
+>على طاقة التيار المتردد</guilabel
+>، و<guilabel
+>على البطارية</guilabel
+>، و<guilabel
+>عند انخفاض البطارية</guilabel
+>. </para>
+
+<para>
+<screenshot>
+<screeninfo
+>إعدادات إدارة الطاقة</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="energy.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+>إعدادات إدارة الطاقة</phrase>
+    </textobject>
+    <caption>
+      <para
+>إعدادات إدارة الطاقة</para>
+    </caption>
+  </mediaobject>
+</screenshot>
+</para>
+
+<sect2 id="suspend-session-section">
+<title
+>علِّق الجلسة</title>
+<para
+>هناك ظروف شائعة تتوقع فيها أن ينام النظام، أو ينطفئ، أو يوقف جلسة سطح المكتب العادية بطرق أخرى. يتيح لك هذا القسم تحديد كيفية تصرف نظامك بالضبط في هذه الظروف. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>لا تفعل شيئا</guilabel
+></term>
+<listitem>
+<para
+>الاستمرار في جلسة سطح المكتب وكأن شيئًا لم يحدث. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>علّق</guilabel
+></term>
+<listitem>
+<para
+>توفير الطاقة والاستيقاظ بسرعة. تدخل العديد من مكونات العتاد في حالة توفير الطاقة دون إيقاف تشغيل النظام تمامًا. ستُفقد البيانات غير المحفوظة إذا انقطع مصدر الطاقة - على سبيل المثال عند نفاد البطارية تمامًا. تعتمد درجة توفير الطاقة المحققة أثناء التعليق على العتاد والبرمجيات الثابتة المقدمة من الشركة المصنعة للنظام.</para>
+
+<para
+>توفر الوحدة إعدادًا منسدلًا إضافيًا لاختيار وضع التعليق الدقيق للدخول فيه عند تفعيل "التعليق":</para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>تأهب</guilabel
+></term>
+<listitem>
+<para
+>حفظ جلسة سطح المكتب الحالية في الذاكرة. يدخل وضع التعليق التقليدي هذا في التعليق بسرعة ويستيقظ بسرعة. غالبًا ما تُصمم الأنظمة التي تعمل بالبطارية لتصمد ما بين يوم وأسبوعين في هذه الحالة. يُعرف أيضًا باسم "التعليق إلى الرام (RAM)".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>تعليق هجين</guilabel
+></term>
+<listitem>
+<para
+>حفظ جلسة سطح المكتب الحالية في كل من الذاكرة ووحدة التخزين، مثل قرص SSD أو القرص الصلب. الاستيقاظ سريع مثل وضع التأهب، لكن البيانات غير المحفوظة ستبقى حتى لو نفدت الطاقة أثناء التعليق. ومن سلبياته أن وضع التعليق هذا يضع عبئًا أكبر على وحدة التخزين، مما قد يقلل من عمرها الافتراضي ويستغرق النظام وقتًا أطول لبدء التعليق مقارنة بوضع التأهب. يُعرف أيضًا باسم "التعليق الهجين".</para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>تأهب، ثم إسبات</guilabel
+></term>
+<listitem>
+<para
+>الدخول في وضع التأهب مبدئيًا، ثم الإسبات بعد فترة من الخمول. إذا نام النظام لفترة قصيرة فقط، فإن وضع التعليق هذا يوفر أوقات استيقاظ سريعة ومزايا طول عمر وحدة التخزين التي يوفرها التأهب العادي. أما إذا ظل النظام خاملًا لفترة أطول، فإن الإسبات يقلل من استهلاك الطاقة بشكل أكبر ويضمن عدم فقدان البيانات غير المحفوظة. يتم تحديد مقدار الوقت حتى الإسبات من خلال ضبط النظام منخفض المستوى. يُعرف أيضًا باسم "التعليق، ثم الإسبات".</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>أسبِت</guilabel
+></term>
+<listitem>
+<para
+>حفظ جلسة سطح المكتب الحالية في وحدة التخزين وإطفاء الجهاز. يستغرق الإسبات واستعادة الجلسة وقتًا أطول من التعليق في وضع التأهب، ولكن البيانات غير المحفوظة لن تُفقد إذا انقطع مصدر الطاقة. الإسبات مدعوم على نطاق واسع عبر أنواع مختلفة من العتاد، طالما أن وحدة التخزين الخاصة بك معدة مع قسم تبديل (swap) كبير بما يكفي لتخزين محتويات ذاكرة النظام. يُعرف أيضًا باسم "التعليق إلى القرص". </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>أطفئ</guilabel
+></term>
+<listitem>
+<para
+>تسجيل الخروج من جلسة سطح المكتب وأي جلسات مفتوحة أخرى، ثم إطفاء النظام. ستطلب التطبيقات المفتوحة حفظ أي بيانات غير محفوظة قبل الإغلاق. بالنسبة للجلسات المستقبلية، تُستعاد حالة التطبيق فقط إلى الحد الذي يدعمه التطبيق نفسه. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>اقفل الشاشة</guilabel
+></term>
+<listitem>
+<para
+>قفل الشاشة دون تقليل استهلاك الطاقة. لتوفير الطاقة مع قفل الشاشة أيضًا، اختر "نوم" أو "إسبات" وتأكد من تمكين القفل بعد الاستيقاظ من التعليق في وحدة إعدادات قفل الشاشة. لاحظ أن وحدة قفل الشاشة توفر إعدادًا منفصلًا للقفل بعد فترة من الخمول، لذا لا يتوفر هذا إلا كإجراء لزر الطاقة أو غطاء الحاسوب المحمول. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>إظهار شاشة تسجيل الخروج</guilabel
+></term>
+<listitem>
+<para
+>عرض حوار مع خيارات للنوم، أو الإسبات، أو الإطفاء، أو تسجيل الخروج. يتوفر هذا كخيار فقط عند الضغط على زر الطاقة الفعلي للنظام. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>إطفاء الشاشة</guilabel
+></term>
+<listitem>
+<para
+>التلاشي إلى الأسود وإطفاء الإضاءة الخلفية للشاشة. يحتوي قسم "العرض والسطوع" على إعداده الخاص لإطفاء الشاشة، بشكل مستقل عن إجراء الخمول المضبوط في "تعليق الجلسة". </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="display-and-brightness-section">
+<title
+>العرض والسطوع</title>
+<para
+>تستهلك شاشات الحواسيب المحمولة والإضاءة الخلفية للوحة المفاتيح الكثير من طاقة الحاسوب المحمول الخامد. غالبًا ما تستهلك الشاشات الكبيرة طاقة أكبر من حاسوب محمول كامل بشاشته. بعض أنواع الشاشات عرضة لاحتراق الشاشة أو البكسلات العالقة اعتمادًا على نمط الاستخدام. لكل هذه الأسباب، يساعد تقليل السطوع أو إطفاء الشاشات والإضاءة الخلفية تمامًا إذا لم تكن هناك حاجة إليها. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>تغيير سطوع الشاشة</guilabel
+> / <guilabel
+>تغيير سطوع لوحة المفاتيح</guilabel
+></term>
+<listitem>
+<para
+>تحديد مستوى سطوع ليُضبط عند التبديل بين حالات الطاقة: <guilabel
+>على طاقة التيار المتردد</guilabel
+>، و<guilabel
+>على البطارية</guilabel
+>، و<guilabel
+>عند انخفاض البطارية</guilabel
+>. </para>
+<para
+>يمكن أيضًا تغيير سطوع الشاشة ولوحة المفاتيح فورًا عبر بريمج <guilabel
+>السطوع واللون</guilabel
+>، وكذلك باستخدام اختصارات لوحة المفاتيح. تغيير السطوع فورًا لن يؤثر على الإعدادات في هذه الوحدة. إذا لم يُحدد مستوى سطوع في وحدة الإعدادات هذه، فسيظل السطوع كما هو عند التبديل بين حالات الطاقة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>إعتام آلي</guilabel
+></term>
+<listitem>
+<para
+>تقليل سطوع الشاشة بعد فترة من الخمول. عند اكتشاف نشاط للمستخدم مرة أخرى، ستعود الشاشة إلى مستوى سطوعها السابق. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>إطفاء الشاشة</guilabel
+></term>
+<listitem>
+<para
+>التلاشي إلى الأسود وإطفاء الإضاءة الخلفية للشاشة بعد فترة من الخمول. عند اكتشاف نشاط للمستخدم مرة أخرى، ستعمل الشاشة مرة أخرى. يمكن ضبط وقت انتظار أقصر عندما يكون قفل الشاشة نشطًا. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="other-settings">
+<title
+>إعدادات أخرى</title>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>التبديل إلى تشكيلة طاقة</guilabel
+></term>
+<listitem>
+<para
+>تحديد خصائص أداء النظام ليتم ضبطها عند التبديل بين حالات الطاقة: <guilabel
+>على طاقة التيار المتردد</guilabel
+>، و<guilabel
+>على البطارية</guilabel
+>، و<guilabel
+>عند انخفاض البطارية</guilabel
+>. تتيح لك تشكيلة الطاقة مثل <guilabel
+>توفير الطاقة</guilabel
+> و<guilabel
+>متوازن</guilabel
+> و<guilabel
+>الأداء</guilabel
+> الموازنة بين الأداء واستهلاك الطاقة، مما يؤثر أيضًا على مستويات الحرارة وضجيج المروحة التي سينتجها نظامك. </para>
+<para
+>يمكن أيضًا تغيير تشكيلات الطاقة فورًا عبر بريمج <guilabel
+>الطاقة والبطارية</guilabel
+> وكذلك باستخدام اختصارات لوحة المفاتيح. تغيير تشكيلات الطاقة فورًا لن يؤثر على الإعدادات في هذه الوحدة. إذا لم يُحدد مستوى سطوع في وحدة الإعدادات هذه، فسيظل السطوع كما هو عند التبديل بين حالات الطاقة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>شغل سكربت</guilabel
+></term>
+<listitem>
+<para
+>ضبط سكربت مخصص للتشغيل عند التبديل بين حالات الطاقة: <guilabel
+>على طاقة التيار المتردد</guilabel
+>، و<guilabel
+>على البطارية</guilabel
+>، و<guilabel
+>عند انخفاض البطارية</guilabel
+>، أو بعد فترة من الخمول. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2 id="advanced-power-settings">
+<title
+>إعدادات طاقة متقدمة</title>
+<para>
+<screenshot>
+<screeninfo
+>إعدادات طاقة متقدمة</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="advanced.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+>إعدادات طاقة متقدمة</phrase>
+    </textobject>
+    <caption>
+      <para
+>إعدادات طاقة متقدمة</para>
+    </caption>
+  </mediaobject>
+</screenshot>
+</para>
+
+<para
+>افتح هذه الصفحة بالضغط على الزر الموجود في زاوية الصفحة الرئيسة لوحدة الإعدادات. </para>
+
+<variablelist>
+
+<varlistentry
+><term
+><guilabel
+>مستويات البطارية</guilabel
+></term>
+<listitem>
+<para
+>لا تُعرض هذه الإعدادات إلا في الأنظمة التي تعمل بالبطارية. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>المستوى المنخفض</guilabel
+></term>
+<listitem>
+<para
+>أقل من هذه النسبة المئوية، سيُعتبر شحن البطارية منخفضًا. إذا فُصل النظام عن الشاحن، ستُستخدم إعدادات تشكيلة <guilabel
+>عند انخفاض البطارية</guilabel
+> بدلًا من <guilabel
+>على البطارية</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>المستوى الحَرِج</guilabel
+></term>
+<listitem>
+<para
+>أقل من هذه النسبة المئوية، سيُعتبر شحن البطارية عند مستوى حرج. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>عند المستوى الحرج</guilabel
+></term>
+<listitem>
+<para
+>تحديد الإجراء الذي سيُنفذ عندما يصل شحن البطارية إلى المستوى الحرج. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+>الأجهزة الطرفية</term>
+<listitem>
+<para
+>أقل من هذه النسبة المئوية، سيُعتبر شحن البطارية للأجهزة الطرفية (مثل الفأرة اللاسلكية) منخفضًا. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>حد الشحن</guilabel
+></term>
+<listitem>
+<para
+>لا تُعرض هذه الإعدادات إلا إذا كان النظام يدعم حدود الشحن لبطاريته. </para>
+
+<para
+>إن شحن البطارية بانتظام حتى تقترب من 100% أو تفريغها بالكامل حتى تقترب من 0% يمكن أن يؤدي إلى تدهورها بشكل أسرع. من خلال تحديد الحد الأقصى لشحن البطارية، يمكنك المساعدة في إطالة عمر بطاريتك. </para>
+
+<para
+>توصي مصادر مختلفة بمستويات شحن مختلفة لبطاريات الليثيوم أيون. يشير الإجماع العام بين الأبحاث المتاحة إلى أن إبقاء بطاريتك ضمن نطاق 25%-75% هو الأمثل للحفاظ على سعتها على مر السنين. ولا يزال النطاق من 15%-85% يزيد بشكل كبير من عمر البطارية مقارنة بالنطاقات الأوسع. </para>
+
+<para
+>لاحظ أن عمر البطارية يتأثر بشكل أساسي بمستوى شحنها بمرور الوقت، أكثر من تأثره بعدد دورات الشحن والتفريغ. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>أوقف الشحن عند</guilabel
+></term>
+<listitem>
+<para
+>حد الشحن العلوي لبطاريتك. بمجرد الوصول إلى هذا المستوى، تُعتبر البطارية مشحونة بالكامل ولن يشحنها النظام أكثر من ذلك. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>ابدأ الشحن عندما تقل عن</guilabel
+></term>
+<listitem>
+<para
+>حد الشحن السفلي. بمجرد تفريغ البطارية وتجاوز هذا المستوى، سيبدأ النظام في شحنها مرة أخرى. يمكن أن يكون هذا أقل قليلًا من الحد العلوي، أو نفس النسبة المئوية للاستمرار في سحب الطاقة مع بقاء شحن البطارية ثابتًا. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>تتطلب بعض الأنظمة فصل كابل الطاقة وإعادة توصيله قبل احترام الإعدادات. بعض الأنظمة لا تخزن حدود الشحن عند إطفاء الجهاز. يرجى الانتباه إلى القيود المحتملة. </para>
+</listitem>
+
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="powerdevilrunner">
+<title
+>مشغل عفريت الطاقة</title>
+
+<para
+>يمكن التحكم في عفريت الطاقة يدويًا عبر مشغل كيدي (KRunner) (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+>). وهذا يجعل تغيير السطوع، وتشكيلة الطاقة، وغيرها أسهل وأسرع بكثير. يحتوي المشغل على كلمات مفتاحية مختلفة يمكنك إدخالها للوصول إلى وظائفه </para>
+<sect2 id="runnerwords">
+<title
+>الكلمات المفتاحية للمشغل</title>
+<para
+>فيما يلي قائمة بالكلمات المفتاحية التي يمكنك إدخالها في مشغل كيدي (KRunner) لتنفيذ إجراءات متعلقة بعفريت الطاقة. </para>
+<variablelist>
+<varlistentry
+><term
+><userinput
+>تشكيلة الطاقة</userinput
+></term>
+<listitem>
+<para
+>يمكنك اختيار تشكيلة طاقة يدويًا باستخدام هذه الكلمة المفتاحية. ستظهر جميع التشكيلات المتاحة في شكل نتائج مطابقة في مشغل كيدي (KRunner). </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><userinput
+>سطوع الشاشة</userinput
+> أو <userinput
+>إعتام الشاشة</userinput
+></term>
+<listitem>
+<para
+>يمكنك التحكم في سطوع الشاشة عبر هذه الكلمة المفتاحية. في هذا الشكل، ستظهر بعض نتائج مشغل كيدي (KRunner) التي تتيح لك تنفيذ إجراءات طاقة شائعة. إذا أدخلت قيمة بعد الكلمة المفتاحية (مثل: <userinput
+>سطوع الشاشة 50</userinput
+>)، فسيُضبط السطوع على تلك القيمة. </para>
+</listitem>
+</varlistentry>
+<varlistentry
+><term
+><userinput
+>تعليق</userinput
+>، <userinput
+>نوم</userinput
+>، <userinput
+>أسبت</userinput
+>، <userinput
+>إلى الرام</userinput
+> أو <userinput
+>إلى القرص</userinput
+></term>
+<listitem>
+<para
+>يمكنك وضع حاسوبك في وضع طاقة منخفضة عبر هذه الكلمات المفتاحية. ستظهر الطرق المتاحة كأطراف مطابقة في مشغل كيدي (KRunner). </para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+</sect1>
+</article>
+<!--FIXME in 5.7
+plasma-workspace/runners/powerdevil/
+PowerDevilRunner.cpp:55:    commands << i18nc("Note this is a KRunner keyword", "power profile")
+PowerDevilRunner.cpp:56:             << i18nc("Note this is a KRunner keyword", "suspend")
+PowerDevilRunner.cpp:57:             << i18nc("Note this is a KRunner keyword", "sleep")
+PowerDevilRunner.cpp:58:             << i18nc("Note this is a KRunner keyword", "hibernate")
+PowerDevilRunner.cpp:59:             << i18nc("Note this is a KRunner keyword", "to disk")
+PowerDevilRunner.cpp:60:             << i18nc("Note this is a KRunner keyword", "to ram")
+PowerDevilRunner.cpp:61:             << i18nc("Note this is a KRunner keyword", "screen brightness")
+PowerDevilRunner.cpp:62:             << i18nc("Note this is a KRunner keyword", "dim screen");
+-->
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
