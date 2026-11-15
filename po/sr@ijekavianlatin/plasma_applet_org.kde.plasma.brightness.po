@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-10-06 10:30+0200\n"
+"PO-Revision-Date: 2026-11-14 16:15+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
@@ -63,7 +63,7 @@ msgstr "Osvjetljaj"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -141,24 +141,24 @@ msgstr "Noćno svjetlo u večernjem prelazu (završava se do %1)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "Noćno svjetlo je privremeno uključeno dok se ručno ne isključi"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "Noćno svjetlo je privremeno uključeno do %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "Noćno svjetlo je privremeno isključeno dok se ručno ne nastavi"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "Noćno svjetlo je privremeno isključeno do %1"
 
 #: main.qml:149
 #, kde-format
@@ -178,34 +178,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "Kliznite da podesite osvjetljaj ekrana"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "Srednji klik suspenduje noćno svjetlo"
+msgstr "Srednji klik vraća uobičajen rad noćnog svjetla"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "Srednji klik suspenduje noćno svjetlo"
+msgstr "Srednji klik isključuje noćno svjetlo"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "Srednji klik suspenduje noćno svjetlo"
+msgstr "Srednji klik uključuje noćno svjetlo"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "Srednji klik suspenduje noćno svjetlo"
+msgstr "Srednji klik privremeno uključuje noćno svjetlo"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "Srednji klik suspenduje noćno svjetlo"
+msgstr "Srednji klik privremeno isključuje noćno svjetlo"
 
 #: main.qml:258
 #, kde-format
@@ -234,7 +229,7 @@ msgstr "Uključeno"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "Pauzirano"
 
 #: NightLightItem.qml:209
 #, kde-format
@@ -288,85 +283,83 @@ msgstr "Suspenduj"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "Uključi"
 
 #: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Na 1 sat"
 
 #: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "Do jutra"
 
 #: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "Do sutra ujutru"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "Dok se ručno ne isključi"
 
 #: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "Na 1 sat"
 
 #: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "Do večeras"
 
 #: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "Do sutra uveče"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "Dok se ručno ne nastavi"
 
 #: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "Uključeno dok se ručno ne isključi"
 
 #: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "Uključeno do: %1"
 
 #: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "Suspendovano dok se ručno ne nastavi"
 
 #: NightLightItem.qml:404
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "Suspendovano"
+msgstr "Suspendovano do: %1"
 
 #: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "Sutra u %1"
 
 #: PopupDialog.qml:122
 #, kde-format
@@ -387,34 +380,3 @@ msgstr "Noćno svjetlo"
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
-
-#~ msgctxt "Night light status"
-#~ msgid "Unavailable"
-#~ msgstr "Nedostupno"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light suspended; middle-click to resume"
-#~ msgstr "Noćno svjetlo suspendovano; srednji klik ga nastavlja"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light suspended"
-#~ msgstr "Noćno svjetlo suspendovano"
-
-#~ msgid "Enable and Configure…"
-#~ msgstr "Uključi i podesi…"
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to day complete by:"
-#~ msgstr "Prelaz na dan završava se do:"
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to night scheduled for:"
-#~ msgstr "Prelaz na noć zakazan za:"
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to night complete by:"
-#~ msgstr "Prelaz na noć završava se do:"
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to day scheduled for:"
-#~ msgstr "Prelaz na dan zakazan za:"
