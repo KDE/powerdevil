@@ -1,0 +1,310 @@
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-06-06 00:45+0000\n"
+"PO-Revision-Date: 2026-11-14 19:40+0100\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: mobilepower.cpp:36
+#, kde-format
+msgid "30 sec"
+msgstr "30 сек."
+
+#: mobilepower.cpp:37
+#, kde-format
+msgid "1 min"
+msgstr "1 мин."
+
+#: mobilepower.cpp:38
+#, kde-format
+msgid "2 min"
+msgstr "2 мин."
+
+#: mobilepower.cpp:39
+#, kde-format
+msgid "5 min"
+msgstr "5 мин."
+
+#: mobilepower.cpp:40
+#, kde-format
+msgid "10 min"
+msgstr "10 мин."
+
+#: mobilepower.cpp:41
+#, kde-format
+msgid "15 min"
+msgstr "15 мин."
+
+#: mobilepower.cpp:42
+#, kde-format
+msgid "30 min"
+msgstr "30 мин."
+
+#: mobilepower.cpp:43
+#, kde-format
+msgid "Never"
+msgstr "никад"
+
+#: PowerProfileModel.cpp:41
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Power Save"
+msgstr "штедња енергије"
+
+#: PowerProfileModel.cpp:42
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Balanced"
+msgstr "уравнотежено"
+
+#: PowerProfileModel.cpp:43
+#, kde-format
+msgctxt "@option:combobox Power profile"
+msgid "Performance"
+msgstr "перформансе"
+
+#: ui/BatteryPage.qml:23
+#, kde-format
+msgid "Battery Information"
+msgstr "Подаци о батерији"
+
+#: ui/BatteryPage.qml:34
+#, kde-format
+msgid "Usage Graph"
+msgstr "Графикон коришћења"
+
+#: ui/BatteryPage.qml:77
+#, kde-format
+msgid "Information"
+msgstr "Подаци"
+
+#: ui/BatteryPage.qml:83
+#, kde-format
+msgid "Is Rechargeable"
+msgstr "Пуњива"
+
+#: ui/BatteryPage.qml:84
+#, kde-format
+msgid "Yes"
+msgstr "да"
+
+#: ui/BatteryPage.qml:84
+#, kde-format
+msgid "No"
+msgstr "не"
+
+#: ui/BatteryPage.qml:91
+#, kde-format
+msgid "Charge State"
+msgstr "Стање пуњења"
+
+#: ui/BatteryPage.qml:94
+#, kde-format
+msgid "Not charging"
+msgstr "Не пуни се"
+
+#: ui/BatteryPage.qml:95
+#, kde-format
+msgid "Charging"
+msgstr "Пуни се"
+
+#: ui/BatteryPage.qml:96
+#, kde-format
+msgid "Discharging"
+msgstr "Празни се"
+
+#: ui/BatteryPage.qml:97
+#, kde-format
+msgid "Fully charged"
+msgstr "Скроз пуна"
+
+#: ui/BatteryPage.qml:98
+#, kde-format
+msgid "Unknown"
+msgstr "Непознато"
+
+#: ui/BatteryPage.qml:107
+#, kde-format
+msgid "Current Charge"
+msgstr "Тренутна попуњеност"
+
+#: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
+#, kde-format
+msgctxt "%1 is percentage value"
+msgid "%1 %"
+msgstr "%1 %"
+
+#: ui/BatteryPage.qml:115
+#, kde-format
+msgid "Health"
+msgstr "Здравље"
+
+#: ui/BatteryPage.qml:123
+#, kde-format
+msgid "Vendor"
+msgstr "Произвођач"
+
+#: ui/BatteryPage.qml:131
+#, kde-format
+msgid "Model"
+msgstr "Модел"
+
+#: ui/BatteryPage.qml:139
+#, kde-format
+msgid "Serial Number"
+msgstr "Серијски број"
+
+#: ui/BatteryPage.qml:147
+#, kde-format
+msgid "Technology"
+msgstr "Технологија"
+
+#: ui/BatteryPage.qml:150
+#, kde-format
+msgid "Lithium ion"
+msgstr "Литијум-јонска"
+
+#: ui/BatteryPage.qml:151
+#, kde-format
+msgid "Lithium polymer"
+msgstr "Литијум-полимерска"
+
+#: ui/BatteryPage.qml:152
+#, kde-format
+msgid "Lithium iron phosphate"
+msgstr "Литијум-гвожђе-фосфатна"
+
+#: ui/BatteryPage.qml:153
+#, kde-format
+msgid "Lead acid"
+msgstr "Олово-киселинска"
+
+#: ui/BatteryPage.qml:154
+#, kde-format
+msgid "Nickel cadmium"
+msgstr "Никл‑кадмијумска"
+
+#: ui/BatteryPage.qml:155
+#, kde-format
+msgid "Nickel metal hydride"
+msgstr "Никл‑металхидридна"
+
+#: ui/BatteryPage.qml:156
+#, kde-format
+msgid "Unknown technology"
+msgstr "Непозната технологија"
+
+#: ui/Graph.qml:141
+#, kde-format
+msgctxt "%1 is a percentage value"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/main.qml:33
+#, kde-format
+msgid "Devices"
+msgstr "Уређаји"
+
+#: ui/main.qml:79
+#, kde-format
+msgid "Internal battery"
+msgstr "Унутрашња батерија"
+
+#: ui/main.qml:80
+#, kde-format
+msgid "UPS battery"
+msgstr "УПС батерија"
+
+#: ui/main.qml:81
+#, kde-format
+msgid "Monitor battery"
+msgstr "Батерија монитора"
+
+#: ui/main.qml:82
+#, kde-format
+msgid "Mouse battery"
+msgstr "Батерија миша"
+
+#: ui/main.qml:83
+#, kde-format
+msgid "Keyboard battery"
+msgstr "Батерија тастатуре"
+
+#: ui/main.qml:84
+#, kde-format
+msgid "PDA battery"
+msgstr "ПДА батерија"
+
+#: ui/main.qml:85
+#, kde-format
+msgid "Phone battery"
+msgstr "Батерија телефона"
+
+#: ui/main.qml:86
+#, kde-format
+msgid "Unknown battery"
+msgstr "Непозната батерија"
+
+#: ui/main.qml:89
+#, kde-format
+msgctxt "%1 is the charge percent, % is the percent sign"
+msgid "%1%"
+msgstr "%1%"
+
+#: ui/main.qml:91
+#, kde-format
+msgctxt "%1 is battery type, %2 is charge percent"
+msgid "%1 %2 (Charging)"
+msgstr "%1 %2 (пуни се)"
+
+#: ui/main.qml:91
+#, kde-format
+msgctxt "%1 is battery type, %2 is charge percent"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: ui/main.qml:115
+#, kde-format
+msgid "Screen"
+msgstr "Екран"
+
+#: ui/main.qml:121
+#, kde-format
+msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
+msgid "Dim screen after"
+msgstr "Пригушивање екрана"
+
+#: ui/main.qml:131
+#, kde-format
+msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
+msgid "Turn off screen after"
+msgstr "Гашење екрана"
+
+#: ui/main.qml:141
+#, kde-format
+msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
+msgid "Suspend device after"
+msgstr "Суспендовање уређаја"
+
+#: ui/main.qml:149
+#, kde-format
+msgid "Power Profile"
+msgstr "Профил напајања"
+
+#: ui/main.qml:158
+#, kde-format
+msgctxt "@label:combobox Power Save, Balanced or Performance profile"
+msgid "Power profile"
+msgstr "Профил напајања"

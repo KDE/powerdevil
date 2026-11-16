@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-11-12 21:44+0100\n"
+"PO-Revision-Date: 2026-11-15 09:12+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.3\n"
+"X-Generator: Lokalize 27.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -144,24 +144,24 @@ msgstr "Overgang til kveld (ferdig %1)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "Kveldsfargane er mellombels på, fram til dei vert slåtte av manuelt"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "Kveldsfargane er mellombels på, fram til %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "Kveldsfargane er mellombels av, fram til dei vert slåtte på manuelt"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "Kveldsfargane er mellombels av, fram til %1"
 
 #: main.qml:149
 #, kde-format
@@ -191,22 +191,19 @@ msgid "Middle-click to deactivate Night Light"
 msgstr "Midtklikk for å slå av kveldsfargar"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "Midtklikk for å slå av kveldsfargar"
+msgstr "Midtklikk for å slå på kveldsfargar"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "Midtklikk for å slå av kveldsfargar"
+msgstr "Midtklikk for mellombels å slå på kveldsfargar"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "Midtklikk for å slå av kveldsfargar"
+msgstr "Midtklikk for mellombels å slå av kveldsfargar"
 
 #: main.qml:258
 #, kde-format
