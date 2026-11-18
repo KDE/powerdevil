@@ -20,6 +20,8 @@
 #include <QDir>
 #include <QFile>
 
+#include <algorithm>
+
 using namespace Qt::StringLiterals;
 
 inline constexpr QLatin1StringView LOGIN1_SERVICE("org.freedesktop.login1");
@@ -166,6 +168,36 @@ void SuspendController::snapshotWakeupCounts(bool active)
 }
 #endif
 
+// A Bluetooth controller wakes us through its transport (UART, USB, SDIO), with the HCI below it.
+// Hubs and host controllers that also serve other wakeup devices (e.g. a keyboard) do not count.
+static bool isBluetoothTransport(const QString &wakeupDevice)
+{
+    const QString prefix = QDir(wakeupDevice).canonicalPath() + u'/';
+    if (prefix.size() == 1) {
+        return false;
+    }
+
+    QStringList bluetoothDevices;
+    const QFileInfoList bluetoothEntries = QDir(u"/sys/class/bluetooth"_s).entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QFileInfo &entry : bluetoothEntries) {
+        if (entry.canonicalFilePath().startsWith(prefix)) {
+            bluetoothDevices << entry.canonicalFilePath();
+        }
+    }
+    if (bluetoothDevices.isEmpty()) {
+        return false;
+    }
+
+    // any other wakeup device below us must be on the way to the HCI
+    const QStringList wakeups = QDir(s_wakeupSysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    return std::ranges::all_of(wakeups, [&prefix, &bluetoothDevices](const QString &wakeup) {
+        const QString device = QDir(s_wakeupSysFsPath + u'/' + wakeup + u"/device"_s).canonicalPath();
+        return !device.startsWith(prefix) || std::ranges::any_of(bluetoothDevices, [&device](const QString &bluetoothDevice) {
+            return bluetoothDevice.startsWith(device + u'/');
+        });
+    });
+}
+
 SuspendController::WakeupSources SuspendController::lastWakeupType()
 {
     WakeupSources sources = WakeupSource::UnknownSource;
@@ -177,7 +209,10 @@ SuspendController::WakeupSources SuspendController::lastWakeupType()
             sources |= WakeupSource::Telephony;
         } else if (device.driver().contains(u"alarmtimer"_s) || device.driver().contains(u"rtc"_s)) {
             sources |= WakeupSource::Timer;
-        } else if (device.driver().contains(u"ath"_s) || device.driver().contains(u"iwl"_s)) {
+        } else if (device.driver().contains(u"ath"_s) || device.driver().contains(u"iwl"_s) || QDir(wakeupDevice + u"/net"_s).exists()
+                   || isBluetoothTransport(wakeupDevice)) {
+            // any device with a network interface, e.g. Wi-Fi, Ethernet or a modem data path,
+            // or a Bluetooth controller woken by a connected peer such as a watch
             sources |= WakeupSource::Network;
         }
     }
