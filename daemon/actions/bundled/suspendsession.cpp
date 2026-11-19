@@ -99,9 +99,9 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         Q_EMIT aboutToSuspend();
         auto sleepMode = args.contains(u"SleepMode"_s) ? static_cast<PowerDevil::SleepMode>(args[u"SleepMode"_s].toUInt()) : m_sleepMode;
 
-        if (sleepMode == PowerDevil::SleepMode::SuspendThenHibernate) {
+        if (sleepMode == PowerDevil::SleepMode::SuspendThenHibernate && core()->suspendController()->canSuspendThenHibernate()) {
             core()->suspendController()->suspendThenHibernate();
-        } else if (sleepMode == PowerDevil::SleepMode::HybridSuspend) {
+        } else if (sleepMode == PowerDevil::SleepMode::HybridSuspend && core()->suspendController()->canHybridSuspend()) {
             core()->suspendController()->hybridSuspend();
         } else {
             core()->suspendController()->suspend();
