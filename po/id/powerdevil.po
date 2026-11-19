@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:48+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2024-08-23 22:39+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -248,28 +248,28 @@ msgstr ""
 msgid "Plug in the power cord."
 msgstr ""
 
-#: powerdevilcore.cpp:633
+#: powerdevilcore.cpp:637
 #, fuzzy, kde-format
 #| msgid "The computer will be put into standby in 1 second."
 #| msgid_plural "The computer will be put into standby in %1 seconds."
 msgid "The system will shut down in 60 seconds."
 msgstr "Komputer akan diletakkan ke posisi siap dalam %1 detik."
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:639
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Matikan Sekarang"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:645
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The system will hibernate in 60 seconds."
 msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
 
-#: powerdevilcore.cpp:643
+#: powerdevilcore.cpp:647
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -277,26 +277,26 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernasi Sekarang"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:653
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:655
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Tidur Sekarang"
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:661
 #, kde-format
 msgid "Please save your work."
 msgstr "Silakan simpan pekerjaan Anda."
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:667
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -304,56 +304,56 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Batal"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterai Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:685
+#: powerdevilcore.cpp:689
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterai Kritis (%1% Tersisa)"
 
-#: powerdevilcore.cpp:715
+#: powerdevilcore.cpp:719
 #, fuzzy, kde-format
 #| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "Adaptor AC Dicolokkan"
 
-#: powerdevilcore.cpp:716
+#: powerdevilcore.cpp:720
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Komputer tidak lama lagi akan tidur."
 
-#: powerdevilcore.cpp:718
+#: powerdevilcore.cpp:722
 #, fuzzy, kde-format
 #| msgid "Running on AC power"
 msgid "Running on AC Power"
 msgstr "Berjalan dalam daya AC"
 
-#: powerdevilcore.cpp:719
+#: powerdevilcore.cpp:723
 #, fuzzy, kde-format
 #| msgid "The power adapter has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "Adaptor daya telah dicolokkan."
 
-#: powerdevilcore.cpp:735
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Berjalan dalam Daya Baterai"
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:740
 #, fuzzy, kde-format
 #| msgid "The power adapter has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "Adaptor daya telah dicabut."
 
-#: powerdevilcore.cpp:801
+#: powerdevilcore.cpp:805
 #, kde-format
 msgid "Charging Complete"
 msgstr "Pengecasan Rampung"
 
-#: powerdevilcore.cpp:801
+#: powerdevilcore.cpp:805
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterai sekarang tercas penuh."
