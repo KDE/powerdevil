@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-07 10:09+0000\n"
-"PO-Revision-Date: 2026-02-03 22:45+0100\n"
+"PO-Revision-Date: 2026-11-21 22:01+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -63,7 +63,7 @@ msgstr "밝기"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -141,24 +141,24 @@ msgstr "야간 조명이 일몰 전환 중(%1에 완료됨)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "야간 조명을 수동으로 비활성화할 때까지 임시로 활성화됨"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "야간 조명이 %1까지 임시로 활성화됨"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "야간 조명이 수동으로 다시 시작할 때까지 임시로 비활성화됨"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "야간 조명이 %1까지 임시로 비활성화됨"
 
 #: main.qml:149
 #, kde-format
@@ -178,34 +178,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "스크롤하여 화면 밝기 조정"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
+msgstr "가운데 단추로 클릭하여 일반적인 야간 조명 작업 다시 시작"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
+msgstr "가운데 단추로 클릭하여 야간 조명 비활성화"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
+msgstr "가운데 단추로 클릭하여 야간 조명 활성화"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
+msgstr "가운데 단추로 클릭하여 야간 조명 임시로 활성화"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
+msgstr "가운데 단추로 클릭하여 야간 조명 임시로 비활성화"
 
 #: main.qml:258
 #, kde-format
@@ -234,7 +229,7 @@ msgstr "켜짐"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "일시 정지됨"
 
 #: NightLightItem.qml:209
 #, kde-format
@@ -288,85 +283,83 @@ msgstr "일시 정지"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "활성화"
 
 #: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1시간 동안"
 
 #: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "오늘 아침까지"
 
 #: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "내일 아침까지"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "수동으로 비활성화할 때까지"
 
 #: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1시간 동안"
 
 #: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "오늘 저녁까지"
 
 #: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "내일 저녁까지"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "수동으로 다시 시작할 때까지"
 
 #: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "수동으로 비활성화할 때까지 활성화됨"
 
 #: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "다음까지 활성화됨: %1"
 
 #: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "수동으로 다시 시작할 때까지 일시 정지됨"
 
 #: NightLightItem.qml:404
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "일시 정지됨"
+msgstr "다음까지 일시 정지됨: %1"
 
 #: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "내일 %1"
 
 #: PopupDialog.qml:122
 #, kde-format
