@@ -18,6 +18,7 @@ class DimDisplay : public PowerDevil::Action
     Q_OBJECT
 public:
     explicit DimDisplay(QObject *parent);
+    ~DimDisplay() override;
 
 protected:
     void onWakeupFromIdle() override;

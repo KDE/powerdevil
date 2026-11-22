@@ -36,6 +36,16 @@ DimDisplay::DimDisplay(QObject *parent)
     m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
+DimDisplay::~DimDisplay()
+{
+    // This action goes away while dimmed when the last display disappears, e.g. on resume from
+    // suspend, and the action created for the returning display won't know it has to undim
+    if (m_dimmed) {
+        core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
+        setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
+    }
+}
+
 void DimDisplay::onWakeupFromIdle()
 {
     if (!m_dimmed) {
