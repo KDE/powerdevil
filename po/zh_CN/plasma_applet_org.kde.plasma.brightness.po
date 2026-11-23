@@ -64,7 +64,7 @@ msgstr "亮度"
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: BrightnessItem.qml:126
 #, kde-format
@@ -142,24 +142,24 @@ msgstr "夜间颜色正在过渡到夜间色温 (%1 切换完成)"
 #: main.qml:138
 #, kde-format
 msgid "Night Light is temporarily active until manually disabled"
-msgstr ""
+msgstr "夜间颜色已临时启用，直到手动禁用"
 
 #: main.qml:140
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily active until %1"
-msgstr ""
+msgstr "夜间颜色已临时启用，直到 %1"
 
 #: main.qml:142
 #, kde-format
 msgid "Night Light is temporarily inactive until manually resumed"
-msgstr ""
+msgstr "夜间颜色已临时停用，直到手动恢复"
 
 #: main.qml:144
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light is temporarily inactive until %1"
-msgstr ""
+msgstr "夜间颜色已临时停用，直到 %1"
 
 #: main.qml:149
 #, kde-format
@@ -179,34 +179,29 @@ msgid "Scroll to adjust screen brightness"
 msgstr "滚动鼠标滚轮以调整屏幕亮度"
 
 #: main.qml:159 main.qml:165
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to resume normal Night Light operation"
-msgstr "中键点击以暂停夜间色温"
+msgstr "中键点击以恢复正常夜间颜色显示"
 
 #: main.qml:161
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to deactivate Night Light"
-msgstr "中键点击以暂停夜间色温"
+msgstr "中键点击以停用夜间颜色"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to activate Night Light"
-msgstr "中键点击以暂停夜间色温"
+msgstr "中键点击以启用夜间色温"
 
 #: main.qml:171
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily activate Night Light"
-msgstr "中键点击以暂停夜间色温"
+msgstr "中键点击以临时启用夜间色温"
 
 #: main.qml:173
-#, fuzzy, kde-format
-#| msgid "Middle-click to suspend Night Light"
+#, kde-format
 msgid "Middle-click to temporarily deactivate Night Light"
-msgstr "中键点击以暂停夜间色温"
+msgstr "中键点击以临时停用夜间色温"
 
 #: main.qml:258
 #, kde-format
@@ -235,7 +230,7 @@ msgstr "开"
 #, kde-format
 msgctxt "Night light status"
 msgid "Paused"
-msgstr ""
+msgstr "已暂停"
 
 #: NightLightItem.qml:209
 #, kde-format
@@ -289,85 +284,83 @@ msgstr "暂停"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Activate"
-msgstr ""
+msgstr "启用"
 
 #: NightLightItem.qml:305
 #, kde-format
 msgctxt "Part of 'Activate Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 小时"
 
 #: NightLightItem.qml:312
 #, kde-format
 msgctxt "Part of 'Activate Night Light until this morning'"
 msgid "Until this morning"
-msgstr ""
+msgstr "直到今天早上"
 
 #: NightLightItem.qml:313
 #, kde-format
 msgctxt "Part of 'Activate Night Light until tomorrow morning'"
 msgid "Until tomorrow morning"
-msgstr ""
+msgstr "直到明天早上"
 
 #: NightLightItem.qml:319
 #, kde-format
 msgctxt "Part of 'Activate Night Light until manually disabled'"
 msgid "Until manually disabled"
-msgstr ""
+msgstr "直到手动禁用"
 
 #: NightLightItem.qml:334
 #, kde-format
 msgctxt "Part of 'Suspend Night Light for 1 hour'"
 msgid "For 1 hour"
-msgstr ""
+msgstr "1 小时"
 
 #: NightLightItem.qml:341
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until this evening'"
 msgid "Until this evening"
-msgstr ""
+msgstr "直到今天晚上"
 
 #: NightLightItem.qml:342
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until tomorrow evening'"
 msgid "Until tomorrow evening"
-msgstr ""
+msgstr "直到明天晚上"
 
 #: NightLightItem.qml:348
 #, kde-format
 msgctxt "Part of 'Suspend Night Light until manually resumed'"
 msgid "Until manually resumed"
-msgstr ""
+msgstr "直到手动恢复"
 
 #: NightLightItem.qml:396
 #, kde-format
 msgid "Activated until manually disabled"
-msgstr ""
+msgstr "启用直到手动禁用"
 
 #: NightLightItem.qml:399
 #, kde-format
 msgctxt "Label for a time"
 msgid "Activated until: %1"
-msgstr ""
+msgstr "启用直到：%1"
 
 #: NightLightItem.qml:401
 #, kde-format
 msgid "Suspended until manually resumed"
-msgstr ""
+msgstr "暂停直到手动恢复"
 
 #: NightLightItem.qml:404
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Suspended"
+#, kde-format
 msgctxt "Label for a time"
 msgid "Suspended until: %1"
-msgstr "已暂停"
+msgstr "暂停直到：%1"
 
 #: NightLightItem.qml:426
 #, kde-format
 msgctxt "The placeholder is for time"
 msgid "Tomorrow at %1"
-msgstr ""
+msgstr "明天 %1"
 
 #: PopupDialog.qml:122
 #, kde-format
@@ -388,34 +381,3 @@ msgstr "夜间颜色"
 #, kde-format
 msgid "Theme"
 msgstr "主题"
-
-#~ msgctxt "Night light status"
-#~ msgid "Unavailable"
-#~ msgstr "不可用"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light suspended; middle-click to resume"
-#~ msgstr "夜间色温已暂停；中键点击以继续"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light suspended"
-#~ msgstr "夜间色温已暂停"
-
-#~ msgid "Enable and Configure…"
-#~ msgstr "启用并配置…"
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to day complete by:"
-#~ msgstr "完全过渡到白天状态的时间："
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to night scheduled for:"
-#~ msgstr "过渡到夜间状态的计划时间："
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to night complete by:"
-#~ msgstr "完全过渡到夜间状态的时间："
-
-#~ msgctxt "Label for a time"
-#~ msgid "Transition to day scheduled for:"
-#~ msgstr "过渡到白天状态的计划时间："

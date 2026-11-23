@@ -93,7 +93,7 @@ msgstr "切换电源管理方案"
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "内置屏幕"
+msgstr "自带屏幕"
 
 #: controllers/kwinbrightness.cpp:55
 #, kde-format

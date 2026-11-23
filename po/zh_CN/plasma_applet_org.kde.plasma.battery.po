@@ -320,8 +320,7 @@ msgid "The power supply is not powerful enough to charge the battery"
 msgstr "电源功率不足，无法充电"
 
 #: main.qml:152
-#, fuzzy, kde-format
-#| msgid "No Batteries Available"
+#, kde-format
 msgid "No batteries available"
 msgstr "没有可用的电池"
 
