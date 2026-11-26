@@ -498,7 +498,7 @@ msgstr "“Etkinlikler” ayarları sayfasını açın"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Advanced &Settings…"
-msgstr "Gelişmiş &Ayarları Yapılandır…"
+msgstr "Gelişmiş Ayar&ları Yapılandır…"
 
 #: ui/main.qml:44
 #, kde-format
